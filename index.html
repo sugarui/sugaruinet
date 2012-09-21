@@ -16,80 +16,45 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-	
-		<style type="text/css">
+			
+		<link type="text/css" href="./style/style.css" rel="stylesheet" />
 		
-			li{
-				list-style:none;
-			}
 			
-			
-			.basic{
-				background-color:#222328;
-				color:white;
-				
-			} 
-						
-			.wrap{
-				color:white;
-			    width:1000px;
-			}
-			
-			.menu{
-				
-				float:left;
-				margin-top:30px;
-				margin-left:40px;
-				width:230px;
-				height:100%;
-			}
-			
-			.menu ul{
-				padding-left:10px;
-			}
-			
-			
-			.con{
-				
-				float:left;
-				margin-top:30px;
-				margin-right:50px;
-				min-width:680px;
-				height:100%;
-			}
-			
-		</style>
-	
 	</head>
 
 	<body class="basic">
-		<div class="wrap"> <!--래퍼div에 텍스트 넣으면 이래-->
+		<div class="wrap"> 
 					
 			<div class="menu">
 				<header>
-					<h1>사탕화면</h1>
+					<h1> <img src="./image/logo.png" alt="사탕화면 회사로고"> </h1>
 				</header>
 
 			
-				<nav>
+				<nav> <!--너왜 딱안붙니-->
 					<ul>
 						<li>About</li>
 						<li>Category</li>
-							<ul>
-								<li>GUI at work</li>
-								<li>GUI after work</li>
-								<li>그림</li>
-								<li>기타</li>
-							</ul>
+							<div class="sub_category">
+								<ul>
+									<li>GUI at work</li>
+									<li>GUI after work</li>
+									<li>그림</li>
+									<li>기타</li>
+								</ul>
+							</div>
+							
 						<li>Tag</li>
-							<ul>
-								<li>시뮬레이션</li>
-								<li>컨셉스케치</li>
-								<li>트렌드</li>
-								<li>기타등등</li>
-								<li>기타등등</li>
-								<li>기타등등</li>															
-							</ul>
+							<div class="sub_tag">
+								<ul>
+									<li>시뮬레이션</li>
+									<li>컨셉스케치</li>
+									<li>트렌드</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>															
+								</ul>
+								</div>
 					</ul>
 				</nav>
 				
@@ -98,9 +63,13 @@
 
 			<div class="con">
 				
+				
+				
 				<div class="post">
-					
-					<h2>포스트 타이틀</h2>
+					<div class="coner"> <img src="./image/coner.png"> </div>	
+					<div class="title">
+						<h2>포스트 타이틀</h2>
+					</div>
 					<div class="graphic">
 						이미지 영역
 					</div>
@@ -108,20 +77,30 @@
 						텍스트 영역
 					</div>
 					<div class="postinner">
-						이너포스트 영역
+						<div class="border_1"> </div>
+						<div class="border_2"> </div>
+							<div class="text">
+							이너포스트 영역
+							</div>
+						<div class="border_1"> </div>
+						<div class="border_2"> </div>
+						
 					</div>
-					<div class="date">
-						날짜 영역
+						<div class="tail">
+						<div class="datework">
+							날짜 영역
+						</div>
+						<div class="tag">
+							태그 영역
+						</div>
 					</div>
-					<div class="tag">
-						태그 영역
-					</div>
-					
 				</div>
 						
 		 		<div class="post">
 					
-					<h2>포스트 타이틀</h2>
+					<div class="title">
+						<h2>포스트 타이틀</h2>
+					</div>
 					<div class="graphic">
 						이미지 영역
 					</div>
@@ -131,15 +110,17 @@
 					<div class="postinner">
 						이너포스트 영역
 					</div>
-					<div class="date">
-						날짜 영역
+						<div class="tail">
+						<div class="datework">
+							날짜 영역
+						</div>
+						<div class="tag">
+							태그 영역
+						</div>
 					</div>
-					<div class="tag">
-						태그 영역
-					</div>
-					
 				</div>
-			
+												
+				
 				<div class="pagenation">
 					페이지네이션
 				</div>
