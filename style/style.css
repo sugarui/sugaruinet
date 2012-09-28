@@ -1,29 +1,27 @@
-
+			/*뷸릿을 없애는 스타일*/
 			li{
-				list-style:none;				
+				list-style:none;
+			}	
+			/* 리스트 상단 여백(떼어쓰기) 및  좌측 여백(들여쓰기)가
+			 없어지는 스타일*/ 
+			ul{
+				padding: 0px;	
+				margin: 0px;	
 			}
-			
-			/* 리스트 자체마진이 없어지질 않네 이걸 해도	
-			ul, li{
-				margin: 0px, 0px,0px, 0px; 
-				padding: 0px, 0px,0px, 0px; 
-			}		
-			*/	
-			
 			.basic{
 				background-color:#222328;
 				color:white;
-			} 
-						
+			} 		
 			.wrap{
 				color:white;
 			    width:1000px;
 			}
-			
 			h1{
 				margin:0px;
 			}
-			
+			.logo{
+				margin-bottom:10px;
+			}
 			.menu{
 				float:left;
 				margin-top:30px;
@@ -31,22 +29,28 @@
 				width:230px;
 				height:100%;
 			}
-			
-			.menu ul{
-				padding-left:10px;
+			nav > ul{
+				margin-left:20px;				
+			}
+			.menu_main{
+				margin-bottom:20px;
 				color:#dc2276;
 			}
-			
-			.menu .sub_category ul{
+			.menu_sub{				
 				color:#656569;
+				margin-bottom:50px;
+			}
+			.menu_submini{		
+				margin-bottom:30px;
+			}	
+			.menu_sub_cate{		
 				font-size:16px;
 			}
-						
-			.menu nav .sub_tag ul{
-				color:#656569;
+			.menu_sub_tag{
 				font-size:13px;
 			}
-			
+	
+				
 			.con{				
 				float:left;
 				margin-top:30px;
