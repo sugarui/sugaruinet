@@ -1,3 +1,30 @@
+			/*레이아웃*/
+			.basic{
+				background-color:#222328;
+				color:white;
+			} 		
+			.wrap{
+				width:1000px;
+			}
+			.menu{
+				float:left;
+				margin-top:30px;
+				margin-left:40px;
+				width:230px;
+				height:100%;
+			}
+			.con{				
+				float:left;
+				margin-top:30px;
+				margin-right:50px;
+				min-width:680px;
+				height:100%;
+			}
+			
+			
+			
+			/*menu영역상세*/
+			
 			/*뷸릿을 없애는 스타일*/
 			li{
 				list-style:none;
@@ -7,27 +34,12 @@
 			ul{
 				padding: 0px;	
 				margin: 0px;	
-			}
-			.basic{
-				background-color:#222328;
-				color:white;
-			} 		
-			.wrap{
-				color:white;
-			    width:1000px;
-			}
+			}		
 			h1{
 				margin:0px;
 			}
 			.logo{
 				margin-bottom:10px;
-			}
-			.menu{
-				float:left;
-				margin-top:30px;
-				margin-left:40px;
-				width:230px;
-				height:100%;
 			}
 			nav > ul{
 				margin-left:20px;				
@@ -50,15 +62,8 @@
 				font-size:13px;
 			}
 	
-				
-			.con{				
-				float:left;
-				margin-top:30px;
-				margin-right:50px;
-				min-width:680px;
-				height:100%;
-			}
 			
+			/*content영역상세*/
 			.coner{
 				float:left;
 				width:30px;
