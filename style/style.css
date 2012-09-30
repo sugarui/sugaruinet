@@ -69,52 +69,38 @@
 				width:30px;
 				height:30px;			
 			}
-			
 			.post{
 				margin-bottom :50px;	
 				background-color:#30323a;	
 			}
-			
 			.post .title {
 				width:600px;
 				margin:0px 40px 24px 40px;
 				padding:30px 0px 0px 0px;
 			}
-			
 			.post .title h2{
 				font-size:18px;
-				margin:0px 0px;
-				
+				margin:0px 0px;	
 			}
-			
 			.graphic, .text{
 				margin:20px 40px;
 			}
-			
 			.text{
 				font-size: 13px;
 			}
-			
 			.postinner{
 				margin:20px 0px;
 			}
-			
 			.postinner .text{
 				margin:14px 40px;
-				font-size:15px;
-				
+				font-size:15px;	
 			}
-			
 			.border_1{
-				border-top: 1px solid #26282e;
-				
+				border-top: 1px solid #26282e;	
 			}
-			
 			.border_2{				
-				border-top: 1px dashed #3e404b;
-				
+				border-top: 1px dashed #3e404b;	
 			}
-						
 			.tail{
 				margin:30px 20px 0px 40px;
 				padding:0px 0px 24px 0px;
@@ -122,47 +108,3 @@
 				color:#4c4e55;
 				font-size:13px
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
