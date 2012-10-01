@@ -35,7 +35,7 @@
 				padding: 0px;	
 				margin: 0px;	
 			}		
-			h1{
+			h1,h2{
 				margin:0px;
 			}
 			.logo{
@@ -75,27 +75,24 @@
 				background-color:#30323a;
 			}
 			.post{
-				padding:40px 40px 0px 40px
+				padding-top:40px;
+				padding-bottom:20px;
 			}
 			.post .title h2{
-				font-size:18px;
-				margin:0px;	
+				font-size:17px;
 			}
-			.graphic, .text{
-				margin:20px 0px;
+			.title, .graphic, .text{
+				margin-left:40px;
+				margin-right:40px;
 			}
-			.text{
-				font-size: 13px;
-			}
-			.post_inner{
-				margin:20px 0px;	
-				position:relative;
-				right:40px;
-				
-				width:113.6%;
+			.graphic, .text, .post_inner{
+				margin-top:20px;
+				margin-bottom:20px;
+				font-size:13px;					
 			}
 			.post_inner .text{
-				margin:14px 40px;
+				margin-top:14px;
+				margin-bottom:14px;
 				font-size:15px;	
 			}
 			.border_1{
@@ -106,7 +103,6 @@
 			}
 			.tail{
 				margin:20px 20px 0px 40px;
-				padding-bottom:20px;
 				text-align:right;
 				color:#4c4e55;
 				font-size:13px
