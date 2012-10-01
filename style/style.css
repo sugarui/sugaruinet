@@ -17,7 +17,7 @@
 				float:left;
 				margin-top:30px;
 				margin-right:50px;
-				min-width:680px;
+				width:680px;
 				height:100%;
 			}
 			
@@ -64,34 +64,37 @@
 	
 			
 			/*content영역상세*/
-			.coner{
+						
+			.dogear{
 				float:left;
 				width:30px;
-				height:30px;			
+				height:30px;	
+			}	
+			.postbox{
+				margin-bottom:30px;
+				background-color:#30323a;
 			}
 			.post{
-				margin-bottom :50px;	
-				background-color:#30323a;	
-			}
-			.post .title {
-				width:600px;
-				margin:0px 40px 24px 40px;
-				padding:30px 0px 0px 0px;
+				padding:40px 40px 0px 40px
 			}
 			.post .title h2{
 				font-size:18px;
-				margin:0px 0px;	
+				margin:0px;	
 			}
 			.graphic, .text{
-				margin:20px 40px;
+				margin:20px 0px;
 			}
 			.text{
 				font-size: 13px;
 			}
-			.postinner{
-				margin:20px 0px;
+			.post_inner{
+				margin:20px 0px;	
+				position:relative;
+				right:40px;
+				
+				width:113.5%;
 			}
-			.postinner .text{
+			.post_inner .text{
 				margin:14px 40px;
 				font-size:15px;	
 			}
@@ -102,8 +105,8 @@
 				border-top: 1px dashed #3e404b;	
 			}
 			.tail{
-				margin:30px 20px 0px 40px;
-				padding:0px 0px 24px 0px;
+				margin:20px 20px 0px 40px;
+				padding-bottom:20px;
 				text-align:right;
 				color:#4c4e55;
 				font-size:13px
