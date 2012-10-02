@@ -18,14 +18,20 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 			
 		<link type="text/css" href="./style/style.css" rel="stylesheet" />
-		
+		<script type="text/javascript">
+		window.onResize = function () {
+       // Calculate the height of the body, ubstract the height of the head and apply to all columns
+}
+		</script>
 			
 	</head>
 
-	<body class="basic">
+	<body>
+		
 		<div class="wrap"> 
-					
-			<div class="menu">
+			
+			<!-----left----->		
+			<div class="nav_1">
 				<header>
 					<h1>
 						<div class="logo">
@@ -36,55 +42,120 @@
 				
 				<nav> 
 					<ul>
-					
-						<li class="menu_main">About</li>
-							<div class="menu_submini">
-							</div>
-						<li class="menu_main">Category</li>
-							<div class="menu_sub">
+						<li><div class="nav_main">ABOUT</div>
+						</li>	
+						
+						<li><div class="nav_main">CATEGORY</div>
+							<div class="nav_sub_cate">
+								
 								<ul>
-									<li>GUI at work</li>
-									<li>GUI after work</li>
-									<li>그림</li>
-									<li>기타</li>
+									<li>
+										<div class="sel">
+											<img src="./image/sel_mark_01.png">
+											GUI
+											<div class="nav_sub_add"> at work</div>
+										</div>
+									</li>
+									<li>
+										<div class="sel">
+											<img src="./image/sel_mark_01.png">
+											지유아이
+											<div class="nav_sub_add"> at work</div>
+										</div>
+									</li>
+									<li>GUI
+										<div class="nav_sub_add"> after work</div>
+									</li>
+									<li>
+										그림
+									</li>
+									<li>
+										글
+									</li>
+									<li>
+										기타
+									</li>
 								</ul>
 							</div>							
-						<li class="menu_main">Tag</li>
-							<div class="menu_sub">
+						</li>
+					</ul>
+				</nav>
+			</div>
+			
+			
+			<!-----right----->	
+			<div class="nav_2">
+				<nav>
+					<ul>
+						<li>
+							<div class="nav_main">
+								TAG
+							</div>
+							<div class="nav_sub_tag">
 								<ul>
 									<li>시뮬레이션</li>
 									<li>컨셉스케치</li>
 									<li>트렌드</li>
+									<li>
+						 				<div class="sel">
+											기타등등
+											<img src="./image/sel_mark_01.png">
+										</div>
+									</li>	
+									<li>
+						 				<div class="sel">
+											Enlgish test
+											<img src="./image/sel_mark_01.png">
+										</div>
+									</li>	
+						 			<li>기타등등</li>
 									<li>기타등등</li>
 									<li>기타등등</li>
-									<li>기타등등</li>															
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>
+									<li>기타등등</li>						
 								</ul>
 							</div>
+						</li>	
 					</ul>
-					
 				</nav>
-				
 			</div>
-			
 
-			<div class="con">
+
+			<!-----center start----->	
+			<div class="con">			
 				
-				
-				<div class="postbox">
-		 			
+				<!--post_01-->
+				<div class="postbox"> 			
 		 			<div class="dogear"> 
-						<img src="./image/coner.png">
+						<img src="./image/dogear_01.png">
 					</div>	
 					
 					<div class="post">
 						<div class="title">
 							<h2>포스트 타이틀</h2>
 						</div>
-						<div class="graphic">
-							이미지 영역
-						</div>
+						<div class="graphic">								
+							<img src="./image/test_image_01.png">
+						</div>	
+						
 						<div class="text">
-							텍스트 영역
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
 						</div>
 						<div class="post_inner">
 							<div class="border_1"> </div>
@@ -104,19 +175,99 @@
 							</div>
 						</div>
 					</div>
-					
-				</div>
-						
-												
+				</div>					
 				
+				<!--post_02-->		
+				<div class="postbox"> 			
+		 			<div class="dogear"> 
+						<img src="./image/dogear_01.png">
+					</div>		
+					
+					<div class="post">
+						<div class="title">
+							<h2>포스트 타이틀</h2>
+						</div>
+						<div class="graphic">
+							<img src="./image/test_image_02.png">
+						</div>	
+						<div class="text">
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
+						</div>
+						<div class="post_inner">
+							<div class="border_1"> </div>
+							<div class="border_2"> </div>
+								<div class="text">
+								이너포스트 영역
+								</div>
+							<div class="border_1"> </div>
+							<div class="border_2"> </div>
+						</div>
+						<div class="tail">
+							<div class="datework">
+								날짜 영역
+							</div>
+							<div class="tag">
+								태그 영역
+							</div>
+						</div>
+					</div>
+				</div>								
+				
+				<!--post_03-->
+				<div class="postbox"> 			
+		 			<div class="dogear"> 
+						<img src="./image/dogear_01.png">
+					</div>		
+					
+					<div class="post">
+						<div class="title">
+							<h2>포스트 타이틀</h2>
+						</div>
+						<div class="graphic">
+							<img src="./image/test_image_01.png">
+						</div>	
+						<div class="text">
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
+							텍스트 영역<br>
+						</div>
+						<!--
+						<div class="post_inner">
+							<div class="border_1"> </div>
+							<div class="border_2"> </div>
+								<div class="text">
+								이너포스트 영역
+								</div>
+							<div class="border_1"> </div>
+							<div class="border_2"> </div>
+						</div>
+						-->
+						<div class="tail">
+							<div class="datework">
+								날짜 영역
+							</div>
+							<div class="tag">
+								태그 영역
+							</div>
+						</div>
+					</div>
+				</div>	
+				
+				<!--pagination-->
 				<div class="pagenation">
 					페이지네이션
-				</div>
-				
+				</div>	
 				
 			</div>
-			
+			<!-----center end----->	
+		 
+		 
 		 </div>
+		 <!--wrapper end-->	
+		 
 	</body>
-	
 </html>
