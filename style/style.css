@@ -1,16 +1,26 @@
-/*
+/*****font*****/	
 	@font-face {
-		font-family:'NanumBrush'; 
-		src:url('../font/NanumBrush.ttf') format("truetype");
-		src:url('../font/NanumBrush.eot') format("opentype");
+		font-family:'NanumPen'; 
+		src: url('../font/NanumPen.eot') format("opentype");
+		src: local(☺);
+		src: url('../font/NanumPen.ttf') format("truetype");
+		src: url('../font/NanumPen.woff') format("woff");
 	} 
-*/
+	@font-face {
+		font-family:'NanumGothic'; 
+		src: url('../font/NanumGothic.eot') format("opentype");
+		src: local(☺);
+		src: url('../font/NanumGothic.ttf') format("truetype");
+		src: url('../font/NanumGothic.woff') format("woff");
+	} 
+
 /*****layout*****/		
 	body{
 		margin: 0;
 		padding: 0;
 		/*font-family: "Malgun Gothic", "맑은 고딕";*/
 		background-color:#222328;
+		font-family:NanumGothic;
 		color:white;
 	} 		
 	.wrap{
@@ -116,8 +126,9 @@
 		padding-bottom:20px;
 	}
 	.post .title h2{
-		font-size:17px;
-		/*font-family: NanumBrush;*/
+		font-size:/*17px;*/22px;
+		font-family: NanumPen;
+		font-weight: 400;
 	}
 	
 	/*좌우공통여백*/
@@ -136,7 +147,8 @@
 	.post_inner .text{
 		margin-top:14px;
 		margin-bottom:14px;
-		font-size:15px;	
+		font-size:/*15px;*/18px;
+		font-family: NanumPen;	
 	}
 	.border_1{
 		border-top: 1px solid #26282e;	
