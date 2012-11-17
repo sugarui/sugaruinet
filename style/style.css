@@ -1,4 +1,4 @@
-/*****font*****/	
+/***************fontface***************/	
 	@font-face {
 		font-family:'NanumPen'; 
 		src: url('../font/NanumPen.eot') format("opentype");
@@ -14,14 +14,14 @@
 		src: url('../font/NanumGothic.woff') format("woff");
 	} 
 
-/*****layout*****/		
+/***************layout***************/		
 	body{
 		margin: 0;
 		padding: 0;
 		/*font-family: "Malgun Gothic", "맑은 고딕";*/
 		background-color:#222328;
 		font-family:NanumGothic;
-		color:white;
+		color:#dddddd;  
 	} 		
 	.wrap{
 		margin: auto;/*magic for center align*/
@@ -52,7 +52,7 @@
 			
 			
 						
-/******기본효과 없애기******/
+/****************기본효과 없애기****************/
 	li{
 		list-style:none;
 	}	
@@ -60,14 +60,14 @@
 		padding: 0px;	/* 상단여백없앰 */ 
 		margin: 0px;	/* 좌측여백 없앰*/ 
 	}		
-	h1,h2{
+	h1,h2,h3{
 		margin:0px;
 		}
 
 
 
 
-/*****navigation detail*****/
+/***************navigation detail***************/
 	
 	/* 주메뉴 */
 	.nav_main{
@@ -111,9 +111,12 @@
 	
 	
 			
-/****content detail*****/			
+/***************content detail***************/			
 	.dogear{
 		float:left;	
+	}
+	.post_inner_btn{
+		float:right;	
 	}	
 	.postbox{
 		margin-bottom:30px;
@@ -126,9 +129,15 @@
 		padding-bottom:20px;
 	}
 	.post .title h2{
-		font-size:/*17px;*/22px;
+		font-size:/*17px;*/26px;
 		font-family: NanumPen;
 		font-weight: 400;
+		text-shadow: 0px 2px 0px #000;
+	}
+	
+	.post h3{
+		font-size:22px;
+		font-family: NanumPen;
 	}
 	
 	/*좌우공통여백*/
@@ -137,18 +146,36 @@
 		margin-right:40px;
 	}
 	/*상하공통여백*/
-	.graphic, .text, .post_inner{
+	.graphic, .text {
 		margin-top:20px;
 		margin-bottom:20px;
-		font-size:13px;					
+		font-size:13px;				
 	}
 	
+	/*본문 텍스트컬러*/
+	.con .text{
+			color:#bbbbbb;	
+	}
+	
+	/*텍스트행간*/
+	.text {
+		line-height: 180%
+	}	
+	
 	/*이너포스트 관련*/
+	.post_inner{
+		margin-top:0px;
+		margin-bottom:30px;
+	}
 	.post_inner .text{
+		margin-bottom:10px;
+	}
+	.post_inner h3{
 		margin-top:14px;
 		margin-bottom:14px;
-		font-size:/*15px;*/18px;
-		font-family: NanumPen;	
+		font-size:22px;
+		font-family: Nanumpen;	
+		font-weight: 300;
 	}
 	.border_1{
 		border-top: 1px solid #26282e;	
