@@ -63,21 +63,12 @@
 	h1,h2,h3{
 		margin:0px;
 		}
-	A:link {
+	a:link, a:visited, a:active {
 		text-decoration:none;
-		color:none} 
-	A:visited {
-		text-decoration:none;
-		color:none} 
-	A:active {
-		text-decoration:none;
-		color:none} 
-	A:hover {
-		text-decoration:none;
-		color:none} 
-
-
-
+		color:;
+	} 
+    /* , a:visited, a:active, a:hover */
+	
 /***************navigation detail***************/
 	
 	/* 주메뉴 */
@@ -90,7 +81,7 @@
 		text-shadow: 0px 2px 0px #000;
 		letter-spacing:0px;
 	}
-	.nav_tmp a{	
+	.nav_tmp {	
 		margin-top:50px;
 		margin-bottom:20px;
 		color:#e98a04;
