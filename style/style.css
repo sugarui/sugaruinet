@@ -1,11 +1,13 @@
 /***************fontface***************/	
+	/* 로딩 쩔
 	@font-face {
 		font-family:'NanumPen'; 
 		src: url('../font/NanumPen.eot') format("opentype");
 		src: local(☺);
 		src: url('../font/NanumPen.ttf') format("truetype");
 		src: url('../font/NanumPen.woff') format("woff");
-	} 
+	}
+	*/ 
 	@font-face {
 		font-family:'NanumGothic'; 
 		src: url('../font/NanumGothic.eot') format("opentype");
@@ -47,9 +49,12 @@
 	}
 	.nav_sub_tag{
 		padding-bottom:80px;
+	}
+	/*이미지간 간격 없애려는 것인데 소용이 없*/	
+	div, img{
+		margin: 0px;
+		padding: 0px; 	
 	}	
-			
-			
 			
 						
 /****************기본효과 없애기****************/
@@ -62,10 +67,10 @@
 	}		
 	h1,h2,h3{
 		margin:0px;
-		}
+		padding:0px;
+	}
 	a:link, a:visited, a:active {
 		text-decoration:none;
-		color:;
 	} 
     /* , a:visited, a:active, a:hover */
 	
@@ -73,30 +78,29 @@
 	
 	/* 주메뉴 */
 	.nav_main{
-		margin-top:50px;
-		margin-bottom:20px;
+		margin-top:30px;
+		margin-bottom:10px;
 		color:#dc2276;
 		font-size: 11px;
 		font-weight: bold;
 		text-shadow: 0px 2px 0px #000;
-		letter-spacing:0px;
+		text-decoration : line-through; 
 	}
-	.nav_tmp {	
-		margin-top:50px;
-		margin-bottom:20px;
+	.nav_diary{	
+		margin-top:30px;
+		margin-bottom:5px;
 		color:#e98a04;
-		font-size: 11px;
+		font-size: 11.5px;
 		font-weight: bold;
 		text-shadow: 0px 2px 0px #000;
-		letter-spacing:0px;
-		
+		text-decoration : none;
 	}
-	
+
 	/* 세뷰메뉴-카테 */
 	.nav_sub_cate{				
-		color:#656569;
-		font-size:16px;
-		line-height:170%
+		color: #333;/*#656569;*/
+		font-size:14px;
+		line-height:170%; 
 	}	
 	.nav_sub_add{		
 		font-size:12px;
@@ -104,13 +108,13 @@
 	}	
 	/* 세뷰메뉴-태그 */
 	.nav_sub_tag{
-		color:#454548;
+		color:#333;/*#454548;*/
 		font-size:13px;
 		line-height:220%
 	}
 	/* 셀렉트 및 정렬관련 픽셀조정 */ 
 	nav .sel{				
-		color:#dddddd;
+		color:#555/*#dddddd;*/
 	}
 	.nav_1 .sel img{
 		position:relative;
@@ -142,19 +146,19 @@
 		padding-bottom:20px;
 	}
 	.post .title h2{
-		font-size:/*17px;*/26px;
-		font-family: NanumPen;
+		font-size:17px;/*26px;*/
+		font-family: NanumGothic;
 		font-weight: 400;
 		text-shadow: 0px 2px 0px #000;
 	}
 	
 	.post h3{
-		font-size:22px;
-		font-family: NanumPen;
+		font-size:15px;/*22px;*/
+		font-family: NanumGothic;
 	}
 	
 	/*좌우공통여백*/
-	.title, .graphic, .text{
+	.title, .graphic, .text, h3{
 		margin-left:40px;
 		margin-right:40px;
 	}
@@ -181,13 +185,13 @@
 		margin-bottom:30px;
 	}
 	.post_inner .text{
-		margin-bottom:10px;
+		margin-bottom:10px; /*이너포스트 설명글 하마진은 좁*/
 	}
 	.post_inner h3{
 		margin-top:14px;
 		margin-bottom:14px;
-		font-size:22px;
-		font-family: Nanumpen;	
+		font-size:15px;/*22px;*/
+		font-family: NanumGothic;	
 		font-weight: 300;
 	}
 	.border_1{
