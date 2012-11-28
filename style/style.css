@@ -1,34 +1,39 @@
-/***************fontface***************/	
-	/* 로딩 쩔
-	@font-face {
-		font-family:'NanumPen'; 
-		src: url('../font/NanumPen.eot') format("opentype");
-		src: local(☺);
-		src: url('../font/NanumPen.ttf') format("truetype");
-		src: url('../font/NanumPen.woff') format("woff");
-	}
-	*/ 
-	@font-face {
-		font-family:'NanumGothic'; 
-		src: url('../font/NanumGothic.eot') format("opentype");
-		src: local(☺);
-		src: url('../font/NanumGothic.ttf') format("truetype");
-		src: url('../font/NanumGothic.woff') format("woff");
-	} 
+/****************  REMOVE DEFAULT CSS  ****************/
 
-/***************layout***************/		
+	li{
+		list-style: none;
+	}	
+	ul{
+		padding: 0px;	/* 상단여백없앰 */ 
+		margin: 0px;	 /* 좌측여백 없앰*/ 
+	}		
+	h1,h2,h3{
+		margin: 0px;
+		padding: 0px;
+	}
+	a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
+	}
+	div, img{  /*이건 이미지간 간격 없애려고 한건데 소용이 없다*/	
+		margin: 0px;
+		padding: 0px;
+		border-width: 0px; 	
+	} 
+	
+	
+	
+	
+/*********************  LAYOUT  *********************/		
+
 	body{
-		margin: 0;
-		padding: 0;
-		/*font-family: "Malgun Gothic", "맑은 고딕";*/
-		background-color:#222328;
-		font-family:NanumGothic;
-		color:#dddddd;  
+		margin: 0px;
+		padding: 0px;
 	} 		
 	.wrap{
 		margin: auto;/*magic for center align*/
-		padding-top:30px;
-		max-width:1080px;
+		padding-top: 30px;
+		max-width: 1080px;
+		min-width: 1080px; /*이게맞게하는건가*/
 	}			
 	.nav_1, .nav_2{
 		width:160px;
@@ -45,47 +50,47 @@
 	.con{								
 		margin-left:200px;
 		margin-right:200px;
-		/*min-width:680px;*/
-	}
-	.nav_sub_tag{
-		padding-bottom:80px;
-	}
-	/*이미지간 간격 없애려는 것인데 소용이 없*/	
-	div, img{
-		margin: 0px;
-		padding: 0px; 	
+		min-width:680px;
 	}	
-			
-						
-/****************기본효과 없애기****************/
-	li{
-		list-style:none;
-	}	
-	ul{
-		padding: 0px;	/* 상단여백없앰 */ 
-		margin: 0px;	/* 좌측여백 없앰*/ 
-	}		
-	h1,h2,h3{
-		margin:0px;
-		padding:0px;
+	
+	
+	
+	
+/*********************  COMMON  *********************/
+
+	body{
+		background-color: #222328;
+		font-family: NanumGothic; /*f"Malgun Gothic", "맑은 고딕";*/
 	}
-	a:link, a:visited, a:active {
-		text-decoration:none;
-	} 
-    /* , a:visited, a:active, a:hover */
-	
-/***************navigation detail***************/
-	
+	/*본문 텍스트*/
+	.con{
+			font-size:13px;	
+			color: #aaa;	
+	}
+	/*본문 일반 텍스트 행간*/
+	.text {
+		line-height: 180%
+	}
+	/*셀렉트*/
+	.sel{				
+		color:#565656;/*#aaa;*/
+	}	
+	 	
+	 	
+
+
+/************************  NAV  ************************/
+
 	/* 주메뉴 */
 	.nav_main{
-		margin-top:30px;
-		margin-bottom:10px;
-		color:#dc2276;
+		margin-top: 30px;
+		margin-bottom: 10px;
+		color: #702245; /*#dc2276;*/
 		font-size: 11px;
 		font-weight: bold;
-		text-shadow: 0px 2px 0px #000;
-		text-decoration : line-through; 
+		/*text-shadow: 0px 2px 0px #000; 잠시 비활성화*/
 	}
+	/* 주메뉴 - 임시부착 작업일지 용*/
 	.nav_diary{	
 		margin-top:30px;
 		margin-bottom:5px;
@@ -93,29 +98,24 @@
 		font-size: 11.5px;
 		font-weight: bold;
 		text-shadow: 0px 2px 0px #000;
-		text-decoration : none;
 	}
-
-	/* 세뷰메뉴-카테 */
+	/* 세부메뉴-카테고리 */
 	.nav_sub_cate{				
-		color: #333;/*#656569;*/
+		color: #444; /*#aaa*/
 		font-size:14px;
 		line-height:170%; 
 	}	
-	.nav_sub_add{		
+	.nav_sub_cate_add{		
 		font-size:12px;
 		display: inline;
-	}	
-	/* 세뷰메뉴-태그 */
+	}
+	/* 세부메뉴-태그 */
 	.nav_sub_tag{
-		color:#333;/*#454548;*/
+		color:#444;/*#aaa;*/
 		font-size:13px;
 		line-height:220%
 	}
-	/* 셀렉트 및 정렬관련 픽셀조정 */ 
-	nav .sel{				
-		color:#555/*#dddddd;*/
-	}
+	/* 셀렉트마커 포지션 디테일*/ 
 	.nav_1 .sel img{
 		position:relative;
 		top:1px;
@@ -127,72 +127,63 @@
 	
 	
 	
-			
-/***************content detail***************/			
+/************************  CON  ************************/
+
+	/* 그래픽요소*/		
 	.dogear{
-		float:left;	
+		float: left;	
 	}
 	.post_inner_btn{
-		float:right;	
-	}	
-	.postbox{
-		margin-bottom:30px;
+		float: right;	
+	}
+	/*외부*/	
+	.postbox{ 
+		margin-bottom:30px; /*다음포스트박스와의 여백*/
 		background-color:#30323a;
 		border-radius:3px;
 		box-shadow: 0px 0px 3px #161719;
 	}
-	.post{
+	/*내부*/
+	.post{ 
 		padding-top:40px;
 		padding-bottom:20px;
 	}
-	.post .title h2{
-		font-size:17px;/*26px;*/
+	/*포스트타이틀*/
+	.post h2{
+		font-size:16px;/*나눔펜일때 26px;*/
 		font-family: NanumGothic;
-		font-weight: 400;
-		text-shadow: 0px 2px 0px #000;
+		font-weight: normal;
+		color: #ddd;
+		text-shadow: 0px -1px 0px  #000;
 	}
-	
+	/*이너포스트타이틀*/
 	.post h3{
-		font-size:15px;/*22px;*/
+		font-size:15px;/*나눔펜일때 22px;*/
 		font-family: NanumGothic;
 	}
-	
-	/*좌우공통여백*/
-	.title, .graphic, .text, h3{
-		margin-left:40px;
-		margin-right:40px;
+	/*요소 여백-좌우공통 (전체폭 점선 때문에 마진을 .post에서 한꺼번에 못하므로 여기서 지정)*/
+	.title, .title_inner, .graphic, .text{
+		margin-left: 40px;
+		margin-right: 40px;
 	}
-	/*상하공통여백*/
+	/*요소 여백-상하공통*/
 	.graphic, .text {
 		margin-top:20px;
-		margin-bottom:20px;
-		font-size:13px;				
+		margin-bottom:20px;			
 	}
-	
-	/*본문 텍스트컬러*/
-	.con .text{
-			color:#bbbbbb;	
-	}
-	
-	/*텍스트행간*/
-	.text {
-		line-height: 180%
-	}	
-	
-	/*이너포스트 관련*/
+	/*이너포스트, 하이퍼포스트*/
 	.post_inner{
-		margin-top:0px;
-		margin-bottom:30px;
+		margin-bottom:30px; /*다음 이너포스트 설명글과의 간격은 넓어야 하므로*/
 	}
 	.post_inner .text{
-		margin-bottom:10px; /*이너포스트 설명글 하마진은 좁*/
+		margin-bottom:10px; /*이너포스트 설명글과 이너포스트간 간격은 좁아야 하므로*/
 	}
 	.post_inner h3{
-		margin-top:14px;
-		margin-bottom:14px;
-		font-size:15px;/*22px;*/
+		margin-top: 14px;
+		margin-bottom: 14px;
+		font-size: 15px;/*나눔펜일때 22px;*/
 		font-family: NanumGothic;	
-		font-weight: 300;
+		font-weight: normal;
 	}
 	.border_1{
 		border-top: 1px solid #26282e;	
@@ -200,14 +191,43 @@
 	.border_2{				
 		border-top: 1px dashed #3e404b;	
 	}
-	
-	/*테일 관련*/
+	.post_hyper{
+		border-bottom: dotted #aaa 1px;
+	}
+	/*테일*/
 	.tail{
-		margin-top:20px;
-		margin-right:20px;
+		margin-top: 20px;
+		margin-right: 20px;
 		margin-left: 40px;
-		text-align:right;
-		color:#4c4e55;
+		text-align: right;
+		color:#555;
 		font-size:13px
 	}
+	/*페이지네이션*/
+	.pagenation{
+		text-align: center;
+		color: #444;
+		font-size:13px;
+	}
+	
+	
+	
+	
+/***************fontface***************/	
+	/* 로딩 쩔어
+	@font-face {
+		font-family:'NanumPen'; 
+		src: url('../font/NanumPen.eot') format("opentype");
+		src: local(☺);
+		src: url('../font/NanumPen.ttf') format("truetype");
+		src: url('../font/NanumPen.woff') format("woff");
+	}
+	*/ 
+	@font-face {
+		font-family:'NanumGothic'; 
+		src: url('../font/NanumGothic.eot') format("opentype");
+		src: local(☺);
+		src: url('../font/NanumGothic.ttf') format("truetype");
+		src: url('../font/NanumGothic.woff') format("woff");
+	} 
 			
