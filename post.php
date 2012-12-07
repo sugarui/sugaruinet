@@ -15,9 +15,8 @@
 						<div class="text">
 							<p>
 								<?php
-								//hile ($row = mysql_fetch_array($result)) {
-								//	echo htmlspecialchars("{$row['text']}" . "\n");
-								//}
+								    $row = mysql_fetch_assoc($result); // 배열 받아 옴. 한번만 할것. 뒤에 또하면 한번 써버렸기때 소스가없어서 안나와~
+									echo htmlspecialchars("{$row['text']}" . "\n");
 								?>
 							</p>
 						</div>
@@ -64,9 +63,7 @@
 							<div class="datework">
 								날짜 영역 
 								<?php
-								while ($row = mysql_fetch_array($result)) {
 									echo htmlspecialchars("{$row['created']}");
-								}
 								?>
 							</div>
 							<div class="tag">
