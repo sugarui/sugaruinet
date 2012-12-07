@@ -24,27 +24,17 @@
 			}
 		</script>
 	</head>
-	
-	<body>
-		<div class="wrap">
-			<!--------------------dbinfo------------------->
-			<div class="dbinfo">
+			<!---------------DB접속및 리소스획득--------------->
 				<?php
 				include_once ('../db.php');
-
-				$sql = 'SELECT * FROM `table_test_01` ORDER BY id DESC LIMIT 1 '; //쿼리문
+				$sql = 'SELECT * FROM `table_test_01` ORDER BY id DESC LIMIT 3 '; //쿼리문
 				$result = mysql_query($sql); //쿼리문 보냄
-				/*
-				while ($row = mysql_fetch_array($result)){
-				echo htmlspecialchars(
-				"{$row['text']}"."\n"
-				);
-				}
-				*/
 				?>
-			</div>
+			
+	<body>
+		<div class="wrap">
 
-			<!--------------------left------------------->
+			<!--------------------left-------------------->
 			<div class="nav_1">
 				<header>
 					<h1>
@@ -194,132 +184,15 @@
 				</nav>
 			</div>
 
-			<!--------------------center start------------------->
+			<!----------------center start---------------->
 			<div class="con">
-
 				
 				<?php
-					include_once './post.php';
+					while ($row = mysql_fetch_array($result)){
+						include './post.php';
+					}
 				?>
 				
-				
-				<!--post_01-->
-				<div class="postbox">
-					<div class="dogear">
-						<img src="./image/dogear_01.png">
-					</div>
-
-					<div class="post">
-						<div class="title">
-							<h2>(샘플) 에뛰드 모바일 사이트 / 2011</h2>
-						</div>
-						<div class="graphic">
-							<img src="./image/test_image_01.png">
-						</div>
-
-						<div class="text">
-							<p>
-								모든 서브페이지들과 컴포넌트의 일관성과 조합성을
-								고려하며 만드느라 애를 썼고,
-								<br/>
-								그 원칙을 정립한 계기가 됐다.
-								<br/>
-								재량권과 당시 능력의 범위안에서 최선을 다해서 만들었었다.
-								<br/>
-								<br/>
-								이 컴포넌트의 룰은
-								<span class="post_hyper">이후 프로젝트</span>
-								에서 시간을 단축시키는 방법이 됐다.
-							</p>
-						</div>
-
-						<div class="post_inner">
-							<div class="text">
-
-							</div>
-							<div class="dogear">
-								<img src="./image/dogear_02.png">
-							</div>
-							<div class="post_inner_btn">
-								<img src="./image/post_inner_btn_01.png">
-							</div>
-							<div class="border_1"> </div>
-							<div class="border_2"> </div>
-							<div class="title_inner">
-								<h3> 스케치 </h3>
-							</div>
-							<div class="border_1"> </div>
-							<div class="border_2"> </div>
-						</div>
-
-						<div class="post_inner">
-							<div class="text">
-								이후 작업 / 리뉴얼 BI를 이용한 브랜드 어플리케이션
-							</div>
-							<div class="dogear">
-								<img src="./image/dogear_01.png">
-							</div>
-							<div class="post_inner_btn">
-								<img src="./image/post_inner_btn_01.png">
-							</div>
-							<div class="border_1"> </div>
-							<div class="border_2"> </div>
-							<div class="title_inner">
-								<h3> 에뛰드 브랜드 어플리케이션 / 2012 </h3>
-							</div>
-							<div class="border_1"> </div>
-							<div class="border_2"> </div>
-						</div>
-
-						<div class="tail">
-							<div class="datework">
-								날짜 영역
-							</div>
-							<div class="tag">
-								태그 영역
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--post_02-->
-				<div class="postbox">
-					<div class="dogear">
-						<img src="./image/dogear_01.png">
-					</div>
-
-					<div class="post">
-						<div class="title">
-							<h2>(샘플) 전설의 바리스타 점장님</h2>
-						</div>
-						<div class="graphic">
-							<img src="./image/test_image_02.png">
-						</div>
-						<div class="text">
-							<p>
-								실화
-								<br>
-							</p>
-						</div>
-						<div class="tail">
-							<div class="datework">
-								날짜 영역
-							</div>
-							<div class="tag">
-								태그 영역
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--pagination-->
-				<div class="pagenation">
-					<span class="sel">1 </span>2 3 4 5
-					<br>
-					<br>
-					<br>
-				</div>
-
 			</div>
 			<!--center end-->
 

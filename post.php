@@ -15,7 +15,7 @@
 						<div class="text">
 							<p>
 								<?php
-								    $row = mysql_fetch_assoc($result); // 배열 받아 옴. 한번만 할것. 뒤에 또하면 한번 써버렸기때 소스가없어서 안나와~
+								    // $row = mysql_fetch_assoc($result); // 배열 받아 옴. 한번만 할것. 뒤에 또하면 한번 써버렸기때 소스가없어서 안나와~
 									echo htmlspecialchars("{$row['text']}" . "\n");
 								?>
 							</p>
