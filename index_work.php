@@ -25,6 +25,20 @@
 		</script>
 	</head>
 
+	<?php
+	include_once ('../db.php');
+
+	$sql = 'SELECT * FROM `table_test_01` ORDER BY id DESC LIMIT 1 '; //쿼리문
+	$result = mysql_query($sql); //쿼리문 보냄
+	/*
+	 while ($row = mysql_fetch_array($result)){
+		echo htmlspecialchars(
+			"{$row['text']}"."\n"
+		);
+	} 
+	*/	
+	?>
+	
 	<body>
 		<div class="wrap">
 
@@ -181,6 +195,12 @@
 			<!--------------------center start------------------->
 			<div class="con">
 
+				
+				<?php
+					include_once './post.php';
+				?>
+				
+				
 				<!--post_01-->
 				<div class="postbox">
 					<div class="dogear">
