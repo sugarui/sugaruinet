@@ -175,7 +175,7 @@
 	.post_inner{
 		margin-bottom:30px; /*다음 이너포스트 설명글과의 간격은 넓어야 하므로*/
 	}
-	.post_inner .text{
+	.post_inner .text{ 
 		margin-bottom:10px; /*이너포스트 설명글과 이너포스트간 간격은 좁아야 하므로*/
 	}
 	.post_inner h3{
