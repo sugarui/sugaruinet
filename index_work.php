@@ -24,22 +24,31 @@
 			}
 		</script>
 	</head>
-			<!---------------DB접속및 리소스획득--------------->
+	
+			<!--------------------DB접속-------------------->
 				<?php
 				include_once ('../db.php');
-				$sql = 'SELECT * FROM `su_post_01` ORDER BY id DESC LIMIT 5 '; //쿼리문
-				$result = mysql_query($sql); //쿼리문 보냄
 				?>
+
+
 			
 	<body>
 		<div class="wrap">
 
 			<!--------------------left-------------------->
+			
+				<!------Table(카테) 접속및 리소스획득--------->
+				<?php
+				$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent'; //쿼리문
+				$result = mysql_query($sql); //쿼리문 보냄
+				?>
+				<!--Table(카테) end-->
+			
 			<div class="nav_1">
 				<header>
 					<h1>
 					<div>
-						<a href="./index.html"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="./index_work.php"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
 					</div>
 					<div>
 						<img src="./image/under_construction.png" alt="공사중 표시">
@@ -48,7 +57,7 @@
 
 				<nav>
 					<ul>
-						<li>
+						<li> <!--작업일지-->
 							<div class="nav_diary">
 								작업일지
 							</div>
@@ -59,44 +68,46 @@
 								<a href="https://github.com/sugarui/sugaruinet" target="_blank"> <img src="./image/lnb_diary_gh.png" alt="github"></a>
 							</div>
 						</li>
-
-						<li>
+						<li><!--어바웃-->
 							<div class="nav_main">
 								ABOUT
 							</div>
 						</li>
-
-						<li>
+						<li><!--카테고리-->
 							<div class="nav_main">
 								CATEGORY
 							</div>
-							<div class="nav_sub_cate">
-
+							<div>
+							<!--<div class="nav_sub_cate">-->
 								<ul>
-									<li>
-										<div class="sel">
-											<img src="./image/sel_mark_01_tmp.png">
-											GUI
-											<div class="nav_sub_cate_add">
-												at work
-											</div>
-										</div>
-									</li>
-									<li>
-										GUI
-										<div class="nav_sub_cate_add">
-											after work
-										</div>
-									</li>
-									<li>
-										그림
-									</li>
-									<li>
-										글
-									</li>
-									<li>
-										기타
-									</li>
+									<?php						
+									while ($row = mysql_fetch_array($result)){
+										if ($row['cate'] === $_GET['cate']){
+											echo "
+											<li>
+												<a href=\"?cate={$row['cate']}\">
+												<div class=\"nav_sub_cate\">
+													<div class=\"sel\">
+													<img src=\"./image/sel_mark_01_tmp.png\">
+													{$row['cate_expression']}
+													</div>
+												</div>	
+												</a>
+											</li>
+											";
+										}else{
+											echo "
+											<li>
+												<a href=\"?cate={$row['cate']}\">
+												<div class=\"nav_sub_cate\">
+												{$row['cate_expression']}
+												</div>
+												</a>
+											</li>
+											";
+										}
+									}	
+									?>
 								</ul>
 							</div>
 						</li>
@@ -184,7 +195,23 @@
 				</nav>
 			</div>
 
+
 			<!----------------center start---------------->
+			
+				<!---------Table(포스트) 접속및 리소스획득---------->
+				<?php
+				if (!$cate = $_GET['cate']){
+					$sql = "SELECT * FROM `su_post_01` 
+						ORDER BY id ASC LIMIT 5 "; //쿼리문	
+				}else{
+					$sql = "SELECT * FROM `su_post_01` 
+						WHERE cate=\"$cate\"
+						ORDER BY id DESC LIMIT 5 "; //쿼리문	
+				}
+				$result = mysql_query($sql); //쿼리문 보냄
+				?>
+				<!--Table(포스트) end-->
+
 			<div class="con">
 				
 				<?php
