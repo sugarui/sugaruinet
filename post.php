@@ -1,4 +1,4 @@
-			<!--post_00-->
+			<!------------ post------------>
 				<div class="postbox">
 					<div class="dogear">
 						<img src="./image/dogear_01.png">
@@ -6,43 +6,37 @@
 
 					<div class="post">
 						<div class="title">
-							<h2>(샘플) 단일 포스트 PHP</h2>
+							<h2>
+								<?php
+									echo htmlspecialchars($row['title']);
+								?>
+							</h2>
 						</div>
 						<div class="graphic">
-							<img src="./image/test_image_01.png">
+							<img src="
+							<?php
+								$image_url = $row['image_url'];
+								echo $image_url;
+							?>
+							">
 						</div>
 
-						<div class="text">
+						<div class="text"> 
 							<p>
 								<?php
-								    // $row = mysql_fetch_assoc($result); // 배열 받아 옴. 한번만 할것. 뒤에 또하면 한번 써버렸기때 소스가없어서 안나와~
-									echo htmlspecialchars("{$row['text']}" . "\n");
+								    // 링크를 걸어야 하니까 스페설챠는 뺄게
+									// echo htmlspecialchars("{$row['text']}" . "\n");
+									echo $row['text'];
 								?>
 							</p>
 						</div>
 
+						<!------------ post_inner ------------>
 						<div class="post_inner">
 							<div class="text">
-
-							</div>
-							<div class="dogear">
-								<img src="./image/dogear_02.png">
-							</div>
-							<div class="post_inner_btn">
-								<img src="./image/post_inner_btn_01.png">
-							</div>
-							<div class="border_1"> </div>
-							<div class="border_2"> </div>
-							<div class="title_inner">
-								<h3> 이너포스트 타이틀 / 아직준비안됨 </h3>
-							</div>
-							<div class="border_1"> </div>
-							<div class="border_2"> </div>
-						</div>
-
-						<div class="post_inner">
-							<div class="text">
-								이너포스트 디스크립션 / 아직준비안
+								<?php
+									echo htmlspecialchars($row['inner_desc']);
+								?>
 							</div>
 							<div class="dogear">
 								<img src="./image/dogear_01.png">
@@ -53,11 +47,16 @@
 							<div class="border_1"> </div>
 							<div class="border_2"> </div>
 							<div class="title_inner">
-								<h3> 이너포스트 타이틀 / 아직준비안됨 </h3>
+								<h3>
+									<?php
+									echo htmlspecialchars($row['inner_title']);
+									?>
+								</h3>
 							</div>
 							<div class="border_1"> </div>
 							<div class="border_2"> </div>
 						</div>
+						<!-- end of post_inner-->
 
 						<div class="tail">
 							<div class="datework">

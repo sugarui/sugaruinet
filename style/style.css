@@ -228,10 +228,3 @@
 		src: url('../font/NanumGothic.ttf') format("truetype");
 		src: url('../font/NanumGothic.woff') format("woff");
 	} 
-				
-/***************DBINFO숨기기***************/
-
-	.dbinfo{
-		color: #222328; /*배경과깔맞춤*/
-		font-size: 3px;	
-	}

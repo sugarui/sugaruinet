@@ -27,7 +27,13 @@
 			<!---------------DB접속및 리소스획득--------------->
 				<?php
 				include_once ('../db.php');
-				$sql = 'SELECT * FROM `table_test_01` ORDER BY id DESC LIMIT 3 '; //쿼리문
+				
+				// 이것도 걍 접속정보로 보내 버리
+				//mysql_query("set session character_set_connection=utf8;");
+				//mysql_query("set session character_set_results=utf8;");
+				//mysql_query("set session character_set_client=utf8;");
+								
+				$sql = 'SELECT * FROM `su_post_01` ORDER BY id ASC LIMIT 5 '; //쿼리문
 				$result = mysql_query($sql); //쿼리문 보냄
 				?>
 			
