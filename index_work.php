@@ -80,31 +80,31 @@
 								<ul>
 									<?php						
 									while ($row = mysql_fetch_array($result)){
-										if ($row['cate'] === $_GET['cate']){
+										if ($row['cate'] == $_GET['cate']){
 											echo "
-											<li>
-												<a href=\"?cate={$row['cate']}\">
-												<div class=\"nav_sub_cate\">
-													<div class=\"sel\">
-													<img src=\"./image/sel_mark_01_tmp.png\">
+												<li>
+													<a href=\"?cate={$row['cate']}&page=1\">
+													<div class=\"nav_sub_cate\">
+														<div class=\"sel\">
+														<img src=\"./image/sel_mark_01_tmp.png\">
+														{$row['cate_expression']}
+														</div>
+													</div>	
+													</a>
+												</li>
+												";
+											}else{
+												echo "
+												<li>
+													<a href=\"?cate={$row['cate']}&page=1\">
+													<div class=\"nav_sub_cate\">
 													{$row['cate_expression']}
 													</div>
-												</div>	
-												</a>
-											</li>
-											";
-										}else{
-											echo "
-											<li>
-												<a href=\"?cate={$row['cate']}\">
-												<div class=\"nav_sub_cate\">
-												{$row['cate_expression']}
-												</div>
-												</a>
-											</li>
-											";
-										}
-									}	
+													</a>
+												</li>
+												";
+											}
+										}	
 									?>
 								</ul>
 							</div>
@@ -159,13 +159,14 @@
 			
 			<!---------Table(포스트) 접속및 리소스획득---------->
 			<?php
-			if (!$cate = $_GET['cate']){
+			// if (!$cate = $_GET['cate']){
+			if ($_GET['cate'] == 'all'){
 				$sql = "SELECT * FROM `su_post_01` 
-					ORDER BY id ASC "; //쿼리문	
+					ORDER BY id ASC"; //쿼리문	
 			}else{
 				$sql = "SELECT * FROM `su_post_01` 
 				WHERE cate=\"$cate\"
-				ORDER BY id ASC "; //쿼리문	
+				ORDER BY id ASC"; //쿼리문	
 			}
 			$result = mysql_query($sql); //쿼리문 보냄
 			?>
@@ -182,14 +183,27 @@
 			<!---------------- 페이지네이션 ----------------->
 			<div class="pagenation">
 			<?php
-			$num_row = mysql_num_rows($result);
-			echo '게시물 총수는 ' .$num_row;
-
-			if (0==1){ // 나머지 체크의 약식 테스트 (본격 적용 전) 
-				echo ' 페이지네이션할 수는 나눈수';
-			}else{
-				echo ' 페이지네이션할 수는 나눈수 더하기 1';
-			}
+			$num_rows = mysql_num_rows($result); //게시물 총수
+			$num_view = 5; //페이지당 출력수. 나중에 SELECT쪽으로 올리고, 웨어문 연산도 해야 함.
+			$num_pages = ceil($num_rows/$num_view); //페이지수는 총수22/출력수5=4.4 //올림
+			echo '페이지네이션은 1부터 '.$num_pages.'까지<br>';
+			/*for($i=1; $i<$num_pages; $i++){
+				if($i=$_GET['page']){ //아 nav에서는 일단 page1로 날려야겠구나
+					echo"
+						<a href=\"?cate={$row['cate']}&page={$i}\">
+						<span class=\"sel\">{$i}</span>
+						</a>
+						";
+				}else{
+					echo"
+						<a href=\"?cate={$row['cate']}&page={$i}\">
+						<span>{$i}</span>
+						</a>
+						";
+				}
+			}    
+			 * 
+			 */                  
 			?>
 			
 			<!-- <span class="sel">1 </span>2 3 4 5 -->
