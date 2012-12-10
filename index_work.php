@@ -29,15 +29,13 @@
 				<?php
 				include_once ('../db.php');
 				?>
-
-
 			
 	<body>
 		<div class="wrap">
 
-			<!--------------------left-------------------->
+			<!--LEFT NAV------------------------------------------------------------->
 			
-				<!------Table(카테) 접속및 리소스획득--------->
+				<!---------Table(카테) 접속및 리소스획득--------->
 				<?php
 				$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent'; //쿼리문
 				$result = mysql_query($sql); //쿼리문 보냄
@@ -115,7 +113,8 @@
 				</nav>
 			</div>
 
-			<!-------------------right-------------------->
+
+			<!--RIGHT NAV------------------------------------------------------------->
 			<div class="nav_2">
 				<nav>
 					<ul>
@@ -146,48 +145,8 @@
 									<li>
 										기타등등
 									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
+									
+									
 								</ul>
 							</div>
 						</li>
@@ -196,33 +155,50 @@
 			</div>
 
 
-			<!----------------center start---------------->
+			<!--CENTER---------------------------------------------------------------->
 			
-				<!---------Table(포스트) 접속및 리소스획득---------->
-				<?php
-				if (!$cate = $_GET['cate']){
-					$sql = "SELECT * FROM `su_post_01` 
-						ORDER BY id ASC LIMIT 5 "; //쿼리문	
-				}else{
-					$sql = "SELECT * FROM `su_post_01` 
-						WHERE cate=\"$cate\"
-						ORDER BY id DESC LIMIT 5 "; //쿼리문	
-				}
-				$result = mysql_query($sql); //쿼리문 보냄
-				?>
-				<!--Table(포스트) end-->
+			<!---------Table(포스트) 접속및 리소스획득---------->
+			<?php
+			if (!$cate = $_GET['cate']){
+				$sql = "SELECT * FROM `su_post_01` 
+					ORDER BY id ASC "; //쿼리문	
+			}else{
+				$sql = "SELECT * FROM `su_post_01` 
+				WHERE cate=\"$cate\"
+				ORDER BY id ASC "; //쿼리문	
+			}
+			$result = mysql_query($sql); //쿼리문 보냄
+			?>
+			<!--Table(포스트) end-->
 
-			<div class="con">
-				
-				<?php
-					while ($row = mysql_fetch_array($result)){
-						include './post.php';
-					}
-				?>
-				
+			<div class="con">		
+			<?php
+			while ($row = mysql_fetch_array($result)){
+				include './post.php';
+			}
+			?>
 			</div>
-			<!--center end-->
+			
+			<!---------------- 페이지네이션 ----------------->
+			<div class="pagenation">
+			<?php
+			$num_row = mysql_num_rows($result);
+			echo '게시물 총수는 ' .$num_row;
 
+			if (0==1){ // 나머지 체크의 약식 테스트 (본격 적용 전) 
+				echo ' 페이지네이션할 수는 나눈수';
+			}else{
+				echo ' 페이지네이션할 수는 나눈수 더하기 1';
+			}
+			?>
+			
+			<!-- <span class="sel">1 </span>2 3 4 5 -->
+			
+			</div>
+			
+			
+			<!--CENTER end-->
+		
 		</div>
 		<!--wrapper end-->
 	</body>

@@ -12,14 +12,16 @@
 								?>
 							</h2>
 						</div>
+						
+						<!------------ grapic (널일수있음) ------------>
 						<div class="graphic">
-							<img src="
 							<?php
-								$image_url = $row['image_url'];
-								echo $image_url;
+								if($row['image_url']){
+								include ('./post_graphic.php');
+								}
 							?>
-							">
 						</div>
+						<!-- end of grapic -->
 
 						<div class="text"> 
 							<p>
@@ -29,7 +31,7 @@
 							</p>
 						</div>
 
-						<!------------ post_inner ------------>
+						<!------------ post_inner (널일수있음)------------>
 						<div class="post_inner">
 							<?php
 								if($row['inner_title']){
@@ -41,13 +43,14 @@
 
 						<div class="tail">
 							<div class="datework">
-								날짜 영역 
 								<?php
 									echo htmlspecialchars("{$row['created']}");
 								?>
 							</div>
 							<div class="tag">
-								태그 영역
+								<?php
+									echo htmlspecialchars("{$row['tag']}");
+								?>
 							</div>
 						</div>
 					</div>

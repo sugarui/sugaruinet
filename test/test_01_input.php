@@ -3,6 +3,13 @@
 	<?php
 	include_once ('../../db.php');
 
+			$bbb = mysqli_affected_rows($link);
+			$bbb = mysql_query($sql);
+			echo '<br><br><br>';
+			echo 'thenumberofrow affected<br>';
+			echo $bbb;
+			echo '<br><br><br>';
+			
 	if (!empty($_POST['aaa'])){
 		// $sql = 'INSERT INTO `codingeverybody` (`name`) VALUES (\''.mysql_real_escape_string($_POST['name']).'\')'; //베낀
 		$sql = 'INSERT INTO `table_test_01` (`text`) VALUES (\''.mysql_real_escape_string($_POST['aaa']).'\')'; //쿼리문
