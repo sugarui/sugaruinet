@@ -46,7 +46,7 @@
 				<header>
 					<h1>
 					<div>
-						<a href="./index_work.php"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="./index_work.php?cate=all&page=1"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
 					</div>
 					<div>
 						<img src="./image/under_construction.png" alt="공사중 표시">
@@ -86,7 +86,7 @@
 													<a href=\"?cate={$row['cate']}&page=1\">
 													<div class=\"nav_sub_cate\">
 														<div class=\"sel\">
-														<img src=\"./image/sel_mark_01_tmp.png\">
+														<img src=\"./image/sel_mark_01.png\">
 														{$row['cate_expression']}
 														</div>
 													</div>	
@@ -136,7 +136,7 @@
 									<li>
 										<div class="sel">
 											Enlgish test
-											<img src="./image/sel_mark_01_tmp.png">
+											<img src="./image/sel_mark_01.png">
 										</div>
 									</li>
 									<li>
@@ -162,55 +162,54 @@
 			// if (!$cate = $_GET['cate']){
 			if ($_GET['cate'] == 'all'){
 				$sql = "SELECT * FROM `su_post_01` 
-					ORDER BY id ASC"; //쿼리문	
+					ORDER BY id DESC LIMIT 6"; //쿼리문	
 			}else{
 				$sql = "SELECT * FROM `su_post_01` 
 				WHERE cate=\"$cate\"
-				ORDER BY id ASC"; //쿼리문	
+				ORDER BY id DESC"; //쿼리문	
 			}
 			$result = mysql_query($sql); //쿼리문 보냄
 			?>
-			<!--Table(포스트) end-->
+			<!--Table(포스트)... end-->
 
 			<div class="con">		
-			<?php
-			while ($row = mysql_fetch_array($result)){
-				include './post.php';
-			}
-			?>
-			</div>
-			
-			<!---------------- 페이지네이션 ----------------->
-			<div class="pagenation">
-			<?php
-			$num_rows = mysql_num_rows($result); //게시물 총수
-			$num_view = 5; //페이지당 출력수. 나중에 SELECT쪽으로 올리고, 웨어문 연산도 해야 함.
-			$num_pages = ceil($num_rows/$num_view); //페이지수는 총수22/출력수5=4.4 //올림
-			echo '페이지네이션은 1부터 '.$num_pages.'까지<br>';
-			/*for($i=1; $i<$num_pages; $i++){
-				if($i=$_GET['page']){ //아 nav에서는 일단 page1로 날려야겠구나
-					echo"
-						<a href=\"?cate={$row['cate']}&page={$i}\">
-						<span class=\"sel\">{$i}</span>
-						</a>
-						";
-				}else{
-					echo"
-						<a href=\"?cate={$row['cate']}&page={$i}\">
-						<span>{$i}</span>
-						</a>
-						";
+				<?php
+				while ($row = mysql_fetch_array($result)){
+					include './post.php';
 				}
-			}    
-			 * 
-			 */                  
-			?>
+				?>
 			
-			<!-- <span class="sel">1 </span>2 3 4 5 -->
+				<!---------------- 페이지네이션 ----------------->
+				<div class="pagenation">
+					<?php
+					$num_rows = mysql_num_rows($result); //게시물 총수22
+					$num_view = 3; //페이지당 출력수. 나중에 SELECT쪽으로 올리고, 웨어문 연산도 해야 함.
+					$num_pages = ceil($num_rows/$num_view); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
+							
+					$i = 1;	
+					while($i<= $num_pages) {
+		          		if ( $i == $_GET['page'] ){
+		          			echo "
+		          				<a href=\"?cate={$row['cate']}&page={$i}\">
+		          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
+		          				</span>
+		          				</a>
+		          				";
+							$i++;
+		          	    } else {
+		              		echo "
+		          				<a href=\"?cate={$row['cate']}&page={$i}\">
+		          					<span class=\"pagenation_each\">{$i}</span>
+		          				</a>
+		          				";
+							$i++;
+						} 
+		    		}
+					?>
+				</div>
+				<!--페이지네이션 end-->
 			
 			</div>
-			
-			
 			<!--CENTER end-->
 		
 		</div>

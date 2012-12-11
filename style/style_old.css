@@ -11,10 +11,10 @@
 		margin: 0px;
 		padding: 0px;
 	}
-	a:link, a:visited, a:active, a:hover { /*기본색 없애려고 한건데 소용이 없다*/	
-		text-decoration: none; 
+	a:link, a:visited, a:active, a:hover {
+		text-decoration: none;
 	}
-	div, img{  /*이미지간 간격 없애려고 한건데 소용이 없다*/	
+	div, img{  /*이건 이미지간 간격 없애려고 한건데 소용이 없다*/	
 		margin: 0px;
 		padding: 0px;
 		border-width: 0px; 	
@@ -62,7 +62,7 @@
 
 	body{
 		background-color: #222328;
-		font-family: NanumGothic; /*"Malgun Gothic", "맑은 고딕";*/
+		font-family: NanumGothic; /*f"Malgun Gothic", "맑은 고딕";*/
 	}
 	/*본문 텍스트*/
 	.con{
@@ -75,7 +75,7 @@
 	}
 	/*셀렉트*/
 	.sel{				
-		color:#aaa;/*#aaa;*/
+		color:#565656;/*#aaa;*/
 	}	
 	 	
 	 	
@@ -208,15 +208,9 @@
 	/*페이지네이션*/
 	.pagenation{
 		text-align: center;
-		font-size: 16px;
-		margin-bottom: 40px;
-
-	}
-	
-	.pagenation_each{
 		color: #444;
-		margin-right: 10px;
-		margin-left: 10px;
+		font-size:16px;
+		margin-bottom: 40px;
 	}
 	
 	
