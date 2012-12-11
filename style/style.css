@@ -220,6 +220,14 @@
 	}
 	
 	
+	/*임시정보출력용*/
+	.tmpinfo{
+			color: #30323a; /*#2a2c33; /*배경에묻히게*/
+			font-size: 12px;
+			font-weight: bold;
+			margin-bottom: 10px; 
+		}
+	
 /***************fontface***************/	
 	/* 로딩 쩔어
 	@font-face {

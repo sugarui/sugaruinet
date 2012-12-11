@@ -34,15 +34,8 @@
 		<div class="wrap">
 
 			<!--LEFT NAV------------------------------------------------------------->
-			
-				<!---------Table(카테) 접속및 리소스획득--------->
-				<?php
-				$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent'; //쿼리문
-				$result = mysql_query($sql); //쿼리문 보냄
-				?>
-				<!--Table(카테) end-->
-			
 			<div class="nav_1">
+				
 				<header>
 					<h1>
 					<div>
@@ -75,12 +68,16 @@
 							<div class="nav_main">
 								CATEGORY
 							</div>
-							<div>
-							<!--<div class="nav_sub_cate">-->
+							<div><!--구 <div class="nav_sub_cate">-->						
 								<ul>
-									<?php						
+									<?php
+									// Table(카테) 에 리소스획득
+									$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent'; //쿼리문
+									$result = mysql_query($sql); //쿼리문 보냄
+									
+									//리소스를 목록으로 출력						
 									while ($row = mysql_fetch_array($result)){
-										if ($row['cate'] == $_GET['cate']){
+										if ($row['cate'] == $_GET['cate']){ //카테가 같으면
 											echo "
 												<li>
 													<a href=\"?cate={$row['cate']}&page=1\">
@@ -93,7 +90,7 @@
 													</a>
 												</li>
 												";
-											}else{
+											}else{ 
 												echo "
 												<li>
 													<a href=\"?cate={$row['cate']}&page=1\">
@@ -156,41 +153,60 @@
 
 
 			<!--CENTER---------------------------------------------------------------->
-			
-			<!---------Table(포스트) 접속및 리소스획득---------->
-			<?php
-			// if (!$cate = $_GET['cate']){
-			if ($_GET['cate'] == 'all'){
-				$sql = "SELECT * FROM `su_post_01` 
-					ORDER BY id DESC LIMIT 6"; //쿼리문	
-			}else{
-				$sql = "SELECT * FROM `su_post_01` 
-				WHERE cate=\"$cate\"
-				ORDER BY id DESC"; //쿼리문	
-			}
-			$result = mysql_query($sql); //쿼리문 보냄
-			?>
-			<!--Table(포스트)... end-->
-
-			<div class="con">		
+			<div class="con">
+				
 				<?php
+				//테스트 
+				//echo "{$cate}<br>"; //이 선언한 적 없는 변수의 출처 : 함수명의 파라미터의 값이더라
+				//echo "{$page}<br>"; //상동
+				
+				// 페이지당 출력수 결정, 페이지넘버 산출
+				$num_view = 3;
+				$num_pages_pre = $_GET['page'] -1;
+				$num_posts_offset = $num_view * $num_pages_pre;
+				
+				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 일부 행
+				if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
+					$sql = "SELECT * FROM `su_post_01` 
+					ORDER BY id DESC LIMIT {$num_view} OFFSET {$num_posts_offset}"; 
+				}else{
+					$sql = "SELECT * FROM `su_post_01` 
+					WHERE cate = '{$_GET['cate']}'
+					ORDER BY id DESC LIMIT {$num_view} OFFSET {$num_posts_offset}"; //
+				}
+				$result = mysql_query($sql);
+				
+				//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
 				while ($row = mysql_fetch_array($result)){
 					include './post.php';
 				}
 				?>
 			
-				<!---------------- 페이지네이션 ----------------->
+				<!---------------- 페이지네이션 ------------------>
 				<div class="pagenation">
 					<?php
-					$num_rows = mysql_num_rows($result); //게시물 총수22
-					$num_view = 3; //페이지당 출력수. 나중에 SELECT쪽으로 올리고, 웨어문 연산도 해야 함.
+					//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
+					if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
+						$sql = "SELECT id FROM `su_post_01` "; 
+					}else{
+						$sql = "SELECT id FROM `su_post_01` WHERE cate = '{$_GET['cate']}'";
+					}
+					$result = mysql_query($sql);
+					$num_rows = mysql_num_rows($result); //게시물 총수획득. 예를들어 22
+					//$num_view = oo ; //페이지당 출력수선언. 상단으로 올렸음. 예를들어 3
+					echo
+						"<div class=\"tmpinfo\">
+						이 카테고리의 전체 게시물 수는 {$num_rows}고 페이지당 보여주기로 한 수는 {$num_view}이다
+						</div>
+						";
 					$num_pages = ceil($num_rows/$num_view); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
-							
+					
+					//출력		
 					$i = 1;	
 					while($i<= $num_pages) {
 		          		if ( $i == $_GET['page'] ){
 		          			echo "
-		          				<a href=\"?cate={$row['cate']}&page={$i}\">
+		          				<a href=\"?cate={$_GET['cate']}&page={$i}\">
 		          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
 		          				</span>
 		          				</a>
@@ -198,7 +214,7 @@
 							$i++;
 		          	    } else {
 		              		echo "
-		          				<a href=\"?cate={$row['cate']}&page={$i}\">
+		          				<a href=\"?cate={$_GET['cate']}&page={$i}\">
 		          					<span class=\"pagenation_each\">{$i}</span>
 		          				</a>
 		          				";
