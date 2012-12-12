@@ -155,25 +155,24 @@
 										
 										while($row = mysql_fetch_array($result)){
 												
-											// if(!$_GET['tag']){ //없으면 그냥 출력
+											if(!$_GET['tag']){ //없으면 그냥 출력
 												echo "
 													<li>
-													<a herf=\"?tag={$row['tag']}&page=1\">
+													<a href=\"?cate={$_GET['cate']}&tag={$row['tag']}&page=1\">
 													<div class=\"nav_sub_tag\">
 														{$row['tag']}
 													</div>
 													</a>
 													</li>
 												";	
-												
-											/*} /* else{ //있으면 비교해서 셀렉트,넌셀렉트 출력
-												if($_GET['tag']=$row['tag']){
+											}else{ //있으면 비교해서 셀렉트,넌셀렉트 출력
+												if($_GET['tag'] == $row['tag']){
 													echo "
 														<li>
-														<a herf=\"?tag={$row['tag']}&page=1\">
+														<a href=\"?tag={$row['tag']}&page=1\">
 														<div class=\"nav_sub_tag\">
 															<div class=\"sel\">
-															셀렉셀{$row['tag']}
+																{$row['tag']}
 															</div>
 														</div>
 														</a>
@@ -182,7 +181,7 @@
 												}else{
 													echo "
 														<li>
-														<a herf=\"?tag={$row['tag']}&page=1\">
+														<a href=\"?tag={$row['tag']}&page=1\">
 														<div class=\"nav_sub_tag\">
 															{$row['tag']}
 														</div>
@@ -190,7 +189,7 @@
 														</li>
 													";	
 												} 	
-											}*/
+											}
 										}
 									?>
 								</ul>
