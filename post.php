@@ -42,18 +42,44 @@
 						<!-- end of post_inner-->
 
 						<div class="tail">
-							<div class="date_worked">
-								<?php if($row['worked']) {echo "작업일시 | {$row['worked']}";} ?>
-							</div>
-							<div class="date_edited">
-								<?php if($row['created']) {echo "생성일시 | {$row['created']}";} ?>
-							</div>
-							<div class="category"> <!--여거는 카테고리 파라미터가 있으면 안나오게 할까?-->
-								<?php if($row['cate']) {echo "카테고리 | {$row['cate']}";} ?>
-							</div>
-							<div class="tag">
-								<?php if($row['cate']) {echo "태그 | {$row['tag']}";} ?>
-							</div>
+							<?php 
+								if($row['worked']){
+									echo "
+										<div class=\"tail_each\">
+											작업일시&nbsp;|&nbsp;
+											{$row['worked']}
+										</div>
+									";
+								}
+								if($row['created']){
+									echo "
+										<div class=\"tail_each\">
+											생성일시&nbsp;|&nbsp;
+											{$row['created']}
+										</div>
+									";
+								}
+								//if($row['cate']){ // 카테는늘있으니 // 아래아래아래줄. 페이지는 알아서 생기지?
+									echo "
+										<div class=\"tail_each\">
+											카테고리&nbsp;|&nbsp; 
+											<a href=\"?cate={$row['cate']}\">
+												<span>{$row['cate']}</span>
+											</a>
+										</div>
+									";
+								//}
+								if($row['tag']) {
+									echo "
+										<div class=\"tail_each\">
+											태그&nbsp;|&nbsp; 
+											<a href=\"?tag={$row['tag']}\">
+												<span>{$row['tag']}</span>
+											</a>
+										</div>
+									";
+								}
+							?>
 						</div>
 					</div>
 				</div>
