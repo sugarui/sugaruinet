@@ -158,7 +158,7 @@
 											if(!$_GET['tag']){ //없으면 그냥 출력
 												echo "
 													<li>
-													<a href=\"?cate={$_GET['cate']}&tag={$row['tag']}&page=1\">
+													<a href=\"?tag={$row['tag']}&page=1\">
 													<div class=\"nav_sub_tag\">
 														{$row['tag']}
 													</div>
@@ -237,6 +237,8 @@
 					//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
 					if($_GET['cate']){
 						$sql = "SELECT id FROM `su_post_01` WHERE cate = '{$_GET['cate']}'"; 
+					}else if($_GET['tag']){
+						$sql = "SELECT id FROM `su_post_01` WHERE tag = '{$_GET['tag']}'";
 					}else{
 						$sql = "SELECT id FROM `su_post_01`";
 					}
@@ -249,16 +251,25 @@
 					//출력
 					$i = 1;// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
 					while($i<= $num_pages) { //총페이지수까지 에코. 
-		          		if ( $i == $_GET['page'] ){ //현페이지 셀렉트 체크는 파라미터로. 현페이지는 없으면 1로 이미지정.
+		          		
+		          		//파라미터 기준 설정(카테냐,태그냐)
+		          		if($_GET['cate']){
+		          			$paraname = 'cate'; 
+							$paravalue = $_GET['cate']; 
+						}else if($_GET['tag']){
+							$paraname = 'tag';  
+							$paravalue = $_GET['tag'];
+						}
+		          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로. 페이지 파라미터는 없으면 1로 이미지정.
 		          			echo "
-		          				<a href=\"?cate={$_GET['cate']}&page={$i}\">
+		          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
 		          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
 		          				</a>
 		          				";
 							$i++;
-		          	    } else {
+		          	    }else{
 		              		echo "
-		          				<a href=\"?cate={$_GET['cate']}&page={$i}\">
+		          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
 		          					<span class=\"pagenation_each\">{$i}</span>
 		          				</a>
 		          				";
