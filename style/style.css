@@ -75,7 +75,7 @@
 	}
 	/*셀렉트*/
 	.sel{				
-		color:#aaa;/*#aaa;*/
+		color:#ccc;
 	}	
 	 	
 	 	
@@ -87,7 +87,7 @@
 	.nav_main{
 		margin-top: 30px;
 		margin-bottom: 10px;
-		color: #702245; /*#dc2276;*/
+		color: #dc2276; /* 디스에이블은 #702245;*/
 		font-size: 11px;
 		font-weight: bold;
 		/*text-shadow: 0px 2px 0px #000; 잠시 비활성화*/
@@ -103,7 +103,7 @@
 	}
 	/* 세부메뉴-카테고리 */
 	.nav_sub_cate{				
-		color: #444; /*#aaa*/
+		color: #6b6b6b; /*디스에이블은 #444*/
 		font-size:14px;
 		line-height:170%; 
 	}	
@@ -113,9 +113,9 @@
 	}
 	/* 세부메뉴-태그 */
 	.nav_sub_tag{
-		color:#444;/*#aaa;*/
-		font-size:13px;
-		line-height:220%
+		color: #6b6b6b; /*디스에이블은 #444*/
+		font-size: 13px;
+		line-height: 220%
 	}
 	/* 셀렉트마커 포지션 디테일*/ 
 	.nav_1 .sel img{
@@ -216,16 +216,16 @@
 	}
 	.pagenation_each{
 		color: #444;
-		margin-right: 10px;
-		margin-left: 10px;
+		padding-right: 7px;
+		padding-left: 7px;
 	}
 	/*임시정보출력용*/
 	.tmpinfo{
-			color: #30323a; /*#2a2c33; /*배경에묻히게*/
-			font-size: 12px;
-			font-weight: bold;
-			margin-bottom: 10px; 
-		}
+		color: #30323a; /*#2a2c33; /*배경에묻히게*/
+		font-size: 12px;
+		font-weight: bold;
+		margin-bottom: 10px; 
+	}
 	
 /***************fontface***************/	
 	/* 로딩 쩔어

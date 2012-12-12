@@ -145,31 +145,54 @@
 							<div class="nav_main">
 								TAG
 							</div>
-							<div class="nav_sub_tag">
+							<div class="nav_sub_tag"><!--구 <div class="nav_sub_tag">-->
 								<ul>
-									<li>
-										시뮬레이션
-									</li>
-									<li>
-										컨셉스케치
-									</li>
-									<li>
-										트렌드
-									</li>
-									<li>
-										<div class="sel">
-											Enlgish test
-											<img src="./image/sel_mark_01.png">
-										</div>
-									</li>
-									<li>
-										기타등등
-									</li>
-									<li>
-										기타등등
-									</li>
-									
-									
+									<?php
+										$sql = "SELECT tag FROM su_post_01 GROUP BY tag";
+										$result = mysql_query($sql); // 얘 시점이 - 아 링크는 디비군 테이브링 아니고.
+										$num_rows = mysql_num_rows($result);
+										echo "<div class=\"tmpinfo\">태그 종류 수는 :{$num_rows}</div>";
+										
+										while($row = mysql_fetch_array($result)){
+												
+											// if(!$_GET['tag']){ //없으면 그냥 출력
+												echo "
+													<li>
+													<a herf=\"?tag={$row['tag']}&page=1\">
+													<div class=\"nav_sub_tag\">
+														{$row['tag']}
+													</div>
+													</a>
+													</li>
+												";	
+												
+											/*} /* else{ //있으면 비교해서 셀렉트,넌셀렉트 출력
+												if($_GET['tag']=$row['tag']){
+													echo "
+														<li>
+														<a herf=\"?tag={$row['tag']}&page=1\">
+														<div class=\"nav_sub_tag\">
+															<div class=\"sel\">
+															셀렉셀{$row['tag']}
+															</div>
+														</div>
+														</a>
+														</li>
+													";		
+												}else{
+													echo "
+														<li>
+														<a herf=\"?tag={$row['tag']}&page=1\">
+														<div class=\"nav_sub_tag\">
+															{$row['tag']}
+														</div>
+														</a>
+														</li>
+													";	
+												} 	
+											}*/
+										}
+									?>
 								</ul>
 							</div>
 						</li>
