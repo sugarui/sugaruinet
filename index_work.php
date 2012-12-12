@@ -39,7 +39,7 @@
 				<header>
 					<h1>
 					<div>
-						<a href="./index_work.php?cate=all&page=1"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="./index_work.php?page=1"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
 					</div>
 					<div>
 						<img src="./image/under_construction.png" alt="공사중 표시">
@@ -77,31 +77,57 @@
 									
 									//리소스를 목록으로 출력						
 									while ($row = mysql_fetch_array($result)){
-										if ($row['cate'] == $_GET['cate']){ //카테가 같으면
-											echo "
-												<li>
-													<a href=\"?cate={$row['cate']}&page=1\">
-													<div class=\"nav_sub_cate\">
-														<div class=\"sel\">
-														<img src=\"./image/sel_mark_01.png\">
-														{$row['cate_expression']}
-														</div>
-													</div>	
-													</a>
-												</li>
-												";
-											}else{ 
+										if(!$_GET['cate']){//카테 페러미터가 없으면
+											if (!$row['cate']){ //로우값이 없으면 (목록중 all의 경우. 포스트 DB에 상응값이 없으므로 값없앰.)
 												echo "
-												<li>
-													<a href=\"?cate={$row['cate']}&page=1\">
-													<div class=\"nav_sub_cate\">
-													{$row['cate_expression']}
-													</div>
-													</a>
-												</li>
-												";
+													<li>
+														<a href=\"?page=1\">"//링크에 카테고리 패러미터를 넣지 않는다.
+														."
+														<div class=\"nav_sub_cate\">
+															<div class=\"sel\"> " //셀렉트로 한다
+															."
+															<img src=\"./image/sel_mark_01.png\">
+																{$row['cate_expression']}
+															</div>
+														</div>	
+														</a>
+													</li> ";
+					
+											}else{ //나머지 목록은 정상출력
+												echo "
+													<li>
+														<a href=\"?cate={$row['cate']}&page=1\">
+														<div class=\"nav_sub_cate\">
+															{$row['cate_expression']}
+														</div>
+														</a>
+													</li> ";
+											}	
+										}else{//카테 페러미터가 있으면
+											if($row['cate'] == $_GET['cate']){
+												echo "
+													<li>
+														<a href=\"?cate={$row['cate']}&page=1\">
+														<div class=\"nav_sub_cate\">
+															<div class=\"sel\">
+															<img src=\"./image/sel_mark_01.png\">
+																{$row['cate_expression']}
+															</div>
+														</div>	
+														</a>
+													</li> ";
+											}else{
+												echo "														
+													<li>
+														<a href=\"?cate={$row['cate']}&page=1\">
+														<div class=\"nav_sub_cate\">
+															{$row['cate_expression']}
+														</div>
+														</a>
+													</li> ";
 											}
-										}	
+										}
+									}		
 									?>
 								</ul>
 							</div>
@@ -166,13 +192,14 @@
 				$num_posts_offset = $num_view * $num_pages_pre;
 				
 				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 일부 행
-				if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
+				//if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
+				if($_GET['cate']){
 					$sql = "SELECT * FROM `su_post_01` 
+					WHERE cate = '{$_GET['cate']}'
 					ORDER BY id DESC LIMIT {$num_view} OFFSET {$num_posts_offset}"; 
 				}else{
 					$sql = "SELECT * FROM `su_post_01` 
-					WHERE cate = '{$_GET['cate']}'
-					ORDER BY id DESC LIMIT {$num_view} OFFSET {$num_posts_offset}"; //
+					ORDER BY id DESC LIMIT {$num_view} OFFSET {$num_posts_offset}";
 				}
 				$result = mysql_query($sql);
 				
@@ -186,10 +213,11 @@
 				<div class="pagenation">
 					<?php
 					//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
-					if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
-						$sql = "SELECT id FROM `su_post_01` "; 
+					//if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
+					if($_GET['cate']){
+						$sql = "SELECT id FROM `su_post_01` WHERE cate = '{$_GET['cate']}'"; 
 					}else{
-						$sql = "SELECT id FROM `su_post_01` WHERE cate = '{$_GET['cate']}'";
+						$sql = "SELECT id FROM `su_post_01`";
 					}
 					$result = mysql_query($sql);
 					$num_rows = mysql_num_rows($result); //게시물 총수획득. 예를들어 22
@@ -202,7 +230,7 @@
 					$num_pages = ceil($num_rows/$num_view); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
 					
 					//출력		
-					$i = 1;	
+					$i = 1;	// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
 					while($i<= $num_pages) {
 		          		if ( $i == $_GET['page'] ){
 		          			echo "
