@@ -39,7 +39,7 @@
 				<header>
 					<h1>
 					<div>
-						<a href="./index_work.php?page=1"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="./index_work.php"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
 					</div>
 					<div>
 						<img src="./image/under_construction.png" alt="공사중 표시">
@@ -72,12 +72,12 @@
 								<ul>
 									<?php
 									// Table(카테) 에 리소스획득
-									$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent'; //쿼리문
-									$result = mysql_query($sql); //쿼리문 보냄
+									$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent';
+									$result = mysql_query($sql);
 									
 									//리소스를 목록으로 출력						
 									while ($row = mysql_fetch_array($result)){
-										if(!$_GET['cate']){//카테 페러미터가 없으면
+										if(!$_GET['cate']){//카테 파라미터가 없으면
 											if (!$row['cate']){ //로우값이 없으면 (목록중 all의 경우. 포스트 DB에 상응값이 없으므로 값없앰.)
 												echo "
 													<li>
@@ -103,7 +103,7 @@
 														</a>
 													</li> ";
 											}	
-										}else{//카테 페러미터가 있으면
+										}else{//카테 파라미터가 있으면
 											if($row['cate'] == $_GET['cate']){
 												echo "
 													<li>
@@ -177,29 +177,25 @@
 				</nav>
 			</div>
 
-
+				
 			<!--CENTER---------------------------------------------------------------->
 			<div class="con">
 				
 				<?php
-				//테스트 
-				//echo "{$cate}<br>"; //이 선언한 적 없는 변수의 출처 : 함수명의 파라미터의 값이더라
-				//echo "{$page}<br>"; //상동
-				
 				// 페이지당 출력수 결정, 페이지넘버 산출
-				$num_view = 3;
-				$num_pages_pre = $_GET['page'] -1;
-				$num_posts_offset = $num_view * $num_pages_pre;
+				$num_posts_display = 3; //디피수
+				if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅
+				$num_pages_pre = $_GET['page'] -1; //앞선페이지수는 현제페이지 -1
+				$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
 				
-				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 일부 행
-				//if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
+				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
 				if($_GET['cate']){
 					$sql = "SELECT * FROM `su_post_01` 
 					WHERE cate = '{$_GET['cate']}'
-					ORDER BY id DESC LIMIT {$num_view} OFFSET {$num_posts_offset}"; 
+					ORDER BY id DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}"; 
 				}else{
 					$sql = "SELECT * FROM `su_post_01` 
-					ORDER BY id DESC LIMIT {$num_view} OFFSET {$num_posts_offset}";
+					ORDER BY id DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
 				}
 				$result = mysql_query($sql);
 				
@@ -213,7 +209,6 @@
 				<div class="pagenation">
 					<?php
 					//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
-					//if($_GET['cate'] == 'all'){ //all이면 WHERE 빼려고
 					if($_GET['cate']){
 						$sql = "SELECT id FROM `su_post_01` WHERE cate = '{$_GET['cate']}'"; 
 					}else{
@@ -221,22 +216,17 @@
 					}
 					$result = mysql_query($sql);
 					$num_rows = mysql_num_rows($result); //게시물 총수획득. 예를들어 22
-					//$num_view = oo ; //페이지당 출력수선언. 상단으로 올렸음. 예를들어 3
-					echo
-						"<div class=\"tmpinfo\">
-						이 카테고리의 전체 게시물 수는 {$num_rows}고 페이지당 보여주기로 한 수는 {$num_view}이다
-						</div>
-						";
-					$num_pages = ceil($num_rows/$num_view); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
+					// $num_view = oo ; //페이지당 출력수선언. 상단으로 올렸음. 예를들어 3
+					// echo "<div class=\"tmpinfo\">카테고리 전체 게시물 수: {$num_rows} | 페이지당 출력 게시물 수: {$num_posts_display}</div>";
+					$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
 					
-					//출력		
-					$i = 1;	// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
-					while($i<= $num_pages) {
-		          		if ( $i == $_GET['page'] ){
+					//출력
+					$i = 1;// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
+					while($i<= $num_pages) { //총페이지수까지 에코. 
+		          		if ( $i == $_GET['page'] ){ //현페이지 셀렉트 체크는 파라미터로. 현페이지는 없으면 1로 이미지정.
 		          			echo "
 		          				<a href=\"?cate={$_GET['cate']}&page={$i}\">
 		          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
-		          				</span>
 		          				</a>
 		          				";
 							$i++;
