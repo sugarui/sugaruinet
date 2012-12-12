@@ -166,7 +166,7 @@
 													</li>
 												";	
 											}else{ //있으면 비교해서 셀렉트,넌셀렉트 출력
-												if($_GET['tag'] == $row['tag']){
+												if($_GET['tag'] ==$row['tag']){
 													echo "
 														<li>
 														<a href=\"?tag={$row['tag']}&page=1\">
@@ -215,6 +215,10 @@
 					$sql = "SELECT * FROM `su_post_01` 
 					WHERE cate = '{$_GET['cate']}'
 					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}"; 
+				}else if($_GET['tag']){
+					$sql = "SELECT * FROM `su_post_01` 
+					WHERE tag = '{$_GET['tag']}'
+					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
 				}else{
 					$sql = "SELECT * FROM `su_post_01` 
 					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
