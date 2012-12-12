@@ -42,15 +42,17 @@
 						<!-- end of post_inner-->
 
 						<div class="tail">
-							<div class="datework">
-								<?php
-									echo htmlspecialchars("{$row['created']}");
-								?>
+							<div class="date_worked">
+								<?php if($row['worked']) {echo "작업일시 | {$row['worked']}";} ?>
+							</div>
+							<div class="date_edited">
+								<?php if($row['created']) {echo "생성일시 | {$row['created']}";} ?>
+							</div>
+							<div class="category"> <!--여거는 카테고리 파라미터가 있으면 안나오게 할까?-->
+								<?php if($row['cate']) {echo "카테고리 | {$row['cate']}";} ?>
 							</div>
 							<div class="tag">
-								<?php
-									echo htmlspecialchars("{$row['tag']}");
-								?>
+								<?php if($row['cate']) {echo "태그 | {$row['tag']}";} ?>
 							</div>
 						</div>
 					</div>

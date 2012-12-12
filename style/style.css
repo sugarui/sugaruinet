@@ -198,28 +198,27 @@
 	}
 	/*테일*/
 	.tail{
-		margin-top: 20px;
+		margin-top: 30px;
 		margin-right: 20px;
 		margin-left: 40px;
 		text-align: right;
 		color:#555;
 		font-size:13px
 	}
+	.tail div{
+		margin-top: 5px;
+	}
 	/*페이지네이션*/
 	.pagenation{
 		text-align: center;
 		font-size: 16px;
 		margin-bottom: 40px;
-
 	}
-	
 	.pagenation_each{
 		color: #444;
 		margin-right: 10px;
 		margin-left: 10px;
 	}
-	
-	
 	/*임시정보출력용*/
 	.tmpinfo{
 			color: #30323a; /*#2a2c33; /*배경에묻히게*/

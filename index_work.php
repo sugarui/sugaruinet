@@ -192,10 +192,10 @@
 				if($_GET['cate']){
 					$sql = "SELECT * FROM `su_post_01` 
 					WHERE cate = '{$_GET['cate']}'
-					ORDER BY id DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}"; 
+					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}"; 
 				}else{
 					$sql = "SELECT * FROM `su_post_01` 
-					ORDER BY id DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
+					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
 				}
 				$result = mysql_query($sql);
 				
