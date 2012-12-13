@@ -138,6 +138,15 @@
 	.post_inner_btn{
 		float: right;	
 	}
+	.url{
+		float: left;
+		padding-top: 10px;
+		color: #666;
+		text-shadow: 0px -1px 0px  #000;
+	}
+	.url>a{ /*이게 먹을 랑가.. 아 에이에이 */
+		border-bottom: dotted #aaa 1px;
+	}
 	/*외부*/	
 	.postbox{ 
 		margin-bottom:30px; /*다음포스트박스와의 여백*/

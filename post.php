@@ -1,9 +1,17 @@
 			<!------------ post------------>
 				<div class="postbox">
 					<div class="dogear">
-						<img src="./image/dogear_01.png">
+						<img src="./image/dogear.png">
 					</div>
-
+					
+					<?php
+					echo "
+						<a href=\"?id={$row['id']}\">
+							<div class=\"url\">url</div>
+						</a>
+					";
+					?>
+					
 					<div class="post">
 						<div class="title">
 							<h2>

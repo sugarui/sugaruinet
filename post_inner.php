@@ -2,7 +2,7 @@
 		<?php echo htmlspecialchars($row['inner_desc']); ?>
 </div>
 <div class="dogear">
-	<img src="./image/dogear_01.png">
+	<img src="./image/dogear.png">
 </div>
 <div class="post_inner_btn">
 	<img src="./image/post_inner_btn_01.png">

@@ -71,24 +71,38 @@
 							<div><!--구 <div class="nav_sub_cate">-->						
 								<ul>
 									<?php
-									// Table(카테) 에 리소스획득
+									
+									//파라미터 기준 설정(카테냐,태그냐,아이디)
+							        if($_GET['cate']){
+							        	$paraname = 'cate'; 
+										$paravalue = $_GET['cate']; 
+									}else if($_GET['tag']){
+			 							$paraname = 'tag';  
+										$paravalue = $_GET['tag'];
+									}else if($_GET['id']){
+										$paraname = 'id';  
+										$paravalue = $_GET['id'];
+									}
+						
+						
+									//Table(카테) 에 리소스획득
 									$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent';
 									$result = mysql_query($sql);
 									
 									//리소스를 목록으로 출력						
 									while ($row = mysql_fetch_array($result)){
-										if(!$_GET['cate']){//카테 파라미터가 없으면
-											if (!$row['cate']){ //로우값이 없으면 (목록중 all의 경우. 포스트 DB에 상응값이 없으므로 값없앰.)
+										
+										if(!$paravalue){ //파라미터가 없으면
+											if (!$row['cate']){ //로우의 값이 없는 all항목은 셀렉트
 												echo "
 													<li>
-														<a href=\"?page=1\">"//링크에 카테고리 패러미터를 넣지 않는다.
+														<a href=\"\">"//링크에 파라미터를 넣지 않는다.
 														."
 														<div class=\"nav_sub_cate\">
-															<div class=\"sel\"> " //셀렉트로 한다
-															."
-															<img src=\"./image/sel_mark_01.png\">
+																<div class=\"sel\">
+																<img src=\"./image/sel_mark_01.png\">
 																{$row['cate_expression']}
-															</div>
+																</div>
 														</div>	
 														</a>
 													</li> ";
@@ -96,36 +110,37 @@
 											}else{ //나머지 목록은 정상출력
 												echo "
 													<li>
-														<a href=\"?cate={$row['cate']}&page=1\">
+														<a href=\"?cate={$row['cate']}\">
 														<div class=\"nav_sub_cate\">
 															{$row['cate_expression']}
 														</div>
 														</a>
 													</li> ";
 											}	
-										}else{//카테 파라미터가 있으면
-											if($row['cate'] == $_GET['cate']){
+										}else{
+											if($row['cate'] === $_GET['cate']){
 												echo "
 													<li>
-														<a href=\"?cate={$row['cate']}&page=1\">
+														<a href=\"?cate={$row['cate']}\">
 														<div class=\"nav_sub_cate\">
-															<div class=\"sel\">
-															<img src=\"./image/sel_mark_01.png\">
+																<div class=\"sel\">
+																<img src=\"./image/sel_mark_01.png\">
 																{$row['cate_expression']}
-															</div>
+																</div>
 														</div>	
 														</a>
 													</li> ";
 											}else{
 												echo "														
 													<li>
-														<a href=\"?cate={$row['cate']}&page=1\">
+														<a href=\"?cate={$row['cate']}\">
 														<div class=\"nav_sub_cate\">
 															{$row['cate_expression']}
 														</div>
 														</a>
 													</li> ";
 											}
+											
 										}
 									}		
 									?>
@@ -145,11 +160,11 @@
 							<div class="nav_main">
 								TAG
 							</div>
-							<div class="nav_sub_tag"><!--구 <div class="nav_sub_tag">-->
+							<div><!--구 <div class="nav_sub_tag">-->
 								<ul>
 									<?php
 										$sql = "SELECT tag FROM su_post_01 GROUP BY tag";
-										$result = mysql_query($sql); // 얘 시점이 - 아 링크는 디비군 테이브링 아니고.
+										$result = mysql_query($sql);
 										$num_rows = mysql_num_rows($result);
 										echo "<div class=\"tmpinfo\">태그 종류 수는 :{$num_rows}</div>";
 										
@@ -158,7 +173,7 @@
 											if(!$_GET['tag']){ //없으면 그냥 출력
 												echo "
 													<li>
-													<a href=\"?tag={$row['tag']}&page=1\">
+													<a href=\"?tag={$row['tag']}\">
 													<div class=\"nav_sub_tag\">
 														{$row['tag']}
 													</div>
@@ -169,9 +184,10 @@
 												if($_GET['tag'] ==$row['tag']){
 													echo "
 														<li>
-														<a href=\"?tag={$row['tag']}&page=1\">
+														<a href=\"?tag={$row['tag']}\">
 														<div class=\"nav_sub_tag\">
 															<div class=\"sel\">
+																<img src=\"./image/sel_mark_01.png\">
 																{$row['tag']}
 															</div>
 														</div>
@@ -181,7 +197,7 @@
 												}else{
 													echo "
 														<li>
-														<a href=\"?tag={$row['tag']}&page=1\">
+														<a href=\"?tag={$row['tag']}\">
 														<div class=\"nav_sub_tag\">
 															{$row['tag']}
 														</div>
@@ -204,21 +220,18 @@
 			<div class="con">
 				
 				<?php
+				
 				// 페이지당 출력수 결정, 페이지넘버 산출
 				$num_posts_display = 3; //디피수
-				if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅
+				if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅!!!
 				$num_pages_pre = $_GET['page'] -1; //앞선페이지수는 현제페이지 -1
 				$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
 				
 				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
-				if($_GET['cate']){
+				if($paravalue){
 					$sql = "SELECT * FROM `su_post_01` 
-					WHERE cate = '{$_GET['cate']}'
+					WHERE $paraname = '$paravalue'
 					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}"; 
-				}else if($_GET['tag']){
-					$sql = "SELECT * FROM `su_post_01` 
-					WHERE tag = '{$_GET['tag']}'
-					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
 				}else{
 					$sql = "SELECT * FROM `su_post_01` 
 					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
@@ -233,49 +246,45 @@
 			
 				<!---------------- 페이지네이션 ------------------>
 				<div class="pagenation">
-					<?php
-					//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
-					if($_GET['cate']){
-						$sql = "SELECT id FROM `su_post_01` WHERE cate = '{$_GET['cate']}'"; 
-					}else if($_GET['tag']){
-						$sql = "SELECT id FROM `su_post_01` WHERE tag = '{$_GET['tag']}'";
-					}else{
-						$sql = "SELECT id FROM `su_post_01`";
-					}
-					$result = mysql_query($sql);
-					$num_rows = mysql_num_rows($result); //게시물 총수획득. 예를들어 22
-					// $num_view = oo ; //페이지당 출력수선언. 상단으로 올렸음. 예를들어 3
-					// echo "<div class=\"tmpinfo\">카테고리 전체 게시물 수: {$num_rows} | 페이지당 출력 게시물 수: {$num_posts_display}</div>";
-					$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
 					
-					//출력
-					$i = 1;// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
-					while($i<= $num_pages) { //총페이지수까지 에코. 
-		          		
-		          		//파라미터 기준 설정(카테냐,태그냐)
-		          		if($_GET['cate']){
-		          			$paraname = 'cate'; 
-							$paravalue = $_GET['cate']; 
-						}else if($_GET['tag']){
-							$paraname = 'tag';  
-							$paravalue = $_GET['tag'];
+					<?php
+					
+					//파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
+					if ($paraname != 'id'){ 
+					
+						//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
+						if($paravalue){
+							$sql = "SELECT id FROM `su_post_01` WHERE $paraname = '$paravalue'"; 
+						}else{
+							$sql = "SELECT id FROM `su_post_01`";
 						}
-		          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로. 페이지 파라미터는 없으면 1로 이미지정.
-		          			echo "
-		          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
-		          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
-		          				</a>
-		          				";
-							$i++;
-		          	    }else{
-		              		echo "
-		          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
-		          					<span class=\"pagenation_each\">{$i}</span>
-		          				</a>
-		          				";
-							$i++;
-						} 
-		    		}
+						$result = mysql_query($sql);
+						$num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 22  / $num_view = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
+						// echo "<div class=\"tmpinfo\">카테고리 전체 게시물 수: {$num_rows} | 페이지당 출력 게시물 수: {$num_posts_display}</div>";
+						$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
+						
+						//출력
+						$i = 1;// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
+						while($i<= $num_pages) { //총페이지수까지 에코. 
+			          		
+			          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로. 페이지 파라미터는 없으면 1로 이미지정.
+			          			echo "
+			          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
+			          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
+			          				</a>
+			          				";
+								$i++;
+			          	    }else{
+			              		echo "
+			          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
+			          					<span class=\"pagenation_each\">{$i}</span>
+			          				</a>
+			          				";
+								$i++;
+							} 
+			    		}
+					}
+					
 					?>
 				</div>
 				<!--페이지네이션 end-->
