@@ -229,12 +229,15 @@
 				
 				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
 				if($paravalue){
-					$sql = "SELECT * FROM `su_post_01` 
-					WHERE $paraname = '$paravalue'
-					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}"; 
+					$sql = 
+						// "SELECT * FROM su_post_01 
+						"SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate 
+						WHERE p.{$paraname}='{$paravalue}' 
+						ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
 				}else{
-					$sql = "SELECT * FROM `su_post_01` 
-					ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
+					$sql =
+						"SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate 
+						ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
 				}
 				$result = mysql_query($sql);
 				

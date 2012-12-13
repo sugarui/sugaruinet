@@ -72,7 +72,7 @@
 										<div class=\"tail_each\">
 											카테고리&nbsp;|&nbsp; 
 											<a href=\"?cate={$row['cate']}\">
-												<span>{$row['cate']}</span>
+												<span>{$row['cate_expression']}</span>
 											</a>
 										</div>
 									";
