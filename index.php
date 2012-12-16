@@ -72,7 +72,7 @@
 								<ul>
 									<?php
 									
-									//파라미터 기준 설정(카테냐,태그냐,아이디)
+									//파라미터 기준 설정(카테냐,태그냐,아이디냐)
 							        if($_GET['cate']){
 							        	$paraname = 'cate'; 
 										$paravalue = $_GET['cate']; 
@@ -83,66 +83,44 @@
 										$paraname = 'id';  
 										$paravalue = $_GET['id'];
 									}
-						
-						
-									//Table(카테) 에 리소스획득
+									
+									//Table(카테) 로부터 리소스획득
 									$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent';
 									$result = mysql_query($sql);
 									
 									//리소스를 목록으로 출력						
 									while ($row = mysql_fetch_array($result)){
-										
-										if(!$paravalue){ //파라미터가 없으면
-											if (!$row['cate']){ //로우의 값이 없는 all항목은 셀렉트
-												echo "
-													<li>
-														<a href=\"\">"//링크에 파라미터를 넣지 않는다.
-														."
-														<div class=\"nav_sub_cate\">
-																<div class=\"sel\">
-																<img src=\"./image/sel_mark_01.png\">
-																{$row['cate_expression']}
-																</div>
-														</div>	
-														</a>
-													</li> ";
-					
-											}else{ //나머지 목록은 정상출력
-												echo "
-													<li>
-														<a href=\"?cate={$row['cate']}\">
-														<div class=\"nav_sub_cate\">
-															{$row['cate_expression']}
-														</div>
-														</a>
-													</li> ";
-											}	
-										}else{
-											if($row['cate'] === $_GET['cate']){
-												echo "
-													<li>
-														<a href=\"?cate={$row['cate']}\">
-														<div class=\"nav_sub_cate\">
-																<div class=\"sel\">
-																<img src=\"./image/sel_mark_01.png\">
-																{$row['cate_expression']}
-																</div>
-														</div>	
-														</a>
-													</li> ";
-											}else{
-												echo "														
-													<li>
-														<a href=\"?cate={$row['cate']}\">
-														<div class=\"nav_sub_cate\">
-															{$row['cate_expression']}
-														</div>
-														</a>
-													</li> ";
-											}
 											
+										//출력문 가변부 조건 및 내용 설정
+										if( ($_GET['cate'] === $row['cate']) || ( !$paravalue && !$row['cate'])  ){
+											// cate파라가있고 이것이 $row의cate열과같을때 OR 파라가전혀없고 $row의cate열이비었을때(all일때)
+											// 셀렉트 관련 변수를 지정한다
+											$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
+											$select_close = "</div>";
+										}else{
+											$select_open = " ";
+											$select_close = " ";
 										}
-									}		
+										
+										//출력문 고정부 설정
+										$link = $row['cate'];
+										$display = $row['cate_expression'];
+										
+										$list = " 
+											<li>
+												<a href=\"?cate={$link}\">
+													<div class=\"nav_sub_cate\">".
+														$select_open.
+										 					$display.
+														$select_close.
+													"</div>
+												</a>
+											</li>
+										";
+										
+										//출력
+										echo $list;
+									}				
 									?>
 								</ul>
 							</div>
@@ -168,44 +146,38 @@
 										$num_rows = mysql_num_rows($result);
 										echo "<div class=\"tmpinfo\">태그 종류 수는 :{$num_rows}</div>";
 										
-										while($row = mysql_fetch_array($result)){
-												
-											if(!$_GET['tag']){ //없으면 그냥 출력 
-												echo "
-													<li>
-													<a href=\"?tag={$row['tag']}\">". // 이 태그를 원자화 해야하는데 그럼 로태그부터 우선..
-													"<div class=\"nav_sub_tag\">
-														{$row['tag']}
-													</div>
-													</a>
-													</li>
-												";	
-											}else{ //있으면 비교해서 셀렉트,넌셀렉트 출력
-												if($_GET['tag'] ==$row['tag']){
-													echo "
-														<li>
-														<a href=\"?tag={$row['tag']}\">
-														<div class=\"nav_sub_tag\">
-															<div class=\"sel\">
-																<img src=\"./image/sel_mark_01.png\">
-																{$row['tag']}
-															</div>
-														</div>
-														</a>
-														</li>
-													";		
-												}else{
-													echo "
-														<li>
-														<a href=\"?tag={$row['tag']}\">
-														<div class=\"nav_sub_tag\">
-															{$row['tag']}
-														</div>
-														</a>
-														</li>
-													";	
-												} 	
+										//리소스를 목록으로 출력						
+										while ($row = mysql_fetch_array($result)){
+											
+											//출력문 가변부 조건 및 내용 설정
+											if($_GET['tag'] === $row['tag']){
+												// tag파라가있고 이것이 $row의tag열과같을때
+												// 셀렉트 관련 변수를 지정한다
+												$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
+												$select_close = "</div>";
+											}else{
+												$select_open = " ";
+												$select_close = " ";
 											}
+											
+											//출력문 고정부 설정
+											$link = $row['tag'];  // 이 태그를 원자화 해야하는데
+											$display = $row['tag'];
+											
+											$list = " 
+												<li>
+													<a href=\"?tag={$link}\">
+														<div class=\"nav_sub_cate\">".
+															$select_open.
+											 					$display.
+															$select_close.
+														"</div>
+													</a>
+												</li>
+											";
+										
+										//출력
+										echo $list;
 										}
 									?>
 								</ul>
