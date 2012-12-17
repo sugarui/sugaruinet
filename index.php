@@ -144,40 +144,49 @@
 										$sql = "SELECT tag FROM su_post_01 GROUP BY tag";
 										$result = mysql_query($sql);
 										$num_rows = mysql_num_rows($result);
-										echo "<div class=\"tmpinfo\">태그 종류 수는 :{$num_rows}</div>";
+										// echo "<div class=\"tmpinfo\">태그 종류 수는 :{$num_rows}</div>";
+										// 이건이제 이렇게못함.하려면 풀어서 새배열이나 테이블에 넣은후 카운트해야하는데 번거로움..
 										
 										//리소스를 목록으로 출력						
 										while ($row = mysql_fetch_array($result)){
 											
-											//출력문 가변부 조건 및 내용 설정
-											if($_GET['tag'] === $row['tag']){
-												// tag파라가있고 이것이 $row의tag열과같을때
-												// 셀렉트 관련 변수를 지정한다
-												$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
-												$select_close = "</div>";
-											}else{
-												$select_open = " ";
-												$select_close = " ";
+											//복수태그 원자화
+											$tags = explode("@", $row['tag']); // Array(태그A, 태그B)
+											
+											$i=0;
+											while ($i < count($tags)){
+												
+												//출력문 가변부 조건 및 내용 설정
+												if($_GET['tag'] === $tags[$i]){
+													// tag파라가있고 이것이 $row의tag열과같을때
+													// 셀렉트 관련 변수를 지정한다
+													$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
+													$select_close = "</div>";
+												}else{
+													$select_open = " ";
+													$select_close = " ";
+												}
+
+												//출력문 고정부 설정
+												$link = $tags[$i];  
+												$display = $tags[$i];
+													
+												$list = " 
+													<li>
+														<a href=\"?tag={$link}\">
+															<div class=\"nav_sub_cate\">".
+																$select_open.
+												 					$display.
+																$select_close.
+															"</div>
+														</a>
+													</li>
+												";	
+												
+												//출력
+												echo $list;
+												$i++;
 											}
-											
-											//출력문 고정부 설정
-											$link = $row['tag'];  // 이 태그를 원자화 해야하는데
-											$display = $row['tag'];
-											
-											$list = " 
-												<li>
-													<a href=\"?tag={$link}\">
-														<div class=\"nav_sub_cate\">".
-															$select_open.
-											 					$display.
-															$select_close.
-														"</div>
-													</a>
-												</li>
-											";
-										
-										//출력
-										echo $list;
 										}
 									?>
 								</ul>
@@ -200,17 +209,19 @@
 				$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
 				
 				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
+				/// 쿼리문 웨어부 조건 및 내용 설정
 				if($paravalue){
-					$sql = 
-						// "SELECT * FROM su_post_01 
-						"SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate 
-						WHERE p.{$paraname}='{$paravalue}' 
-						ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
+					$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
 				}else{
-					$sql =
-						"SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate 
-						ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}";
+					$where = " ";
 				}
+				/// 쿼리문
+				$sql =  "
+						SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
+						$where." "."
+						ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
+						";
+				/// 리절트
 				$result = mysql_query($sql);
 				
 				// 리절트리소스를 어레이화할때 요소의 순번을 알아내서 자바스크립트 url먹일때 순번을 맞추려고 테스트 중
