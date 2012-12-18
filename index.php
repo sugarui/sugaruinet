@@ -196,49 +196,59 @@
 				</nav>
 			</div>
 
-				
+			
+			
 			<!--CENTER---------------------------------------------------------------->
 			<div class="con">
 				
 				<?php
-				
-				// 페이지당 출력수 결정, 페이지넘버 산출
-				$num_posts_display = 3; //디피수
-				if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅!!!
-				$num_pages_pre = $_GET['page'] -1; //앞선페이지수는 현제페이지 -1
-				$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
-				
-				//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
-				/// 쿼리문 웨어부 조건 및 내용 설정
-				if($paravalue){
-					$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
-				}else{
-					$where = " ";
-				}
-				/// 쿼리문
-				$sql =  "
-						SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
-						$where." "."
-						ORDER BY worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
-						";
-				/// 리절트
-				$result = mysql_query($sql);
-				
-				// 리절트리소스를 어레이화할때 요소의 순번을 알아내서 자바스크립트 url먹일때 순번을 맞추려고 테스트 중
-					// $row = mysql_fetch_array($result);
-					// $assoc = mysql_fetch_assoc($result);
-					// echo "첨꺼는 {$assoc[0]}<br>"; // 무한로딩남.
-					// echo "첨꺼는 {$assoc}<br>"; // 무엇일지 궁금한데 서버죽음.
-					// echo "첨꺼는 {$row[1]}<br>";// 무한로딩남. 첫거의 두번째(0,1) 필드의 값이 나오는걸보니,
-												 // 로우는 복수가 아니었나? 로우는 이미 단일? 나오는게 그 로우의 i번째 열의 값?
-												 
-				//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
-				while ($row = mysql_fetch_array($result)){
-					include './post.php';
-				}
+					// 페이지당 출력수 결정, 페이지넘버 산출
+					$num_posts_display = 3; //디피수
+					if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅!!!
+					$num_pages_pre = $_GET['page'] -1; //앞선페이지수는 현제페이지 -1
+					$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
+					
+					//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
+					/// 쿼리문 웨어부 조건 및 내용 설정
+					if($paravalue){
+						$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
+					}else{
+						$where = " ";
+					}
+					/// 쿼리문
+					$sql =  "
+							SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
+							$where." "."
+							ORDER BY id_intent DESC, worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
+							";
+					/// 리절트
+					$result = mysql_query($sql);
+													 
+					//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
+					$postorder = 1; 
+					while ($row = mysql_fetch_array($result)){
+						echo '페이지에서'.$postorder.'번째 포스트';	
+						include './post.php';
+						$postorder++;					
+				}	
 				?>
+
+				<script type="text/javascript">
+					var array = document.getElementsByName('url'); // Array (div,div,div)
+
+					var j = 0;
+					function arrayHandler(){
+						info = array[j].getAttribute('info');
+						array[j].innerHTML=info;
+					}
+
+					array[j].addEventListener('click', arrayHandler, false);
+					
+				</script>
+				
 			
 				<!---------------- 페이지네이션 ------------------>
+				
 				<div class="pagenation">
 					
 					<?php
