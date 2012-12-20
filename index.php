@@ -227,26 +227,123 @@
 					//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
 					$postorder = 1; 
 					while ($row = mysql_fetch_array($result)){
-						echo '페이지에서'.$postorder.'번째 포스트';	
+						echo "<div class=\"tmpinfo\">페이지에서 {$postorder} 번째 포스트</div>";	
 						include './post.php';
 						$postorder++;					
 				}	
 				?>
-
-				<script type="text/javascript">
+				
+				
+				
+				<!--0번에 innerhtml성공-->
+				<!-- <script type="text/javascript">
 					var array = document.getElementsByName('url'); // Array (div,div,div)
-
 					var j = 0;
 					function arrayHandler(){
 						info = array[j].getAttribute('info');
 						array[j].innerHTML=info;
 					}
+					array[j].addEventListener('click', arrayHandler, false);	
+				</script> -->
+				
+				<!--j를 연동할 방법을 모르겠음-->
+				<!-- <script type="text/javascript">
+					var array = document.getElementsByName('url'); // Array (div,div,div)
+					function arrayHandler(){
+						alert ('hello');
+						//info = array[j].getAttribute('info');
+						//array[j].innerHTML=info;
+					}	
+					array[0].addEventListener('click', arrayHandler, false);
+					array[1].addEventListener('click', arrayHandler, false);
+					array[2].addEventListener('click', arrayHandler, false);	
+				</script> -->
+				
+				<!--이벤트는 반복문을 통해 설치되지만 키 j가 지속적으로 증가해버려서 사용할수없는 키가 됨-->
+				<!-- <script type="text/javascript">
+					var aaa = document.getElementsByName('url'); // Array (div,div,div)
+					function aaaHandler(j){
+						alert ('hello');
+					}
+					var j=0;
+					while(j < aaa.length){
+						aaa[j].addEventListener('click', aaaHandler(), false);
+						j++;
+					}
+				</script> -->
+				
+				<!--돌아와서 큰 스케치 그려봄. 
+					aaa Array 전체에 이벤트를 걸 수 없음에, 
+					인덱스를 걸지 않는 한 리스너도 핸들러도 작동하지 않음이 한계임 확임
+					그리고 이코드에서 클릭없는데도 팝업이 자동으로 뜨는 현상 있음-->
+				<!-- <script type="text/javascript">
+					// 이벤트 걸 대상을 가져옴
+					var aaa = document.getElementsByName('url'); // Array (div,div,div)				
 
-					array[j].addEventListener('click', arrayHandler, false);
+					// 이벤트시 작동할 함수 (핸들러)
+					function aaaHandler(){
+						alert ('hello');	
+						//info = aaa.getAttribute('info');
+						//aaa.innerHTML=info;
+					}
+					// 이벤트 리스너 설치
+					aaa.addEventListener('click',aaaHandler(),false);
+				</script> -->
+				
+				<!--포스트오더 방식. 한개만작동함-->
+ 				<!-- <script type="text/javascript">
+					var picker = "1";
+					var pick = document.getElementById(picker); //div
+					document.write (pick);
+					function pickHandler(){
+						var info = pick.getAttribute('info');
+						pick.innerHTML=info;
+					}
+
+					pick.addEventListener('click', pickHandler, false);
+					
+				</script> -->
+				
+				<!--포스트오더 방식. 영역 싸기로 복수화 노력했으나 역시 안됨-->
+				<!-- <script type="text/javascript">
+				 	
+					var area = document.getElementsByName('area');// Array
+					function areaHandler(){
+						var order = area[ 이게 필요해서 안되네 ].getAttribute('id');
+						alert (order);
+					}
+					var num=0;
+					while(num < area.length){
+						area[num].addEventListener('click', areaHandler, false);
+						num++;	
+					}					
+				</script> -->
+				
+				<!--작동함.-->
+				<script type="text/javascript">
+					var array = document.getElementsByName('url'); // Array (div,div,div)
+					
+					function arrayHandler0(){
+						info = array[0].getAttribute('info');
+						array[0].innerHTML=info;
+					}
+					function arrayHandler1(){
+						info = array[1].getAttribute('info');
+						array[1].innerHTML=info;
+					}
+					function arrayHandler2(){
+						info = array[2].getAttribute('info');
+						array[2].innerHTML=info;
+					}
+
+					array[0].addEventListener('click', arrayHandler0, false);
+					array[1].addEventListener('click', arrayHandler1, false);
+					array[2].addEventListener('click', arrayHandler2, false);
 					
 				</script>
 				
-			
+				
+				
 				<!---------------- 페이지네이션 ------------------>
 				
 				<div class="pagenation">

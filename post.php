@@ -15,9 +15,12 @@
 					///////////////////////////////////////  이하 테스트중 코드  //////////////////////////////////////
 					// 상호연동 php측. 반복출력 시 $postroder 로 몇번째로 출력된 것인지에 대한 정보를 포함하도록 한다.
 					
+					
+					//id=$postorder //안씀 상자속 열쇠라서...
 					echo "
-						<div class=\"url\" name=\"url\" 
-						id=$postorder info=\"?id={$row['id']}\">
+						<div class=\"url\" 
+						name=\"url\" 
+						info=\"?id={$row['id']}\">
 							url
 						</div>
 					";
