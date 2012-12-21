@@ -231,65 +231,20 @@
 				}	
 				?>
 					
-<!-- 			<script type="text/javascript">
-				function copy(trb) {
-					var IE = (document.all) ? true : false;
-					if (IE) {
-						if (confirm("이 글의 트랙백 주소를 복사하시겠습니까?"))
-							window.clipboardData.setData("Text", trb);
-						} else {
-							temp = prompt("이 글의 트랙백 주소입니다.", trb);
-						}
-					}
-			</script> -->
-
-				
-				
-				<script type="text/javascript">
+				<script type="text/javascript">//자료참조 http://hosting.websearch.kr/38
 					var array = document.getElementsByName('url'); // Array (div,div,div)
 
-					//트랙백코드참고자료//
+					
 					function copy(trb) {
 						var IE = (document.all) ? true : false;
 						if (IE) {
-							if (confirm("이 글의 트랙백 주소를 복사하시겠습니까?"))
+							if (confirm("이 글의 주소를 복사하시겠습니까?"))
 								window.clipboardData.setData("Text", trb);
 						} else {
-							temp = prompt("이 글의 트랙백 주소입니다.", trb);
+							temp = prompt("이 글의 주소입니다. ctrl+c로 복사하세요.", trb);
 						}
 					}
-					//트랙백코드참고자료끝//
-					
-					function arrayHandler0(){
-						info = array[0].getAttribute('info');	
-						array[0].innerHTML=
-							'<input type="button" value="이동" onclick="'
-							+info
-							+'"/>'
-							+info
-							;
-						// array[0].setAttribute('a href', array[0].innerHTML);
-						// a[0].setAttribute('href', array[0].getAttribute('info'));
-					
-					}
-					function arrayHandler1(){
-						info = array[1].getAttribute('info');
-						array[1].innerHTML=info;
-					}
-					function arrayHandler2(){
-						info = array[2].getAttribute('info');
-						array[2].innerHTML=info;
-					}
-
-
-					array[0].addEventListener('click', arrayHandler0, false);
-					array[1].addEventListener('click', arrayHandler1, false);
-					array[2].addEventListener('click', arrayHandler2, false);
-					
 				</script>
-				
-				<!--링크자료-->
-				<a href="http://aaaa.com/aaa/12312" onclick="copy(this.href); return false;">복사</a>
 				
 				<!---------------- 페이지네이션 ------------------>
 				
