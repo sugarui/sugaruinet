@@ -17,11 +17,17 @@
 					
 					
 					//id=$postorder //안씀 상자속 열쇠라서...
-					echo "
-						<div class=\"url\" 
+					echo 
+						//<a id = \"a\" href=\" \"> 
+						"
+						<div 
+						class=\"url\" 
 						name=\"url\" 
-						info=\"?id={$row['id']}\">
-							url
+						info=\"
+							http://elecuchi.cafe24.com/sugaruinet/index.php?id={$row['id']}
+						\"
+						>
+								share
 						</div>
 					";
 					?>
