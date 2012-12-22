@@ -45,7 +45,7 @@
 						<!------------ tail ------------>
 						<div class="tail">
 							<?php
-								//작업일
+								/////작업일
 								if($row['worked']){
 									echo "
 										<div class=\"tail_each\">
@@ -55,7 +55,7 @@
 										</div>
 									";
 								}
-								//편집일
+								/////편집일
 								// if($row['created']){
 									// echo "
 										// <div class=\"tail_each\">
@@ -64,7 +64,7 @@
 										// </div>
 									// ";
 								// }
-								// 카테고리 
+								/////카테고리 
 								if(!$_GET['cate']){
 									echo "
 										<div class=\"tail_each\">
@@ -75,8 +75,8 @@
 										</div>
 									";
 								}
-								// 태그. 
-								if(!$_GET['tag'] && $row['tag']) {
+								///// 태그
+								if($row['tag']) {
 									echo "
 										<div class=\"tail_each\">
 											<span class=\"small\">태그&nbsp;</span>
@@ -106,7 +106,7 @@
 										</div>
 									";		
 								}
-								//주소     자료참조 http://hosting.websearch.kr/38
+								/////주소     자료참조 http://hosting.websearch.kr/38
 								echo "
 									<div class=\"tail_each_2\">
 										<a href=\"?id={$row['id']}\" onclick=\"copy(this.href); return false;\">

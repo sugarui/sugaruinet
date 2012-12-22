@@ -16,3 +16,12 @@
 </div>
 <div class="border_1"></div>
 <div class="border_2"></div>
+<?php 
+	// $sql =  "
+	// SELECT * FROM su_post_01 WHERE `id` = '22'";
+	// $result = mysql_query($sql2);
+// 	
+	// while($row = mysql_fetch_array($result)){
+		// include './post.php';
+	// }
+// ?>

@@ -15,7 +15,7 @@
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="./image/favicon.ico" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" href="./image/apple-touch-icon@2x.png" />
 
 		<link type="text/css" href="./style/style.css" rel="stylesheet" />
 		<script type="text/javascript">
@@ -41,29 +41,25 @@
 					<div>
 						<a href="./index.php"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
 					</div>
-					<div>
-						<img src="./image/under_construction.png" alt="공사중 표시">
-					</div></h1>
+					</h1>
 				</header>
 
 				<nav>
 					<ul>
-						<li> <!--작업일지-->
-							<div class="nav_diary">
-								작업일지
-							</div>
-							<div>
-								<a href="https://www.facebook.com/sugaruipage" target="_blank"> <img src="./image/lnb_diary_fb.png" alt="facebook"></a>
-							</div>
-							<div>
-								<a href="https://github.com/sugarui/sugaruinet" target="_blank"> <img src="./image/lnb_diary_gh.png" alt="github"></a>
-							</div>
-						</li>
 						<li><!--어바웃-->
-							<div class="nav_main">
-								ABOUT 
-							</div>
+							<a href="?id=1">
+								<div class="nav_main">	
+									<?php
+									if($_GET['id']==='1'){
+										echo "<img src=\"./image/sel_mark_02.png\">&nbsp;ABOUT";
+									}else{
+										echo "ABOUT";
+									}
+									?>
+								</div>
+							</a>
 						</li>
+						
 						<li><!--카테고리-->
 							<div class="nav_main">
 								CATEGORY
@@ -125,6 +121,18 @@
 								</ul>
 							</div>
 						</li>
+						<li> <!--작업일지-->
+							<div class="nav_diary">
+								작업일지
+							</div>
+							<div>
+								<a href="https://www.facebook.com/sugaruipage" target="_blank"> <img src="./image/lnb_diary_fb.png" alt="facebook"></a>
+							</div>
+							<div>
+								<a href="https://github.com/sugarui/sugaruinet" target="_blank"> <img src="./image/lnb_diary_gh.png" alt="github"></a>
+							</div>
+						</li>
+						
 					
 					</ul>
 				</nav>
@@ -142,11 +150,9 @@
 							<div><!--구 <div class="nav_sub_tag">-->
 								<ul>
 									<?php
-										$sql = "SELECT tag FROM su_post_01 GROUP BY tag";
+										$sql = "SELECT tag FROM su_post_02 GROUP BY tag";
 										$result = mysql_query($sql);
 										$num_rows = mysql_num_rows($result);
-										// echo "<div class=\"tmpinfo\">태그 종류 수는 :{$num_rows}</div>";
-										// 이건이제 이렇게못함.하려면 풀어서 새배열이나 테이블에 넣은후 카운트해야하는데 번거로움..
 										
 										//리소스를 목록으로 출력						
 										while ($row = mysql_fetch_array($result)){
@@ -175,7 +181,7 @@
 												$list = " 
 													<li>
 														<a href=\"?tag={$link}\">
-															<div class=\"nav_sub_cate\">".
+															<div class=\"nav_sub_tag\">".
 																$select_open.
 												 					$display.
 																$select_close.
@@ -203,6 +209,10 @@
 			<div class="con">
 				
 				<?php
+
+				?>
+				
+				<?php
 					// 페이지당 출력수 결정, 페이지넘버 산출
 					$num_posts_display = 3; //디피수
 					if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅!!!
@@ -211,20 +221,22 @@
 					
 					//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
 					/// 쿼리문 웨어부 조건 및 내용 설정
-					if($paravalue){
+					if($_GET['tag']){
 						$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
+					}else if($paravalue){
+						$where = "WHERE p.{$paraname} = '{$paravalue}'";
 					}else{
 						$where = " ";
 					}
 					/// 쿼리문
 					$sql =  "
-							SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
+							SELECT p.*, c.cate_expression FROM su_post_02 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
 							$where." "."
 							ORDER BY id_intent DESC, worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 							";
 					/// 리절트
 					$result = mysql_query($sql);
-													 
+						 
 					//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
 					while ($row = mysql_fetch_array($result)){
 						include './post.php';				
@@ -257,9 +269,9 @@
 					
 						//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
 						if($paravalue){
-							$sql = "SELECT id FROM `su_post_01` WHERE $paraname = '$paravalue'"; 
+							$sql = "SELECT id FROM `su_post_02` WHERE $paraname = '$paravalue'"; 
 						}else{
-							$sql = "SELECT id FROM `su_post_01`";
+							$sql = "SELECT id FROM `su_post_02`";
 						}
 						$result = mysql_query($sql);
 						$num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 22  / $num_view = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
