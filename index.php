@@ -13,11 +13,13 @@
 		<meta name="author" content="슈가루이(sugarui)" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 
-		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="./image/favicon.ico" />
 		<link rel="apple-touch-icon" href="./image/apple-touch-icon@2x.png" />
 
 		<link type="text/css" href="./style/style.css" rel="stylesheet" />
+		<!--[If lte IE 9]>
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="./style/fontsie.css"  />
+		<![endif]-->	
 		<script type="text/javascript">
 			window.onResize = function() {
 				// Calculate the height of the body, ubstract the height of the head and apply to all columns

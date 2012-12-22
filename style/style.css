@@ -69,8 +69,9 @@
 
 	body{
 		background-color: #222328;
-		font-family: NanumGothic; /*"Malgun Gothic", "맑은 고딕";*/
+		font-family: Malgun Gothic, 맑은 고딕, NanumGothic, AppleGothic; 
 		color: #aaa;
+		letter-spacing: -1px;
 	}
 	/*본문 텍스트*/
 	.con{
@@ -99,6 +100,7 @@
 		font-size: 11px;
 		font-weight: bold;
 		text-shadow: 0px 2px 0px #000;
+		letter-spacing: 1px;
 	}
 
 	/* 주메뉴 - 임시부착 작업일지 용*/
@@ -114,17 +116,19 @@
 	.nav_sub_cate{				
 		color: #6b6b6b; /*디스에이블은 #444*/
 		font-size:14px;
-		line-height:170%; 
+		line-height:170%;
+		letter-spacing: 0px; 
 	}	
 	.nav_sub_cate_add{		
 		font-size:12px;
 		display: inline;
+		letter-spacing: 0px;
 	}
 	/* 세부메뉴-태그 */
 	.nav_sub_tag{
 		color: #6b6b6b; /*디스에이블은 #444*/
 		font-size: 13px;
-		line-height: 220%
+		line-height: 220%;
 	}
 	/* 셀렉트마커 포지션 디테일*/ 
 	nav .sel img{
@@ -162,13 +166,13 @@
 	}
 	/*내부*/
 	.post{ 
-		padding-top:35px;
+		padding-top:30px;
 		padding-bottom:20px;
 	}
 	/*포스트타이틀*/
 	.post h2{
 		font-size:16px;/*나눔펜일때 26px;*/
-		font-family: NanumGothic;
+		/*font-family: Malgun Gothic, NanumGothic;*/
 		font-weight: normal;
 		color: #ddd;
 		text-shadow: 0px -1px 0px  #000;
@@ -176,7 +180,7 @@
 	/*이너포스트타이틀*/
 	.post h3{
 		font-size:15px;/*나눔펜일때 22px;*/
-		font-family: NanumGothic;
+		/*font-family: Malgun Gothic, NanumGothic;*/
 	}
 	/*요소 여백-좌우공통 (전체폭 점선 때문에 마진을 .post에서 한꺼번에 못하므로 여기서 지정)*/
 	.title, .title_inner, .graphic, .text{
@@ -199,7 +203,7 @@
 		margin-top: 14px;
 		margin-bottom: 14px;
 		font-size: 15px;/*나눔펜일때 22px;*/
-		font-family: NanumGothic;	
+		/*font-family: Malgun Gothic, NanumGothic;	*/
 		font-weight: normal;
 	}
 	.border_1{
@@ -230,7 +234,7 @@
 	}
 	
 	.tail_each .small{
-		font-size:10px;
+		font-size:11px;
 	}
 		
 	.btn_link{
@@ -258,21 +262,9 @@
 		font-weight: bold;
 		margin-bottom: 0px; 
 	}	
-	
 /***************fontface***************/	
-	/* 로딩 쩔어
-	@font-face {
-		font-family:'NanumPen'; 
-		src: url('../font/NanumPen.eot') format("opentype");
-		src: local(☺);
-		src: url('../font/NanumPen.ttf') format("truetype");
-		src: url('../font/NanumPen.woff') format("woff");
-	}
-	*/ 
 	@font-face {
 		font-family:'NanumGothic'; 
-		src: url('../font/NanumGothic.eot') format("opentype");
-		src: local(☺);
 		src: url('../font/NanumGothic.ttf') format("truetype");
-		src: url('../font/NanumGothic.woff') format("woff");
-	} 
+		/*src: url('../font/NanumGothic.woff') format("woff");*/
+	}
