@@ -98,23 +98,20 @@
 		margin-bottom: 10px;
 		color: #dc2276; /* 디스에이블은 #702245;*/
 		font-size: 11px;
-		font-weight: bold;
 		text-shadow: 0px 2px 0px #000;
 		letter-spacing: 1px;
-	}
-
-	/* 주메뉴 - 임시부착 작업일지 용*/
-	.nav_diary{	
-		margin-top:50px;
-		margin-bottom:5px;
-		color:#e98a04;
-		font-size: 11.5px;
 		font-weight: bold;
-		text-shadow: 0px 2px 0px #000;
+	}
+	.nav_contact{
+		margin-top:30px;
+		margin-bottom:10px;
+		color: #5e6270; 
+		font-size: 11px;
+		font-weight: bold;
 	}
 	/* 세부메뉴-카테고리 */
 	.nav_sub_cate{				
-		color: #6b6b6b; /*디스에이블은 #444*/
+		color: #6b6b6b;
 		font-size:14px;
 		line-height:170%;
 		letter-spacing: 0px; 
@@ -123,12 +120,19 @@
 		font-size:12px;
 		display: inline;
 		letter-spacing: 0px;
-	}
+	}	
 	/* 세부메뉴-태그 */
 	.nav_sub_tag{
-		color: #6b6b6b; /*디스에이블은 #444*/
+		color: #6b6b6b;
 		font-size: 13px;
 		line-height: 220%;
+	}
+	/* 세부메뉴-sns및작업일지 디테일 */
+	.icon{
+		margin-bottom: 5px;
+	}
+	.space{
+		margin-top: 80px;
 	}
 	/* 셀렉트마커 포지션 디테일*/ 
 	nav .sel img{

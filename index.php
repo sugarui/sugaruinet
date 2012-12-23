@@ -123,18 +123,46 @@
 								</ul>
 							</div>
 						</li>
+
+						<div class="space"></div>
+
 						<li> <!--작업일지-->
-							<div class="nav_diary">
+							<div class="nav_contact">
 								작업일지
 							</div>
-							<div>
-								<a href="https://www.facebook.com/sugaruipage" target="_blank"> <img src="./image/lnb_diary_fb.png" alt="facebook"></a>
+							<div class="icon">
+								<a href="https://www.facebook.com/sugaruipage" target="_blank">
+									 <img src="./image/lnb_diary_fb.png" alt="facebook">
+								</a>
 							</div>
-							<div>
-								<a href="https://github.com/sugarui/sugaruinet" target="_blank"> <img src="./image/lnb_diary_gh.png" alt="github"></a>
+							<div class="icon">
+								<a href="https://github.com/sugarui/sugaruinet" target="_blank">
+									<img src="./image/lnb_diary_gh.png" alt="github">
+								</a>
 							</div>
 						</li>
-						
+						<li> <!--채널-->
+							<div class="nav_contact">
+								CHANNEL
+							</div>
+								<ul>
+									<div class="icon">
+									<a href="https://www.facebook.com/sugaruipage#!/sugar.ui.9" target="_blank"> 
+										 <img src="./image/lnb_sns_fb.png" alt="facebook">
+									</a>
+									</div>
+									<div class="icon">
+									<a href="https://twitter.com/sugarui" target="_blank"> 
+										 <img src="./image/lnb_sns_tw.png" alt="twitter">	
+									</a>
+									</div>
+									<div class="icon">
+									<a href="http://blog.naver.com/sugarui" target="_blank">
+										 <img src="./image/lnb_sns_blog.png" alt="blog">
+									</a>
+									</div>
+								</ul>
+						</li>
 					
 					</ul>
 				</nav>
