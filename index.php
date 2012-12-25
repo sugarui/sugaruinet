@@ -17,6 +17,7 @@
 		<link rel="apple-touch-icon" href="./image/apple-touch-icon@2x.png" />
 
 		<link type="text/css" href="./style/style.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<!--[If lte IE 9]>
 		<link rel="stylesheet" type="text/css" media="screen, projection" href="./style/fontsie.css"  />
 		<![endif]-->	
@@ -48,20 +49,6 @@
 
 				<nav>
 					<ul>
-						<li><!--어바웃-->
-							<a href="?id=1">
-								<div class="nav_main">	
-									<?php
-									if($_GET['id']==='1'){
-										echo "<img src=\"./image/sel_mark_02.png\">&nbsp;ABOUT";
-									}else{
-										echo "ABOUT";
-									}
-									?>
-								</div>
-							</a>
-						</li>
-						
 						<li><!--카테고리-->
 							<div class="nav_main">
 								CATEGORY
@@ -90,8 +77,8 @@
 									while ($row = mysql_fetch_array($result)){
 											
 										//출력문 가변부 조건 및 내용 설정
-										if( ($_GET['cate'] === $row['cate']) || ( !$paravalue && !$row['cate'])  ){
-											// cate파라가있고 이것이 $row의cate열과같을때 OR 파라가전혀없고 $row의cate열이비었을때(all일때)
+										if( ($_GET['cate'] === $row['cate']) || ( !$paravalue && !$row['cate'] && !$_GET['special'])  ){
+											// cate파라가있고 이것이 $row의cate열과같을때 OR 파라가전혀없고 $row의cate열이비었을때(all일때) 이면서 $row_special 스페셜값이 없을때
 											// 셀렉트 관련 변수를 지정한다
 											$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
 											$select_close = "</div>";
@@ -123,9 +110,34 @@
 								</ul>
 							</div>
 						</li>
-
-						<div class="space"></div>
-
+						<li><!--어바웃-->
+							<a href="?special=about">
+								<div class="nav_main">	
+									<?php
+									if($_GET['special']==='about'){
+										echo "<img src=\"./image/sel_mark_02.png\">&nbsp;ABOUT";
+									}else{
+										echo "ABOUT";
+									}
+									?>
+								</div>
+							</a>
+						</li>
+						<li><!--방명록-->
+							<a href="?special=guest">
+								<div class="nav_main">	
+									<?php
+									if($_GET['special']==='guest'){
+										echo "<img src=\"./image/sel_mark_02.png\">&nbsp;GUEST";
+									}else{
+										echo "GUEST";
+									}
+									?>
+								</div>
+							</a>
+						</li>
+						
+						<div class="space_50"></div>
 						<li> <!--작업일지-->
 							<div class="nav_contact">
 								작업일지
@@ -141,9 +153,10 @@
 								</a>
 							</div>
 						</li>
+						
 						<li> <!--채널-->
 							<div class="nav_contact">
-								CHANNEL
+								채널
 							</div>
 								<ul>
 									<div class="icon">
@@ -163,7 +176,7 @@
 									</div>
 								</ul>
 						</li>
-					
+			
 					</ul>
 				</nav>
 			</div>
@@ -182,13 +195,16 @@
 									<?php
 										$sql = "SELECT tag FROM su_post_02 GROUP BY tag";
 										$result = mysql_query($sql);
-										$num_rows = mysql_num_rows($result);
 										
 										//리소스를 목록으로 출력						
 										while ($row = mysql_fetch_array($result)){
 											
 											//복수태그 원자화
-											$tags = explode("@", $row['tag']); // Array(태그A, 태그B)
+											//$tags_raw = explode("@", $row['tag']); // Array(태그A, 태그B, 태그z, 태그A, 태그B, ) 
+											//$tags = array_unique($tags_raw);
+											
+											//$tags = implode("|",$tags);
+											//$tags = explode("|",$tags);
 											
 											$i=0;
 											while ($i < count($tags)){
@@ -239,10 +255,6 @@
 			<div class="con">
 				
 				<?php
-
-				?>
-				
-				<?php
 					// 페이지당 출력수 결정, 페이지넘버 산출
 					$num_posts_display = 3; //디피수
 					if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅!!!
@@ -264,15 +276,48 @@
 							$where." "."
 							ORDER BY id_intent DESC, worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 							";
-					/// 리절트
 					$result = mysql_query($sql);
 						 
 					//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
-					while ($row = mysql_fetch_array($result)){
-						include './post.php';				
-				}	
-				?>
+					while ($row = mysql_fetch_array($result) ){
+						if(!$_GET['special']){ //스페셜이 없을 때만
+							echo"
+								<div class=\"postbox\">
+									<div class=\"dogear\">
+										<img src=\"./image/dogear.png\">
+									</div>						
+									<div class=\"post\">
+								";
+							include './post.php';
+							echo"
+									</div>
+								</div>
+									";
+							}
+					}
 					
+					////// 스페셜 /////
+					//쿼리문
+					$sql_special =  "SELECT * FROM su_special_01 WHERE `special` = '{$_GET['special'] }' ";
+					$result_special = mysql_query($sql_special);
+						 
+					// 스페셜 출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!				
+					while ($row_special = mysql_fetch_array($result_special) ){
+						echo "
+							<div class=\"postbox\">
+								<div class=\"dogear\">
+									<img src=\"./image/dogear.png\">
+								</div>						
+								<div class=\"post\">
+							";
+						include './post_special.php';
+						echo "
+							</div>
+						</div>
+						";
+					 }
+				?> 
+				
 				<script type="text/javascript">//자료참조 http://hosting.websearch.kr/38
 					var array = document.getElementsByName('url'); // Array (div,div,div)
 
@@ -286,16 +331,16 @@
 							temp = prompt("이 글의 주소입니다. ctrl+c로 복사하세요.", trb);
 						}
 					}
-				</script>
-				
+				</script>		
+							
 				<!---------------- 페이지네이션 ------------------>
 				
 				<div class="pagenation">
 					
 					<?php
 					
-					//파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
-					if ($paraname != 'id'){ 
+					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
+					if ( ($paraname != 'id') && (!$_GET['special']) ){ 
 					
 						//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
 						if($paravalue){

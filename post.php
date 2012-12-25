@@ -1,11 +1,3 @@
-			<!------------ post------------>
-				<div class="postbox">
-					<div class="dogear">
-						<img src="./image/dogear.png">
-					</div>
-												
-					<div class="post">
-						
 						<!------------ title ------------>
 						<div class="title">
 							<h2>
@@ -43,7 +35,7 @@
 						</div>
 						
 						<!------------ tail ------------>
-						<div class="tail">
+						<div class="tail" id="tail">
 							<?php
 								/////작업일
 								if($row['worked']){
@@ -107,14 +99,14 @@
 									";		
 								}
 								/////주소     자료참조 http://hosting.websearch.kr/38
-								echo "
-									<div class=\"tail_each_2\">
-										<a href=\"?id={$row['id']}\" onclick=\"copy(this.href); return false;\">
-											<span class=\"btn_link\">share</span>
-										</a>
-									</div>
-								";
+									echo "
+										<div class=\"tail_each_2\" id=\"url\">
+											<a href=\"?id={$row['id']}\" onclick=\"copy(this.href); return false;\">
+												<span class=\"btn_link\">share</span>
+											</a>
+										</div>
+									";
 							?>
 						</div>
-					</div>
-				</div>
+					<!--</div>
+				</div>-->
