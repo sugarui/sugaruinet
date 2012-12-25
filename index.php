@@ -193,7 +193,7 @@
 							<div><!--구 <div class="nav_sub_tag">-->
 								<ul>
 									<?php
-										$sql = "SELECT tag FROM su_post_02 GROUP BY tag";
+										$sql = "SELECT tag FROM su_post_01 GROUP BY tag";
 										$result = mysql_query($sql);
 										$tags_arr = array();
 										while ($row = mysql_fetch_array($result)){
@@ -268,7 +268,7 @@
 					}
 					/// 쿼리문
 					$sql =  "
-							SELECT p.*, c.cate_expression FROM su_post_02 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
+							SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
 							$where." "."
 							ORDER BY id_intent DESC, worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 							";
@@ -340,9 +340,9 @@
 					
 						//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
 						if($paravalue){
-							$sql = "SELECT id FROM `su_post_02` WHERE $paraname = '$paravalue'"; 
+							$sql = "SELECT id FROM `su_post_01` WHERE $paraname = '$paravalue'"; 
 						}else{
-							$sql = "SELECT id FROM `su_post_02`";
+							$sql = "SELECT id FROM `su_post_01`";
 						}
 						$result = mysql_query($sql);
 						$num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 22  / $num_view = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
