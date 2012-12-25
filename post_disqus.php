@@ -16,7 +16,7 @@
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
 
-<!--DISQUS 낱개 포스트마다 부착하는 빙법 : http://bit.ly/WANy6L 참고. 그러나 작동안됨. 그래서 BBS로 뺌.
+<!--DISQUS 낱개 포스트마다 부착하는 빙법 : http://bit.ly/WANy6L 참고. 그러나 작동안됨. 그래서 BBS로 빼고, 단일포스트화되었을때만 나타나게 함.
 <script type="text/javascript">
 //var disqus_url = '[##_article_rep_link_##]'; //이건텍큐버전
 

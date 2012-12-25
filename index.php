@@ -314,10 +314,7 @@
 					 }
 				?> 
 				
-				<script type="text/javascript">//자료참조 http://hosting.websearch.kr/38
-					var array = document.getElementsByName('url'); // Array (div,div,div)
-
-					
+				<script type="text/javascript">//자료참조 http://hosting.websearch.kr/38	
 					function copy(trb) {
 						var IE = (document.all) ? true : false;
 						if (IE) {
@@ -370,7 +367,7 @@
 							} 
 			    		}
 					}
-					
+
 					?>
 				</div>
 				<!--페이지네이션 end-->

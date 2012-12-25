@@ -98,15 +98,34 @@
 										</div>
 									";		
 								}
-								/////주소     자료참조 http://hosting.websearch.kr/38
-									echo "
-										<div class=\"tail_each_2\" id=\"url\">
-											<a href=\"?id={$row['id']}\" onclick=\"copy(this.href); return false;\">
-												<span class=\"btn_link\">share</span>
+								///// 댓글, 공유버튼 영역
+								echo "<div class=\"tail_each_btn\">";
+									/////댓글  :  id없을때만 버튼노출 (id있을땐 disqus가 노출됨)  
+									if(!($_GET['id'])) { 
+										echo "
+											<a href=\"?id={$row['id']}#disqus_thread\">
+												<span class=\"btn_link\">reply</span>
 											</a>
-										</div>
-									";
+										";
+									}	
+									/////주소     자료참조 http://hosting.websearch.kr/38
+										echo "
+												<a href=\"?id={$row['id']}\" onclick=\"copy(this.href); return false;\">
+													<span class=\"btn_link\">share</span>
+												</a>
+										";
+								echo "</div>";	
 							?>
 						</div>
-					<!--</div>
-				</div>-->
+						<div class="space_20"></div>
+						<?php
+							if ($_GET['id']){
+								echo"
+									<div class=\"border_1\"></div>
+									<div class=\"border_2\"></div>
+									<div class=\"space_20\"></div>
+								";
+								include './post_disqus.php';
+							}
+						?>
+						
