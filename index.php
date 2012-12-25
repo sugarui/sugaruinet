@@ -195,51 +195,47 @@
 									<?php
 										$sql = "SELECT tag FROM su_post_02 GROUP BY tag";
 										$result = mysql_query($sql);
+										$tags_arr = array();
+										while ($row = mysql_fetch_array($result)){
+											array_push($tags_arr, $row['tag']); // 던져넣기
+										}
+										
+										//복수태그 원자화, 정렬
+									    $tags_implode = implode("@", $tags_arr);
+										$tags_explode = explode("@", $tags_implode);
+										$tags = array_unique($tags_explode);
+										array_multisort($tags);
 										
 										//리소스를 목록으로 출력						
-										while ($row = mysql_fetch_array($result)){
-											
-											//복수태그 원자화
-											//$tags_raw = explode("@", $row['tag']); // Array(태그A, 태그B, 태그z, 태그A, 태그B, ) 
-											//$tags = array_unique($tags_raw);
-											
-											//$tags = implode("|",$tags);
-											//$tags = explode("|",$tags);
-											
-											$i=0;
-											while ($i < count($tags)){
-												
-												//출력문 가변부 조건 및 내용 설정
-												if($_GET['tag'] === $tags[$i]){
-													// tag파라가있고 이것이 $row의tag열과같을때
-													// 셀렉트 관련 변수를 지정한다
-													$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
-													$select_close = "</div>";
-												}else{
-													$select_open = " ";
-													$select_close = " ";
-												}
-
-												//출력문 고정부 설정
-												$link = $tags[$i];  
-												$display = $tags[$i];
-													
-												$list = " 
-													<li>
-														<a href=\"?tag={$link}\">
-															<div class=\"nav_sub_tag\">".
-																$select_open.
-												 					$display.
-																$select_close.
-															"</div>
-														</a>
-													</li>
-												";	
-												
-												//출력
-												echo $list;
-												$i++;
+										$i=0;
+										while($i < count($tags)){
+											//출력문 가변부 조건 및 내용 설정
+											if(($_GET['tag']) && ($_GET['tag'] === $tags[$i])){
+												// tag파라가있고 이것이 $row의tag열과같을때
+												// 셀렉트 관련 변수를 지정한다
+												$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
+												$select_close = "</div>";
+											}else{
+												$select_open = " ";
+												$select_close = " ";
 											}
+											//출력문 고정부 설정
+											$link = $tags[$i];  
+											$display = $tags[$i];
+											$list = " 
+												<li>
+													<a href=\"?tag={$link}\">
+														<div class=\"nav_sub_tag\">".
+															$select_open.
+											 					$display.
+															$select_close.
+														"</div>
+													</a>
+												</li>
+											";	
+											//출력
+											echo $list;
+											$i++;
 										}
 									?>
 								</ul>

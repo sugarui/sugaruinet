@@ -8,7 +8,7 @@
 <div class="graphic">
 	<?php
 	if ($row_special['image_url']) {
-		include ('./post_graphic.php');
+		include ('./post_special_graphic.php');
 	}
 	?>
 </div>

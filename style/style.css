@@ -86,14 +86,18 @@
 	/*셀렉트*/
 	.sel{				
 		color:#ccc;
-	}	
+	}
+	/*간격조각*/	
 	.space_30{
 		margin-top: 30px;
 	}
 	.space_80{
 		margin-top: 80px;
 	} 	
-	 	
+	.down_5{
+		position:relative;
+		top:5px;
+	}
 
 
 /************************  NAV  ************************/
