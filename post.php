@@ -18,11 +18,11 @@
 						
 						<!------------ text ------------>
 						<div class="text"> 
-							<p>
+							<!--<p>-->
 								<?php
 									echo $row['text']; // 링크를 걸어야 하니까 스페설챠는 뺄게
 								?>
-							</p>
+							<!--</p>-->
 						</div>
 
 						<!------------ post_inner (널일수있음)------------>
@@ -41,9 +41,8 @@
 								if($row['worked']){
 									echo "
 										<div class=\"tail_each\">
-											<span class=\"small\">작업일시&nbsp;
+											<span class=\"small\">작업일시:&nbsp;</span>
 												<span>{$row['worked']}</span>
-											</span>
 										</div>
 									";
 								}
@@ -60,7 +59,7 @@
 								if(!$_GET['cate']){
 									echo "
 										<div class=\"tail_each\">
-											<span class=\"small\">카테고리&nbsp;</span> 
+											<span class=\"small\">카테고리:&nbsp;</span> 
 											<a href=\"?cate={$row['cate']}\">
 												<span>{$row['cate_expression']}</span>
 											</a>
@@ -71,7 +70,7 @@
 								if($row['tag']) {
 									echo "
 										<div class=\"tail_each\">
-											<span class=\"small\">태그&nbsp;</span>
+											<span class=\"small\">태그:&nbsp;</span>
 									";		
 						
 									$tags = explode("@",$row['tag']); // Array(태그A, 태그B)
@@ -117,15 +116,9 @@
 								echo "</div>";	
 							?>
 						</div>
-						<div class="space_20"></div>
+						
 						<?php
 							if ($_GET['id']){
-								echo"
-									<div class=\"border_1\"></div>
-									<div class=\"border_2\"></div>
-									<div class=\"space_20\"></div>
-								";
 								include './post_disqus.php';
 							}
 						?>
-						

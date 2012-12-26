@@ -179,8 +179,9 @@
 			
 					</ul>
 				</nav>
-			</div>
 
+			</div>
+			<?php //echo " <div class=\"nav_sub_cate\">$select_open $display $select_close </div><br>"; ?>
 
 			<!--RIGHT NAV------------------------------------------------------------->
 			<div class="nav_2">
@@ -251,6 +252,7 @@
 			<div class="con">
 				
 				<?php
+
 					// 페이지당 출력수 결정, 페이지넘버 산출
 					$num_posts_display = 3; //디피수
 					if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅!!!
@@ -276,6 +278,7 @@
 						 
 					//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
 					while ($row = mysql_fetch_array($result) ){
+						
 						if(!$_GET['special']){ //스페셜이 없을 때만
 							echo"
 								<div class=\"postbox\">
@@ -347,25 +350,27 @@
 						$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
 						
 						//출력
+						if ( $num_pages > 1){ //페이지수가 1 이상일때만
 						$i = 1;// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
-						while($i<= $num_pages) { //총페이지수까지 에코. 
-			          		
-			          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로. 페이지 파라미터는 없으면 1로 이미지정.
-			          			echo "
-			          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
-			          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
-			          				</a>
-			          				";
-								$i++;
-			          	    }else{
-			              		echo "
-			          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
-			          					<span class=\"pagenation_each\">{$i}</span>
-			          				</a>
-			          				";
-								$i++;
-							} 
-			    		}
+							while($i<= $num_pages) { //총페이지수까지 에코. 
+				          		
+				          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로. 페이지 파라미터는 없으면 1로 이미지정.
+				          			echo "
+				          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
+				          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
+				          				</a>
+				          				";
+									$i++;
+				          	    }else{
+				              		echo "
+				          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
+				          					<span class=\"pagenation_each\">{$i}</span>
+				          				</a>
+				          				";
+									$i++;
+								} 
+				    		}
+						} 
 					}
 
 					?>

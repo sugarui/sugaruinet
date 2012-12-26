@@ -1,3 +1,8 @@
+<div class="space_20"></div>
+<div class="border_1"></div>
+<div class="border_2"></div>
+<div class="space_20"></div>
+
 <!---------DISQUS----------->
 <div class= "disqus_custom">
     <div id="disqus_thread"></div>
