@@ -45,10 +45,13 @@
 		float:left;
 		margin-right:40px;
 		text-align: right;
+		/*position: fixed;*/
 	}
 	.nav_2{
 		float:right;
 		margin-left:40px;
+		/*position: fixed;
+			left: 880px; /* 160+40+680*/
 	}
 	.con{								
 		margin-left:200px; /* 160 + 40 */
@@ -205,19 +208,38 @@
 		font-size:0.8em; /*13px;	*/
 	}
 	/*요소 여백-좌우공통 (전체폭 점선 때문에 마진을 .post에서 한꺼번에 못하므로 여기서 지정)*/
-	.title, .title_inner, .graphic, .text, .disqus_custom{
+	.title, .title_inner, .text, /*.graphic*/ .disqus_custom{
 		margin-left: 40px;
 		margin-right: 40px;
 	}
+	/*그래픽 여백및 정렬 예외 처리*/
+	.graphic, .graphic_noeffect{
+	 	margin-left: 30px; /*자식마진 10px(복수의 이미지간의 간격)을 합해서 40px*/
+		margin-right: 30px;
+		text-align: center;
+	}
+	.graphic_left{ /*프로필 용 예외처리*/
+		margin-left: 30px; 
+		margin-right: 30px;
+		text-align: left;
+	}
 	/*요소 여백-상하공통*/
-	.graphic, .text {
+	.graphic, .graphic_noeffect, .graphic_left, .text {
 		margin-top:20px;
 		margin-bottom:20px;			
 	}
-	/*이미지 복수시 간격*/
-	.graphic img{
-		margin-bottom: 10px;			
+	/*이미지*/
+	.graphic img, .graphic_left img, .graphic_noeffect img{
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-bottom: 10px;	
+		text-align: center;		
 	}
+	.graphic img, .graphic_left img{
+		border-radius:3px;
+		box-shadow: 1px 1px 4px #161719;		
+	}
+	
 	/*이너포스트, 하이퍼포스트*/
 	.post_inner{
 		margin-bottom:30px; /*다음 이너포스트 설명글과의 간격은 넓어야 하므로*/
@@ -238,6 +260,7 @@
 		border-top: 1px dashed #3e404b;	
 	}
 	.post_hyper{
+		color: #eee;
 		border-bottom: dotted #aaa 1px;
 	}
 	/*테일*/

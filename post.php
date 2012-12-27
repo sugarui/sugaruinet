@@ -8,22 +8,49 @@
 						</div>
 						
 						<!------------ grapic (널일수있음) ------------>
-						<div class="graphic">
-							<?php
-								if($row['image_url']){
-								include ('./post_graphic.php');
+						<?php
+							if($row['image']){
+								echo "<div class=\"graphic\">";		
+															
+								$images = explode("@",$row['image']); //Array (이미지파일명, 이미지파일명)
+								$i=0;
+								while ($i < count($images)){
+									echo "<img src=\"../sugaruinet_portfolio/"; //경로
+									echo $images[$i];
+									echo "\">";
+									$i++;
 								}
-							?>
-						</div>
+								echo "</div>";	
+							}		
+						?>
+						
+						<!------------ grapic_효과 없어야 할 경우 (널일수있음) ------------>
+						<?php
+							if($row['image_noeffect']){
+								echo "<div class=\"graphic_noeffect\">";		
+															
+								$images = explode("@",$row['image_noeffect']); //Array (이미지파일명, 이미지파일명)
+								$i=0;
+								while ($i < count($images)){
+									echo "<img src=\"../sugaruinet_portfolio/"; //경로
+									echo $images[$i];
+									echo "\">";
+									$i++;
+								}
+								echo "</div>";	
+							}		
+						?>
 						
 						<!------------ text ------------>
-						<div class="text"> 
-							<!--<p>-->
-								<?php
-									echo $row['text']; // 링크를 걸어야 하니까 스페설챠는 뺄게
-								?>
-							<!--</p>-->
-						</div>
+						<?php 
+							if($row['text']){ // 링크를 걸어야 하니까 스페설챠는 뺄게
+								echo "
+									<div class=\"text\"> 
+										{$row['text']}
+								 	</div>
+								 "; 
+							} 
+						?>
 
 						<!------------ post_inner (널일수있음)------------>
 						<div class="post_inner">

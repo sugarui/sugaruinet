@@ -5,13 +5,15 @@
 </div>
 
 <!------------ grapic (널일수있음) ------------>
-<div class="graphic">
-	<?php
-	if ($row_special['image_url']) {
-		include ('./post_special_graphic.php');
-	}
-	?>
-</div>
+<?php
+if ($row_special['image']) {
+	echo "
+		<div class=\"graphic_left\">
+			<img src=\"../sugaruinet_portfolio/{$row_special['image']}\">
+		</div>
+		";
+}
+?>
 
 <!------------ text ------------>
 <div class="text">
