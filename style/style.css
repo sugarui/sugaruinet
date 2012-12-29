@@ -237,7 +237,7 @@
 	}
 	.graphic img, .graphic_left img{
 		border-radius:3px;
-		box-shadow: 1px 1px 4px #161719;		
+		box-shadow: 0px 0px 4px #161719;		
 	}
 	
 	/*이너포스트, 하이퍼포스트*/

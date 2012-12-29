@@ -13,13 +13,13 @@
 		<meta name="author" content="슈가루이(sugarui)" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 
-		<link rel="shortcut icon" href="./image/favicon.ico" />
-		<link rel="apple-touch-icon" href="./image/apple-touch-icon@2x.png" />
+		<link rel="shortcut icon" href="./sugaruinet/image/favicon.ico" />
+		<link rel="apple-touch-icon" href="./sugaruinet/image/apple-touch-icon@2x.png" />
 
-		<link type="text/css" href="./style/style.css" rel="stylesheet" />
+		<link type="text/css" href="./sugaruinet/style/style.css" rel="stylesheet" />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<!--[If lte IE 9]>
-		<link rel="stylesheet" type="text/css" media="screen, projection" href="./style/fontsie.css"  />
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="./sugaruinet/style/fontsie.css"  />
 		<![endif]-->	
 		<script type="text/javascript">
 			window.onResize = function() {
@@ -30,7 +30,7 @@
 	
 			<!--------------------DB접속-------------------->
 				<?php
-				include_once ('../db.php');
+				include_once ('./db.php');
 				?>
 			
 	<body>
@@ -42,7 +42,7 @@
 				<header>
 					<h1>
 					<div>
-						<a href="./index.php"> <img src="./image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="./index.php"> <img src="./sugaruinet/image/logo.png" alt="사탕화면 회사로고"> </a>
 					</div>
 					</h1>
 				</header>
@@ -80,7 +80,7 @@
 										if( ($_GET['cate'] === $row['cate']) || ( !$paravalue && !$row['cate'] && !$_GET['special'])  ){
 											// cate파라가있고 이것이 $row의cate열과같을때 OR 파라가전혀없고 $row의cate열이비었을때(all일때) 이면서 $row_special 스페셜값이 없을때
 											// 셀렉트 관련 변수를 지정한다
-											$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
+											$select_open = "<div class=\"sel\"><img src=\"./sugaruinet/image/sel_mark_01.png\">&nbsp;";
 											$select_close = "</div>";
 										}else{
 											$select_open = " ";
@@ -115,7 +115,7 @@
 								<div class="nav_main">	
 									<?php
 									if($_GET['special']==='about'){
-										echo "<img src=\"./image/sel_mark_02.png\">&nbsp;ABOUT";
+										echo "<img src=\"./sugaruinet/image/sel_mark_02.png\">&nbsp;ABOUT";
 									}else{
 										echo "ABOUT";
 									}
@@ -128,7 +128,7 @@
 								<div class="nav_main">	
 									<?php
 									if($_GET['special']==='guest'){
-										echo "<img src=\"./image/sel_mark_02.png\">&nbsp;GUEST";
+										echo "<img src=\"./sugaruinet/image/sel_mark_02.png\">&nbsp;GUEST";
 									}else{
 										echo "GUEST";
 									}
@@ -144,12 +144,12 @@
 							</div>
 							<div class="icon">
 								<a href="https://www.facebook.com/sugaruipage" target="_blank">
-									 <img src="./image/lnb_diary_fb.png" alt="facebook">
+									 <img src="./sugaruinet/image/lnb_diary_fb.png" alt="facebook">
 								</a>
 							</div>
 							<div class="icon">
 								<a href="https://github.com/sugarui/sugaruinet" target="_blank">
-									<img src="./image/lnb_diary_gh.png" alt="github">
+									<img src="./sugaruinet/image/lnb_diary_gh.png" alt="github">
 								</a>
 							</div>
 						</li>
@@ -161,17 +161,17 @@
 								<ul>
 									<div class="icon">
 									<a href="https://www.facebook.com/sugaruipage#!/sugar.ui.9" target="_blank"> 
-										 <img src="./image/lnb_sns_fb.png" alt="facebook">
+										 <img src="./sugaruinet/image/lnb_sns_fb.png" alt="facebook">
 									</a>
 									</div>
 									<div class="icon">
 									<a href="https://twitter.com/sugarui" target="_blank"> 
-										 <img src="./image/lnb_sns_tw.png" alt="twitter">	
+										 <img src="./sugaruinet/image/lnb_sns_tw.png" alt="twitter">	
 									</a>
 									</div>
 									<div class="icon">
 									<a href="http://blog.naver.com/sugarui" target="_blank">
-										 <img src="./image/lnb_sns_blog.png" alt="blog">
+										 <img src="./sugaruinet/image/lnb_sns_blog.png" alt="blog">
 									</a>
 									</div>
 								</ul>
@@ -214,7 +214,7 @@
 											if(($_GET['tag']) && ($_GET['tag'] === $tags[$i])){
 												// tag파라가있고 이것이 $row의tag열과같을때
 												// 셀렉트 관련 변수를 지정한다
-												$select_open = "<div class=\"sel\"><img src=\"./image/sel_mark_01.png\">&nbsp;";
+												$select_open = "<div class=\"sel\"><img src=\"./sugaruinet/image/sel_mark_01.png\">&nbsp;";
 												$select_close = "</div>";
 											}else{
 												$select_open = " ";
@@ -283,11 +283,11 @@
 							echo"
 								<div class=\"postbox\">
 									<div class=\"dogear\">
-										<img src=\"./image/dogear.png\">
+										<img src=\"./sugaruinet/image/dogear.png\">
 									</div>						
 									<div class=\"post\">
 								";
-							include './post.php';
+							include './sugaruinet/post.php';
 							echo"
 									</div>
 								</div>
@@ -305,11 +305,11 @@
 						echo "
 							<div class=\"postbox\">
 								<div class=\"dogear\">
-									<img src=\"./image/dogear.png\">
+									<img src=\"./sugaruinet/image/dogear.png\">
 								</div>						
 								<div class=\"post\">
 							";
-						include './post_special.php';
+						include './sugaruinet/post_special.php';
 						echo "
 							</div>
 						</div>

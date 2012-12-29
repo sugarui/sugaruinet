@@ -52,6 +52,34 @@
 							} 
 						?>
 
+						<!------------ grapic_2 (널일수있음) ------------>
+						<?php
+							if($row['image_2']){
+								echo "<div class=\"graphic\">";		
+															
+								$images = explode("@",$row['image_2']); //Array (이미지파일명, 이미지파일명)
+								$i=0;
+								while ($i < count($images)){
+									echo "<img src=\"../sugaruinet_portfolio/"; //경로
+									echo $images[$i];
+									echo "\">";
+									$i++;
+								}
+								echo "</div>";	
+							}		
+						?>
+						
+						<!------------ text_2------------>
+						<?php 
+							if($row['text_2']){ // 링크를 걸어야 하니까 스페설챠는 뺄게
+								echo "
+									<div class=\"text\"> 
+										{$row['text_2']}
+								 	</div>
+								 "; 
+							} 
+						?>
+
 						<!------------ post_inner (널일수있음)------------>
 						<div class="post_inner">
 							<?php
@@ -146,6 +174,6 @@
 						
 						<?php
 							if ($_GET['id']){
-								include './post_disqus.php';
+								include './sugaruinet/post_disqus.php';
 							}
 						?>

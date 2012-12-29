@@ -26,6 +26,6 @@ if ($row_special['image']) {
  
 <?php
 	if ($_GET['special']==='guest'){
-		include './post_disqus.php';
+		include './sugaruinet/post_disqus.php';
 	}
 ?>
