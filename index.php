@@ -2,61 +2,41 @@
 <html lang="en">
 
 	<head>
-		<meta charset="utf-8" />
-
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		Remove this if you use the .htaccess -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-		<title>사탕화면</title>
-		<meta name="description" content="디자인 스튜디오 사탕화면 포트폴리오 사이트" />
-		<meta name="author" content="슈가루이(sugarui)" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
-
-		<link rel="shortcut icon" href="./sugaruinet/image/favicon.ico" />
-		<link rel="apple-touch-icon" href="./sugaruinet/image/apple-touch-icon@2x.png" />
-
-		<link type="text/css" href="./sugaruinet/style/style.css" rel="stylesheet" />
+		<?php
+			include_once ('./sugaruinet/head.php')
+		?>		
+		<link rel="stylesheet" type="text/css" href="./sugaruinet/style/style_space.css"  />
+		<link rel="stylesheet" type="text/css" href="./sugaruinet/style/style.css"  />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
-		<!--[If lte IE 9]>
-		<link rel="stylesheet" type="text/css" media="screen, projection" href="./sugaruinet/style/fontsie.css"  />
-		<![endif]-->	
-		<script type="text/javascript">
-			window.onResize = function() {
-				// Calculate the height of the body, ubstract the height of the head and apply to all columns
-			}
-		</script>
 	</head>
 	
-			<!--------------------DB접속-------------------->
-				<?php
-				include_once ('./db.php');
-				?>
+	<!--DB접속-->
+		<?php
+		include_once ('./db.php');
+		?>
 			
 	<body>
 		<div class="wrap">
 
 			<!--LEFT NAV------------------------------------------------------------->
 			<div class="nav_1">
-				
 				<header>
 					<h1>
-					<div>
-						<a href="./index.php"> <img src="./sugaruinet/image/logo.png" alt="사탕화면 회사로고"> </a>
-					</div>
+						
+						<div class="header_web">
+							<a href="./index.php"> <img src="./sugaruinet/image/logo.png" alt="사탕화면 회사로고"> </a>
+						</div>
+						
+						<div class="header_mob">
+							<img src="./sugaruinet/image/logo_mob.png" alt="사탕화면 회사로고"> </a>
+						</div>
+
 					</h1>
 				</header>
 
 				<nav>
-					<ul>
-						<li><!--카테고리-->
-							<div class="nav_main">
-								CATEGORY
-							</div>
-							<div><!--구 <div class="nav_sub_cate">-->						
-								<ul>
-									<?php
-									
+					
+					<?php
 									//파라미터 기준 설정(카테냐,태그냐,아이디냐)
 							        if($_GET['cate']){
 							        	$paraname = 'cate'; 
@@ -72,7 +52,19 @@
 									//Table(카테) 로부터 리소스획득
 									$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent';
 									$result = mysql_query($sql);
-									
+					?>
+					
+					<!--네비게이션 : 웹-->
+					<div class="nav_web">
+					<ul>
+						<li><!--카테고리-->
+							<div class="nav_main">
+								CATEGORY
+							</div>
+							<div><!--구 <div class="nav_sub_cate">-->						
+								<ul>
+									<?php
+																		
 									//리소스를 목록으로 출력						
 									while ($row = mysql_fetch_array($result)){
 											
@@ -178,6 +170,13 @@
 						</li>
 			
 					</ul>
+					</div>
+				
+					<!--네비게이션 : 모바일-->
+					<div class="nav_mob">
+					
+					</div>	
+					
 				</nav>
 
 			</div>
@@ -243,7 +242,7 @@
 							</div>
 						</li>
 					</ul>
-				</nav>
+					</nav>
 			</div>
 
 			

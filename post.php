@@ -96,25 +96,16 @@
 								if($row['worked']){
 									echo "
 										<div class=\"tail_each\">
-											<span class=\"small\">작업일시:&nbsp;</span>
+											<span class=\"small\">작업일시&nbsp;</span>
 												<span>{$row['worked']}</span>
 										</div>
 									";
 								}
-								/////편집일
-								// if($row['created']){
-									// echo "
-										// <div class=\"tail_each\">
-											// 생성일시&nbsp;|&nbsp;
-											// {$row['created']}
-										// </div>
-									// ";
-								// }
 								/////카테고리 
 								if(!$_GET['cate']){
 									echo "
 										<div class=\"tail_each\">
-											<span class=\"small\">카테고리:&nbsp;</span> 
+											<span class=\"small\">카테고리&nbsp;</span> 
 											<a href=\"?cate={$row['cate']}\">
 												<span>{$row['cate_expression']}</span>
 											</a>
@@ -125,7 +116,7 @@
 								if($row['tag']) {
 									echo "
 										<div class=\"tail_each\">
-											<span class=\"small\">태그:&nbsp;</span>
+											<span class=\"small\">태그&nbsp;</span>
 									";		
 						
 									$tags = explode("@",$row['tag']); // Array(태그A, 태그B)

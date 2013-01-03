@@ -1,0 +1,81 @@
+/*********************  LAYOUT  *********************/		
+
+	body{
+		margin: 0px;
+		padding: 0px;
+	}
+	.wrap{
+		margin: 0px;/*magic for center align*/
+	}	 		
+	.nav_2{
+		display: none;
+	}
+	.nav_web{
+		display: none;
+	}
+	.nav_mob{
+		height: 90px;
+		background-color: #ff0000;/*#222327;*/
+		width: 100%;
+	}
+
+
+
+/*********************  COMMON  *********************/
+
+	body{
+		background-color: #1c1d21;
+		font-family: Malgun Gothic, AppleGothic; 
+		color: #aaa;
+		letter-spacing: -1px;
+	}
+	/*본문 텍스트*/
+	.con{
+		display: none;
+		color:#ff0000; /* #aaa;	*/
+	}
+	/*본문 일반 텍스트 행간*/
+	.text {
+		line-height: 170%
+	}
+	/*셀렉트*/
+	.sel{				
+		color: #dc2276; 
+	}
+	.pagenation .sel{				
+		color:#fff;
+		font-weight: bold;
+	}
+	/*간격조각*/	
+	
+	
+	
+/************************  NAV  ************************/
+
+	/* 로고부 */
+	.header_web, .con{
+		display:none;
+	}
+	/* 주메뉴 */
+	.nav_main{
+		float: left;
+    	display: block;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		color: #aaa; /*#dc2276; */
+		font-size: 1.5em;
+		text-shadow: 0px 2px 0px #000;
+		font-weight: bold;
+	}
+	.nav_contact{
+		display:none;
+	}
+
+	/* 세부메뉴-카테고리 */
+	.nav_sub_cate{
+		color: #aaa;
+		font-size: 0.87em; /*14px;*/
+		line-height:170%;
+		*letter-spacing: 0px;
+	}	
+	

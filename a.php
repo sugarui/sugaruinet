@@ -1,63 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>사탕화면</title>
+		<meta name="description" content="디자인 스튜디오 사탕화면 포트폴리오 사이트" />
+		<meta name="author" content="슈가루이(sugarui)" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+		<link rel="shortcut icon" href="./sugaruinet/image/favicon.ico" />
+		<link rel="apple-touch-icon" href="./sugaruinet/image/apple-touch-icon@2x.png" />
+
+		<!--<link rel="stylesheet" type="text/css" 
+		href="./sugaruinet/style/style_narrow.css"  />-->
+
+		<link rel="stylesheet" media="screen and (max-width: 700px)" href="./style/style_narrow.css"  />
+		<link rel="stylesheet" media="screen and (min-width: 701px)" href="./style/style.css"  />
+		
+		
+		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
+		<script type="text/javascript">
+			window.onResize = function() {
+				// Calculate the height of the body, ubstract the height of the head and apply to all columns
+			}
+		</script>
+	</head>
+	
+			<!--------------------DB접속-------------------->
+				<?php
+				include_once ('./db.php');
+				?>
+			
+	<body>
+	
+	</body>
+</html>\
+
+
+
+	/*모바일 레이아웃
+	nav li {
+		position: relative;
+    	list-style: none;
+    	float: left;
+    	display: block;
+	}
+	nav ul li {
+	    height: 0;
+	    overflow: hidden;
+	    padding: 0;
+    
+    nav li:hover>ul li {
+	    height: 36px;
+	    overflow: visible;
+	    padding: 0;
+	}
+  
+
+
+
+
+
+<ul>
+						<li><!--카테고리-->
+							<div class="nav_main"><!--구 <div class="nav_sub_cate">-->						
+								<ul>
+									<li>
+										CATEGORY
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li><!--어바웃-->
+							<a href="?special=about">
+								<div class="nav_main">	
+									<?php
+									if($_GET['special']==='about'){
+										echo "<span class=\"pink\">ABOUT</span>";
+									}else{
+										echo "ABOUT";
+									}
+									?>
+								</div>
+							</a>
+						</li>
+
+						<li> <!--작업일지-->
+							<div class="nav_contact">
+								작업일지
+							</div>
+						</li>
+			
+					</ul>
+					
+
+
+
+
+
 /*********************  LAYOUT  *********************/		
 
 	body{
 		margin: 0px;
 		padding: 0px;
-	} 		
+	}
 	.wrap{
 		margin: auto;/*magic for center align*/
-		padding-top: 30px;
-		max-width: 1080px;
-		min-width: 1080px; /*이게맞게하는건가*/
-		height: 100%
-	}			
-	.nav_1, .nav_2{
-		width: 160px;
-		height: 100%
-	}
-	.nav_1{
-		float: left;
-		margin-right:40px;
-		text-align: right;
-		/*position: fixed;*/
-	}
+	}	 		
 	.nav_2{
-		float:right;
-		margin-left:40px;
-		/*position: fixed;
-			left: 880px; /* 160+40+680*/
-	}
-	.con{								
-		margin-left:200px; /* 160 + 40 */
-		margin-right:200px;
-		width:680px;
-	}
-	.nav_mob{
 		display: none;
 	}
-	/*에디터*/	
-	.nav_left{
-		float:left;
-		padding-left: 50px;
+	.nav_web{
+		display: none;
 	}
-	.nav_right{
-		float:left;
-		padding-left: 100px;
+	.nav_mob{
+		height: 90px;
+		background-color: #ff0000;/*#222327;*/
+		width: 100%;
 	}
-	
-	
+
+
+
 /*********************  COMMON  *********************/
 
 	body{
 		background-color: #1c1d21;
-		font-family: Malgun Gothic, AppleGothic; /*NanumGothic */ 
+		font-family: Malgun Gothic, AppleGothic; 
 		color: #aaa;
 		letter-spacing: -1px;
 	}
 	/*본문 텍스트*/
 	.con{
-		/*font-size:0.8em; /*13px;	*/
-		color: #aaa;	
+		display: none;
+		color:#ff0000; /* #aaa;	*/
 	}
 	/*본문 일반 텍스트 행간*/
 	.text {
@@ -65,59 +145,46 @@
 	}
 	/*셀렉트*/
 	.sel{				
-		color:#fff;
+		color: #dc2276; 
 	}
 	.pagenation .sel{				
 		color:#fff;
 		font-weight: bold;
 	}
 	/*간격조각*/	
-	.space_20{
-		margin-top: 20px;
-	}
-	.space_30{
-		margin-top: 30px;
-	}
-	.space_80{
-		margin-top: 80px;
-	} 	
-	.down_5{
-		position:relative;
-		top:5px;
-	}
-
-
+	
+	
+	
 /************************  NAV  ************************/
 
 	/* 로고부 */
-	.header_mob{
+	.header_web{
 		display:none;
 	}
 	/* 주메뉴 */
 	.nav_main{
-		margin-top: 30px;
-		margin-bottom: 10px;
-		color: #dc2276; /* 디스에이블은 #702245;*/
-		font-size: 0.8em;/*11px;*/
+		float: left;
+    	display: block;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		color: #aaa; /*#dc2276; */
+		font-size: 1.5em;
 		text-shadow: 0px 2px 0px #000;
 		letter-spacing: 1px;
 		font-weight: bold;
 	}
 	.nav_contact{
-		margin-top:30px;
-		margin-bottom:10px;
-		color: #5e6270; 
-		font-size: 0.8em;/*11px;*/
-		font-weight: bold;
+		display:none;
 	}
+
 	/* 세부메뉴-카테고리 */
-	.nav_sub_cate{				
+	.nav_sub_cate{
 		color: #aaa;
 		font-size: 0.87em; /*14px;*/
 		line-height:170%;
-		letter-spacing: 0px;
+		*letter-spacing: 0px;
 	}	
-	.nav_sub_cate_add{		
+	.nav_sub_cate_add{
 		font-size: 0.85em; /*12px;*/
 		display: inline;
 		letter-spacing: 0px;
@@ -128,20 +195,12 @@
 		font-size: 0.8em; /*13px;*/
 		line-height: 220%;
 	}
-	/* 세부메뉴-sns및작업일지 디테일 */
-	.icon{
-		margin-bottom: 5px;
-	}
-	/* 셀렉트마커 포지션 디테일*/ 
+
 	nav .sel img{
 		position:relative;
 		top:2px;
 	}
-	.nav img{
-		position:relative;
-		top:2px;
-	}
-	
+
 	
 	
 /************************  CON  ************************/
@@ -161,13 +220,15 @@
 	}
 	/*외부*/	
 	.postbox{ 
+		position: relative; 	
 		margin-bottom:30px; /*다음포스트박스와의 여백*/
 		background-color:#30323a;
 		border-radius:3px;
 		box-shadow: 0px 0px 3px #161719;
 	}
 	/*내부*/
-	.post{ 
+	.post{
+	
 		padding-top:30px;
 		padding-bottom:30px;
 	}
