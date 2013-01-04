@@ -1,0 +1,134 @@
+/*********************  LAYOUT  *********************/		
+	a:link, a:visited, a:active, a:hover { /*기본색 없애려고 한건데 소용이 없다*/	
+		color: #aaa; 
+		text-decoration: none;
+	}
+	body{
+		background-color: #1c1d21;
+		color:#aaa;
+		font-family: arial; 
+	}
+	header img{
+		display: block;
+	}
+	
+	/*****  메뉴  *****/
+	.menu{
+		height: 50px;
+		background: #222428;/*#222327;*/
+		color: #aaa;
+	}
+	.menu li{
+		position: relative;
+		list-style: none;
+		float: left;
+		display: block;
+		height: 50px;
+	}
+	/* step 3 cv*/
+	.menu li a {
+	    display: block;
+	    margin: 0 20px;
+	    line-height: 50px;
+	    text-decoration: none;
+	    font-weight: bold;
+	    font-size: 0.9em;
+	    color: #f3f3f3;
+	    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+	}
+	/* .menu li:hover > a { color: #dc2276; }  note때문에*/
+
+ 	/* step 4*/
+	.menu ul{
+		position: absolute;
+		top:50px;
+		left: 0;
+		opacity:0;
+		background: #222428;
+	}
+	.menu li:hover > ul {
+		opacity:1
+	}
+	.menu ul li{
+		height:0;
+		overflow: hidden;	
+	}
+	.menu li:hover > ul li{
+		height:40px;
+		overflow: visible;
+	}
+	.menu ul li a {
+		line-height: 40px;
+		font-weight: normal;
+	    font-size: 13px;
+	    color: #aaa;
+	    width: 100px;
+		border-bottom: 1px solid #222428;/*#26282e;*/
+	}
+	.menu ul li:last-child a { border-bottom: none; }
+	
+	/***** 메뉴끝  *****/
+	
+	
+	.navshadow{
+		height: 5px;
+		background: url(../sugaruinet/image/navshadow_tile.png) repeat-x; /*나중에경로수정*/
+	}
+	.nav_sub_cate_add{		
+		font-size: 0.8em;
+		display: inline;
+	}	
+		
+	article{
+		padding: 0px 20px 0px 20px;
+		letter-spacing: -1px;
+	}
+	article img, iframe{
+		width: 100%	
+	}
+	.postbox{
+		margin-top: 20px;
+		margin-bottom: 60px;
+	}
+	.title h2{
+		margin-bottom: 2px;
+		font-size: 1em;
+		font-weight: bold;
+	}
+	.worked{
+		margin-bottom: 10px;
+		font-size: 0.7em;
+		color: #666666;
+		font-family: 'Merriweather', serif;
+	}
+	.text{
+		font-size: 0.9em;
+		line-height: 170%
+	}
+	.text, .graphic, .graphic_left, .graphic_noeffect{
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	.graphic img, .graphic_left img{
+		border-radius:5px;
+	}
+	.graphic_left img{
+		width:207px
+	}
+	.date{
+		font-family: 'Merriweather', serif;
+	}
+	
+
+	.border_1{
+		border-top: 1px solid #0f0f0f;/*#26282e;	*/
+	}
+	.border_2{				
+		border-top: 1px dashed #26282e;/*#3e404b;	*/
+	}
+	/*
+	.post_hyper{
+		color: #eee;
+		border-bottom: dotted #aaa 1px;
+	}
+	*/

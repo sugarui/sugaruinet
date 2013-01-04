@@ -1,97 +1,32 @@
-						<!------------ title ------------>
-						<div class="title">
-							<h2>
-								<?php
-									echo htmlspecialchars($row['title']);
-								?>
-							</h2>
-						</div>
+					<?php
+					echo "
+						<div class=\"postbox\">
+							<div class=\"dogear\">
+								<img src=\"./sugaruinet/image/dogear.png\">
+							</div>						
+							<div class=\"post\">
+					";
 						
-						<!------------ grapic (널일수있음) ------------>
-						<?php
-							if($row['image']){
-								echo "<div class=\"graphic\">";		
-															
-								$images = explode("@",$row['image']); //Array (이미지파일명, 이미지파일명)
-								$i=0;
-								while ($i < count($images)){
-									echo "<img src=\"../sugaruinet_portfolio/"; //경로
-									echo $images[$i];
-									echo "\">";
-									$i++;
-								}
-								echo "</div>";	
-							}		
-						?>
+						//title
+							echo " 
+								<div class=\"title\"><h2>
+									{$row['title']}
+								</h2></div>
+							";
 						
-						<!------------ grapic_효과 없어야 할 경우 (널일수있음) ------------>
-						<?php
-							if($row['image_noeffect']){
-								echo "<div class=\"graphic_noeffect\">";		
-															
-								$images = explode("@",$row['image_noeffect']); //Array (이미지파일명, 이미지파일명)
-								$i=0;
-								while ($i < count($images)){
-									echo "<img src=\"../sugaruinet_portfolio/"; //경로
-									echo $images[$i];
-									echo "\">";
-									$i++;
-								}
-								echo "</div>";	
-							}		
-						?>
-						
-						<!------------ text ------------>
-						<?php 
-							if($row['text']){ // 링크를 걸어야 하니까 스페설챠는 뺄게
-								echo "
-									<div class=\"text\"> 
-										{$row['text']}
-								 	</div>
-								 "; 
-							} 
-						?>
+						//본문부 삽입						
+						include './sugaruinet/post_core.php';
 
-						<!------------ grapic_2 (널일수있음) ------------>
-						<?php
-							if($row['image_2']){
-								echo "<div class=\"graphic\">";		
-															
-								$images = explode("@",$row['image_2']); //Array (이미지파일명, 이미지파일명)
-								$i=0;
-								while ($i < count($images)){
-									echo "<img src=\"../sugaruinet_portfolio/"; //경로
-									echo $images[$i];
-									echo "\">";
-									$i++;
-								}
-								echo "</div>";	
-							}		
-						?>
+						//post_inner (널일수있음)
+						if($row['inner_title']){
+							echo "<div class=\"post_inner\">";
+							include ('./post_inner.php');
+							echo "</div>";
+						}
 						
-						<!------------ text_2------------>
-						<?php 
-							if($row['text_2']){ // 링크를 걸어야 하니까 스페설챠는 뺄게
-								echo "
-									<div class=\"text\"> 
-										{$row['text_2']}
-								 	</div>
-								 "; 
-							} 
-						?>
+						//tail
+						echo "<div class=\"tail\" id=\"tail\">";
 
-						<!------------ post_inner (널일수있음)------------>
-						<div class="post_inner">
-							<?php
-								if($row['inner_title']){
-								include ('./post_inner.php');
-								}
-							?>
-						</div>
-						
-						<!------------ tail ------------>
-						<div class="tail" id="tail">
-							<?php
 								/////작업일
 								if($row['worked']){
 									echo "
@@ -102,7 +37,7 @@
 									";
 								}
 								/////카테고리 
-								if(!$_GET['cate']){
+								if( !($_GET['cate']) && !($_GET['special']) ){
 									echo "
 										<div class=\"tail_each\">
 											<span class=\"small\">카테고리&nbsp;</span> 
@@ -143,28 +78,30 @@
 										</div>
 									";		
 								}
-								///// 댓글, 공유버튼 영역
-								echo "<div class=\"tail_each_btn\">";
-									/////댓글  :  id없을때만 버튼노출 (id있을땐 disqus가 노출됨)  
-									if(!($_GET['id'])) { 
+								///// 댓글버튼, 쉐어버튼 영역
+								if( !($_GET['id']) && !($_GET['special']) ){ 
+									echo "<div class=\"tail_each_btn\">";
+										/////댓글.  id없을때만 버튼노출 (id있을땐 단일포스트 모드로써, disqus가 노출됨)  
 										echo "
 											<a href=\"?id={$row['id']}#disqus_thread\">
 												<span class=\"btn_link\">reply</span>
 											</a>
-										";
-									}	
-									/////주소     자료참조 http://hosting.websearch.kr/38
+										";	
+										/////주소. index.php에 function copy(trb) 있음. 자료참조 http://hosting.websearch.kr/38
 										echo "
-												<a href=\"?id={$row['id']}\" onclick=\"copy(this.href); return false;\">
-													<span class=\"btn_link\">share</span>
-												</a>
+											<a href=\"?id={$row['id']}\" onclick=\"copy(this.href); return false;\">
+												<span class=\"btn_link\">share</span>
+											</a>
 										";
-								echo "</div>";	
-							?>
-						</div>
+									echo "</div>";
+								}
+									
+						echo "</div>"; //테일끝	
 						
-						<?php
-							if ($_GET['id']){
-								include './sugaruinet/post_disqus.php';
-							}
-						?>
+						//댓글부
+						if ( ($_GET['id']) || ($_GET['special']==='guest') ){
+							include './sugaruinet/post_disqus.php';
+						}
+					
+					echo "</div></div>"; //포스트박스끝	
+					?>

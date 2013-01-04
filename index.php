@@ -54,8 +54,6 @@
 									$result = mysql_query($sql);
 					?>
 					
-					<!--네비게이션 : 웹-->
-					<div class="nav_web">
 					<ul>
 						<li><!--카테고리-->
 							<div class="nav_main">
@@ -170,13 +168,6 @@
 						</li>
 			
 					</ul>
-					</div>
-				
-					<!--네비게이션 : 모바일-->
-					<div class="nav_mob">
-					
-					</div>	
-					
 				</nav>
 
 			</div>
@@ -251,69 +242,12 @@
 			<div class="con">
 				
 				<?php
-
-					// 페이지당 출력수 결정, 페이지넘버 산출
-					$num_posts_display = 5; //디피수
-					if(!$_GET['page']){$_GET['page'] = 1;} //페이지 파라미터가 없을경우 1로 세팅!!!
-					$num_pages_pre = $_GET['page'] -1; //앞선페이지수는 현제페이지 -1
-					$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
-					
-					//리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
-					/// 쿼리문 웨어부 조건 및 내용 설정
-					if($_GET['tag']){
-						$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
-					}else if($paravalue){
-						$where = "WHERE p.{$paraname} = '{$paravalue}'";
-					}else{
-						$where = " ";
-					}
-					/// 쿼리문
-					$sql =  "
-							SELECT p.*, c.cate_expression FROM su_post_01 AS p LEFT JOIN su_cate_01 AS c ON p.cate = c.cate"." ". 
-							$where." "."
-							ORDER BY id_intent DESC, worked DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
-							";
-					$result = mysql_query($sql);
-						 
-					//출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!
-					while ($row = mysql_fetch_array($result) ){
-						
-						if(!$_GET['special']){ //스페셜이 없을 때만
-							echo"
-								<div class=\"postbox\">
-									<div class=\"dogear\">
-										<img src=\"./sugaruinet/image/dogear.png\">
-									</div>						
-									<div class=\"post\">
-								";
-							include './sugaruinet/post.php';
-							echo"
-									</div>
-								</div>
-									";
-							}
-					}
-					
-					////// 스페셜 /////
-					//쿼리문
-					$sql_special =  "SELECT * FROM su_special_01 WHERE `special` = '{$_GET['special'] }' ";
-					$result_special = mysql_query($sql_special);
-						 
-					// 스페셜 출력 : 받은 데이터 양 만큼 : post.php(디자인된박스)에 담아서!				
-					while ($row_special = mysql_fetch_array($result_special) ){
-						echo "
-							<div class=\"postbox\">
-								<div class=\"dogear\">
-									<img src=\"./sugaruinet/image/dogear.png\">
-								</div>						
-								<div class=\"post\">
-							";
-						include './sugaruinet/post_special.php';
-						echo "
-							</div>
-						</div>
-						";
-					 }
+				// DB로부터 컨텐츠 셀렉트
+				include './sugaruinet/select.php';
+				//출력 
+				while ($row = mysql_fetch_array($result) ){
+					include './sugaruinet/post.php';
+				}	
 				?> 
 				
 				<script type="text/javascript">//자료참조 http://hosting.websearch.kr/38	
