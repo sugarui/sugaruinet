@@ -265,7 +265,6 @@
 				<!---------------- 페이지네이션 ------------------>
 				
 				<div class="pagenation">
-					
 					<?php
 					
 					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
@@ -278,16 +277,34 @@
 							$sql = "SELECT id FROM `su_post_01`";
 						}
 						$result = mysql_query($sql);
-						$num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 22  / $num_view = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
-						// echo "<div class=\"tmpinfo\">카테고리 전체 게시물 수: {$num_rows} | 페이지당 출력 게시물 수: {$num_posts_display}</div>";
-						$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수22/페이지당 출력수3=7.1 //올림해서 8		
+						$num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 32  
+						// $num_posts_display = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
+						$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수32/페이지당 출력수3 =10, 올림해서 11		
+						
+					    // < ㅇㅇㅇㅇㅇ >포맷 구성
+					    $range = 5;
+						$page_now = $_GET['page'];
+						
+						$x = ceil($page_now / $range) - 1;	// 6일땐 2-1 = 1 , 10일때도 2-1 = 1  // 1일땐 1-1 = 0   5일땐 1-1 = 0
+ 					    $i_pre = $range * $x; //앞선 페이지는 5 // 1일땐 0
+						$i = $i_pre + 1;  // 시작은 1이나 6
+						$limit_vague = ceil($page_now / $range) * $range; // 리미트. 6이나 10일땐 2x5, 1이나 5일땐 1x5
+						$limit = min ($num_pages, $limit_vague); // 리미트 상세. 실제 페이지 넘버까지만.
 						
 						//출력
-						if ( $num_pages > 1){ //페이지수가 1 이상일때만
-						$i = 1;// (이건 나중에 손 봐야함. 페이지 많아서 < 000 > 형태 됐을때...)
-							while($i<= $num_pages) { //총페이지수까지 에코. 
-				          		
-				          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로. 페이지 파라미터는 없으면 1로 이미지정.
+						if ( 1 < $num_pages ){ //페이지수가 1을 넘어갈때만 출력
+					    	
+					    	//꺾쇠 왼쪽
+							if ($i > $range){
+								echo "
+				          				<a href=\"?{$paraname}={$paravalue}&page={$i_pre}\">
+				          					<span class=\"pagenation_nav\">◀</span>
+				          				</a>
+				          		";
+							}
+							//페이지													
+							while($i<= $limit ) { //레인지(표시범위)까지 에코  		
+				          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로
 				          			echo "
 				          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
 				          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
@@ -303,6 +320,14 @@
 									$i++;
 								} 
 				    		}
+							//꺾쇠 오른쪽
+							if ($i <= $num_pages){ //$i 는 이미 ++은 됐을꺼야.
+								echo "
+				          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
+				          					<span class=\"pagenation_nav\">▶</span>
+				          				</a>
+				          		";
+							}
 						} 
 					}
 

@@ -92,8 +92,27 @@
 			while ($row = mysql_fetch_array($result) ){
 				include './sugaruinet/post_m.php'; //와꾸는 post_m이지만 그속에 post_core는 웹과같다.
 				//echo "<div class=\"border_1\"></div> <div class=\"border_2\"></div> ";
-			}	
+			}
 			?>
+			
+			<!--더보기 : 작동하지않음 
+			<div class="postbox_more">	
+				<div id="more" onclick="moreHandler()">더보기</div>
+			</div>
+			<?php
+			 	echo " 
+				<script type=\"text/javascript\">
+					var more = document.getElementById('more');
+					function moreHandler(){
+				";		
+				include './a.php';
+				echo "
+					}
+				</script>
+				";
+			?>	
+			더보기-->
+			
 		</article>
 
 	</body>

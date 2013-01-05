@@ -32,9 +32,6 @@
 		margin-right:200px;
 		width:680px;
 	}
-	.nav_mob{
-		display: none;
-	}
 	/*에디터*/	
 	.nav_left{
 		float:left;
@@ -89,10 +86,6 @@
 
 /************************  NAV  ************************/
 
-	/* 로고부 */
-	.header_mob{
-		display:none;
-	}
 	/* 주메뉴 */
 	.nav_main{
 		margin-top: 30px;
@@ -276,11 +269,17 @@
 	/*페이지네이션*/
 	.pagenation{
 		text-align: center;
-		font-size: 1em; /*16px;*/
 		margin-bottom: 40px;
 	}
 	.pagenation_each{
+		font-size: 1em;
 		color: #aaa;
+		padding-right: 7px;
+		padding-left: 7px;
+	}
+	.pagenation_nav{
+		font-size: 0.9em;
+		color: #555;
 		padding-right: 7px;
 		padding-left: 7px;
 	}
