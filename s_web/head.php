@@ -11,12 +11,12 @@
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 		
-		<link rel="shortcut icon" href="./sugaruinet/image/favicon.ico" />
-		<link rel="apple-touch-icon" href="./sugaruinet/image/apple-touch-icon@2x.png" />
+		<link rel="shortcut icon" href="http://sugarui.net/s_web/image/favicon.ico" />
+		<link rel="apple-touch-icon" href="http://sugarui.net/s_web/image/apple-touch-icon@2x.png" />
 		
 		<!--		
-		<link rel="stylesheet" media="screen and (max-width: 700px)" href="./sugaruinet/style/style_narrow.css"  />
-		<link rel="stylesheet" media="screen and (min-width: 701px)" href="./sugaruinet/style/style.css"  />
+		<link rel="stylesheet" media="screen and (max-width: 700px)" href="./s_web/style/style_narrow.css"  />
+		<link rel="stylesheet" media="screen and (min-width: 701px)" href="./s_web/style/style.css"  />
 		-->
 		<!--
 		<script type="text/javascript">

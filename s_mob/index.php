@@ -3,21 +3,24 @@
 
 	<head>
 		<?php
-			include ('./sugaruinet/head.php')
+			include ('../s_web/head.php')
 		?>	
-		<link rel="stylesheet" type="text/css" href="./sugaruinet/style/style_space.css"  />	
-		<link rel="stylesheet" type="text/css" href="./style/style_m.css"  />
+		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_web/style/style_space.css" />	
+		<link rel="stylesheet" type="text/css" href="./style_m.css" />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 	</head>
 	
 	<!--DB접속-->
 		<?php
-		include_once ('./db.php');
+		include_once ('../db.php');
 		?>
 			
 	<body>
-		<header>	
-			<img src="./sugaruinet/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
+		<header>
+			<a href="./index.php">
+				<img src="http://elecuchi.cafe24.com/s_web/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
+			</a>	
+			<div class="header_space"></div><!--미스터치방지-->
 		</header>
 		<nav>
 
@@ -26,12 +29,15 @@
 			    	<?php
 			    		//현메뉴확인
 						if(!$_GET['special']){
-							echo "<a href=\"?cate={$row['cate']}\" style=\"color:#dc2276; \">";
+							//재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
+							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}\" style=\"color:#dc2276; \">";
 						}else{
- 							echo "<a href=\"?cate={$row['cate']}\" >";
+ 							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}\" >";
 						}
 						//출력
-			    		if(!$_GET['cate']){
+			    		if($_GET['id']){
+			    			echo 'Category';
+						}else if(!$_GET['cate']){
 			    			echo 'All works';
 						}else{ //방법을 몰라서 일단 직접 적음
 							if ($_GET['cate']==='guiat') { $display = 'GUI at work'; }
@@ -51,11 +57,14 @@
 								$result = mysql_query($sql);
 					        	
 					  			while ($row = mysql_fetch_array($result)){
-					        		if($_GET['cate']){ //카테값이 없을 경우 all을 포함한 모든카테고리 출력
+					        		if($_GET['cate'] || $_GET['id']){ //카테가 있으면 혹은 id가 있으면
 					        			echo "<li><a href=\"?cate={$row['cate']}\">{$row['cate_expression']}</a></li>";
-					        		}else if($row['cate']){ //카테값이 있을 경우 카테필드값이 있을경우(all 외 전부) 만 출력
+					        		}else if($row['cate']){ //아님 로우에 카테가 있으면
 					        			echo "<li><a href=\"?cate={$row['cate']}\">{$row['cate_expression']}</a></li>";
 					        		}
+									// 카테가 없는 all일때 출력안됨, 
+									// 카테가 없을때 else if로 오는데, 그마저 로우에 카테 있을때만 출력하므로 
+									// all 의 row은 건너뜀
 								}	
 			           		?>
 			        	</ul>
@@ -78,40 +87,34 @@
  			</ul>
 	
 		</nav>
+		
 		<div class="navshadow"></div>
 		
 		<article>
-			<?php
-			// 파라미터 기준 설정(카테냐,태그냐,아이디냐) 
-			//그래도 select.php 중 special이 없느 else 에서 이 변수를 써야하니까 지정.
-		    $paraname = 'cate'; 
-			$paravalue = $_GET['cate']; 		
+			<?php			
+			//파라미터 관련 변수 인클루드
+			include '../s_web/variable_para.php';
+				
 			// DB로부터 컨텐츠 셀렉트
-			include './sugaruinet/select.php';
+			include '../s_web/select.php';
 			//출력 
 			while ($row = mysql_fetch_array($result) ){
-				include './sugaruinet/post_m.php'; //와꾸는 post_m이지만 그속에 post_core는 웹과같다.
+				include '../s_web/post_m.php'; //와꾸는 post_m이지만 그속에 post_core는 웹과같다.
 				//echo "<div class=\"border_1\"></div> <div class=\"border_2\"></div> ";
 			}
 			?>
 			
-			<!--더보기 : 작동하지않음 
-			<div class="postbox_more">	
-				<div id="more" onclick="moreHandler()">더보기</div>
-			</div>
-			<?php
-			 	echo " 
-				<script type=\"text/javascript\">
-					var more = document.getElementById('more');
-					function moreHandler(){
-				";		
-				include './a.php';
-				echo "
+				<!---------------- 페이지네이션 ------------------>
+				<div class="pagenation">
+					
+					<?php
+					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
+					if ( ($paraname != 'id') && (!$_GET['special']) ){ 
+						include '../s_web/pagenation.php';	
 					}
-				</script>
-				";
-			?>	
-			더보기-->
+					?>
+				</div>
+				<!--페이지네이션 end-->
 			
 		</article>
 

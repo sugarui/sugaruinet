@@ -3,10 +3,10 @@
 
 	<head>
 		<?php
-			include_once ('./sugaruinet/head.php')
+			include_once ('./s_web/head.php')
 		?>		
-		<link rel="stylesheet" type="text/css" href="./sugaruinet/style/style_space.css"  />
-		<link rel="stylesheet" type="text/css" href="./sugaruinet/style/style.css"  />
+		<link rel="stylesheet" type="text/css" href="./s_web/style/style_space.css"  />
+		<link rel="stylesheet" type="text/css" href="./s_web/style/style.css"  />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 	</head>
 	
@@ -22,36 +22,19 @@
 			<div class="nav_1">
 				<header>
 					<h1>
-						
-						<div class="header_web">
-							<a href="./index.php"> <img src="./sugaruinet/image/logo.png" alt="사탕화면 회사로고"> </a>
-						</div>
-						
-						<div class="header_mob">
-							<img src="./sugaruinet/image/logo_mob.png" alt="사탕화면 회사로고"> </a>
-						</div>
-
+						<a href="./index.php"> <img src="./s_web/image/logo.png" alt="사탕화면 회사로고"> </a>
 					</h1>
 				</header>
 
 				<nav>
 					
 					<?php
-									//파라미터 기준 설정(카테냐,태그냐,아이디냐)
-							        if($_GET['cate']){
-							        	$paraname = 'cate'; 
-										$paravalue = $_GET['cate']; 
-									}else if($_GET['tag']){
-			 							$paraname = 'tag';  
-										$paravalue = $_GET['tag'];
-									}else if($_GET['id']){
-										$paraname = 'id';  
-										$paravalue = $_GET['id'];
-									}
+					//파라미터 관련 변수 인클루드
+					include './s_web/variable_para.php';
 									
-									//Table(카테) 로부터 리소스획득
-									$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent';
-									$result = mysql_query($sql);
+					//Table(카테) 로부터 리소스획득
+					$sql = 'SELECT * FROM `su_cate_01` ORDER BY id_intent';
+					$result = mysql_query($sql);
 					?>
 					
 					<ul>
@@ -70,7 +53,7 @@
 										if( ($_GET['cate'] === $row['cate']) || ( !$paravalue && !$row['cate'] && !$_GET['special'])  ){
 											// cate파라가있고 이것이 $row의cate열과같을때 OR 파라가전혀없고 $row의cate열이비었을때(all일때) 이면서 $row_special 스페셜값이 없을때
 											// 셀렉트 관련 변수를 지정한다
-											$select_open = "<div class=\"sel\"><img src=\"./sugaruinet/image/sel_mark_01.png\">&nbsp;";
+											$select_open = "<div class=\"sel\"><img src=\"./s_web/image/sel_mark_01.png\">&nbsp;";
 											$select_close = "</div>";
 										}else{
 											$select_open = " ";
@@ -105,7 +88,7 @@
 								<div class="nav_main">	
 									<?php
 									if($_GET['special']==='about'){
-										echo "<img src=\"./sugaruinet/image/sel_mark_02.png\">&nbsp;ABOUT";
+										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;ABOUT";
 									}else{
 										echo "ABOUT";
 									}
@@ -118,7 +101,7 @@
 								<div class="nav_main">	
 									<?php
 									if($_GET['special']==='guest'){
-										echo "<img src=\"./sugaruinet/image/sel_mark_02.png\">&nbsp;GUEST";
+										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;GUEST";
 									}else{
 										echo "GUEST";
 									}
@@ -134,12 +117,12 @@
 							</div>
 							<div class="icon">
 								<a href="https://www.facebook.com/sugaruipage" target="_blank">
-									 <img src="./sugaruinet/image/lnb_diary_fb.png" alt="facebook">
+									 <img src="./s_web/image/lnb_diary_fb.png" alt="facebook">
 								</a>
 							</div>
 							<div class="icon">
 								<a href="https://github.com/sugarui/sugaruinet" target="_blank">
-									<img src="./sugaruinet/image/lnb_diary_gh.png" alt="github">
+									<img src="./s_web/image/lnb_diary_gh.png" alt="github">
 								</a>
 							</div>
 						</li>
@@ -151,17 +134,17 @@
 								<ul>
 									<div class="icon">
 									<a href="https://www.facebook.com/sugaruipage#!/sugar.ui.9" target="_blank"> 
-										 <img src="./sugaruinet/image/lnb_sns_fb.png" alt="facebook">
+										 <img src="./s_web/image/lnb_sns_fb.png" alt="facebook">
 									</a>
 									</div>
 									<div class="icon">
 									<a href="https://twitter.com/sugarui" target="_blank"> 
-										 <img src="./sugaruinet/image/lnb_sns_tw.png" alt="twitter">	
+										 <img src="./s_web/image/lnb_sns_tw.png" alt="twitter">	
 									</a>
 									</div>
 									<div class="icon">
 									<a href="http://blog.naver.com/sugarui" target="_blank">
-										 <img src="./sugaruinet/image/lnb_sns_blog.png" alt="blog">
+										 <img src="./s_web/image/lnb_sns_blog.png" alt="blog">
 									</a>
 									</div>
 								</ul>
@@ -204,7 +187,7 @@
 											if(($_GET['tag']) && ($_GET['tag'] === $tags[$i])){
 												// tag파라가있고 이것이 $row의tag열과같을때
 												// 셀렉트 관련 변수를 지정한다
-												$select_open = "<div class=\"sel\"><img src=\"./sugaruinet/image/sel_mark_01.png\">&nbsp;";
+												$select_open = "<div class=\"sel\"><img src=\"./s_web/image/sel_mark_01.png\">&nbsp;";
 												$select_close = "</div>";
 											}else{
 												$select_open = " ";
@@ -243,10 +226,10 @@
 				
 				<?php
 				// DB로부터 컨텐츠 셀렉트
-				include './sugaruinet/select.php';
+				include './s_web/select.php';
 				//출력 
 				while ($row = mysql_fetch_array($result) ){
-					include './sugaruinet/post.php';
+					include './s_web/post.php';
 				}	
 				?> 
 				
@@ -263,74 +246,13 @@
 				</script>		
 							
 				<!---------------- 페이지네이션 ------------------>
-				
 				<div class="pagenation">
-					<?php
 					
+					<?php
 					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
 					if ( ($paraname != 'id') && (!$_GET['special']) ){ 
-					
-						//리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
-						if($paravalue){
-							$sql = "SELECT id FROM `su_post_01` WHERE $paraname = '$paravalue'"; 
-						}else{
-							$sql = "SELECT id FROM `su_post_01`";
-						}
-						$result = mysql_query($sql);
-						$num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 32  
-						// $num_posts_display = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
-						$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수32/페이지당 출력수3 =10, 올림해서 11		
-						
-					    // < ㅇㅇㅇㅇㅇ >포맷 구성
-					    $range = 5;
-						$page_now = $_GET['page'];
-						
-						$x = ceil($page_now / $range) - 1;	// 6일땐 2-1 = 1 , 10일때도 2-1 = 1  // 1일땐 1-1 = 0   5일땐 1-1 = 0
- 					    $i_pre = $range * $x; //앞선 페이지는 5 // 1일땐 0
-						$i = $i_pre + 1;  // 시작은 1이나 6
-						$limit_vague = ceil($page_now / $range) * $range; // 리미트. 6이나 10일땐 2x5, 1이나 5일땐 1x5
-						$limit = min ($num_pages, $limit_vague); // 리미트 상세. 실제 페이지 넘버까지만.
-						
-						//출력
-						if ( 1 < $num_pages ){ //페이지수가 1을 넘어갈때만 출력
-					    	
-					    	//꺾쇠 왼쪽
-							if ($i > $range){
-								echo "
-				          				<a href=\"?{$paraname}={$paravalue}&page={$i_pre}\">
-				          					<span class=\"pagenation_nav\">◀</span>
-				          				</a>
-				          		";
-							}
-							//페이지													
-							while($i<= $limit ) { //레인지(표시범위)까지 에코  		
-				          		if($i == $_GET['page']){ //현페이지 셀렉트 체크는 파라미터로
-				          			echo "
-				          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
-				          					<span class=\"pagenation_each\"><span class=\"sel\">{$i}</span></span>
-				          				</a>
-				          				";
-									$i++;
-				          	    }else{
-				              		echo "
-				          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
-				          					<span class=\"pagenation_each\">{$i}</span>
-				          				</a>
-				          				";
-									$i++;
-								} 
-				    		}
-							//꺾쇠 오른쪽
-							if ($i <= $num_pages){ //$i 는 이미 ++은 됐을꺼야.
-								echo "
-				          				<a href=\"?{$paraname}={$paravalue}&page={$i}\">
-				          					<span class=\"pagenation_nav\">▶</span>
-				          				</a>
-				          		";
-							}
-						} 
+						include './s_web/pagenation.php';	
 					}
-
 					?>
 				</div>
 				<!--페이지네이션 end-->

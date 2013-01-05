@@ -11,8 +11,12 @@
 	header img{
 		display: block;
 	}
+	.header_space{
+		height: 10px;
+		background: #222428;
+	}
 	
-	/*****  메뉴  *****/
+	/**********  메뉴  **********/
 	.menu{
 		height: 50px;
 		background: #222428;/*#222327;*/
@@ -67,12 +71,13 @@
 	}
 	.menu ul li:last-child a { border-bottom: none; }
 	
-	/***** 메뉴끝  *****/
+	/**********  메뉴끝  **********/
+	
 	
 	
 	.navshadow{
 		height: 5px;
-		background: url(../sugaruinet/image/navshadow_tile.png) repeat-x; /*나중에경로수정*/
+		background: url(http://elecuchi.cafe24.com/s_web/image/navshadow_tile.png) repeat-x;
 	}
 	.nav_sub_cate_add{		
 		font-size: 0.8em;
@@ -80,49 +85,85 @@
 	}	
 		
 	article{
-		padding: 0px 20px 0px 20px;
+		padding: 0px 15px 0px 15px; /*그래픽때문에 외부에서한번 적용*/
 		letter-spacing: -1px;
-	}
-	article img, iframe{
-		width: 100%	
 	}
 	.postbox{
 		margin-top: 20px;
 		margin-bottom: 60px;
 	}
-	.postbox_more{
-		margin-top: 20px;
-		margin-bottom: 20px;
-	}
 	.title h2{
+		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
 		margin-bottom: 2px;
 		font-size: 1em;
 		font-weight: bold;
 	}
 	.worked{
-		margin-bottom: 10px;
+		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
+		margin-bottom: 2px;
 		font-size: 0.7em;
 		color: #666666;
 		font-family: 'Merriweather', serif;
 	}
 	.text{
+		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
 		font-size: 0.9em;
-		line-height: 170%
-	}
-	.text, .graphic, .graphic_left, .graphic_noeffect{
+		line-height: 170%;
 		margin-top: 15px;
 		margin-bottom: 15px;
 	}
-	.graphic img, .graphic_left img{
-		border-radius:5px;
+	.graphic, .graphic_noeffect{
+		padding: 0px 5px 0px 5px; /*여기다 걸러는게아니었는데 아래거 때문에*/
+		margin-top: 15px;
+		margin-bottom: 15px;
+		text-align: center;
 	}
-	.graphic_left img{
-		width:207px
+	.graphic_left{
+		padding: 0px 5px 0px 5px; /*여기다 걸러는게아니었는데 아래거 때문에*/
+		margin-top: 15px;
+		margin-bottom: 15px;
 	}
+	.graphic img, .graphic_left img, .graphic_noeffect img{	/*막상 여기에 5px이 먹히지 않아서*/
+		border-radius:4px;
+		max-width: 100%;
+	}
+
+	.movie{
+		text-align: center;
+	}
+	iframe{
+		max-width: 100%;
+	}
+	
 	.date{
 		font-family: 'Merriweather', serif;
 	}
 	
+
+	/*페이지네이션*/
+	.pagenation{
+		text-align: center;
+		margin-bottom: 40px;
+	}
+	.pagenation_each{
+		font-size: 1em;
+		color: #aaa;
+		padding-right: 16px;
+		padding-left: 16px;
+		font-weight:bold;
+	}
+	.pagenation_nav{
+		font-size: 0.9em;
+		color: #555;
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+	.pagenation .sel{
+		color: #dc2276;
+	}
+	.pagenation_each:hover {
+		color: #dc2276;
+	}
 
 	.border_1{
 		border-top: 1px solid #0f0f0f;/*#26282e;	*/
@@ -130,9 +171,9 @@
 	.border_2{				
 		border-top: 1px dashed #26282e;/*#3e404b;	*/
 	}
-	/*
+	
 	.post_hyper{
 		color: #eee;
 		border-bottom: dotted #aaa 1px;
 	}
-	*/
+	

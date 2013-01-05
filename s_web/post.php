@@ -2,7 +2,7 @@
 					echo "
 						<div class=\"postbox\">
 							<div class=\"dogear\">
-								<img src=\"./sugaruinet/image/dogear.png\">
+								<img src=\"./s_web/image/dogear.png\">
 							</div>						
 							<div class=\"post\">
 					";
@@ -15,7 +15,7 @@
 							";
 						
 						//본문부 삽입						
-						include './sugaruinet/post_core.php';
+						include './s_web/post_core.php';
 
 						//post_inner (널일수있음)
 						if($row['inner_title']){
@@ -100,7 +100,7 @@
 						
 						//댓글부
 						if ( ($_GET['id']) || ($_GET['special']==='guest') ){
-							include './sugaruinet/post_disqus.php';
+							include './s_web/post_disqus.php';
 						}
 					
 					echo "</div></div>"; //포스트박스끝	

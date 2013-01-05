@@ -198,7 +198,7 @@
 		text-align: left;
 	}
 	/*요소 여백-상하공통*/
-	.graphic, .graphic_noeffect, .graphic_left, .text {
+	.graphic, .graphic_noeffect, .graphic_left, .text, .movie {
 		margin-top:20px;
 		margin-bottom:20px;			
 	}
@@ -212,6 +212,13 @@
 	.graphic img, .graphic_left img{
 		border-radius:3px;
 		box-shadow: 0px 0px 4px #161719;		
+	}
+	.movie{
+		text-align: center;
+	}
+	iframe{
+		width: 600px;
+		height: 340px;
 	}
 	
 	/*이너포스트, 하이퍼포스트*/

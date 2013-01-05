@@ -16,7 +16,7 @@
 							";
 						}
 						
-						include './sugaruinet/post_core.php';
+						include '../s_web/post_core.php';
 												
 					echo "</div>" ;
 					?>
