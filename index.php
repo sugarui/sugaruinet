@@ -133,7 +133,7 @@
 							</div>
 								<ul>
 									<div class="icon">
-									<a href="https://www.facebook.com/sugaruipage#!/sugar.ui.9" target="_blank"> 
+									<a href="<a href="https://www.facebook.com/sugar.ui.9" target="_blank"> 
 										 <img src="./s_web/image/lnb_sns_fb.png" alt="facebook">
 									</a>
 									</div>

@@ -36,12 +36,12 @@
 						}
 						//출력
 			    		if($_GET['id']){
-			    			echo 'Category';
+			    			echo '카테고리';
 						}else if(!$_GET['cate']){
 			    			echo 'All works';
 						}else{ //방법을 몰라서 일단 직접 적음
-							if ($_GET['cate']==='guiat') { $display = 'GUI at work'; }
-							else if  ($_GET['cate']==='guiafter') { $display = 'GUI after work'; }
+							if ($_GET['cate']==='guiat') { $display = "GUI <span class=\"nav_sub_cate_add\">at work</span>"; }
+							else if  ($_GET['cate']==='guiafter') { $display = "GUI <span class=\"nav_sub_cate_add\">after work</span>"; }
 							else if  ($_GET['cate']==='drawing') { $display = '일러스트'; }
 							else if  ($_GET['cate']==='toon') { $display = '만화'; }
 							else if  ($_GET['cate']==='writing') { $display = '글'; }
@@ -77,12 +77,15 @@
 						}else{
  							echo "<a href=\"?special=about&cate={$_GET['cate']}\">";
 						}
-			    		echo "About";
+			    		echo "프로필";
 			    		echo "</a>";
 			    	?>
 			    </li>
 			    <li>
-			    	<a href="https://www.facebook.com/sugaruipage" style="margin-right: 20px;" target="_blank">Note</a>
+			    	<a href="https://www.facebook.com/sugaruipage" style="margin-right: 20px;">
+			    		개발일지
+			    		<img src="http://elecuchi.cafe24.com/s_web/image/lnb_diary_fb_mob.png" alt="facebook" />
+			    	</a>
 			    </li>
  			</ul>
 	
