@@ -1,7 +1,7 @@
 <table class="snsbox">
 	<tr>
 		<td>
-			<a href="https://www.facebook.com/sugaruipage#!/sugar.ui.9">
+			<a href="https://www.facebook.com/sugar.ui.9">
 				<img src="http://elecuchi.cafe24.com/s_web/image/about_fb.png" alt="facebook" />
 			</a>
 		</td>

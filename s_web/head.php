@@ -12,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 		
 		<link rel="shortcut icon" href="http://sugarui.net/s_web/image/favicon.ico" />
-		<link rel="apple-touch-icon" href="http://sugarui.net/s_web/image/apple-touch-icon@2x.png" />
+		<link rel="apple-touch-icon" href="http://sugarui.net/s_web/image/apple-touch-icon.png" />
 		
 		<!--		
 		<link rel="stylesheet" media="screen and (max-width: 700px)" href="./s_web/style/style_narrow.css"  />

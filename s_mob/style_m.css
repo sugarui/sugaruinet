@@ -120,7 +120,7 @@
 	}
 	.postbox{
 		margin-top: 20px;
-		margin-bottom: 60px;
+		margin-bottom: 80px;
 	}
 	.title h2{
 		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
@@ -156,6 +156,7 @@
 	.graphic img, .graphic_left img, .graphic_noeffect img{	/*막상 여기에 5px이 먹히지 않아서*/
 		border-radius:4px;
 		max-width: 100%;
+		margin-bottom: 8px;
 	}
 	
 	/*
