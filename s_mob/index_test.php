@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_web/style/style_space.css" />	
 		<link rel="stylesheet" type="text/css" href="./style_m.css" />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
 	</head>
 	
 	<!--DB접속-->
@@ -118,6 +119,49 @@
 					?>
 				</div>
 				<!--페이지네이션 end-->
+				
+				<!---------------- 더보기 ------------------>
+				<div id="showmore">디폴트</div>
+                <input type="button" value="더보기" id="getMore" /> 
+                <script>
+                   	$('#getMore').click( function() {
+                   		//$('#showmore').html(' ');
+                   		$.ajax({
+                    		url : 'http://elecuchi.cafe24.com/s_web/post_includer.php',
+                    		dataType : 'json',
+                    		type : 'POST',
+                    		data : { 'msg':'letstalk' },
+                    		success : function(result){
+                    			if( result['answer'] == true ){
+                    				$('#showmore').html(result['msg']);
+                    			}
+                    		}
+                    	}); 
+                    });
+                </script>
+				<!--더보기 end-->
+				
+				<!-----------------오튜 예제-------------------->
+				<div id="result"></div>
+				<input type="text" id="msg" />
+		        <input type="button" value="get result" id="getResult" />
+		        <script>
+		            $('#getResult').click( function() {
+		                $('#result').html('');
+		                $.ajax({
+		                    url:'http://elecuchi.cafe24.com/s_web/ajaxtester.php',
+		                    dataType:'json',
+		                    type:'POST',
+		                    data:{'msg':$('#msg').val()},
+		                    success:function(result){
+		                        if(result['result']==true){
+		                          $('#result').html(result['msg']);
+		                        }
+		                    }
+		                });
+		            })
+		        </script>
+		        <!--오튜예제 end-->
 			
 		</article>
 
