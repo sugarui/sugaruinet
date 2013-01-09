@@ -1,0 +1,325 @@
+/*********************  LAYOUT  *********************/		
+
+	body{
+		margin: 0px;
+		padding: 0px;
+	} 		
+	.wrap{
+		margin: auto;/*magic for center align*/
+		padding-top: 30px;
+		max-width: 1080px;
+		min-width: 1080px; /*이게맞게하는건가*/
+		height: 100%
+	}			
+	.nav_1, .nav_2{
+		width: 160px;
+		height: 100%
+	}
+	.nav_1{
+		float: left;
+		margin-right:40px;
+		text-align: right;
+		/*position: fixed;*/
+	}
+	.nav_2{
+		float:right;
+		margin-left:40px;
+		/*position: fixed;
+			left: 880px; /* 160+40+680*/
+	}
+	.con{								
+		margin-left:200px; /* 160 + 40 */
+		margin-right:200px;
+		width:680px;
+	}
+	/*에디터*/	
+	.nav_left{
+		float:left;
+		padding-left: 50px;
+	}
+	.nav_right{
+		float:left;
+		padding-left: 100px;
+	}
+	
+	
+/*********************  COMMON  *********************/
+
+	body{
+		background-color: #1c1d21;
+		font-family: Malgun Gothic, AppleGothic; /*NanumGothic */ 
+		color: #aaa;
+		letter-spacing: -1px;
+	}
+	/*본문 텍스트*/
+	.con{
+		/*font-size:0.8em; /*13px;	*/
+		color: #aaa;	
+	}
+	/*본문 일반 텍스트 행간*/
+	.text {
+		line-height: 170%
+	}
+	/*셀렉트*/
+	.sel{				
+		color:#fff;
+	}
+	.pagenation .sel{				
+		color:#fff;
+		font-weight: bold;
+	}
+	/*간격조각*/	
+	.space_20{
+		margin-top: 20px;
+	}
+	.space_30{
+		margin-top: 30px;
+	}
+	.space_80{
+		margin-top: 80px;
+	} 	
+	.down_5{
+		position:relative;
+		top:5px;
+	}
+
+
+/************************  NAV  ************************/
+
+	/* 주메뉴 */
+	.nav_main{
+		margin-top: 30px;
+		margin-bottom: 10px;
+		color: #dc2276; /* 디스에이블은 #702245;*/
+		font-size: 0.8em;/*11px;*/
+		text-shadow: 0px 2px 0px #000;
+		letter-spacing: 1px;
+		font-weight: bold;
+	}
+	.nav_contact{
+		margin-top:30px;
+		margin-bottom:10px;
+		color: #5e6270; 
+		font-size: 0.8em;/*11px;*/
+		font-weight: bold;
+	}
+	/* 세부메뉴-카테고리 */
+	.nav_sub_cate{				
+		color: #aaa;
+		font-size: 0.87em; /*14px;*/
+		line-height:170%;
+		letter-spacing: 0px;
+	}	
+	.nav_sub_cate_add{		
+		font-size: 0.85em; /*12px;*/
+		display: inline;
+		letter-spacing: 0px;
+	}	
+	/* 세부메뉴-태그 */
+	.nav_sub_tag{
+		color: #aaa;
+		font-size: 0.8em; /*13px;*/
+		line-height: 220%;
+	}
+	/* 세부메뉴-sns및작업일지 디테일 */
+	.icon{
+		margin-bottom: 5px;
+	}
+	/* 셀렉트마커 포지션 디테일*/ 
+	nav .sel img{
+		position:relative;
+		top:2px;
+	}
+	.nav img{
+		position:relative;
+		top:2px;
+	}
+	
+	
+	
+/************************  CON  ************************/
+
+	/* 그래픽요소*/		
+	.dogear{
+		float: left;	
+	}
+	.post_inner_btn{
+		float: right;	
+	}
+	.url{
+		float: left;
+		padding-top: 10px;
+		color: #666;
+		text-shadow: 0px -1px 0px  #000;
+	}
+	/*외부*/	
+	.postbox{ 
+		margin-bottom:30px; /*다음포스트박스와의 여백*/
+		background-color:#30323a;
+		border-radius:3px;
+		box-shadow: 0px 0px 3px #161719;
+	}
+	/*내부*/
+	.post{ 
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	/*포스트타이틀*/
+	.post .title h2{
+		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
+		/*font-family: Malgun Gothic, NanumGothic;*/
+		color: #ddd;
+		text-shadow: 0px -1px 0px  #000;
+		font-weight: normal;
+	}
+	/*이너포스트타이틀*/
+	.post .title_inner h3{
+		font-size: 0.9em;/*15px;/*나눔펜일때 22px;*/
+		/*font-family: Malgun Gothic, NanumGothic;*/
+	}
+	/*본문 텍스트크기 강제지정*/
+	.text{
+		font-size:0.8em; /*13px;	*/
+	}
+	/*요소 여백-좌우공통 (전체폭 점선 때문에 마진을 .post에서 한꺼번에 못하므로 여기서 지정)*/
+	.title, .title_inner, .text, /*.graphic*/ .disqus_custom{
+		margin-left: 40px;
+		margin-right: 40px;
+	}
+	/*그래픽 여백및 정렬 예외 처리*/
+	.graphic, .graphic_noeffect{
+	 	margin-left: 30px; /*자식마진 10px(복수의 이미지간의 간격)을 합해서 40px*/
+		margin-right: 30px;
+		text-align: center;
+	}
+	.graphic_left{ /*프로필 용 예외처리*/
+		margin-left: 30px; 
+		margin-right: 30px;
+		text-align: left;
+	}
+	/*요소 여백-상하공통*/
+	.graphic, .graphic_noeffect, .graphic_left, .text, .movie {
+		margin-top:20px;
+		margin-bottom:20px;			
+	}
+	/*이미지*/
+	.graphic img, .graphic_left img, .graphic_noeffect img{
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-bottom: 10px;	
+		text-align: center;
+		margin-bottom:15px;			
+	}
+	.graphic img, .graphic_left img{
+		border-radius:3px;
+		box-shadow: 0px 0px 4px #161719;		
+	}
+	.movie{
+		text-align: center;
+	}
+	iframe{
+		width: 600px;
+		height: 340px;
+	}
+	
+	/*이너포스트, 하이퍼포스트*/
+	.post_inner{
+		margin-bottom:30px; /*다음 이너포스트 설명글과의 간격은 넓어야 하므로*/
+	}
+	.post_inner .text{ 
+		margin-bottom:10px; /*이너포스트 설명글과 이너포스트간 간격은 좁아야 하므로*/
+	}
+	.post_inner h3{
+		margin-top: 14px;
+		margin-bottom: 14px;
+		font-size: 0.9em; /*15px;/*나눔펜일때 22px;*/
+		/*font-family: Malgun Gothic, NanumGothic;	*/
+	}
+	.border_1{
+		border-top: 1px solid #26282e;	
+	}
+	.border_2{				
+		border-top: 1px dashed #3e404b;	
+	}
+	.post_hyper{
+		color: #eee;
+		border-bottom: dotted #aaa 1px;
+	}
+	/*테일*/
+	.tail{ 
+		margin-top: 30px;
+		margin-right: 30px;
+		margin-left: 40px;
+		text-align: right;
+	}
+	.tail_each{ /*tail 일반 행간*/
+		margin-top: 0px;/* em 처리후 기본적으로 간격이 5px정도 생김. 거기다 추가함.*/
+	}
+	.tail_each_btn{ /*tail 버튼부 행간*/
+		margin-top: 10px;
+	}
+	.tail_each span{ /*tail 일반 텍스트*/
+		font-size: 0.8em; /*13px;*/
+		color: #6a6a6a;
+	}
+	.tail_each .small{ /*tail 일반 소형 텍스트*/
+		font-size: 0.75em; /*11px;*/
+	}	
+	.btn_link{ /*tail 버튼부 및 버튼 텍스트*/
+		color:#b2b2b2; /*#6a6a6a;*/
+		font-size: 0.75em; /*11px;*/
+		background-color:#474950;/*#3b3d42;*/
+		border-radius:2px;
+		padding:1px 4px 1px 4px;
+		letter-spacing: 0px;
+		margin-left: 2px /*기본적으로 간격이 5px정도 생김. 거기다 추가함.*/
+	}
+	/*페이지네이션*/
+	.pagenation{
+		text-align: center;
+		margin-bottom: 40px;
+	}
+	.pagenation_each{
+		font-size: 1em;
+		color: #aaa;
+		padding-right: 7px;
+		padding-left: 7px;
+	}
+	.pagenation_nav{
+		font-size: 0.9em;
+		color: #555;
+		padding-right: 7px;
+		padding-left: 7px;
+	}
+	/*임시정보출력용*/
+	.tmpinfo{
+		color: #30323a; /*#2a2c33; /*배경에묻히게*/
+		font-size: 0.8em; /*11px;*/
+		margin-bottom: 0px; 
+	}
+	/*어바웃 경력 용 숫자*/
+	.date{
+		font-family: 'Merriweather', serif;
+		font-size: 1em; /*15px;*/
+		letter-spacing: 0px;
+	}
+	
+	.snsbox{
+		border:0;
+	}
+	.snsbox td{
+		margin:0;
+		padding:0;
+		padding-right:5px;	
+	}
+	.snsbox img{
+		width:30px;
+		height:30px;
+	}
+	
+/***************fontface***************/	
+	@font-face {
+		font-family:'NanumGothic'; 
+		src: url('../font/NanumGothic.ttf') format("truetype");
+		/*src: url('../font/NanumGothic.woff') format("woff");*/
+	}
