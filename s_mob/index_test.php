@@ -153,15 +153,34 @@
 				
 			
 			
+			
+				<!--쿠키초기화 - 이게 아닌가
+				<script>
+					SetCookie('pagecookie', 1)
+				</script>
+				-->
 				
-				<!---------- 더보기 : 로드방식 http://bit.ly/10gU7kN -->
-				<div style="width:100%; border-bottom:1px solid #ccc;">
-					
+				<!--쿠키초기화- 이것도 아닌가-->
+				<?php
+					setcookie('pagecookie', 1);
+				?>
+				
+				
+				<!--쿠키초기화- 이것조차도 아닌가
+				<script>
+				$('body').location.reload( function() {
+					SetCookie('pagecookie', 1);
+				}
+				</script>
+				-->
+				  
+				<!---------- 더보기 : 로드방식 http://bit.ly/10gU7kN -->				
 				<div id="kkk">로드 디폴트</div>
                 <input type="button" value="로드" id="getResult" /> 
                 <script>
                    	$('#getResult').click( function() {
                    		$("#kkk").load("http://elecuchi.cafe24.com/s_mob/posts_includer.php")
+                    	$('#getResult').remove();
                     });
                 </script>                
 				<!--더보기 end-->
