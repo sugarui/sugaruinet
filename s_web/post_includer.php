@@ -13,16 +13,16 @@
 	//출력 
 	while ($row = mysql_fetch_array($result) ){
 			
-		//include './post.php';
-		$post_each = $row['id'];
-		array_push($posts_arr, $post_each); 
+		include './post.php';
+		//$post_each = $row['id'];
+		//array_push($posts_arr, $post_each); 
 	}
 ?>	
 <?php	
-	echo json_encode(array( 
+/*	echo json_encode(array( 
 		'answer'=>true, 
 		'msg' => $posts_arr[1]
 		)
-	) 
+	)*/ 
 ?>			
 

@@ -120,7 +120,7 @@
 				</div>
 				<!--페이지네이션 end-->
 				
-				<!---------------- 더보기 ------------------>
+				<!---------------- 더보기 
 				<div id="showmore">디폴트</div>
                 <input type="button" value="더보기" id="getMore" /> 
                 <script>
@@ -137,6 +137,16 @@
                     			}
                     		}
                     	}); 
+                    });
+                </script>
+				<!--더보기 end-->
+				
+				<!---------------- 더보기 2 http://kin.naver.com/qna/detail.nhn?d1id=1&dirId=1040205&docId=164650001&qb=YWpheCBwaHAgaW5jbHVkZQ==&enc=utf8&section=kin&rank=1&search_sort=0&spq=0&pid=RM2oTU5Y7vRssZoKnClssssssus-331223&sid=UO2oWXJvLDUAAEoMI5o------------------>
+				<div id="kkk">디폴트</div>
+                <input type="button" value="더보기" id="getMore" /> 
+                <script>
+                   	$('#getMore').click( function() {
+                   		$("#kkk").load("http://elecuchi.cafe24.com/s_web/post_includer.php")
                     });
                 </script>
 				<!--더보기 end-->
