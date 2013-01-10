@@ -125,7 +125,7 @@
                 <input type="button" value="더보기" id="getMore" /> 
                 <script>
                    	$('#getMore').click( function() {
-                   		//$('#showmore').html(' ');
+                   		$('#showmore').html(' ');
                    		$.ajax({
                     		url : 'http://elecuchi.cafe24.com/s_web/post_includer.php',
                     		dataType : 'json',
@@ -140,6 +140,7 @@
                     });
                 </script>
 				<!--더보기 end-->
+				
 				
 				<!-----------------오튜 예제-------------------->
 				<div id="result"></div>

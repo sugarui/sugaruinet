@@ -1,41 +1,28 @@
 <?php
-	$a = array('사과','딸기','바나나','망고');	
+	//$a = array('사과','딸기','바나나','망고');
+	$posts_arr = array();
+	
+	include '../db.php';
+			
+	//파라미터 관련 변수 인클루드
+	include './variable_para.php';
+				
+	// DB로부터 컨텐츠 셀렉트
+	include './select.php';
+	
+	//출력 
+	while ($row = mysql_fetch_array($result) ){
+			
+		//include './post.php';
+		$post_each = $row['id'];
+		array_push($posts_arr, $post_each); 
+	}
+?>	
+<?php	
 	echo json_encode(array( 
-		'answer'=>true,
-		//'msg'=>$_REQUEST['msg'],
-		/*
-		'msg_notwork' =>     
-            '
-			<?php 
-            	echo \'	               
-            		$_GET[\'special\'] = \'about\';
-                	include \'../s_web/select.php\'; 
-                	while ($row = mysql_fetch_array($result) ){
-     	           		include \'../s_web/post_m.php\';
-                	}
-			 	\';
-			 ?>	
-             '   
-		,
-		'msg_notwork2' =>     
-            '
-			<?php 
-            	echo \'	               
-                	include \'../s_web/con_tester.php\';
-				\';	
-			 ?>	
-             '
-		,
-
-		'msg' =>     
-            '
-			<?php 
-            	echo \'hi	\';	
-			 ?>	
-             '
-      	*/
-        'msg' =>     
-			$a[3]       
+		'answer'=>true, 
+		'msg' => $posts_arr[1]
 		)
-	)		
-?>
+	) 
+?>			
+
