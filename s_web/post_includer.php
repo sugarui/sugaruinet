@@ -1,5 +1,4 @@
 <?php
-	//$a = array('사과','딸기','바나나','망고');
 	$posts_arr = array();
 	
 	include '../db.php';
@@ -13,16 +12,15 @@
 	//출력 
 	while ($row = mysql_fetch_array($result) ){
 			
-		include './post.php';
-		//$post_each = $row['id'];
-		//array_push($posts_arr, $post_each); 
+		//include './post.php';
+		$post_each = $row['id'];
+		array_push($posts_arr, $post_each); 
 	}
-?>	
-<?php	
-/*	echo json_encode(array( 
+
+	echo json_encode(array( 
 		'answer'=>true, 
 		'msg' => $posts_arr[1]
 		)
-	)*/ 
+	) 
 ?>			
 
