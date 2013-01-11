@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
+	<?php
+	
+		session_save_path('./session');
+		session_start();
+		session_destroy();
+		session_start();
+		$_SESSION['pre']='0';
+		$_SESSION ['tag'] = $_GET['tag'];
+		$_SESSION ['cate'] = $_GET['cate'];
+		//echo file_get_contents( './session/sess_'.session_id() );
+		
+		//session_start();	
+		//if ( !isset($_SESSION['num_page_pre']) ){
+			//$_SESSION['num_pages_pre']=1;
+		//}	
+	?>
 	<head>
 		<?php
 			include ('../s_web/head.php')
@@ -95,181 +110,7 @@
 		<div class="navshadow"></div>
 		
 		<article>
-			<?php	
-				// include './posts_includer.php';	
-			
-				//파라미터 관련 변수 인클루드
-				include '../s_web/variable_para.php';
-				
-				// DB로부터 컨텐츠 셀렉트
-				include '../s_web/select.php';
-				
-				//출력 
-				while ($row = mysql_fetch_array($result) ){
-					include '../s_web/post_m.php'; 
-					//와꾸는 post_m이지만 그속에 post_core는 웹과같다.
-				}
-				
-			?>
-			
-			<!---------------- 페이지네이션 
-			<div class="pagenation">
-					
-				<?php
-				//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
-				if ( ($paraname != 'id') && (!$_GET['special']) ){ 
-					include '../s_web/pagenation.php';	
-				}
-				?>
-				</div>
-			<!--페이지네이션 end-->
-				
-			
-				
-				<!---------------- 더보기 : 기본방식 : 잘안됨		
-                <div style="width:100%; border-bottom:1px solid #ccc;">
-                	
-                <script>
-                   	$('#ppp').click( function() {
-                   		//$('#showmore').html(' ');
-                   		$.ajax({
-                    		url : 'http://elecuchi.cafe24.com/s_web/post_includer.php',
-                    		dataType : 'json',
-                    		type : 'POST',
-                    		data : { 'msg':'letstalk' },
-                    		success : function(result){
-                    			if( result['answer'] == true ){
-                    				$('#qqq').html(result['msg']);
-                    			}
-                    		}
-                    	}); 
-                    });
-                </script>
-                <input type="button" value="기본방식" id="ppp" /> 
-                <div id="qqq">기본 디폴트</div>
-                
-                <div style="width:100%; border-bottom:1px solid #ccc;">
-				<!--더보기 end-->
-				
-			
-			
-			
-				<!--쿠키초기화 - 이게 아닌가
-				<script>
-					SetCookie('pagecookie', 1)
-				</script>
-				-->
-				
-				<!--쿠키초기화- 이것도 아닌가-->
-				<?php
-					setcookie('pagecookie', 1);
-				?>
-				
-				
-				<!--쿠키초기화- 이것조차도 아닌가
-				<script>
-				$('body').location.reload( function() {
-					SetCookie('pagecookie', 1);
-				}
-				</script>
-				-->
-				  
-				<!---------- 더보기 : 로드방식 http://bit.ly/10gU7kN -->				
-				<div id="kkk">로드 디폴트</div>
-                <input type="button" value="로드" id="getResult" /> 
-                <script>
-                   	$('#getResult').click( function() {
-                   		$("#kkk").load("http://elecuchi.cafe24.com/s_mob/posts_includer.php")
-                    	$('#getResult').remove();
-                    });
-                </script>                
-				<!--더보기 end-->
-				
-				
-				
-				
-				<!---------- 더보기 2 : 직접테스트 : 당연히 문제없는데 경로타는 듯
-				<div style="width:100%; border-bottom:1px solid #ccc;">
-				
-				<div>
-				<?php 
-					include '../s_web/helloworld.php';
-				?>
-				</div>
-				<!--더보기 end-->
-				
-				
-				
-				<!---------- 더보기 3 : 별도의 php문 로드: 이건 되는데
-				<div style="width:100%; border-bottom:1px solid #ccc;">
-				
-				<div id="aaa">기본</div>
-                <input type="button" value="helloworld" id="bbb" />                 
-             	<script>
-                   	$('#bbb').click( function() {
-                   		$.ajax({
-                    		url : '../s_web/post_includer_d.php',
-                    		dataType : 'json',
-                    		success : function(result){
-                    			if( result['answer'] == true ){
-                    				$('#aaa').html( "<?php include '../s_web/helloworld.php'; ?>" );
-                    			}
-                    		}
-                    	}); 
-                    });
-                </script>
-				<!--더보기 end-->
-				
-				
-				
-				
-				<!---------- 더보기 4 : 자기 데이터 로드 : 이건 안된다
-				<div style="width:100%; border-bottom:1px solid #ccc;">
-					
-				<div id="aaaa">기본</div>
-                <input type="button" value="helloworld" id="bbbb" />                 
-             	<script>
-                   	$('#bbbb').click( function() {
-                   		$.ajax({
-                    		url : '../s_web/post_includer_d.php',
-                    		dataType : 'json',
-                    		success : function(result){
-                    			if( result['answer'] == true ){
-                    				$('#aaaa').html(result["msg"]);
-                    			}
-                    		}
-                    	}); 
-                    });
-                </script>
-				<!--더보기 end-->
-				
-							
-				
-				
-				<!-----------------오튜 예제
-				<div style="width:100%; border-bottom:1px solid #ccc;">
-					
-				<div id="result"></div>
-				<input type="text" id="msg" />
-		        <input type="button" value="get result" id="getResult" />
-		        <script>
-		            $('#getResult').click( function() {
-		                $('#result').html('');
-		                $.ajax({
-		                    url:'http://elecuchi.cafe24.com/s_web/ajaxtester.php',
-		                    dataType:'json',
-		                    type:'POST',
-		                    data:{'msg':$('#msg').val()},
-		                    success:function(result){
-		                        if(result['result']==true){
-		                          $('#result').html(result['msg']);
-		                        }
-		                    }
-		                });
-		            })
-		        </script>
-		        <!--오튜예제 end-->
-			
+			<?php include './posts_includer.php'; ?>
 		</article>
 
 	</body>
