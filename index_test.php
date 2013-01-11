@@ -6,7 +6,7 @@
 			include_once ('./s_web/head.php')
 		?>		
 		<link rel="stylesheet" type="text/css" href="./s_web/style/style_space.css"  />
-		<link rel="stylesheet" type="text/css" href="./s_web/style/style.css"  />
+		<link rel="stylesheet" type="text/css" href="./s_web/style/style_test.css"  />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 	</head>
 	
@@ -38,6 +38,20 @@
 					?>
 					
 					<ul>
+						<li><!--어바웃-->
+							<a href="?special=about">
+								<div class="nav_main">	
+									<?php
+									if($_GET['special']==='about'){
+										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;ABOUT ME";
+									}else{
+										echo "ABOUT ME";
+									}
+									?>
+								</div>
+							</a>
+						</li>
+						
 						<li><!--카테고리-->
 							<div class="nav_main">
 								CATEGORY
@@ -83,38 +97,60 @@
 								</ul>
 							</div>
 						</li>
-						<li><!--어바웃-->
-							<a href="?special=about">
-								<div class="nav_main">	
-									<?php
-									if($_GET['special']==='about'){
-										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;ABOUT";
-									}else{
-										echo "ABOUT";
-									}
-									?>
-								</div>
-							</a>
-						</li>
-						<li><!--방명록-->
-							<a href="?special=guest">
-								<div class="nav_main">	
-									<?php
-									if($_GET['special']==='guest'){
-										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;GUEST";
-									}else{
-										echo "GUEST";
-									}
-									?>
-								</div>
-							</a>
-						</li>
 						
-						<div class="space_50"></div>
-						<li> <!--작업일지-->
-							<div class="nav_contact">
-								작업일지
+						<!--<div class="space_50"></div>-->
+						<li> <!--개발일지-->
+							<a href="?devcate=start">
+								<div class="nav_dev">
+									개발일지
+								</div>
+							</a>
+							<div><!--구 <div class="nav_sub_cate">-->						
+								<ul>
+									<?php
+									$sql = 'SELECT * FROM `su_cate_02` ORDER BY id_intent';
+									$result = mysql_query($sql);	
+																	
+									//리소스를 목록으로 출력						
+									while ($row = mysql_fetch_array($result)){
+											
+										//출력문 가변부 조건 및 내용 설정
+										if( ($_GET['devcate']) && ($_GET['devcate'] === $row['cate']) && ( !$_GET['special']) ){
+											// cate파라가있고 이것이 $row의cate열과같을때 
+											// $row_special 스페셜값이 없을때
+											// 셀렉트 관련 변수를 지정한다
+											$select_open = "<div class=\"sel\"><img src=\"./s_web/image/sel_mark_01.png\">&nbsp;";
+											$select_close = "</div>";
+										}else{
+											$select_open = " ";
+											$select_close = " ";
+										}
+										
+										//출력문 고정부 설정
+										$link = $row['cate'];
+										$display = $row['cate_expression'];
+										
+										$list = " 
+											<li>
+												<a href=\"?devcate={$link}\">
+													<div class=\"nav_sub_cate\">".
+														$select_open.
+										 					$display.
+														$select_close.
+													"</div>
+												</a>
+											</li>
+										";
+										
+										//출력
+										echo $list;
+									}				
+									?>
+								</ul>
 							</div>
+							
+							<div class="space_10"></div>
+							
 							<div class="icon">
 								<a href="https://www.facebook.com/sugaruipage" target="_blank">
 									 <img src="./s_web/image/lnb_diary_fb.png" alt="facebook">
@@ -127,7 +163,8 @@
 							</div>
 						</li>
 						
-						<li> <!--채널-->
+						<!--
+						<li> 
 							<div class="nav_contact">
 								채널
 							</div>
@@ -148,7 +185,7 @@
 									</a>
 									</div>
 								</ul>
-						</li>
+						</li>-->
 			
 					</ul>
 				</nav>
@@ -215,6 +252,20 @@
 								</ul>
 							</div>
 						</li>
+						
+						<li><!--방명록-->
+							<a href="?special=guest">
+								<div class="nav_main">	
+									<?php
+									if($_GET['special']==='guest'){
+										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;GUEST";
+									}else{
+										echo "GUEST";
+									}
+									?>
+								</div>
+							</a>
+						</li>
 					</ul>
 					</nav>
 			</div>
@@ -223,15 +274,21 @@
 			
 			<!--CENTER---------------------------------------------------------------->
 			<div class="con">
-				
+				<ul>	
 				<?php
 				// DB로부터 컨텐츠 셀렉트
-				include './s_web/select.php';
+				include './s_web/select_test.php';
 				//출력 
+				
 				while ($row = mysql_fetch_array($result) ){
-					include './s_web/post.php';
+					if ($_GET['devcate']){
+						include './s_web/diary.php';
+					}else{
+						include './s_web/post.php';
+					}	
 				}	
 				?> 
+				</ul>
 				
 				<script type="text/javascript">//자료참조 http://hosting.websearch.kr/38	
 					function copy(trb) {
@@ -250,7 +307,7 @@
 					
 					<?php
 					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
-					if ( ($paraname != 'id') && (!$_GET['special']) ){ 
+					if ( ($paraname != 'id') && ($paraname != 'devcate') && (!$_GET['special']) ){ 
 						include './s_web/pagenation.php';	
 					}
 					?>

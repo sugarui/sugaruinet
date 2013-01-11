@@ -2,7 +2,8 @@
 
 	li{
 		list-style: none;
-	}	
+	}
+	/**/	
 	a, html, body, header, h1, ul, li, div, span, img, nav, .header_mov {
 		margin: 0px;
 		padding: 0px;
