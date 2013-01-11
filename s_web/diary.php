@@ -3,7 +3,7 @@
 -->
 					<?php
 					echo "			
-							<li class=\"diarybox\">
+							<li>
 							<div class=\"diary\">
 					";
 	
