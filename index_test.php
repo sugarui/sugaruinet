@@ -101,11 +101,11 @@
 						<!--<div class="space_50"></div>-->
 						<li> <!--개발일지-->
 							<a href="?devcate=start">
-								<div class="nav_dev">
+								<div class="nav_devdiary">
 									개발일지
 								</div>
 							</a>
-							<div><!--구 <div class="nav_sub_cate">-->						
+							<div class="nav_dev_sub"><!--구 <div class="nav_sub_cate">-->						
 								<ul>
 									<?php
 									$sql = 'SELECT * FROM `su_cate_02` ORDER BY id_intent';
@@ -119,31 +119,56 @@
 											// cate파라가있고 이것이 $row의cate열과같을때 
 											// $row_special 스페셜값이 없을때
 											// 셀렉트 관련 변수를 지정한다
-											$select_open = "<div class=\"sel\"><img src=\"./s_web/image/sel_mark_01.png\">&nbsp;";
-											$select_close = "</div>";
+											$select_open = "
+												<div class='sel'>
+												<div class='milestone'>
+													<img src='./s_web/image/milestone_sel.png'/>
+												</div>
+												";	
+											$select_close = "
+												</div>";
 										}else{
-											$select_open = " ";
-											$select_close = " ";
+											$select_open = "
+											<div class='milestone'>
+													<img src='./s_web/image/milestone_nor.png'/>
+												</div>
+											";
+											$select_close = "";
 										}
+										/*
+										$text_open="
+													<span class='dev_sub_cate_text'>";
+										$text_close="	
+													</span>";
+										$date_open="
+													<span class='dev_sub_cate_date'>";
+										$date_close="
+													</span>";	*/				
 										
-										//출력문 고정부 설정
-										$link = $row['cate'];
-										$display = $row['cate_expression'];
-										
-										$list = " 
-											<li>
-												<a href=\"?devcate={$link}\">
-													<div class=\"nav_sub_cate\">".
-														$select_open.
-										 					$display.
-														$select_close.
-													"</div>
-												</a>
-											</li>
-										";
-										
-										//출력
-										echo $list;
+									//출력문 고정부 설정
+									$link = $row['cate'];
+									$display_text = $row['cate_expression'];
+									$display_period = $row['period'];
+									
+									$list = " 
+										<li>
+										<div>
+											<a href=\"?devcate={$link}\">
+												<div class=\"nav_sub_cate\">".
+													$select_open.
+														"<div class='dev_sub_cate_period'>".
+									 					$display_period."</div>".
+														"<div class='dev_sub_cate_text'>".
+									 					$display_text."</div>".
+													$select_close.
+												"</div>
+											</a>
+										</div>
+										</li>
+									";
+									
+									//출력
+									echo $list;
 									}				
 									?>
 								</ul>
@@ -198,13 +223,26 @@
 				<nav>
 					<ul>
 						<li>
-							<div class="nav_main">
+							<?php
+								if($_GET['devcate']){
+									echo "<div class='nav_devtag'>";
+								}else{
+									echo "<div class='nav_main'>";
+								}
+							?>	
 								TAG
 							</div>
 							<div><!--구 <div class="nav_sub_tag">-->
 								<ul>
 									<?php
-										$sql = "SELECT tag FROM su_post_01 GROUP BY tag";
+										if($_GET['devcate']){
+											$table = 'su_post_02';
+										}else{
+											$table = 'su_post_01';
+										}
+									?>	
+									<?php
+										$sql = "SELECT tag FROM {$table} GROUP BY tag";
 										$result = mysql_query($sql);
 										$tags_arr = array();
 										while ($row = mysql_fetch_array($result)){
@@ -273,8 +311,8 @@
 			
 			
 			<!--CENTER---------------------------------------------------------------->
-			<div class="con">
-				<ul>	
+			<article>
+				<ul>
 				<?php
 				// DB로부터 컨텐츠 셀렉트
 				include './s_web/select_test.php';
@@ -314,7 +352,7 @@
 				</div>
 				<!--페이지네이션 end-->
 			
-			</div>
+			</article>
 			<!--CENTER end-->
 		
 		</div>

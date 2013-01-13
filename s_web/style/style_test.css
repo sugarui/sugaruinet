@@ -19,7 +19,7 @@
 		float: left;
 		margin-right:40px;
 		text-align: right;
-		/*position: fixed;*/
+		position: fixed;
 	}
 	.nav_2{
 		float:right;
@@ -27,7 +27,7 @@
 		/*position: fixed;
 			left: 880px; /* 160+40+680*/
 	}
-	.con{								
+	article{								
 		margin-left:200px; /* 160 + 40 */
 		margin-right:200px;
 		width:680px;
@@ -52,7 +52,7 @@
 		letter-spacing: -1px;
 	}
 	/*본문 텍스트*/
-	.con{
+	article{
 		/*font-size:0.8em; /*13px;	*/
 		color: #aaa;	
 	}
@@ -107,11 +107,19 @@
 		font-size: 0.8em;/*11px;*/
 		font-weight: bold;
 	}
-	.nav_dev{
+	.nav_devdiary{
 		margin-top:30px;
-		margin-bottom:10px;
+		margin-bottom:24px;/*10+14*/
 		color: #b36500;
 		font-size: 0.8em;/*11px;*/
+		font-weight: bold;
+	}
+	.nav_devtag{
+		margin-top:30px;
+		margin-bottom: 10px;
+		color: #b36500;
+		font-size: 0.8em;/*11px;*/
+		letter-spacing: 1px;
 		font-weight: bold;
 	}
 	/* 세부메뉴-카테고리 */
@@ -120,7 +128,43 @@
 		font-size: 0.87em; /*14px;*/
 		line-height:170%;
 		letter-spacing: 0px;
-	}	
+	}
+	
+	/***개발일지***/
+	.nav_dev_sub ul li { 
+		border-right : 1px solid #48494b;
+		margin-bottom: 7px; /*다음포스트박스와의 여백이 없어야 하지만 마일스톤도 있어서 마진으로씀*/
+		/*background-color: #1c1d20;보일듯말듯이*/
+	}
+	.nav_dev_sub ul li:last-child { 
+		border-right : 1px solid #1a1b1e; /*배경색*/
+	}
+	.nav_sub_cate .milestone{
+		float: right;
+		position:relative;
+		top: -15px;
+		left: 5px;
+	}
+	.dev_sub_cate_text{
+		width: 80px;
+		height: 1px;
+		font-size: 0.85em; /*넌 좀 작은게 낫다*/
+		position:relative;
+		top: -14px;
+		display: inline;
+		float: right;
+		margin-right: 1px;
+	}
+	.dev_sub_cate_period{
+		width: 50px;
+		height: 1px;
+		font-size: 0.87em;
+		font-family: 'Merriweather', serif;
+		position:relative;
+		top: -14px;
+		display: inline;
+	}
+		
 	.nav_sub_cate_add{		
 		font-size: 0.85em; /*12px;*/
 		display: inline;
@@ -148,7 +192,7 @@
 	
 	
 	
-/************************  CON  ************************/
+/************************  article  ************************/
 
 	/* 그래픽요소*/		
 	.dogear{
@@ -170,57 +214,65 @@
 		border-radius:3px;
 		box-shadow: 0px 0px 3px #161719;
 	}
-
-	.con ul li { 
-		border-left : 1px solid #48494b;
-		margin-bottom:5px; /*다음포스트박스와의 여백이 없어야 함*/
-		/*background-color: #30323a;*/
-	}
-	
-	/*.menu ul li:last-child a { border-bottom: none; }*/
-	.con ul li:last-child { 
-		border-left : none; 
-	}	
 	/*내부*/
 	.post{ 
 		padding-top:30px;
 		padding-bottom:30px;
 	}
+	
+	/***개발일지***/
+	
+	article ul li { 
+		border-left : 1px solid #48494b;
+		margin-bottom:2px; /*다음포스트박스와의 여백이 없어야 함*/
+		margin-left:20px; margin-right:20px;/* 프레임이 따로 없어서 좀 여백 만듬*/
+		/*background-color: #30323a;*/
+	}
+	article ul li:last-child { 
+		border-left : 1px solid #1a1b1e; /*배경색*/
+	}
 	.diary{ 
 		padding-top:0px;
-		padding-bottom:50px; /*다음포스트박스와의 여백역할*/
+		padding-bottom:70px; /*다음포스트박스와의 여백역할*/
 	}
-	
-	/*개발일지날자*/
-	.date_area{
+	.milestone{
+		float: left;
+		position:relative;
+		top: -10px;
+		left: -5px;
+		z-index: 20;
+	}	
+	.diary_date{
 		/*position: relative;*/
 		float: left;
-		padding-left: 9px;
-		width: 70px;
+		padding-left: 5px; /*10-보더1-마일스톤4*/
+		width: 70px; 
 		/*background-color: #000;*/
 		font-family: 'Merriweather', italic, serif;
 		font-size: 3em;
 		letter-spacing: -5px;
+		z-index: 10;
 	}
 	.date_m{
 		color: #47484a;
 		float: left;
 		position:relative;
 		top: -15px;
+		z-index: 10;
 	}
 	.date_d{
 		color: #b36500;
 		float: right;
 		position:relative;
 		top: -50px;
+		z-index: 10;
 	}
-	.date_side{
-		/*position: relative;*/
-		/*float: right;*/	
+	.diary_con{
 		padding-top: 40px;
 		margin-left: 100px; /*1+9+70+20*/
+		margin-right: 30px; /*걍 좀 주게*/
 		/*width: 580px; /*580px;*/
-		background-color: #1e1f22;
+		/*background-color: #1e1f22;보일듯말듯이*/
 		
 	}
 	/*포스트타이틀*/
@@ -322,6 +374,12 @@
 		margin-left: 40px;
 		text-align: right;
 	}
+	.diary .tail{ 
+		margin-top: 0px;
+		margin-right: 0;
+		margin-left: 0;
+		text-align: left;
+	}
 	.tail_each{ /*tail 일반 행간*/
 		margin-top: 0px;/* em 처리후 기본적으로 간격이 5px정도 생김. 거기다 추가함.*/
 	}
@@ -334,6 +392,10 @@
 	}
 	.tail_each .small{ /*tail 일반 소형 텍스트*/
 		font-size: 0.75em; /*11px;*/
+	}
+	.diary .tail_each .small{ /*tail 일반 소형 텍스트 - 개발일지버전*/
+		color: #444;
+		font-size: 0.75em;
 	}	
 	.btn_link{ /*tail 버튼부 및 버튼 텍스트*/
 		color:#b2b2b2; /*#6a6a6a;*/

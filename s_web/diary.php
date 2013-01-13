@@ -5,6 +5,9 @@
 					echo "			
 							<li>
 							<div class=\"diary\">
+								<div class='milestone'>
+									<img src='./s_web/image/milestone_nor.png'/>
+								</div>
 					";
 	
 						$date_ori = date_create_from_format('Y-m-d', $row['worked']);
@@ -13,18 +16,52 @@
 						$date_d =  date_format($date_ori, 'd');
 
 						echo "
-							<div class='date_area'>
+							<div class='diary_date'>
+
 								<div class='date_m'>{$date_m}</div>
-					  		<div class='date_d'>{$date_d}</div>
+					  			<div class='date_d'>{$date_d}</div>
 					 		</div>
 						";
 						echo "
-							<div class='date_side'>
+							<div class='diary_con'>
 								<div class='title'><h2>
 									{$row['title']}
 								</h2></div>
 						";
 						include './s_web/post_core.php';
+						
+						//테일(태그만)
+						echo "<div class=\"tail\">";	
+						if($row['tag']) {
+							echo "
+								<div class=\"tail_each\">
+									<span class=\"small\">태그&nbsp;</span>
+							";		
+							$tags = explode("@",$row['tag']); // Array(태그A, 태그B)
+							$i = 0;
+							while ($i < count($tags)){
+								if ($i < count($tags)-1){
+									echo "
+										<a href=\"?tag=$tags[$i]\">
+										<span>$tags[$i],&nbsp;</span>
+										</a>
+									";	
+									$i++;
+								}else{
+									echo "
+										<a href=\"?tag=$tags[$i]\">
+										<span>$tags[$i]</span>
+									</a>
+									";
+									$i++;
+								}
+							}
+							echo "</div>"; 	
+						}
+						echo "</div>"; 
+						//테일끝	
+						
+						
 						echo "
 							</div>
 						";
