@@ -42,14 +42,14 @@
 							while ($i < count($tags)){
 								if ($i < count($tags)-1){
 									echo "
-										<a href=\"?tag=$tags[$i]\">
+										<a href=\"?devtag=$tags[$i]\">
 										<span>$tags[$i],&nbsp;</span>
 										</a>
 									";	
 									$i++;
 								}else{
 									echo "
-										<a href=\"?tag=$tags[$i]\">
+										<a href=\"?devtag=$tags[$i]\">
 										<span>$tags[$i]</span>
 									</a>
 									";

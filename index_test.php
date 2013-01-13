@@ -38,24 +38,14 @@
 					?>
 					
 					<ul>
-						<li><!--어바웃-->
-							<a href="?special=about">
-								<div class="nav_main">	
-									<?php
-									if($_GET['special']==='about'){
-										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;ABOUT ME";
-									}else{
-										echo "ABOUT ME";
-									}
-									?>
+					
+						<li><!--카테고리-->
+							<a href="?cate=">
+								<div class="nav_main">
+									WORKS
 								</div>
 							</a>
-						</li>
-						
-						<li><!--카테고리-->
-							<div class="nav_main">
-								CATEGORY
-							</div>
+
 							<div><!--구 <div class="nav_sub_cate">-->						
 								<ul>
 									<?php
@@ -72,12 +62,10 @@
 										}else{
 											$select_open = " ";
 											$select_close = " ";
-										}
-										
+										}	
 										//출력문 고정부 설정
 										$link = $row['cate'];
 										$display = $row['cate_expression'];
-										
 										$list = " 
 											<li>
 												<a href=\"?cate={$link}\">
@@ -98,113 +86,150 @@
 							</div>
 						</li>
 						
+						<li><!--어바웃-->
+							<a href="?special=about">
+								<div class="nav_main">	
+									<div class="moveup1">	
+										<?php
+										if($_GET['special']==='about'){
+											echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;ABOUT ME";
+										}else{
+											echo "ABOUT ME";
+										}
+										?>
+									</div>
+								</div>
+							</a>
+						</li>
+						
+						<li><!--방명록-->
+							<a href="?special=guest">
+								<div class="nav_main">
+									<div class="moveup2">	
+										<?php
+										if($_GET['special']==='guest'){
+											echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;GUEST";
+										}else{
+											echo "GUEST";
+										}
+										?>
+									</div>
+								</div>
+							</a>
+						</li>	
+						
 						<!--<div class="space_50"></div>-->
 						<li> <!--개발일지-->
 							<a href="?devcate=start">
 								<div class="nav_devdiary">
-									개발일지
+									개발일지<br>
+									<span class='nor'>-단추로 끓인 스프</span>
 								</div>
 							</a>
 							
-							<div class="nav_dev_sub"><!--구 <div class="nav_sub_cate">-->						
-							<!--<ul>--> 
 							<?php
-								$years=array(2012,2013);
-								$years_i=0;
-								while ($years_i < 2){
+							echo "<div class='nav_devdiary_option'>";
+							?>
+								<!--
+								<div class="icon_dev">
+									<a href="https://www.facebook.com/sugaruipage" target="_blank">
+										 <img src="./s_web/image/lnb_diary_fb_y.png" alt="facebook">
+									</a>
+								</div>
+								<div class="icon_dev">
+									<a href="https://github.com/sugarui/sugaruinet" target="_blank">
+										<img src="./s_web/image/lnb_diary_gh_y.png" alt="github">
+									</a>
+								</div>
+								-->
+								<div class="nav_dev_sub"><!--구 <div class="nav_sub_cate">-->						
 									
-									$years_i++;
-								}	
-							?>		
-
-									<?php
-									echo '<ul>';
-									$sql = 'SELECT * FROM `su_cate_02` ORDER BY period ';
-									$result = mysql_query($sql);										
-										
-									//리소스를 목록으로 출력						
-									while ($row = mysql_fetch_array($result)){
-										
-										$date_ori = date_create_from_format('Y-m-d', $row['period']);
-										$date_y =  date_format($date_ori, 'Y');
-										$date_m =  date_format($date_ori, 'm');
-										
-										//출력문 가변부 조건 및 내용 설정
-										if( ($_GET['devcate']) && ($_GET['devcate'] === $row['cate']) && ( !$_GET['special']) ){
-											// cate파라가있고 이것이 $row의cate열과같을때 
-											// $row_special 스페셜값이 없을때
-											// 셀렉트 관련 변수를 지정한다
-											$select_open = "
-												<div class='sel'>
-												<div class='milestone'>
-													<img src='./s_web/image/milestone_sel.png'/>
-												</div>
-												";	
-											$select_close = "
-												</div>";
-										}else{
-											$select_open = "
-											<div class='milestone'>
-													<img src='./s_web/image/milestone_nor.png'/>
-												</div>
-											";
-											$select_close = "";
-										}
-										/*
-										$text_open="
-													<span class='dev_sub_cate_text'>";
-										$text_close="	
-													</span>";
-										$date_open="
-													<span class='dev_sub_cate_date'>";
-										$date_close="
-													</span>";	*/				
-
-									//출력문 고정부 설정
-									$link = $row['cate'];
-									$display_text = $row['cate_expression'];
-									$display_period = $row['period'];
-
-									$list = " 
-										<li>
-										<div>
-											<a href=\"?devcate={$link}\">
-												<div class=\"nav_sub_cate\">".
-													$select_open.
-														"<div class='dev_sub_cate_period'>".
-									 					$date_m."</div>".
-														"<div class='dev_sub_cate_text'>".
-									 					$display_text."</div>".
-													$select_close.
-												"</div>
-											</a>
-										</div>
-										</li>
-									";
-
-									//출력
-									echo $list;
-									}		
-									echo '</ul>';
-									?>
-
+									<ul>
+										 
+										<?php
+											$years=array(12,13);
+											$i=0;
+											while ($i < 2){
+												echo "<li><div class='year'>'{$years[$i]}</div>";
+			
+													echo '<ul>';
+													$sql = "SELECT * FROM `su_cate_02` 
+													WHERE period BETWEEN '20".
+													$years[$i]."-01-01' AND '20".$years[$i]."-12-31' ORDER BY period
+													";
+													$result = mysql_query($sql);										
+														
+													//리소스를 목록으로 출력						
+													while ($row = mysql_fetch_array($result)){
+														$date_ori = date_create_from_format('Y-m-d', $row['period']);
+														$date_y =  date_format($date_ori, 'Y');
+														$date_m =  date_format($date_ori, 'm');
+														//출력문 가변부 조건 및 내용 설정
+														if( ($_GET['devcate']) && ($_GET['devcate'] === $row['cate']) && ( !$_GET['special']) ){
+															// cate파라가있고 이것이 $row의cate열과같을때 
+															// $row_special 스페셜값이 없을때
+															// 셀렉트 관련 변수를 지정한다
+															$select_open = "
+																<div class='sel'>
+																	<div class='milestone'>
+																		<img src='./s_web/image/milestone_sel.png'/>
+																	</div>";	
+															$select_close = "
+																</div>";
+														}else{
+															$select_open = "
+																<div class='milestone'>
+																	<img src='./s_web/image/milestone_nor.png'/>
+																</div>";
+															$select_close = "";
+														}
+													//출력문 고정부 설정
+													$link = $row['cate'];
+													$display_text = $row['cate_expression'];
+													$display_period = $row['period'];
+													$list = " 
+														<li>
+														<div>
+															<a href=\"?devcate={$link}\">
+																<div class=\"nav_sub_cate\">".
+																	$select_open.
+																		"<div class='dev_sub_cate_period'>".
+													 					$date_m."</div>".
+																		"<div class='dev_sub_cate_text'>".
+													 					$display_text."</div>".
+																	$select_close.
+																"</div>
+															</a>
+														</div>
+														</li>
+													";
+				
+													//출력
+													echo $list;
+													}		
+													echo '</ul>';
+												
+												echo '</li>';
+												$i++;
+											}
+										?>
+									</ul>
+									<div class="icon_dev">
+										<a href="https://www.facebook.com/sugaruipage" target="_blank">
+											 <img src="./s_web/image/lnb_diary_fb_g.png" alt="facebook">
+										</a>
+									</div>
+									<div class="icon_dev">
+										<a href="https://github.com/sugarui/sugaruinet" target="_blank">
+											<img src="./s_web/image/lnb_diary_gh_g.png" alt="github">
+										</a>
+									</div>
+									
+								</div>
+							</div>
+						</li>	
 						
-							<!--</ul>-->
-							</div>
-							
-							<div class="space_10"></div>
-							
-							<div class="icon">
-								<a href="https://www.facebook.com/sugaruipage" target="_blank">
-									 <img src="./s_web/image/lnb_diary_fb.png" alt="facebook">
-								</a>
-							</div>
-							<div class="icon">
-								<a href="https://github.com/sugarui/sugaruinet" target="_blank">
-									<img src="./s_web/image/lnb_diary_gh.png" alt="github">
-								</a>
-							</div>
-						</li>
+						
 						
 						<!--
 						<li> 
@@ -242,7 +267,7 @@
 					<ul>
 						<li>
 							<?php
-								if($_GET['devcate']){
+								if($_GET['devcate'] || $_GET['devtag']){
 									echo "<div class='nav_devtag'>";
 								}else{
 									echo "<div class='nav_main'>";
@@ -253,10 +278,12 @@
 							<div><!--구 <div class="nav_sub_tag">-->
 								<ul>
 									<?php
-										if($_GET['devcate']){
+										if($_GET['devcate'] || $_GET['devtag']){
 											$table = 'su_post_02';
+											$tag = 'devtag';
 										}else{
 											$table = 'su_post_01';
+											$tag = 'tag';
 										}
 									?>	
 									<?php
@@ -291,7 +318,7 @@
 											$display = $tags[$i];
 											$list = " 
 												<li>
-													<a href=\"?tag={$link}\">
+													<a href=\"?{$tag}={$link}\">
 														<div class=\"nav_sub_tag\">".
 															$select_open.
 											 					$display.
@@ -308,20 +335,7 @@
 								</ul>
 							</div>
 						</li>
-						
-						<li><!--방명록-->
-							<a href="?special=guest">
-								<div class="nav_main">	
-									<?php
-									if($_GET['special']==='guest'){
-										echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;GUEST";
-									}else{
-										echo "GUEST";
-									}
-									?>
-								</div>
-							</a>
-						</li>
+					
 					</ul>
 					</nav>
 			</div>
@@ -337,7 +351,7 @@
 				//출력 
 				
 				while ($row = mysql_fetch_array($result) ){
-					if ($_GET['devcate']){
+					if($_GET['devcate'] || $_GET['devtag']){
 						include './s_web/diary.php';
 					}else{
 						include './s_web/post.php';

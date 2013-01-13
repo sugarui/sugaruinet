@@ -17,7 +17,7 @@
 		
 		// 리소스 획득 : Table(포스트) 에서 본 페이지에 출력할 전체 열, 오프셋된 일부 행
 		// 쿼리문 웨어부 조건 및 내용 설정
-		if($_GET['tag']){
+		if($_GET['tag'] || $_GET['devtag'] ){
 			$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
 		}else if($paravalue){
 			$where = "WHERE p.{$paraname} = '{$paravalue}'";
@@ -25,9 +25,9 @@
 			$where = " ";
 		}
 		//데이터 요청및 수신
-		if($_GET['devcate']){
+		if($_GET['devcate'] || $_GET['devtag']){
 			$sql =  "
-				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.devcate = c.cate"." ". 
+				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate"." ". 
 				$where." "."
 				ORDER BY id_intent DESC, worked ASC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 			";

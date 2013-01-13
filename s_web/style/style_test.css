@@ -22,10 +22,13 @@
 		position: fixed;
 	}
 	.nav_2{
-		float:right;
+		/*float:right;
 		margin-left:40px;
-		/*position: fixed;
-			left: 880px; /* 160+40+680*/
+		*/
+		float: left;
+		margin-left: 920px; /* 160+40+680+40*/
+		text-align: left;
+		position: fixed;
 	}
 	article{								
 		margin-left:200px; /* 160 + 40 */
@@ -92,30 +95,38 @@
 
 	/* 주메뉴 */
 	.nav_main{
-		margin-top: 30px;
-		margin-bottom: 10px;
+		margin-top: 25px;
+		margin-bottom: 5px; /*원래 10인데 em 화 한후로 자동여백이 좀 생겨서*/
 		color: #dc2276; /* 디스에이블은 #702245;*/
 		font-size: 0.8em;/*11px;*/
 		text-shadow: 0px 2px 0px #000;
 		letter-spacing: 1px;
 		font-weight: bold;
 	}
+	.nav_main .moveup1{position: relative; top:-5px;}
+	.nav_main .moveup2{position: relative; top:-15px;}
+	
 	.nav_contact{
-		margin-top:30px;
+		margin-top:25px;
 		margin-bottom:10px;
 		color: #5e6270; 
 		font-size: 0.8em;/*11px;*/
 		font-weight: bold;
 	}
 	.nav_devdiary{
-		margin-top:30px;
-		margin-bottom:24px;/*10+14*/
+		margin-top:25px;
+		margin-bottom: 24px;/*10+14*/
 		color: #b36500;
 		font-size: 0.8em;/*11px;*/
+		text-shadow: 0px 2px 0px #000;
 		font-weight: bold;
 	}
+	.nav_devdiary .nor{
+		text-shadow: none;
+		font-weight: normal;
+	}
 	.nav_devtag{
-		margin-top:30px;
+		margin-top:25px;
 		margin-bottom: 10px;
 		color: #b36500;
 		font-size: 0.8em;/*11px;*/
@@ -126,17 +137,34 @@
 	.nav_sub_cate{				
 		color: #aaa;
 		font-size: 0.87em; /*14px;*/
-		line-height:170%;
+		line-height:160%;
 		letter-spacing: 0px;
 	}
 
 	/***개발일지***/
-	.nav_dev_sub ul li { 
+	.nav_dev_sub .year{
+		font-family: 'Merriweather', serif;
+		font-size: 0.8em;
+		color: #47484a; /*몬쓰와같음*/
+		font-weight: bold;
+		position:relative;
+		top: -14px;
+		margin-bottom: 2px; /*.nav_dev_sub ul li > ul li의 마진과 비슷하게함*/
+	}
+	.nav_dev_sub{
+		margin-top: 20px; /*아이콘과 간격*/
+	}	
+	.nav_dev_sub > ul > li:first-child > .year{
+		display: none;
+	}
+	
+	.nav_dev_sub ul li > ul li{ 
 		border-right : 1px solid #48494b;
-		margin-bottom: 7px; /*다음포스트박스와의 여백이 없어야 하지만 마일스톤도 있어서 마진으로씀*/
+		margin-bottom: 3px; /*다음포스트박스와의 여백이 없어야 하지만 마일스톤도 있어서 마진으로씀*/
+		margin-right: 25px; /*달을 둘 정도의 왼쪽 여백*/ 
 		/*background-color: #1c1d20;보일듯말듯이*/
 	}
-	.nav_dev_sub ul li:last-child { 
+	.nav_dev_sub ul li > ul li:last-child { 
 		border-right : 1px solid #1a1b1e; /*배경색*/
 	}
 	.nav_sub_cate .milestone{
@@ -146,22 +174,24 @@
 		left: 5px;
 	}
 	.dev_sub_cate_text{
-		width: 80px;
-		font-size: 0.85em; /*넌 좀 작은게 낫다*/
+		/*width: 80px;*/
+		font-size: 0.9em;
 		position:relative;
 		top: -14px;
+		left: 28px; /*30짜리 pefiod 가 오른쪽으로 38 오프셋해 갔고 그사이 마일스톤 있는거 고려해서 적절히*/
 		display: inline;
-		float: right;
-		margin-right: 1px;
 	}
 	.dev_sub_cate_period{
-		width: 50px;
+		width: 30px;
 		font-size: 0.87em;
 		font-family: 'Merriweather', serif;
 		position:relative;
-		top: -14px;
+		top: -12px;
+		left: 35px; /*.nav_dev_sub ul li > ul li 의 왼쪽여백 25 + 마일스톤 반지름 5+ 마일스톤 오프셋 5??? */
+		float: right;
 		display: inline;
 	}
+
 
 	.nav_sub_cate_add{		
 		font-size: 0.85em; /*12px;*/
@@ -175,9 +205,16 @@
 		line-height: 220%;
 	}
 	/* 세부메뉴-sns및작업일지 디테일 */
+	.icon_dev{
+		/*display: inline;*/
+		margin-bottom: 5px;
+		position: relative;
+		top: -10px;
+	}
 	.icon{
 		margin-bottom: 5px;
 	}
+
 	/* 셀렉트마커 포지션 디테일*/ 
 	nav .sel img{
 		position:relative;
@@ -219,7 +256,6 @@
 	}
 
 	/***개발일지***/
-
 	article ul li { 
 		border-left : 1px solid #48494b;
 		margin-bottom:2px; /*다음포스트박스와의 여백이 없어야 함*/

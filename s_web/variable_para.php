@@ -4,8 +4,11 @@
         	$paraname = 'cate'; 
 			$paravalue = $_GET['cate'];
 		}else if($_GET['devcate']){
-			$paraname = 'devcate';  
-			$paravalue = $_GET['devcate'];	 
+			$paraname = 'cate';  
+			$paravalue = $_GET['devcate'];
+		}else if($_GET['devtag']){
+			$paraname = 'tag';  
+			$paravalue = $_GET['devtag'];	 	 
 		}else if($_GET['tag']){
 				$paraname = 'tag';  
 			$paravalue = $_GET['tag'];
