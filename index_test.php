@@ -105,15 +105,30 @@
 									개발일지
 								</div>
 							</a>
+							
 							<div class="nav_dev_sub"><!--구 <div class="nav_sub_cate">-->						
-								<ul>
+							<!--<ul>--> 
+							<?php
+								$years=array(2012,2013);
+								$years_i=0;
+								while ($years_i < 2){
+									
+									$years_i++;
+								}	
+							?>		
+
 									<?php
-									$sql = 'SELECT * FROM `su_cate_02` ORDER BY id_intent';
-									$result = mysql_query($sql);	
-																	
+									echo '<ul>';
+									$sql = 'SELECT * FROM `su_cate_02` ORDER BY period ';
+									$result = mysql_query($sql);										
+										
 									//리소스를 목록으로 출력						
 									while ($row = mysql_fetch_array($result)){
-											
+										
+										$date_ori = date_create_from_format('Y-m-d', $row['period']);
+										$date_y =  date_format($date_ori, 'Y');
+										$date_m =  date_format($date_ori, 'm');
+										
 										//출력문 가변부 조건 및 내용 설정
 										if( ($_GET['devcate']) && ($_GET['devcate'] === $row['cate']) && ( !$_GET['special']) ){
 											// cate파라가있고 이것이 $row의cate열과같을때 
@@ -144,12 +159,12 @@
 													<span class='dev_sub_cate_date'>";
 										$date_close="
 													</span>";	*/				
-										
+
 									//출력문 고정부 설정
 									$link = $row['cate'];
 									$display_text = $row['cate_expression'];
 									$display_period = $row['period'];
-									
+
 									$list = " 
 										<li>
 										<div>
@@ -157,7 +172,7 @@
 												<div class=\"nav_sub_cate\">".
 													$select_open.
 														"<div class='dev_sub_cate_period'>".
-									 					$display_period."</div>".
+									 					$date_m."</div>".
 														"<div class='dev_sub_cate_text'>".
 									 					$display_text."</div>".
 													$select_close.
@@ -166,12 +181,15 @@
 										</div>
 										</li>
 									";
-									
+
 									//출력
 									echo $list;
-									}				
+									}		
+									echo '</ul>';
 									?>
-								</ul>
+
+						
+							<!--</ul>-->
 							</div>
 							
 							<div class="space_10"></div>
