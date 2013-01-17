@@ -120,15 +120,19 @@
 						
 						<!--<div class="space_50"></div>-->
 						<li> <!--개발일지-->
-							<a href="?devcate=start">
-								<div class="nav_devdiary">
-									개발일지<br>
-									<span class='nor'>-단추로 끓인 스프</span>
+							<a href="?devcate=intro">
+								<div class="nav_dev">
+									사이트 개발일지:<br>
+									<span class='nor'>단추로 끓인 스프</span>
 								</div>
 							</a>
 							
 							<?php
-							echo "<div class='nav_devdiary_option'>";
+								if($_GET['devcate'] || $_GET['devtag']){
+									echo "<div>";
+								}else{
+									echo "<div class='display_none'>";
+								}
 							?>
 								<!--
 								<div class="icon_dev">
@@ -142,7 +146,7 @@
 									</a>
 								</div>
 								-->
-								<div class="nav_dev_sub"><!--구 <div class="nav_sub_cate">-->						
+								<div class="nav_sub_dev_area"><!--구 <div class="nav_sub_cate">-->						
 									
 									<ul>
 										 
@@ -191,11 +195,11 @@
 														<li>
 														<div>
 															<a href=\"?devcate={$link}\">
-																<div class=\"nav_sub_cate\">".
+																<div class=\"nav_sub_dev\">".
 																	$select_open.
-																		"<div class='dev_sub_cate_period'>".
+																		"<div class='nav_sub_dev_period'>".
 													 					$date_m."</div>".
-																		"<div class='dev_sub_cate_text'>".
+																		"<div class='nav_sub_dev_text'>".
 													 					$display_text."</div>".
 																	$select_close.
 																"</div>
@@ -226,7 +230,9 @@
 									</div>
 									
 								</div>
-							</div>
+							<?php
+							echo "</div>";
+							?>
 						</li>	
 						
 						
@@ -304,7 +310,8 @@
 										$i=0;
 										while($i < count($tags)){
 											//출력문 가변부 조건 및 내용 설정
-											if(($_GET['tag']) && ($_GET['tag'] === $tags[$i])){
+											if( (($_GET['tag']) && ($_GET['tag'] === $tags[$i])) || 
+											   (($_GET['devtag']) && ($_GET['devtag'] === $tags[$i]))){
 												// tag파라가있고 이것이 $row의tag열과같을때
 												// 셀렉트 관련 변수를 지정한다
 												$select_open = "<div class=\"sel\"><img src=\"./s_web/image/sel_mark_01.png\">&nbsp;";
@@ -352,7 +359,7 @@
 				
 				while ($row = mysql_fetch_array($result) ){
 					if($_GET['devcate'] || $_GET['devtag']){
-						include './s_web/diary.php';
+						include './s_web/dev.php';
 					}else{
 						include './s_web/post.php';
 					}	

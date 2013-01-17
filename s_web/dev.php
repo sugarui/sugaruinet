@@ -1,10 +1,10 @@
 <!--
- <li class=\"diarybox\">	
+ <li class=\"devbox\">	
 -->
 					<?php
 					echo "			
 							<li>
-							<div class=\"diary\">
+							<div class=\"dev\">
 								<div class='milestone'>
 									<img src='./s_web/image/milestone_nor.png'/>
 								</div>
@@ -16,19 +16,19 @@
 						$date_d =  date_format($date_ori, 'd');
 
 						echo "
-							<div class='diary_date'>
+							<div class='dev_date'>
 
 								<div class='date_m'>{$date_m}</div>
 					  			<div class='date_d'>{$date_d}</div>
 					 		</div>
 						";
 						echo "
-							<div class='diary_con'>
+							<div class='dev_con'>
 								<div class='title'><h2>
 									{$row['title']}
 								</h2></div>
 						";
-						include './s_web/post_core.php';
+						include './s_web/dev_core.php';
 						
 						//테일(태그만)
 						echo "<div class=\"tail\">";	

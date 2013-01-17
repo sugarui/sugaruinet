@@ -72,7 +72,6 @@
 		font-weight: bold;
 	}
 	/*간격조각*/	
-
 	.space_10{
 		margin-top: 10px;
 	}
@@ -89,7 +88,9 @@
 		position:relative;
 		top:5px;
 	}
-
+	.display_none{
+		display: none;
+	}
 
 /************************  NAV  ************************/
 
@@ -113,17 +114,19 @@
 		font-size: 0.8em;/*11px;*/
 		font-weight: bold;
 	}
-	.nav_devdiary{
-		margin-top:25px;
+	.nav_dev{
+		margin-top:10px;/*원래 25인데 어바웃미와게스트가넘올라감*/
 		margin-bottom: 24px;/*10+14*/
 		color: #b36500;
 		font-size: 0.8em;/*11px;*/
 		text-shadow: 0px 2px 0px #000;
 		font-weight: bold;
 	}
-	.nav_devdiary .nor{
+	.nav_dev .nor{
 		text-shadow: none;
 		font-weight: normal;
+		position:relative;
+		top:3px;
 	}
 	.nav_devtag{
 		margin-top:25px;
@@ -133,77 +136,79 @@
 		letter-spacing: 1px;
 		font-weight: bold;
 	}
-	/* 세부메뉴-카테고리 */
+	/* 세부메뉴*/
 	.nav_sub_cate{				
 		color: #aaa;
 		font-size: 0.87em; /*14px;*/
 		line-height:160%;
 		letter-spacing: 0px;
 	}
-
-	/***개발일지***/
-	.nav_dev_sub .year{
+	.nav_sub_dev{				
+		color:#57585a;
+		font-size: 0.87em; /*14px;*/
+		line-height:160%;
+		letter-spacing: 0px;
+	}
+	.nav_sub_cate_add{		
+		font-size: 0.85em; /*12px;*/
+		display: inline;
+		letter-spacing: 0px;
+	}	
+	.nav_sub_tag{
+		color: #aaa;
+		font-size: 0.8em; /*13px;*/
+		line-height: 220%;
+	}
+	/*개발일지 상세*/
+	.nav_sub_dev_area .year{
 		font-family: 'Merriweather', serif;
-		font-size: 0.8em;
+		font-size: 0.75em;
 		color: #47484a; /*몬쓰와같음*/
 		font-weight: bold;
 		position:relative;
 		top: -14px;
-		margin-bottom: 2px; /*.nav_dev_sub ul li > ul li의 마진과 비슷하게함*/
+		margin-bottom: 2px; /*.nav_sub_dev_area ul li > ul li의 마진과 비슷하게함*/
 	}
-	.nav_dev_sub{
-		margin-top: 20px; /*아이콘과 간격*/
+	.nav_sub_dev_area{
+		margin-top: 30px; 
 	}	
-	.nav_dev_sub > ul > li:first-child > .year{
+	.nav_sub_dev_area > ul > li:first-child > .year{
 		display: none;
 	}
-	
-	.nav_dev_sub ul li > ul li{ 
+	.nav_sub_dev_area ul li > ul li{ 
 		border-right : 1px solid #48494b;
 		margin-bottom: 3px; /*다음포스트박스와의 여백이 없어야 하지만 마일스톤도 있어서 마진으로씀*/
 		margin-right: 25px; /*달을 둘 정도의 왼쪽 여백*/ 
 		/*background-color: #1c1d20;보일듯말듯이*/
 	}
-	.nav_dev_sub ul li > ul li:last-child { 
+	.nav_sub_dev_area ul li > ul li:last-child { 
 		border-right : 1px solid #1a1b1e; /*배경색*/
 	}
-	.nav_sub_cate .milestone{
+	.nav_sub_dev .milestone{
 		float: right;
 		position:relative;
 		top: -15px;
 		left: 5px;
 	}
-	.dev_sub_cate_text{
-		/*width: 80px;*/
+	.nav_sub_dev_text{	
 		font-size: 0.9em;
 		position:relative;
 		top: -14px;
 		left: 28px; /*30짜리 pefiod 가 오른쪽으로 38 오프셋해 갔고 그사이 마일스톤 있는거 고려해서 적절히*/
 		display: inline;
 	}
-	.dev_sub_cate_period{
+	.nav_sub_dev_period{
 		width: 30px;
 		font-size: 0.87em;
 		font-family: 'Merriweather', serif;
 		position:relative;
-		top: -12px;
-		left: 35px; /*.nav_dev_sub ul li > ul li 의 왼쪽여백 25 + 마일스톤 반지름 5+ 마일스톤 오프셋 5??? */
+		top: -13px;
+		left: 35px; /*.nav_sub_dev_area ul li > ul li 의 왼쪽여백 25 + 마일스톤 반지름 5+ 마일스톤 오프셋 5??? */
 		float: right;
 		display: inline;
 	}
-
-
-	.nav_sub_cate_add{		
-		font-size: 0.85em; /*12px;*/
-		display: inline;
-		letter-spacing: 0px;
-	}	
-	/* 세부메뉴-태그 */
-	.nav_sub_tag{
-		color: #aaa;
-		font-size: 0.8em; /*13px;*/
-		line-height: 220%;
-	}
+	/*개발일지 상세 끝*/
+	
 	/* 세부메뉴-sns및작업일지 디테일 */
 	.icon_dev{
 		/*display: inline;*/
@@ -214,7 +219,6 @@
 	.icon{
 		margin-bottom: 5px;
 	}
-
 	/* 셀렉트마커 포지션 디테일*/ 
 	nav .sel img{
 		position:relative;
@@ -245,7 +249,7 @@
 	/*외부*/	
 	.postbox{ 
 		margin-bottom:30px; /*다음포스트박스와의 여백*/
-		background-color:#30323a;
+		background-color:#25272c;/*#30323a;*/
 		border-radius:3px;
 		box-shadow: 0px 0px 3px #161719;
 	}
@@ -254,18 +258,17 @@
 		padding-top:30px;
 		padding-bottom:30px;
 	}
-
-	/***개발일지***/
+	/*포스트-개발일지*/
 	article ul li { 
 		border-left : 1px solid #48494b;
-		margin-bottom:2px; /*다음포스트박스와의 여백이 없어야 함*/
+		/*다음포스트박스와의 여백이 없어야 함*/
 		margin-left:20px; margin-right:20px;/* 프레임이 따로 없어서 좀 여백 만듬*/
 		/*background-color: #30323a;*/
 	}
 	article ul li:last-child { 
 		border-left : 1px solid #1a1b1e; /*배경색*/
 	}
-	.diary{ 
+	.dev{ 
 		padding-top:0px;
 		padding-bottom:70px; /*다음포스트박스와의 여백역할*/
 	}
@@ -276,7 +279,7 @@
 		left: -5px;
 		z-index: 20;
 	}	
-	.diary_date{
+	.dev_date{
 		/*position: relative;*/
 		float: left;
 		padding-left: 5px; /*10-보더1-마일스톤4*/
@@ -301,14 +304,15 @@
 		top: -50px;
 		z-index: 10;
 	}
-	.diary_con{
+	.dev_con{
 		padding-top: 40px;
 		margin-left: 100px; /*1+9+70+20*/
 		margin-right: 30px; /*걍 좀 주게*/
 		/*width: 580px; /*580px;*/
 		/*background-color: #1e1f22;보일듯말듯이*/
-
 	}
+	/*포스트-개발일지 끝*/
+	
 	/*포스트타이틀*/
 	.post .title h2{
 		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
@@ -317,7 +321,7 @@
 		text-shadow: 0px -1px 0px  #000;
 		font-weight: normal;
 	}
-	.diary .title h2{
+	.dev .title h2{
 		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
 		color: #b36500;
 		text-shadow: 0px -1px 0px  #000;
@@ -337,7 +341,7 @@
 		margin-left: 40px;
 		margin-right: 40px;
 	}
-	.diary .title, .diary .title_inner, .diary .text, /*.graphic*/ .diary .disqus_custom{
+	.dev .title, .dev .title_inner, .dev .text, /*.graphic*/ .dev .disqus_custom{
 		margin-left: 0px;
 		margin-right: 0px;
 	}
@@ -354,7 +358,7 @@
 		text-align: left;
 	}
 	/*요소 여백-상하공통*/
-	.post .graphic, .post .graphic_noeffect, .post .graphic_left, .text, .movie {
+	.graphic, .graphic_noeffect, .graphic_left, .text, .movie {
 		margin-top:20px;
 		margin-bottom:20px;			
 	}
@@ -370,6 +374,10 @@
 		border-radius:3px;
 		box-shadow: 0px 0px 4px #161719;		
 	}
+	.dev .graphic img{
+		max-width:500px;
+	}
+	
 	.movie{
 		text-align: center;
 	}
@@ -408,7 +416,7 @@
 		margin-left: 40px;
 		text-align: right;
 	}
-	.diary .tail{ 
+	.dev .tail{ 
 		margin-top: 0px;
 		margin-right: 0;
 		margin-left: 0;
@@ -426,11 +434,15 @@
 	}
 	.tail_each .small{ /*tail 일반 소형 텍스트*/
 		font-size: 0.75em; /*11px;*/
-	}
-	.diary .tail_each .small{ /*tail 일반 소형 텍스트 - 개발일지버전*/
-		color: #444;
-		font-size: 0.75em;
 	}	
+	.dev .tail_each span, .dev .tail_each .small{/*tail  모든 텍스트 - 개발일지버전*/
+		position:relative;
+		top:-10px;
+	}
+	.dev .tail_each .small{ /*tail 일반 소형 텍스트 - 개발일지버전*/
+		color: #444;
+		font-size: 0.75em;	
+	}
 	.btn_link{ /*tail 버튼부 및 버튼 텍스트*/
 		color:#b2b2b2; /*#6a6a6a;*/
 		font-size: 0.75em; /*11px;*/
