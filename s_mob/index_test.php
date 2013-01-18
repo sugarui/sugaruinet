@@ -8,7 +8,7 @@
 		session_start();
 		$_SESSION['pre']='0';
 		$_SESSION ['tag'] = $_GET['tag'];
-		$_SESSION ['cate'] = $_GET['cate'];
+		$_SESSION ['cate'] = $_GET['cate'] ; 
 		//echo file_get_contents( './session/sess_'.session_id() );
 		
 		//session_start();	

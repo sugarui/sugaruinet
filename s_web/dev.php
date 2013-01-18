@@ -1,10 +1,7 @@
-<!--
- <li class=\"devbox\">	
--->
-					<?php
+				<?php
 					echo "			
-							<li>
-							<div class=\"dev\">
+						<li>		
+						<div class=\"dev\">
 								<div class='milestone'>
 									<img src='./s_web/image/milestone_nor.png'/>
 								</div>
@@ -17,7 +14,6 @@
 
 						echo "
 							<div class='dev_date'>
-
 								<div class='date_m'>{$date_m}</div>
 					  			<div class='date_d'>{$date_d}</div>
 					 		</div>
@@ -26,9 +22,11 @@
 							<div class='dev_con'>
 								<div class='title'><h2>
 									{$row['title']}
-								</h2></div>
+								</h2>
+							</div>
 						";
-						include './s_web/dev_core.php';
+						
+						include 'dev_core.php';
 						
 						//테일(태그만)
 						echo "<div class=\"tail\">";	
@@ -60,11 +58,6 @@
 						}
 						echo "</div>"; 
 						//테일끝	
-						
-						
-						echo "
-							</div>
-						";
 		
 					echo "</div></li>"; //포스트박스끝	 
-					?>
+				?>
