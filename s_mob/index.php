@@ -5,9 +5,38 @@
 		<?php
 			include ('../s_web/head.php')
 		?>	
+		
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_web/style/style_space.css" />	
 		<link rel="stylesheet" type="text/css" href="./style_m.css" />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="http://elecuchi.cafe24.com/jindo.mobile.min.ns.js"></script>
+		
+		<script type="text/javascript" charset="UTF-8">
+			//주소창 숨기기 01 http://cafe.naver.com/ibooks2sg/213 : 잘 작동 안하네
+			/*
+			var uagent = navigator.userAgent.toLowerCase();
+			var android = uagent.search("android");
+			var iphone = uagent.search("iphone");
+			if(android>-1 || iphone >-1){
+				window.addEventListener("load",function(){setTimeout(scrollTo,0,0,1;)},false)
+			}else{
+				function loadPosition(){
+					setTimeout(scrollT0, 0,0,1);
+			}
+		</script>
+		
+		<script>
+		//주소창 숨기기 02
+		/* */
+         $(function(){
+               setTimeout(loaded, 100);
+               });
+               function loaded(){ 
+               window.scrollTo(0, 1);
+          }
+		</script>
+		
 	</head>
 	
 	<!--DB접속-->
@@ -16,13 +45,15 @@
 		?>
 			
 	<body>
+
 		<header>
 			<a href="./index.php">
 				<img src="http://elecuchi.cafe24.com/s_web/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
 			</a>	
-			<div class="header_space"></div><!--미스터치방지-->
+			<!--<div class="header_space"></div><!--미스터치방지-->
 		</header>
-		<nav>
+
+		<!--<nav id="nav">-->
 
 			<ul class="menu" id="menu">			
 			    <li>
@@ -89,11 +120,11 @@
 			    </li>
  			</ul>
 	
-		</nav>
+		<!--</nav>-->
 		
 		<div class="navshadow"></div>
 		
-		<article>
+		<article id="article">
 			<?php			
 			//파라미터 관련 변수 인클루드
 			include '../s_web/variable_para.php';
@@ -121,6 +152,23 @@
 				<!--페이지네이션 end-->
 			
 		</article>
-
+	
+	<script>  	
+		//메뉴바 고정	
+        var wel = jindo.$Element("menu"); 
+        var nTop = wel.offset().top; 
+            
+        setInterval(function(){     	
+        	var nScrollTop = jindo.$Document().scrollPosition().top;
+        	if(nScrollTop < nTop){
+        		//$("#nav").css({ 'position': 'relative', 'top' : '0px'});
+				wel.css({ 'position': 'relative', 'top' : '0px', 'width': '100%'});
+        	}else{
+        		wel.css({ 'position': 'fixed', 'top' : '0px', 'width': '100%'});
+        	}
+        },100);
+        
+    </script>  
 	</body>
+	              
 </html>

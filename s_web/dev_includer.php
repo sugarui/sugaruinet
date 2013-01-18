@@ -1,10 +1,10 @@
 <?php 	// load형식이므로, 자체적으로 컨텐츠가 완성되어서 불러져야 함
 	session_save_path('../session');
 	session_start();
-	echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
-	echo "세션값을 변수 넘프리에 대입합니다.<br>";
+	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
+	//echo "세션값을 변수 넘프리에 대입합니다.<br>";
 	$num_pages_pre=$_SESSION ['pre'];
-	echo "대입한 넘프리는".$num_pages_pre."<br>";
+	//echo "대입한 넘프리는".$num_pages_pre."<br>";
 	
 	//DB접속	
 	include '../db.php';
@@ -15,7 +15,6 @@
 		 
 	//파라미터 관련 변수 인클루드
 	include 'variable_para.php';
-	echo $paravalue;
 				
 	// DB로부터 컨텐츠 셀렉트. include '../s_web/select.php' 을 변형함
 		$num_posts_display = 2; //디피수
@@ -39,7 +38,6 @@
 		
 	//출력 
 	while ($row = mysql_fetch_array($result) ){
-		echo "success";
 		include 'dev.php';
 		//와꾸는 post_m이지만 그속에 post_core는 웹과같다.
 	}
@@ -60,12 +58,12 @@
 		$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수32/페이지당 출력수3 =10, 올림해서 11
 		
 		if ( $num_pages_pre < $num_pages-1 ){
-			echo "넘페이지프리는".$num_pages_pre."<br>";
+			//echo "넘페이지프리는".$num_pages_pre."<br>";
 			$new=$num_pages_pre+1;
-			echo "뉴는".$new."<br>";
+			//echo "뉴는".$new."<br>";
 			$_SESSION['pre'] = $new;
-			echo "뉴를 세션에 넣었다<br>";
-			echo  "새 세션값을 출력해보자".$_SESSION['pre']."<br>";
+			//echo "뉴를 세션에 넣었다<br>";
+			//echo  "새 세션값을 출력해보자".$_SESSION['pre']."<br>";
 			include 'more.php'; 
 		}
 ?>

@@ -26,7 +26,7 @@
 		include_once ('./db.php');
 		?>
 			
-	<body>
+	<body id="body">
 		<div class="wrap">
 
 			<!--LEFT NAV------------------------------------------------------------->
@@ -340,7 +340,7 @@
 			
 			
 			<!--CENTER---------------------------------------------------------------->
-			<article>
+			<article id="article">
 				
 				<?php
 					if($_GET['devcate'] || $_GET['devtag']){

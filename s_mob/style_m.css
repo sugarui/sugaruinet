@@ -10,10 +10,10 @@
 	header img{
 		display: block;
 	}
-	.header_space{
+	/*.header_space{
 		height: 5px;
 		background: #222428;
-	}
+	}*/
 	.space_20{
 		margin-top: 20px;
 	}
@@ -22,9 +22,12 @@
 	}
 	
 	/**********  메뉴  **********/
+	.nav{
+		background: #222428;
+	}
 	.menu{
 		height: 50px;
-		background: #222428;/*#222327;*/
+		background: #222428;
 		color: #aaa;
 		padding: 0 9px 0 9px;
 	}
