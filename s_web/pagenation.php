@@ -11,7 +11,7 @@
 						$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수32/페이지당 출력수3 =10, 올림해서 11		
 						
 					    // < ㅇㅇㅇㅇㅇ >포맷 구성
-					    $range = 5;
+					    //$range = 5;
 						$page_now = $_GET['page'];
 						
 						$x = ceil($page_now / $range) - 1;	// 6일땐 2-1 = 1 , 10일때도 2-1 = 1  // 1일땐 1-1 = 0   5일땐 1-1 = 0

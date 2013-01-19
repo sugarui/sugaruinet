@@ -1,5 +1,5 @@
 <?php
-	include 'num_posts_display.php';
+	include 'numbers.php';
 	if($_GET['special']){
 		//데이터 요청및 수신
 		$sql =  "SELECT * FROM su_special_01 WHERE `special` = '{$_GET['special'] }' ";

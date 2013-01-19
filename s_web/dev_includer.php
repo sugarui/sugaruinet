@@ -58,12 +58,10 @@
 		$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수32/페이지당 출력수3 =10, 올림해서 11
 		
 		if ( $num_pages_pre < $num_pages-1 ){
-			//echo "넘페이지프리는".$num_pages_pre."<br>";
-			$new=$num_pages_pre+1;
-			//echo "뉴는".$new."<br>";
-			$_SESSION['pre'] = $new;
-			//echo "뉴를 세션에 넣었다<br>";
-			//echo  "새 세션값을 출력해보자".$_SESSION['pre']."<br>";
+			$divid=$num_pages_pre;
+			$num_pages_pre++;
 			include 'more.php'; 
 		}
+		$_SESSION['pre'] = $num_pages_pre;
 ?>
+

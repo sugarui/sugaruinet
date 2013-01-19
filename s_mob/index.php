@@ -137,7 +137,7 @@
 				//와꾸는 post_m이지만 그속에 post_core는 웹과같다.
 				//echo "<div class=\"border_1\"></div> <div class=\"border_2\"></div> ";
 			}
-			?>
+			?>			
 			
 				<!---------------- 페이지네이션 ------------------>
 				<div class="pagenation">

@@ -19,6 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="./s_web/style/style_test.css"  />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="http://elecuchi.cafe24.com/jindo.desktop.min.ns.js"></script>
 	</head>
 	
 	<!--DB접속-->
@@ -353,7 +354,7 @@
 							include './s_web/post.php';
 						}	
 					}	
-				?> 
+				?>
 				
 				<script type="text/javascript">//자료참조 http://hosting.websearch.kr/38	
 					function copy(trb) {
