@@ -34,7 +34,7 @@
 			<div class="nav_1">
 				<header>
 					<h1>
-						<a href="http://sugarui.net/index_test.php"> <img src="./s_web/image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="http://sugarui.net/index_scrolltest.php"> <img src="./s_web/image/logo.png" alt="사탕화면 회사로고"> </a>
 					</h1>
 				</header>
 
@@ -153,7 +153,7 @@
 										echo "<li><div class='year'>'{$years[$i]}</div>";
 										echo '<ul>';
 										
-										$sql = "SELECT * FROM `su_cate_02` 
+										$sql = "SELECT * FROM `su_cate_03` 
 											WHERE period BETWEEN '20".
 											$years[$i]."-01-01' AND '20".$years[$i]."-12-31' ORDER BY period
 											";
@@ -346,10 +346,10 @@
 				<?php
 					if($_GET['devcate'] || $_GET['devtag']){
 						echo '<ul>';
-						include './s_web/dev_includer.php';
+						include './s_web/dev_includer_scrolltest.php';
 						echo '</ul>';
 					}else{
-						include './s_web/select_test.php';
+						include './s_web/select_scrolltest.php';
 						while ($row = mysql_fetch_array($result) ){
 							include './s_web/post.php';
 						}	

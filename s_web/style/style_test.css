@@ -91,6 +91,9 @@
 	.display_none{
 		display: none;
 	}
+	.display_block{
+		display: block;
+	}
 
 /************************  NAV  ************************/
 
@@ -117,7 +120,7 @@
 	.nav_dev{
 		margin-top:10px;/*원래 25인데 어바웃미와게스트가넘올라감*/
 		margin-bottom: 24px;/*10+14*/
-		color: #b36500;
+		color: #b36500; /*노랑*/
 		font-size: 0.8em;/*11px;*/
 		text-shadow: 0px 2px 0px #000;
 		font-weight: bold;
@@ -409,6 +412,10 @@
 		color: #eee;
 		border-bottom: dotted #aaa 1px;
 	}
+	.devintro_hyper, .devintro_hyper:hover{
+		color: #b36500;
+		border-bottom: dotted #b36500 1px;
+	}
 	/*테일*/
 	.tail{ 
 		margin-top: 30px;
@@ -475,13 +482,13 @@
 		font-size: 0.8em; /*11px;*/
 		margin-bottom: 0px; 
 	}
-	/*어바웃 경력 용 숫자*/
-	.date{
+	/*어바웃*/
+	/*경력 용 숫자*/
+	.date{ 
 		font-family: 'Merriweather', serif;
 		font-size: 1em; /*15px;*/
 		letter-spacing: 0px;
 	}
-
 	.snsbox{
 		border:0;
 	}
