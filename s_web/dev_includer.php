@@ -3,36 +3,36 @@
 	session_start();
 	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
 	//echo "세션값을 변수 넘프리에 대입합니다.<br>";
-	$num_pages_pre=$_SESSION ['pre'];
+	$num_pages_pre=$_SESSION['pre'];
 	//echo "대입한 넘프리는".$num_pages_pre."<br>";
 	
 	//DB접속	
 	include '../db.php';
 			
 	// 파라미터를 세션에서 받기
-	$_GET['devtag'] = $_SESSION ['devtag'];
-	$_GET['devcate'] = $_SESSION ['devcate'];	
+	//$_GET['devtag'] = $_SESSION['devtag'];
+	//$_GET['devcate'] = $_SESSION['devcate'];	
 		 
 	//파라미터 관련 변수 인클루드
 	include 'variable_para.php';
 				
 	// DB로부터 컨텐츠 셀렉트. include '../s_web/select.php' 을 변형함
-		$num_posts_display = 20; //디피수
+		$num_posts_display = 2; //디피수
 		$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
 
 		// 쿼리문 웨어부 조건 및 내용 설정
-		if($_GET['devtag']){
-			$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
+		//if($_GET['devtag']){
+		//	$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
 		//}else if($paravalue){
 		//	$where = "WHERE p.{$paraname} = '{$paravalue}'";
-		}else{
-			$where = " ";
-		}
+		//}else{
+		//	$where = " ";
+		//}
 		//데이터 요청및 수신
 		$sql =  "
 				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate"." ". 
-				$where." "."
-				ORDER BY id_intent DESC, worked ASC, worked_intent DESC  LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
+				"{$where}"." ".
+				"ORDER BY id_intent DESC, worked ASC, worked_intent DESC  LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 			";
 		$result = mysql_query($sql);
 		

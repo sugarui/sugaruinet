@@ -37,8 +37,8 @@
 
 
 <script>// http://bit.ly/10gU7kN 참고)
-	$('#morebtn').click( function() {
-		$("#<?php echo $divid; ?>  ").load("./s_web/dev_includer.php");
+	$('#morebtn').click( function(){
+		$("#<?php echo $divid; ?>").load("./s_web/dev_includer.php");
 		$('#morebtn').remove();
 	});
 </script> 

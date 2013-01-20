@@ -1,8 +1,8 @@
 				<?php
 					$_SESSION['period'] = $row['worked'];
-					echo '세션피리어드는'.$_SESSION['period'].'<br>';
+					//echo '세션피리어드는'.$_SESSION['period'].'<br>';
 					echo "			
-						<li id='".$row['worked']."'>
+						<li id=\"{$row['worked']}\">
 						<div class=\"dev\">
 								<div class='milestone'>
 									<img src='./s_web/image/milestone_nor.png'/>
@@ -22,7 +22,7 @@
 						";
 						echo "
 							<div class='dev_con'>
-								<div class='title'><h2 id='hi'>
+								<div class='title'><h2>
 									{$row['title']}
 								</h2>
 							</div>
