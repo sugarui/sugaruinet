@@ -6,10 +6,10 @@
 		session_destroy();
 		session_start();
 		$_SESSION['pre']='0';
-		$_SESSION ['tag'] = $_GET['tag'];
-		$_SESSION ['cate'] = $_GET['cate'] ; 
-		$_SESSION ['devtag'] = $_GET['devtag'];
-		$_SESSION ['devcate'] = $_GET['devcate'] ; 
+		$_SESSION['tag'] = $_GET['tag'];
+		$_SESSION['cate'] = $_GET['cate'] ; 
+		$_SESSION['devtag'] = $_GET['devtag'];
+		$_SESSION['devcate'] = $_GET['devcate'] ; 
 	?>
 	<head>
 		<?php
@@ -27,7 +27,7 @@
 		include_once ('./db.php');
 		?>
 			
-	<body id="body">
+	<body data-spy="scroll" data-target="#navbar"> 
 		<div class="wrap">
 
 			<!--LEFT NAV------------------------------------------------------------->
@@ -51,97 +51,22 @@
 					
 					<ul>
 					
-						<li><!--카테고리-->
-							<a href="?cate=">
-								<div class="nav_main">
-									WORKS
-								</div>
-							</a>
-
-							<div><!--구 <div class="nav_sub_cate">-->						
-								<ul>
-									<?php
-																		
-									//리소스를 목록으로 출력						
-									while ($row = mysql_fetch_array($result)){
-											
-										//출력문 가변부 조건 및 내용 설정
-										if( ($_GET['cate'] === $row['cate']) || ( !$paravalue && !$row['cate'] && !$_GET['special'])  ){
-											// cate파라가있고 이것이 $row의cate열과같을때 OR 파라가전혀없고 $row의cate열이비었을때(all일때) 이면서 $row_special 스페셜값이 없을때
-											// 셀렉트 관련 변수를 지정한다
-											$select_open = "<div class=\"sel\"><img src=\"./s_web/image/sel_mark_01.png\">&nbsp;";
-											$select_close = "</div>";
-										}else{
-											$select_open = " ";
-											$select_close = " ";
-										}	
-										//출력문 고정부 설정
-										$link = $row['cate'];
-										$display = $row['cate_expression'];
-										$list = " 
-											<li>
-												<a href=\"?cate={$link}\">
-													<div class=\"nav_sub_cate\">".
-														$select_open.
-										 					$display.
-														$select_close.
-													"</div>
-												</a>
-											</li>
-										";
-										
-										//출력
-										echo $list;
-									}				
-									?>
-								</ul>
-							</div>
-						</li>
-						
-						<li><!--어바웃-->
-							<a href="?special=about">
-								<div class="nav_main">	
-									<div class="moveup1">	
-										<?php
-										if($_GET['special']==='about'){
-											echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;ABOUT ME";
-										}else{
-											echo "ABOUT ME";
-										}
-										?>
-									</div>
-								</div>
-							</a>
-						</li>
-						
-						<li><!--방명록-->
-							<a href="?special=guest">
-								<div class="nav_main">
-									<div class="moveup2">	
-										<?php
-										if($_GET['special']==='guest'){
-											echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;GUEST";
-										}else{
-											echo "GUEST";
-										}
-										?>
-									</div>
-								</div>
-							</a>
-						</li>	
+						<!--지움-->	
 						
 						<!--<div class="space_50"></div>-->
 						<li> <!--개발일지-->
-							<a href="?devcate=intro">
+							<!--<a href="?devcate=intro">-->
 								<div class="nav_dev">
 									사이트 개발일지:<br>
 									<span class='nor'>단추로 끓인 스프</span>
 								</div>
-							</a>
+							<!--</a>-->
 							
-							<?php if($_GET['devcate'] || $_GET['devtag']){echo "<div>";}else{echo "<div class='display_none'>";}?>
-
-							<div class="nav_sub_dev_area"><!--구 <div class="nav_sub_cate">-->						
+							<?php// if($_GET['devcate'] || $_GET['devtag']){echo "<div>";}else{echo "<div class='display_none'>";}
+								
+							?>
+								
+							<div class="nav_sub_dev_area" id="navbar"><!--구 <div class="nav_sub_cate">-->						
 								
 								<ul>
 									 
@@ -154,8 +79,8 @@
 										echo '<ul>';
 										
 										$sql = "SELECT * FROM `su_cate_02` 
-											WHERE period BETWEEN '20".
-											$years[$i]."-01-01' AND '20".$years[$i]."-12-31' ORDER BY period
+											WHERE period BETWEEN
+											'20".$years[$i]."-01-01' AND '20".$years[$i]."-12-31' ORDER BY period
 											";
 										$result = mysql_query($sql);										
 														
@@ -188,10 +113,9 @@
 											$display_text = $row['cate_expression'];
 											$display_period = $row['period'];
 											$list = " 
-												<li>
-												<div>
-													<a href=\"?devcate={$link}\">
-														<div class=\"nav_sub_dev\">".
+												<li class=''>
+													<a href=\"#{$row[period]}\" class=\"nav_pick\">". //<a href=\"?devcate={$link}\">
+														"<div class=\"nav_sub_dev\">".
 															$select_open.
 																"<div class='nav_sub_dev_period'>".
 											 					$date_m."</div>".
@@ -200,7 +124,6 @@
 															$select_close.
 														"</div>
 													</a>
-												</div>
 												</li>
 											";
 											//출력
@@ -225,10 +148,12 @@
 									
 								</div>
 							<?php
-							echo "</div>";
+							//echo "</div>";
 							?>
 						</li>	
-					
+						
+						
+						
 						<!--<li> 
 							<div class="nav_contact">
 								채널
@@ -344,7 +269,7 @@
 			<article id="article">
 				
 				<?php
-					if($_GET['devcate'] || $_GET['devtag']){
+					if(1){//$_GET['devcate'] || $_GET['devtag']){
 						echo '<ul>';
 						include './s_web/dev_includer.php';
 						echo '</ul>';
@@ -381,6 +306,23 @@
 						$("#OpenDiv").attr("class","display_block");
 						$("#opener").remove();
 					})		
+				</script>
+				
+				<script>//개발일지네비관련
+					var nav = document.getElementsByClassName('nav_pick');	    
+					//var check = document.getElementById('<?php echo $_SESSION['period'];?>');
+					nav[6].addEventListener('click', cHandler, false);
+					function cHandler(){
+						var str_raw = nav[6].getAttribute('href');
+						var str = str_raw.replace("#","");
+						var session_raw = document.getElementById('<?php echo $_SESSION['period'];?>');
+						var session = session_raw.getAttribute('id');
+						alert ('메뉴값은 '+str);
+						alert ('세션값은 '+session);
+						if (str>session){ //(nav[6].getAttribute())세션피리어드 값이 애의 아이디값보다 앞서면(얘값이 더 커서 안불ㄹ져 있으면 로드를 한다)
+							alert('지금 누른 메뉴의 내용은 화면에 아직 로드가 안됐어 그래서 로드를 해야함'); 
+						}
+					}
 				</script>
 				
 							

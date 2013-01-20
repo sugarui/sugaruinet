@@ -79,3 +79,98 @@
 	) 
 			
 ?>
+////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><!--카테고리-->
+							<a href="?cate=">
+								<div class="nav_main">
+									WORKS
+								</div>
+							</a>
+
+							<div><!--구 <div class="nav_sub_cate">-->						
+								<ul>
+									<?php
+																		
+									//리소스를 목록으로 출력						
+									while ($row = mysql_fetch_array($result)){
+											
+										//출력문 가변부 조건 및 내용 설정
+										if( ($_GET['cate'] === $row['cate']) || ( !$paravalue && !$row['cate'] && !$_GET['special'])  ){
+											// cate파라가있고 이것이 $row의cate열과같을때 OR 파라가전혀없고 $row의cate열이비었을때(all일때) 이면서 $row_special 스페셜값이 없을때
+											// 셀렉트 관련 변수를 지정한다
+											$select_open = "<div class=\"sel\"><img src=\"./s_web/image/sel_mark_01.png\">&nbsp;";
+											$select_close = "</div>";
+										}else{
+											$select_open = " ";
+											$select_close = " ";
+										}	
+										//출력문 고정부 설정
+										$link = $row['cate'];
+										$display = $row['cate_expression'];
+										$list = " 
+											<li>
+												<a href=\"?cate={$link}\">
+													<div class=\"nav_sub_cate\">".
+														$select_open.
+										 					$display.
+														$select_close.
+													"</div>
+												</a>
+											</li>
+										";
+										
+										//출력
+										echo $list;
+									}				
+									?>
+								</ul>
+							</div>
+						</li>
+						
+						<li><!--어바웃-->
+							<a href="?special=about">
+								<div class="nav_main">	
+									<div class="moveup1">	
+										<?php
+										if($_GET['special']==='about'){
+											echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;ABOUT ME";
+										}else{
+											echo "ABOUT ME";
+										}
+										?>
+									</div>
+								</div>
+							</a>
+						</li>
+						
+						<li><!--방명록-->
+							<a href="?special=guest">
+								<div class="nav_main">
+									<div class="moveup2">	
+										<?php
+										if($_GET['special']==='guest'){
+											echo "<img src=\"./s_web/image/sel_mark_02.png\">&nbsp;GUEST";
+										}else{
+											echo "GUEST";
+										}
+										?>
+									</div>
+								</div>
+							</a>
+						</li>

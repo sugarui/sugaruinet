@@ -3,11 +3,11 @@
 <!--<input type='button' value='더부르기' id='morebtn_old' />-->  	
 	
 	<?php
-	$next_expression='NEXT POSTS ';
+	$next_expression='NEXT PERIOD ';
 	
 	echo "			
 		<li id='morebtn'>		
-			<div class='dev'>
+			<div class='dev' id=>
 				<div class='milestone'>
 				<img src='./s_web/image/milestone_nor.png'/>
 				</div>

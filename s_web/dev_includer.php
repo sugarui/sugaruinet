@@ -17,14 +17,14 @@
 	include 'variable_para.php';
 				
 	// DB로부터 컨텐츠 셀렉트. include '../s_web/select.php' 을 변형함
-		$num_posts_display = 2; //디피수
+		$num_posts_display = 20; //디피수
 		$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
 
 		// 쿼리문 웨어부 조건 및 내용 설정
 		if($_GET['devtag']){
 			$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
-		}else if($paravalue){
-			$where = "WHERE p.{$paraname} = '{$paravalue}'";
+		//}else if($paravalue){
+		//	$where = "WHERE p.{$paraname} = '{$paravalue}'";
 		}else{
 			$where = " ";
 		}
@@ -60,8 +60,13 @@
 		if ( $num_pages_pre < $num_pages-1 ){
 			$divid=$num_pages_pre;
 			$num_pages_pre++;
-			include 'more.php'; 
+			include 'more.php';
+			$_SESSION['pre'] = $num_pages_pre; 
+		}else{
+			$_SESSION['pre'] = 0;
+			$num_pages_pre=$_SESSION ['pre'];
+			include 'more_period.php';
 		}
-		$_SESSION['pre'] = $num_pages_pre;
+		
 ?>
 
