@@ -11,7 +11,6 @@
 	session_start();
 	
 	include '../period_refrech.php';
-	
 	echo $_SESSION['period'];
 	$period_start = $_SESSION['period'];
 	
