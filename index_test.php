@@ -327,8 +327,8 @@
 			                    data:{'new':nperi}, //메뉴값적용
 			                    success:function(result){
 			                        if(result['result']==true){
-			                          //$('#result').html(result['msg']);
-			                          alert('보냈다. 현 메뉴의 피리어드인 '+result['newdone']+'를');
+			                        	alert('현 메뉴의 피리어드인 '+result['newdone']+'를 보냈다.');
+			                        	$("#<?php echo $divid; ?>").load("./s_web/dev_includer.php");
 			                        }
 			                    }
 							 });

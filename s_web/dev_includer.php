@@ -1,6 +1,20 @@
+<script>
+	$.ajax({
+		url:'./period_refresh.php',
+		dataType:'json',
+		type:'POST',
+		data:{'none':'none'}, //메뉴값적용
+	});
+</script>
 <?php 	// load형식이므로, 자체적으로 컨텐츠가 완성되어서 불러져야 함
 	session_save_path('../session');
 	session_start();
+	
+	include '../period_refrech.php';
+	
+	echo $_SESSION['period'];
+	$period_start = $_SESSION['period'];
+	
 	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
 	//echo "세션값을 변수 넘프리에 대입합니다.<br>";
 	$num_pages_pre=$_SESSION['pre'];
@@ -29,11 +43,18 @@
 		//	$where = " ";
 		//}
 		//데이터 요청및 수신
-		$sql =  "
+		if ($period_start){
+			$sql =  "
+				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate  
+				WHERE p.worked = '2012-12-26'    
+			";
+		}else{
+			$sql =  "
 				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate"." ". 
 				"{$where}"." ".
 				"ORDER BY id_intent DESC, worked ASC, worked_intent DESC  LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 			";
+		}
 		$result = mysql_query($sql);
 		
 	//출력 
