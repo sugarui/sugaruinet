@@ -17,7 +17,7 @@
 	include 'variable_para.php';
 				
 	// DB로부터 컨텐츠 셀렉트. include '../s_web/select.php' 을 변형함
-		$num_posts_display = 2; //디피수
+		$num_posts_display = 10; //디피수
 		$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
 
 		// 쿼리문 웨어부 조건 및 내용 설정
@@ -32,7 +32,7 @@
 		$sql =  "
 				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate"." ". 
 				$where." "."
-				ORDER BY id_intent DESC, worked ASC, worked_intent DESC  LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
+				ORDER BY id_intent DESC, worked ASC, worked_intent DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 			";
 		$result = mysql_query($sql);
 		
@@ -57,11 +57,15 @@
 		// $num_posts_display = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
 		$num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수32/페이지당 출력수3 =10, 올림해서 11
 		
-		if ( $num_pages_pre < $num_pages-1 ){
+		if ( $num_pages_pre < ($num_pages-1) ){
 			$divid=$num_pages_pre;
 			$num_pages_pre++;
-			include 'more.php'; 
+			include 'more.php';
+			$_SESSION['pre'] = $num_pages_pre; 
+		}else if ($_GET['devcate']){
+			$_SESSION['pre'] = 0;
+			$num_pages_pre=$_SESSION ['pre'];
+			include 'more_period.php';
 		}
-		$_SESSION['pre'] = $num_pages_pre;
 ?>
 

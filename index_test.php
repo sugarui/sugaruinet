@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="./s_web/style/style_test.css"  />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="http://elecuchi.cafe24.com/jindo.desktop.min.ns.js"></script>
+		<script src="http://elecuchi.cafe24.com/s_web/js/jindo.desktop.min.ns.js"></script>
 	</head>
 	
 	<!--DB접속-->
@@ -132,7 +132,7 @@
 						
 						<!--<div class="space_50"></div>-->
 						<li> <!--개발일지-->
-							<a href="?devcate=intro">
+							<a href="?devcate=start">
 								<div class="nav_dev">
 									사이트 개발일지:<br>
 									<span class='nor'>단추로 끓인 스프</span>
@@ -172,14 +172,14 @@
 												$select_open = "
 													<div class='sel'>
 														<div class='milestone'>
-															<img src='./s_web/image/milestone_sel.png'/>
+															<img src='./s_web/image/milestone_lnb_sel.png'/>
 														</div>";	
 												$select_close = "
 													</div>";
 											}else{
 												$select_open = "
 													<div class='milestone'>
-														<img src='./s_web/image/milestone_nor.png'/>
+														<img src='./s_web/image/milestone_lnb_nor.png'/>
 													</div>";
 												$select_close = "";
 											}
@@ -367,15 +367,6 @@
 						}
 					}
 				</script>		
-				<script> //글접기열기 스크립트 (http://bit.ly/UXkcxQ)-왠지잘안돼
-					function DivOnView(str){
-					  if(str==1){
-					    document.getElementById('OpenDiv').style.display = "block";
-					  }else{
-					    document.getElementById('OpenDiv').style.display = "none";
-					  }
-					}
-				</script>
 				<script>//글접기열기 수제
 					$("#opener").click(function(){
 						$("#OpenDiv").attr("class","display_block");

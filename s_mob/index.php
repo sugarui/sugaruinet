@@ -10,8 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="./style_m.css" />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="http://elecuchi.cafe24.com/jindo.mobile.min.ns.js"></script>
-		
+		<script src="http://elecuchi.cafe24.com/s_web/js/jindo.mobile.min.ns.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			//주소창 숨기기 01 http://cafe.naver.com/ibooks2sg/213 : 잘 작동 안하네
 			/*

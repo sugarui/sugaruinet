@@ -1,6 +1,5 @@
 <!--더보기 load (http://bit.ly/10gU7kN 참고)-->	
 <div id="<?php echo $divid ?>"></div>   
-<!--<input type='button' value='더부르기' id='morebtn_old' />-->  	
 	
 	<?php
 	echo "			
@@ -21,7 +20,7 @@
 					<div class='title'>
 					<h2>
 						<span class='morebtn'>
-							NEXT POSTS ▼
+							More Diary ▼
 						</span>
 					</h2>
 				</div>
