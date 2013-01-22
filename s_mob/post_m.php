@@ -1,5 +1,5 @@
 					<?php
-					echo "<li>" ; //class=\"postbox\">
+					echo "<div class=\"postbox\">"; //<li>
 						
 						//title
 							echo " 
@@ -18,5 +18,5 @@
 						
 						include '../s_web/post_core.php';
 												
-					echo "</li>" ;
+					echo "</div>"//"</li>" ;
 					?>

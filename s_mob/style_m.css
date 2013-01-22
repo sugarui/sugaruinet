@@ -124,14 +124,15 @@
 		padding: 0px 15px 0px 15px; /*그래픽때문에 외부에서한번 적용*/
 		letter-spacing: -1px;
 	}
-	article ul li{
+	/*article ul li{*/
+	.postbox{
 		margin-top: 20px;
 		margin-bottom: 70px;
 	}
-	article ul li:last-child{ 
+	/*article ul li:last-child{ 
 		margin-top: 20px;
 		margin-bottom: 20px;
-	}
+	}*/
 	.morebox{
 		position: relative;
 		top:-30px;
@@ -230,5 +231,20 @@
 	.post_hyper{
 		color: #eee;
 		border-bottom: dotted #aaa 1px;
+	}
+	.dev_area_ym{
+		display: block;
+	}
+	.dev_area_y{
+		float: left;
+		display: inline;
+		width:40px;
+		background-color:blue;
+	}
+	.dev_area_m{
+		float: left;
+		display: inline;
+		margin-left:25px;
+		background-color:green;
 	}
 	

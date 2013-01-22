@@ -37,14 +37,20 @@
 			<!--<div class="header_space"></div><!--미스터치방지-->
 		</header>
 
-		<!--<nav id="nav">-->
 
+		<?php
+		//파라미터 관련 변수 인클루드
+		include './s_web/variable_para.php';
+		?>
+		
+		<!--<nav id="nav">-->		
+		
 		<ul class="menu" id="menu">
 			<div class="menu_padding">	
 			    <li>
 			    	<?php
 			    		//현메뉴확인
-						if(!$_GET['special']){
+						if(!$_GET['special'] && !$_GET['devcate']){
 							//재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
 							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}\" style=\"color:#dc2276; \">";
 						}else{
@@ -98,10 +104,16 @@
 			    	?>
 			    </li>
 			    <li>
-			    	<a href="https://www.facebook.com/sugaruipage" style="margin-right: 20px;">
-			    		개발일지
-			    		<img src="http://elecuchi.cafe24.com/s_web/image/lnb_diary_fb_mob.png" alt="facebook" />
-			    	</a>
+			    	<?php
+			    		//현메뉴확인
+						if($_GET['devcate']){
+							echo "<a href=\"?devcate={$_GET['devcate']}\" style=\"color:#b46500;\" >";
+						}else{
+ 							echo "<a href=\"?devcate=1\">";
+						}
+			    		echo "개발일지";
+			    		echo "</a>";
+			    	?>
 			    </li>
  			</div>		
  		</ul>
@@ -112,9 +124,18 @@
 		
 		<article id="article">
 			<?php	 
-				echo '<ul>';
-				include 'post_includer_m.php'; 	
-				echo '</ul>';		
+				if(!$_GET['devcate']){
+					//echo '<ul>';
+						include 'post_includer_m.php';
+					//echo '</ul>';	 					
+				}else{
+					//echo '<ul>';
+						include 'dev_menu.php'; 			
+					//echo '</ul>';		
+				}
+	
+				
+
 			?>	
 		</article>
 	
