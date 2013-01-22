@@ -232,19 +232,19 @@
 		color: #eee;
 		border-bottom: dotted #aaa 1px;
 	}
+	
 	.dev_area_ym{
 		display: block;
+		margin-bottom:10px;
 	}
+
 	.dev_area_y{
 		float: left;
-		display: inline;
 		width:40px;
 		background-color:blue;
 	}
 	.dev_area_m{
-		float: left;
-		display: inline;
-		margin-left:25px;
+		margin-left:65px;
 		background-color:green;
 	}
 	

@@ -3,14 +3,14 @@ $years = array(12, 13);
 $i = 0;
 
 while ($i < 2) {
-	echo //"<li>
-			"<div class='dev_area_ym'>
+	echo " 
+		<div class='dev_area_ym'>
+			
 				<div class='dev_area_y'>
-					<div class='year'>{$years[$i]}</div>
-				</div>";		
-	echo 		//"<ul>
-				"<div class='dev_area_m'>"; 
-				
+					<span class='year'>20{$years[$i]}</span>
+				</div>
+				<div class='dev_area_m'>
+	"; 
 	$sql = "SELECT * FROM `su_cate_02` 
 			 WHERE period BETWEEN '20" . $years[$i] . "-01-01' AND '20" . $years[$i] . "-12-31' 
 			 ORDER BY period";
@@ -22,22 +22,18 @@ while ($i < 2) {
 		$link = $row['cate'];
 		$display_text = $row['cate_expression'];
 		$display_period = $row['period'];
-		$list = //" <li style='background-color:grey'>				
-				"
+		echo "
 					<div style='background-color:grey'>	
 						<a href=\"?devcate={$link}\">
-							<div class='dev_area_m_milestone'>oo</div>
-							<div class='dev_area_m_period'>$date_m</div>
-							<div class='dev_area_m_text'>$display_text</div>
-							<div class='dev_area_m_btn'>▶</div>
+							<span class='dev_area_m_milestone'>oo</span>
+							<span class='dev_area_m_period'>$date_m</span>
+							<span class='dev_area_m_text'>$display_text</span>
+							<span class='dev_area_m_btn'>▶</span>
 						</a>
-					</div>"; //</li>							
-		echo $list;	
-		echo 		'</div>';//dev_area_m의 클로져
-		//echo '</ul>';
-		echo '</div>';//dev_area_ym의 클로져   
-		//echo '</li>';
-	}   
+					</div>";						
+	} 	
+	echo '</div>';//dev_area_m의 클로져
+	echo '</div>';//dev_area_ym의 클로져    
 
 	$i++;
 }
