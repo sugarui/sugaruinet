@@ -79,3 +79,40 @@
 	) 
 			
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(function($){
+        	$('body').click(function(){
+        		alert ('hi');
+       		});
+        	$('#<?php echo $divid; ?>').click(function(){
+        		//alert ('hi');
+        		$('#<?php echo $divid; ?>').css('background-color','red';'position','fixed'; 'top','0px');
+       		});  	                             
+       		$(window).scroll(function(){     	
+        		$('#<?php echo $divid; ?>').css('position','static');
+       		});
+       	})(jQuery)

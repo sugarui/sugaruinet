@@ -60,12 +60,12 @@
 		if ( $num_pages_pre < ($num_pages-1) ){
 			$divid=$num_pages_pre;
 			$num_pages_pre++;
-			include 'more.php';
+			include 'dev_more_dev.php';
 			$_SESSION['pre'] = $num_pages_pre; 
 		}else if ($_GET['devcate']){
 			$_SESSION['pre'] = 0;
 			$num_pages_pre=$_SESSION ['pre'];
-			include 'more_period.php';
+			include 'dev_more_period.php';
 		}
 ?>
 

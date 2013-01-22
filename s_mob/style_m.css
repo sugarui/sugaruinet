@@ -20,7 +20,9 @@
 	.space_30{
 		margin-top: 30px;
 	}
-	
+	.center{
+		text-align:center;
+	}
 	/**********  메뉴  **********/
 	.nav{
 		background: #222428;
@@ -29,8 +31,11 @@
 		height: 50px;
 		background: #222428;
 		color: #aaa;
+	}
+	.menu_padding{
 		padding: 0 9px 0 9px;
 	}
+	
 	.menu li{
 		position: relative;
 		list-style: none;
@@ -115,16 +120,30 @@
 		width:40px;
 		height:40px;
 	}
-	
-		
 	article{
 		padding: 0px 15px 0px 15px; /*그래픽때문에 외부에서한번 적용*/
 		letter-spacing: -1px;
 	}
-	.postbox{
+	article ul li{
 		margin-top: 20px;
-		margin-bottom: 80px;
+		margin-bottom: 70px;
 	}
+	article ul li:last-child{ 
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.morebox{
+		position: relative;
+		top:-30px;
+		/*width:100%; */
+		border-top:1px dotted #555;
+		text-align: center;
+		padding-top: 30px;
+		/*padding-bottom: 20px;*//*마지막 포스트 여백이 너무 많아서*/
+		margin-right: 5px;/*그래픽때문에 내부에서 각자적용*/
+		margin-left: 5px;/*그래픽때문에 내부에서 각자적용*/
+	}
+
 	.title h2{
 		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
 		margin-bottom: 2px;
@@ -175,7 +194,7 @@
 	}
 	
 
-	/*페이지네이션*/
+	/*페이지네이션
 	.pagenation{
 		text-align: center;
 		margin-bottom: 40px;
@@ -199,7 +218,8 @@
 	.pagenation_each:hover {
 		color: #dc2276;
 	}
-
+	*/
+	
 	.border_1{
 		border-top: 1px solid #0f0f0f;/*#26282e;	*/
 	}
