@@ -3,7 +3,18 @@
 
 	<head>
 		<?php
-			include ('../s_web/head.php')
+		session_save_path('./session');
+		session_start();
+		session_destroy();
+		session_start();
+		$_SESSION ['pre']='0';
+		$_SESSION ['devpre']='0';
+		$_SESSION ['tag'] = $_GET['tag'];
+		$_SESSION ['cate'] = $_GET['cate'];
+		$_SESSION ['devcate'] = $_GET['devcate'];
+		//echo file_get_contents( './session/sess_'.session_id() );
+
+		include ('../s_web/head.php')
 		?>	
 		
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_web/style/style_space.css" />	
@@ -11,31 +22,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="http://elecuchi.cafe24.com/s_web/js/jindo.mobile.min.ns.js"></script>
-		<script type="text/javascript" charset="UTF-8">
-			//주소창 숨기기 01 http://cafe.naver.com/ibooks2sg/213 : 잘 작동 안하네
-			/*
-			var uagent = navigator.userAgent.toLowerCase();
-			var android = uagent.search("android");
-			var iphone = uagent.search("iphone");
-			if(android>-1 || iphone >-1){
-				window.addEventListener("load",function(){setTimeout(scrollTo,0,0,1;)},false)
-			}else{
-				function loadPosition(){
-					setTimeout(scrollT0, 0,0,1);
-			}
-		</script>
-		
-		<script>
-		//주소창 숨기기 02
-		/* */
-         $(function(){
-               setTimeout(loaded, 100);
-               });
-               function loaded(){ 
-               window.scrollTo(0, 1);
-          }
-		</script>
-		
+
 	</head>
 	
 	<!--DB접속-->
@@ -52,13 +39,20 @@
 			<!--<div class="header_space"></div><!--미스터치방지-->
 		</header>
 
-		<!--<nav id="nav">-->
 
-			<ul class="menu" id="menu">			
+		<?php
+		//파라미터 관련 변수 인클루드
+		include './s_web/variable_para.php';
+		?>
+		
+		<!--<nav id="nav">-->		
+		
+		<ul class="menu" id="menu">
+			<div class="menu_padding">	
 			    <li>
 			    	<?php
 			    		//현메뉴확인
-						if(!$_GET['special']){
+						if(!$_GET['special'] && !$_GET['devcate']){
 							//재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
 							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}\" style=\"color:#dc2276; \">";
 						}else{
@@ -72,10 +66,10 @@
 						}else{ //방법을 몰라서 일단 직접 적음
 							if ($_GET['cate']==='guiat') { $display = "GUI <span class=\"nav_sub_cate_add\">at work</span>"; }
 							else if  ($_GET['cate']==='guiafter') { $display = "GUI <span class=\"nav_sub_cate_add\">after work</span>"; }
-							else if  ($_GET['cate']==='drawing') { $display = '일러스트'; }
-							else if  ($_GET['cate']==='toon') { $display = '만화'; }
+							else if  ($_GET['cate']==='drawing') { $display = 'illust'; }
+							else if  ($_GET['cate']==='toon') { $display = 'toon'; }
 							else if  ($_GET['cate']==='writing') { $display = '글'; }
-							else if  ($_GET['cate']==='etc') { $display = '기타'; }	
+							else if  ($_GET['cate']==='etc') { $display = 'etc'; }	
 							echo $display;	
 						}
 						echo "&nbsp;&nbsp;▼";
@@ -111,62 +105,92 @@
 			    		echo "</a>";
 			    	?>
 			    </li>
+			    
 			    <li>
-			    	<a href="https://www.facebook.com/sugaruipage" style="margin-right: 20px;">
-			    		개발일지
-			    		<img src="http://elecuchi.cafe24.com/s_web/image/lnb_diary_fb_mob.png" alt="facebook" />
-			    	</a>
+			    	<?php
+			    		//현메뉴확인   //재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
+						if($_GET['devcate']){
+							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate=menu\" style=\"color:#b46500;\" >";
+						}else{
+ 							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate=menu\">";
+						}
+			    		echo "개발일지";
+			    		echo "</a>";
+			    	?>
 			    </li>
- 			</ul>
+ 			</div>		
+ 		</ul>
 	
 		<!--</nav>-->
 		
-		<div class="navshadow" id="navshadow"></div>
+		<div class="navshadow" id="navshadow">.</div>
 		
 		<article id="article">
-			<?php			
-			//파라미터 관련 변수 인클루드
-			include '../s_web/variable_para.php';
-				
-			// DB로부터 컨텐츠 셀렉트
-			include '../s_web/select.php';
-			//출력 
-			while ($row = mysql_fetch_array($result) ){
-				include 'post_m.php'; 
-				//와꾸는 post_m이지만 그속에 post_core는 웹과같다.
-				//echo "<div class=\"border_1\"></div> <div class=\"border_2\"></div> ";
-			}
-			?>			
-			
-				<!---------------- 페이지네이션 ------------------>
-				<div class="pagenation">
-					
-					<?php
-					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
-					if ( ($paraname != 'id') && (!$_GET['special']) ){ 
-						include '../s_web/pagenation.php';	
-					}
-					?>
-				</div>
-				<!--페이지네이션 end-->
-			
+			<?php	 
+				if($_GET['devcate']=='menu'){
+						include 'dev_menu.php'; 			
+				}else if($_GET['devcate']){
+						include 'dev_includer_m.php'; 	
+				}else{
+					include 'post_includer_m.php'	;	 			
+				}
+			?>	
 		</article>
 	
-	<script>  	
+		<script type="text/javascript" charset="UTF-8">
 		//메뉴바 고정	
-        var wel = jindo.$Element("menu"); 
-        var nTop = wel.offset().top; 
-            
-        setInterval(function(){     	
-        	var nScrollTop = jindo.$Document().scrollPosition().top;
-        	if(nScrollTop < nTop){
-        		//$("#nav").css({ 'position': 'relative', 'top' : '0px'});
-				wel.css({ 'position': 'relative', 'top' : '0px', 'width': '100%'});
-        	}else{
-        		wel.css({ 'position': 'fixed', 'top' : '0px', 'width': '100%'});
-        	}
-        },100);        
-    </script>  
+	        var wel = jindo.$Element("menu"); 
+	        var nTop = wel.offset().top; 
+	       	var article = jindo.$Element("article"); ; //본문이잡아먹힌다 조정	            
+	      
+	        setInterval(function(){     	
+	        	var nScrollTop = jindo.$Document().scrollPosition().top;
+
+	        	if(nScrollTop < nTop){
+	        		//$("#nav").css({ 'position': 'relative', 'top' : '0px'});
+					wel.css({ 'position': 'relative', 'top' : '0px', 'width': '100%'});
+					article.css({'margin-top': '0px'});
+	        	}else{
+	        		wel.css({ 'position': 'fixed', 'top' : '0px', 'width': '100%',});
+	        		article.css({'margin-top': '80px'});
+	        	}
+	        },100);
+	    </script>
+	    
+	    
+	    <script type="text/javascript" charset="UTF-8">	    
+        //메뉴바 셰도우 고정	
+	        var wel2 = jindo.$Element("navshadow"); 
+	        var nTop2 = wel2.offset().top; 
+	            
+	        setInterval(function(){     	
+	        	var nScrollTop2 = jindo.$Document().scrollPosition().top;
+	        	if(nScrollTop2+50 < nTop2){
+					wel2.css({ 'position': 'relative', 'top' : '0px'});
+	        	}else{
+	        		wel2.css({ 'position': 'fixed', 'top' : '50px', 'width':'100%'});
+	        	}
+	        },100);
+	    </script>
+	    
+	    <script type="text/javascript" charset="UTF-8">//주소창 숨기기
+	         $(function(){
+	               setTimeout(loaded, 1);
+	               });
+	               function loaded(){ 
+	               window.scrollTo(0, 1);
+	          }
+		</script>
+		<script>//글접기열기 수제
+					$("#opener").click(function(){
+						$("#opendiv").attr("class","display_block");
+						$("#opener").remove();
+					})		
+		</script>
+		<script type="text/javascript" charset="UTF-8">//터치감개선 - 반복문어려워서 hold
+		</script>
+
+	  
 	</body>
 	              
 </html>
