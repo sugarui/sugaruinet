@@ -1,5 +1,5 @@
 <?php 	// load형식이므로, 자체적으로 컨텐츠가 완성되어서 불러져야 함
-	session_save_path('./session');
+	session_save_path('session');
 	session_start();
 	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
 	$num_devpages_pre=$_SESSION ['devpre'];
@@ -43,11 +43,8 @@
 	//재료 여부에 따라 더보기 여부를 결정
 		//전체포스트량 재산출 : pagenaition.php 에서 복사 - 이걸 매번 돌린다니 엄청 비효율적. 글로벌 변수에 넣을수없을까.
 		///리소스 획득 : Table(포스트) 에서 본 카테고리 데이터"량"을 알아내기 위해 id 열, 전체 행
-		if($paravalue){
-			$sql = "SELECT id FROM `su_post_02` WHERE $paraname = '$paravalue'"; 
-		}else{
-			$sql = "SELECT id FROM `su_post_02`";
-		}
+
+		$sql = "SELECT id FROM `su_post_02` WHERE cate='{$_SESSION['devcate']}' "; 
 		$result = mysql_query($sql);
 		$num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 32  
 		// $num_posts_display = oo ;페이지당 출력수선언. 올렸음. 예를들어 3
@@ -57,8 +54,8 @@
 			$divid=$num_devpages_pre;
 			$num_devpages_pre++;
 			include 'dev_more_dev_m.php';
-			$_SESSION['devpre'] = $num_devpages_pre; 
-		}else if ($_GET['devcate']){
+			$_SESSION['devpre'] = $num_devpages_pre;
+		}else{ // if ($_GET['devcate']){
 			$_SESSION['devpre'] = 0;
 			$num_devpages_pre=$_SESSION ['devpre'];
 			include 'dev_more_period_m.php';

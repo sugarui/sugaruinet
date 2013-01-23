@@ -1,6 +1,6 @@
 <?php 	// load형식이므로, 자체적으로 컨텐츠가 완성되어서 불러져야 함
 	//echo "------------------------------------------------------------------------------"."<br>";	
-	session_save_path('./session');
+	session_save_path('session');
 	session_start();
 	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
 	//echo "세션값을 변수 넘프리에 대입할꺼다.<br>";
@@ -11,7 +11,6 @@
 	include '../db.php';
 			
 	// 파라미터를 세션에서 받기
-	$_GET['tag'] = $_SESSION ['tag'];
 	$_GET['cate'] = $_SESSION ['cate'];	
 		 
 	//파라미터 관련 변수 인클루드

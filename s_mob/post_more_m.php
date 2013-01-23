@@ -25,7 +25,7 @@
        		var position =$('#<?php echo $divid; ?>').offset();
        		$('html,body').animate({scrollTop: position.top-100},1000);
        			
-       		$("#<?php echo $divid; ?>").load("http://elecuchi.cafe24.com/s_mob/post_includer_m.php");
+       		$("#<?php echo $divid; ?>").load("post_includer_m.php");
           	$('.morebox').remove(); 
         });        
     </script>

@@ -31,12 +31,12 @@ while ($i < 2) {
 					<ul>	
 						<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate={$link}\">
 							<li class='dev_menu_m_milestone'>
-								<img src='../s_web/image/milestone_mob.png' />
+								<img src='http://elecuchi.cafe24.com/s_web/image/milestone_mob.png' />
 							</li>
 							<div class='dev_menu_m_period'>$date_m</div>
 							<div class='dev_menu_m_text'>$display_text</div>
 							<div class='dev_menu_m_btn'>
-								<img src='../s_web/image/milestone_mob_next_sel_wide.png' />
+								<img src='http://elecuchi.cafe24.com/s_web/image/milestone_mob_next_sel_wide.png' />
 							</div>
 						</a>
 					</ul>	

@@ -3,7 +3,7 @@
 
 	<head>
 		<?php
-		session_save_path('./session');
+		session_save_path('session');
 		session_start();
 		session_destroy();
 		session_start();
@@ -33,7 +33,7 @@
 	<body>
 
 		<header>
-			<a href="./index.php">
+			<a href="">
 				<img src="http://elecuchi.cafe24.com/s_web/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
 			</a>	
 			<!--<div class="header_space"></div><!--미스터치방지-->
