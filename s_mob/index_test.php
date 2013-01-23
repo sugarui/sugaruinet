@@ -105,13 +105,14 @@
 			    		echo "</a>";
 			    	?>
 			    </li>
+			    
 			    <li>
 			    	<?php
-			    		//현메뉴확인
+			    		//현메뉴확인   //재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
 						if($_GET['devcate']){
-							echo "<a href=\"?devcate=menu\" style=\"color:#b46500;\" >";
+							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate=menu\" style=\"color:#b46500;\" >";
 						}else{
- 							echo "<a href=\"?devcate=menu\">";
+ 							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate=menu\">";
 						}
 			    		echo "개발일지";
 			    		echo "</a>";
@@ -126,12 +127,12 @@
 		
 		<article id="article">
 			<?php	 
-				if(!$_GET['devcate']){
-						include 'post_includer_m.php'	;	
-				}else if($_GET['devcate']=='menu'){
+				if($_GET['devcate']=='menu'){
 						include 'dev_menu.php'; 			
 				}else if($_GET['devcate']){
-						include 'dev_includer_m.php'; 			
+						include 'dev_includer_m.php'; 	
+				}else{
+					include 'post_includer_m.php'	;	 			
 				}
 			?>	
 		</article>
@@ -180,7 +181,12 @@
 	               window.scrollTo(0, 1);
 	          }
 		</script>
-		
+		<script>//글접기열기 수제
+					$("#opener").click(function(){
+						$("#opendiv").attr("class","display_block");
+						$("#opener").remove();
+					})		
+		</script>
 		<script type="text/javascript" charset="UTF-8">//터치감개선 - 반복문어려워서 hold
 		</script>
 

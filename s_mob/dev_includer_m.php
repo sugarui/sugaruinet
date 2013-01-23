@@ -12,22 +12,22 @@
 	$_GET['devcate'] = $_SESSION ['devcate'];
 		 
 	//파라미터 관련 변수 인클루드
-	include '../s_web/variable_para.php';
+	//include '../s_web/variable_para.php';
 				
 	// DB로부터 컨텐츠 셀렉트. include '../s_web/select.php' 을 변형함
 		$num_posts_display = 6; //디피수..모바일이라서 낮춤
 		$num_posts_offset = $num_posts_display * $num_devpages_pre; //오프셋수는 디피수x앞선페이지수
 
 		// 쿼리문 웨어부 조건 및 내용 설정
-		if($paravalue){
-			$where = "WHERE p.{$paraname} = '{$paravalue}'";
-		}else{
-			$where = " ";
-		}
+		//if($paravalue){
+		//	$where = "WHERE p.{$paraname} = '{$paravalue}'";
+		//}else{
+		//	$where = " ";
+		//}
 		//데이터 요청및 수신
 		$sql =  "
-				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate"." ". 
-				$where." "."
+				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate  
+				WHERE p.cate='{$_SESSION['devcate']}' 
 				ORDER BY id_intent DESC, worked ASC, worked_intent DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 			";
 		$result = mysql_query($sql);

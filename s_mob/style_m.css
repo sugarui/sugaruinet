@@ -23,6 +23,18 @@
 	.center{
 		text-align:center;
 	}
+	
+	/*general effect*/
+	.display_none{
+		display: none;
+	}
+	.display_block{
+		display: block;
+	}
+	.font_weight_normal{
+		font-weight: normal;
+	}
+	
 	/**********  메뉴  **********/
 	.nav{
 		background: #222428;
@@ -140,7 +152,7 @@
 		/*width:100%; */
 		border-top:1px dotted #555;
 		text-align: center;
-		padding-top: 30px;
+		padding-top: 25px;
 		/*padding-bottom: 20px;*//*마지막 포스트 여백이 너무 많아서*/
 		margin-right: 5px;/*그래픽때문에 내부에서 각자적용*/
 		margin-left: 5px;/*그래픽때문에 내부에서 각자적용*/
@@ -237,6 +249,7 @@
 	.dev_menu_ym{
 		display: block;
 		margin-bottom:2px;
+		font-size:0.9em;
 	}
 	.dev_menu_y{
 		float: left;
@@ -251,9 +264,9 @@
 		height:44px;
 		border-bottom: 1px dotted #25272c;
 	}
-	.dev_menu_m_oneline:hover{
+	/*.dev_menu_m_oneline:hover{
 		background-color: #2e3136; 
-	}
+	}*/
 	.dev_menu_m_oneline:touchstart{
 		background-color: red; 
 	}
@@ -274,6 +287,9 @@
 	.dev_menu_ym:last-child ul li:last-child ul li{ 
 		border-left: 1px solid #1d1f23 /*배경에묻히게*/
 	}
+	.dev_menu_ym:last-child li:last-child{
+		margin-bottom:40px;
+	}
 	.dev_menu_m_period, .dev_menu_m_text{
 		float: left;
 		position: relative; /*마일스톤 첨부후 밀린것 당기기*/
@@ -289,7 +305,7 @@
 	}
 	.dev_menu_m_btn img{
 		float: right;
-		width:12px;
+		width:60px;
 		height:44px;
 	}
 	.year{
@@ -304,10 +320,46 @@
 		left: -6px;
 	}
 	
+	/*개발일지 본문*/
+	.dev_date{
+		position: relative;
+		left:-5px;
+		float: left;
+		width: 40px; 
+		font-family: 'Merriweather', italic, serif;
+		font-size: 2em;
+		letter-spacing: -5px;
+		z-index: 10;
+	}
+	.date_m{
+		color: #47484a;
+		float: left;
+		position:relative;
+		top: -5px;
+		/*font-family: 'Merriweather', italic, serif;*/
+	}
+	.date_d{
+		color: #b36500;
+		float: right;
+		position:relative;
+		top: -30px;
+		/*font-family: 'Merriweather', italic, serif;*/
+	}	
+	.dev_con{
+		padding-top: 24px;
+		margin-left: 40px;
+		/*background-color: #1e1f22;보일듯말듯이*/
+	}
+	.dev_con .title h2 {
+		color: #b36500;
+	}
+	.dev_con .title h2 {
+		color: #b36500;
+	}
 	
-	
-	
-	
-	
+	.devintro_hyper, .devintro_hyper:hover{
+		color: #b36500;
+		border-bottom: dotted #b36500 1px;
+	}
 	
 	

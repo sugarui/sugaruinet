@@ -8,7 +8,7 @@
 	echo " 
 		<div class='title' id='moredevbtn' >
 			<h2>
-				More devdiary
+				More
 			</h2>
 		</div>
 		";

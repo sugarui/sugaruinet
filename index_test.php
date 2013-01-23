@@ -369,7 +369,7 @@
 				</script>		
 				<script>//글접기열기 수제
 					$("#opener").click(function(){
-						$("#OpenDiv").attr("class","display_block");
+						$("#opendiv").attr("class","display_block");
 						$("#opener").remove();
 					})		
 				</script>

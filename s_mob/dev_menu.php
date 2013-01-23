@@ -29,14 +29,14 @@ while ($i < 2) {
 		echo "
 					<li class='dev_menu_m_oneline'>
 					<ul>	
-						<a href=\"?devcate={$link}\">
+						<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate={$link}\">
 							<li class='dev_menu_m_milestone'>
 								<img src='../s_web/image/milestone_mob.png' />
 							</li>
 							<div class='dev_menu_m_period'>$date_m</div>
 							<div class='dev_menu_m_text'>$display_text</div>
 							<div class='dev_menu_m_btn'>
-								<img src='../s_web/image/milestone_mob_next_nor.png' />
+								<img src='../s_web/image/milestone_mob_next_sel_wide.png' />
 							</div>
 						</a>
 					</ul>	

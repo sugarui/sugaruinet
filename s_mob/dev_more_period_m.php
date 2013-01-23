@@ -1,5 +1,3 @@
-<!--더보기 load (http://bit.ly/10gU7kN 참고)-->	
-	
 	<?php
 	if($_GET['devcate'] == 'intro'){$nextperiod = 'start'; $nextname='시작'; }	
 	else if($_GET['devcate'] == 'start'){$nextperiod = 'html'; $nextname='html css 공부'; }		
@@ -12,37 +10,19 @@
 	else if($_GET['devcate'] == 'mobile'){$nextperiod = 'devdiary'; $nextname='개발일지 개발'; }	
 	
 	if($_GET['devcate'] !== 'devdiary'){
-		echo "			
-			<li id='morebtn'>		
-				<div class='dev' id=>
-					<div class='milestone'>
-					<img src='./s_web/image/milestone_nor.png'/>
-					</div>
-		";
-	
-		echo "
-					<div class='dev_date'>
-						<div class='date_and'>And</div>
-			 		</div>
-		";
-		echo "
-					<div class='dev_con'>
-						<a href=?devcate={$nextperiod}>
-							<div class='title'>
-							<h2>
-								<span class='morebtn_period'>
-									Next Period : 
-										<span class='font_weight_normal'>{$nextname}</span> ▼
-								</span>
-							</h2>
-						</a>
-					</div>
-		";
-	
-		echo "
-				</div>
-			</li>
-		";
+		echo "<div class=\"morebox\">" ;					
+		//title
+		echo " 
+			<div class='title' id='moredevbtn' >
+				<a href=?devcate={$nextperiod}>
+				<h2 style='color: #b46500'>
+					Next Period : 
+					<span class='font_weight_normal'>{$nextname}</span>
+				</h2>
+				</a>
+			</div>
+		";			
+		echo "</div>" ;
 	}
 	?>
 
