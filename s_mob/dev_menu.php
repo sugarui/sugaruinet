@@ -4,12 +4,16 @@ $i = 0;
 
 while ($i < 2) {
 	echo " 
-		<div class='dev_area_ym'>
-			
-				<div class='dev_area_y'>
+		<div class='dev_menu_ym'>	
+		
+				
+				<div class='dev_menu_y'>
 					<span class='year'>20{$years[$i]}</span>
 				</div>
-				<div class='dev_area_m'>
+				
+				
+				<div class='dev_menu_m'>
+				<ul>
 	"; 
 	$sql = "SELECT * FROM `su_cate_02` 
 			 WHERE period BETWEEN '20" . $years[$i] . "-01-01' AND '20" . $years[$i] . "-12-31' 
@@ -23,15 +27,18 @@ while ($i < 2) {
 		$display_text = $row['cate_expression'];
 		$display_period = $row['period'];
 		echo "
-					<div style='background-color:grey'>	
+					<li class='dev_menu_m_oneline'>
+					<ul>	
 						<a href=\"?devcate={$link}\">
-							<span class='dev_area_m_milestone'>oo</span>
-							<span class='dev_area_m_period'>$date_m</span>
-							<span class='dev_area_m_text'>$display_text</span>
-							<span class='dev_area_m_btn'>▶</span>
+							<li class='dev_menu_m_milestone'>o</li>
+							<div class='dev_menu_m_period'>$date_m</div>
+							<div class='dev_menu_m_text'>$display_text</div>
+							<div class='dev_menu_m_btn'>▶</div>
 						</a>
-					</div>";						
-	} 	
+					</ul>
+					</li>";						
+	}
+	echo '</ul>'; 	
 	echo '</div>';//dev_area_m의 클로져
 	echo '</div>';//dev_area_ym의 클로져    
 

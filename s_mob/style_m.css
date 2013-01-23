@@ -85,10 +85,6 @@
 	}
 	.menu ul li:last-child a { border-bottom: none; }
 	
-	
-	/**********  메뉴끝  **********/
-	
-	
 	.menu img{
 		width: 15px; 
 		height: 15px;
@@ -96,7 +92,9 @@
 		position:relative;
 		top:2px;
 
-	}
+	}	
+	/**********  메뉴끝  **********/
+	
 	.navshadow{
 		height: 5px;
 		background: url(http://elecuchi.cafe24.com/s_web/image/navshadow_tile.png) repeat-x;
@@ -227,24 +225,55 @@
 	.border_2{				
 		border-top: 1px dashed #26282e;/*#3e404b;	*/
 	}
-	
 	.post_hyper{
 		color: #eee;
 		border-bottom: dotted #aaa 1px;
 	}
 	
-	.dev_area_ym{
+	/*개발일지 메뉴*/
+	.dev_menu_ym{
 		display: block;
 		margin-bottom:10px;
 	}
-
-	.dev_area_y{
+	.dev_menu_y{
 		float: left;
 		width:40px;
 		background-color:blue;
 	}
-	.dev_area_m{
+	.dev_menu_m{
 		margin-left:65px;
 		background-color:green;
 	}
+	.dev_menu_m_oneline{
+		height:44px;
+		border-bottom: 1px solid #30323A;
+	}
+	.dev_menu_y, .dev_menu_m_oneline div{
+	    line-height: 44px;
+	}
+	.dev_menu_m ul li ul li{
+	/*.dev_menu_m_milestone{*/
+		position: relative;
+		top: 22px;
+		left: -18px;
+		border-left: 1px solid #b46500;
+		height: 45px;
+		float: left;
+		/*display: inline; 이거하면 하이트가 안먹음*/
+	}
+	/*.dev_menu_m ul li:last-child ul li{ */
+	.dev_menu_ym:last-child ul li:last-child ul li{ 
+		border-left: 1px solid green;
+	}
+	.dev_menu_m_period, .dev_menu_m_text{
+		float: left;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
