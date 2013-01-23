@@ -121,7 +121,7 @@
 	
 		<!--</nav>-->
 		
-		<div class="navshadow"></div>
+		<div class="navshadow" id="navshadow"></div>
 		
 		<article id="article">
 			<?php			
@@ -165,8 +165,7 @@
         	}else{
         		wel.css({ 'position': 'fixed', 'top' : '0px', 'width': '100%'});
         	}
-        },100);
-        
+        },100);        
     </script>  
 	</body>
 	              

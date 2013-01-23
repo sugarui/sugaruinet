@@ -31,6 +31,7 @@
 		height: 50px;
 		background: #222428;
 		color: #aaa;
+		z-index: 100;
 	}
 	.menu_padding{
 		padding: 0 9px 0 9px;
@@ -96,8 +97,10 @@
 	/**********  메뉴끝  **********/
 	
 	.navshadow{
+		color: #1d1f23; /*js가 빈 id를 제어못해서, 점 하나 찍음. 배경에 뭍히게*/
 		height: 5px;
 		background: url(http://elecuchi.cafe24.com/s_web/image/navshadow_tile.png) repeat-x;
+		z-index: 99;
 	}
 	.nav_sub_cate_add{		
 		font-size: 0.8em;
@@ -193,7 +196,7 @@
 	}
 	
 
-	/*페이지네이션
+	/*페이지네이션*/
 	.pagenation{
 		text-align: center;
 		margin-bottom: 40px;
@@ -217,7 +220,7 @@
 	.pagenation_each:hover {
 		color: #dc2276;
 	}
-	*/
+	
 	
 	.border_1{
 		border-top: 1px solid #0f0f0f;/*#26282e;	*/
@@ -233,20 +236,26 @@
 	/*개발일지 메뉴*/
 	.dev_menu_ym{
 		display: block;
-		margin-bottom:10px;
+		margin-bottom:2px;
 	}
 	.dev_menu_y{
 		float: left;
 		width:40px;
-		background-color:blue;
+		background-color: #1d1f23; /*배경에묻히게*/
 	}
 	.dev_menu_m{
 		margin-left:65px;
-		background-color:green;
+		/*background-color: #1d1f23; /*배경에묻히게*/
 	}
 	.dev_menu_m_oneline{
 		height:44px;
-		border-bottom: 1px solid #30323A;
+		border-bottom: 1px dotted #25272c;
+	}
+	.dev_menu_m_oneline:hover{
+		background-color: #2e3136; 
+	}
+	.dev_menu_m_oneline:touchstart{
+		background-color: red; 
 	}
 	.dev_menu_y, .dev_menu_m_oneline div{
 	    line-height: 44px;
@@ -263,12 +272,37 @@
 	}
 	/*.dev_menu_m ul li:last-child ul li{ */
 	.dev_menu_ym:last-child ul li:last-child ul li{ 
-		border-left: 1px solid green;
+		border-left: 1px solid #1d1f23 /*배경에묻히게*/
 	}
 	.dev_menu_m_period, .dev_menu_m_text{
 		float: left;
+		position: relative; /*마일스톤 첨부후 밀린것 당기기*/
+		left: -12px;		/*마일스톤폭*/
+		margin-right: 15px;
 	}
-	
+	.dev_menu_m_period{
+		font-family: 'Merriweather', serif;
+		font-size: 1em;
+	}
+	.dev_menu_m_btn{
+		float: right;
+	}
+	.dev_menu_m_btn img{
+		float: right;
+		width:12px;
+		height:44px;
+	}
+	.year{
+		font-family: 'Merriweather', serif;
+		font-size: 1em;
+	}
+	.dev_menu_m_milestone img{
+		width:12px;
+		height:45px;
+		position: relative;
+		top: -22px;
+		left: -6px;
+	}
 	
 	
 	

@@ -107,9 +107,9 @@
 			    	<?php
 			    		//현메뉴확인
 						if($_GET['devcate']){
-							echo "<a href=\"?devcate={$_GET['devcate']}\" style=\"color:#b46500;\" >";
+							echo "<a href=\"?devcate=menu\" style=\"color:#b46500;\" >";
 						}else{
- 							echo "<a href=\"?devcate=1\">";
+ 							echo "<a href=\"?devcate=menu\">";
 						}
 			    		echo "개발일지";
 			    		echo "</a>";
@@ -120,39 +120,56 @@
 	
 		<!--</nav>-->
 		
-		<div class="navshadow"></div>
+		<div class="navshadow" id="navshadow">.</div>
 		
 		<article id="article">
 			<?php	 
 				if(!$_GET['devcate']){
-					//echo '<ul>';
-						include 'post_includer_m.php';
-					//echo '</ul>';	 					
-				}else{
-					//echo '<ul>';
+						include 'post_includer_m.php'	;	
+				}else if($_GET['devcate']=='menu'){
 						include 'dev_menu.php'; 			
-					//echo '</ul>';		
+				}else if($_GET['devcate']){
+						include 'dev_includer_m.php'; 			
 				}
-	
-				
-
 			?>	
 		</article>
 	
-		<script type="text/javascript" charset="UTF-8">//메뉴바 고정	
+		<script type="text/javascript" charset="UTF-8">
+		//메뉴바 고정	
 	        var wel = jindo.$Element("menu"); 
 	        var nTop = wel.offset().top; 
-	            
+	       	var article = jindo.$Element("article"); ; //본문이잡아먹힌다 조정	            
+	      
 	        setInterval(function(){     	
 	        	var nScrollTop = jindo.$Document().scrollPosition().top;
+
 	        	if(nScrollTop < nTop){
 	        		//$("#nav").css({ 'position': 'relative', 'top' : '0px'});
 					wel.css({ 'position': 'relative', 'top' : '0px', 'width': '100%'});
+					article.css({'margin-top': '0px'});
 	        	}else{
-	        		wel.css({ 'position': 'fixed', 'top' : '0px', 'width': '100%'});
+	        		wel.css({ 'position': 'fixed', 'top' : '0px', 'width': '100%',});
+	        		article.css({'margin-top': '80px'});
 	        	}
 	        },100);
 	    </script>
+	    
+	    
+	    <script type="text/javascript" charset="UTF-8">	    
+        //메뉴바 셰도우 고정	
+	        var wel2 = jindo.$Element("navshadow"); 
+	        var nTop2 = wel2.offset().top; 
+	            
+	        setInterval(function(){     	
+	        	var nScrollTop2 = jindo.$Document().scrollPosition().top;
+	        	if(nScrollTop2+50 < nTop2){
+					wel2.css({ 'position': 'relative', 'top' : '0px'});
+	        	}else{
+	        		wel2.css({ 'position': 'fixed', 'top' : '50px', 'width':'100%'});
+	        	}
+	        },100);
+	    </script>
+	    
 	    <script type="text/javascript" charset="UTF-8">//주소창 숨기기
 	         $(function(){
 	               setTimeout(loaded, 1);
@@ -160,6 +177,9 @@
 	               function loaded(){ 
 	               window.scrollTo(0, 1);
 	          }
+		</script>
+		
+		<script type="text/javascript" charset="UTF-8">//터치감개선 - 반복문어려워서 hold
 		</script>
 
 	  

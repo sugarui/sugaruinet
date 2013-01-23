@@ -30,12 +30,16 @@ while ($i < 2) {
 					<li class='dev_menu_m_oneline'>
 					<ul>	
 						<a href=\"?devcate={$link}\">
-							<li class='dev_menu_m_milestone'>o</li>
+							<li class='dev_menu_m_milestone'>
+								<img src='../s_web/image/milestone_mob.png' />
+							</li>
 							<div class='dev_menu_m_period'>$date_m</div>
 							<div class='dev_menu_m_text'>$display_text</div>
-							<div class='dev_menu_m_btn'>▶</div>
+							<div class='dev_menu_m_btn'>
+								<img src='../s_web/image/milestone_mob_next_nor.png' />
+							</div>
 						</a>
-					</ul>
+					</ul>	
 					</li>";						
 	}
 	echo '</ul>'; 	

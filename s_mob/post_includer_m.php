@@ -57,13 +57,15 @@
           $result = mysql_query($sql);
           $num_rows = mysql_num_rows($result); // 게시물 총수획득. 예를들어 32  
           $num_pages = ceil($num_rows/$num_posts_display); //페이지수는 게시물 총수32/페이지당 출력수3 =10, 올림해서 11
-          if ( $num_pages_pre < $num_pages-1 ){
-               //echo "넘페이지프리는".$num_pages_pre."<br>";
-               $divid=$num_pages_pre;
-               $num_pages_pre++;
-               include 'post_more_m.php'; 
-               $_SESSION['pre'] = $num_pages_pre; 
-          }
-
+          if($_GET['special']){
+		  }else{
+	          if ( $num_pages_pre < $num_pages-1 ){
+	               //echo "넘페이지프리는".$num_pages_pre."<br>";
+	               $divid=$num_pages_pre;
+	               $num_pages_pre++;
+	               include 'post_more_m.php'; 
+	               $_SESSION['pre'] = $num_pages_pre; 
+	          }
+		  }
 ?>
 <!--위치조정-->
