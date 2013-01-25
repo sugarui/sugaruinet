@@ -33,7 +33,7 @@
 	<body>
 
 		<header>
-			<a href="">
+			<a href="m.sugarui.net">
 				<img src="http://elecuchi.cafe24.com/s_web/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
 			</a>	
 			<!--<div class="header_space"></div><!--미스터치방지-->

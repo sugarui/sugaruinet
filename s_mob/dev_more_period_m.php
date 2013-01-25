@@ -10,14 +10,16 @@
 	else if($_GET['devcate'] == 'mobile'){$nextperiod = 'devdiary'; $nextname='개발일지 개발'; }	
 	
 	if($_GET['devcate'] !== 'devdiary'){
-		echo "<div class=\"morebox\">" ;					
+		echo "<div class=\"morebox_dev\">" ;					
 		//title
 		echo " 
-			<div class='title' id='moredevbtn' >
+			<div class='title'>
 				<a href=?devcate={$nextperiod}>
-				<h2 style='color: #b46500'>
-					Next Period : 
-					<span class='font_weight_normal'>{$nextname}</span>
+				<h2>
+					<div class='btntext'>
+						Next Period : 
+						<span class='font_weight_normal'>{$nextname}</span>
+					</div>
 				</h2>
 				</a>
 			</div>

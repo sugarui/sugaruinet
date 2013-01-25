@@ -148,16 +148,31 @@
 	}*/
 	.morebox{
 		position: relative;
-		top:-30px;
+		top:-20px;
 		/*width:100%; */
-		border-top:1px dotted #555;
+		border: 1px dotted #444;
 		text-align: center;
-		padding-top: 25px;
+		/*padding-top: 25px;*/
 		/*padding-bottom: 20px;*//*마지막 포스트 여백이 너무 많아서*/
-		margin-right: 5px;/*그래픽때문에 내부에서 각자적용*/
-		margin-left: 5px;/*그래픽때문에 내부에서 각자적용*/
+		margin: 0px 5px 0px 5px;/*그래픽때문에 내부에서 각자적용*/
 	}
-
+	.morebox_dev{
+		position: relative;
+		top: -20px;
+		border: 1px dotted #975500;/*흐린노랑 /*진노랑은 #b46500;*/
+		text-align: center;
+		/*padding-top: 25px;*/
+		margin: 0px 5px 0px 5px;
+	}
+	
+	.morebox .btntext{
+		line-height: 50px;
+	}
+	.morebox_dev .btntext{
+		color:#b46500;
+		line-height: 50px;
+	}
+	
 	.title h2{
 		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
 		margin-bottom: 2px;

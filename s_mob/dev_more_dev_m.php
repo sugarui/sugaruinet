@@ -6,9 +6,11 @@
 						
 	//title
 	echo " 
-		<div class='title' id='moredevbtn' >
+		<div class='title' id='morebtn_dev' >
 			<h2>
-				More
+				<div class='btntext'>
+					More
+				</div>
 			</h2>
 		</div>
 		";
@@ -17,7 +19,7 @@
     ?>
                     
 	<script>
-       	$('#moredevbtn').click( function() {
+       	$('#morebtn_dev').click( function() {
        		var position =$('#<?php echo $divid; ?>').offset();
        		$('html,body').animate({scrollTop: position.top-100},1000);
        			

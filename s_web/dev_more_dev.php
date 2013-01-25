@@ -35,6 +35,9 @@
 
 <script>// http://bit.ly/10gU7kN 참고)
 	$('#morebtn').click( function() {
+		var position =$('#<?php echo $divid; ?>').offset();
+       	$('html,body').animate({scrollTop: position.top-100},1000);
+		
 		$("#<?php echo $divid; ?>  ").load("./s_web/dev_includer.php");
 		$('#morebtn').remove();
 	});
