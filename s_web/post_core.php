@@ -16,17 +16,21 @@
 							if(($_GET['special']) ){
 								echo "<div class=\"graphic_left\">"; //어바웃 용
 							}else{
-								echo "<div class=\"graphic\">";		
+								echo "<div class=\"graphic\">";	
+								echo "<ul class=graphic_ul>";			
 							}
 							 							
 							$images = explode("@",$row['image']); //Array (이미지파일명, 이미지파일명)
 							$i=0;
 							while ($i < count($images)){
+								echo '<li>';	
 								echo $image_opener;
 								echo $images[$i];
 								echo $image_closer;
+								echo '</li>';
 								$i++;
 							}
+							echo "</ul>";		
 							echo "</div>";	
 						}		
 						// grapic_효과 없어야 할 경우 (널일수있음)
@@ -54,15 +58,18 @@
 						// grapic_2 (널일수있음) 
 						if($row['image_2']){
 							echo "<div class=\"graphic\">";		
-														
+							echo "<ul class=graphic_ul>";							
 							$images = explode("@",$row['image_2']); //Array (이미지파일명, 이미지파일명)
 							$i=0;
 							while ($i < count($images)){
+								echo '<li>';	
 								echo $image_opener;
 								echo $images[$i];
 								echo $image_closer;
+								echo '</li>';
 								$i++;
 							}
+							echo "</ul>";
 							echo "</div>";	
 						}		
 						//text_2

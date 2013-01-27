@@ -271,13 +271,12 @@
 		padding-bottom:30px;
 	}
 	/*포스트-개발일지*/
-	article ul li { 
+	article ul.article_dev li { 
 		border-left : 1px solid #48494b;
-		/*다음포스트박스와의 여백이 없어야 함*/
+		margin-top:0; margin-bottom:0; /*다음포스트박스와의 여백은 없어야 함*/
 		margin-left:20px; margin-right:20px;/* 프레임이 따로 없어서 좀 여백 만듬*/
-		/*background-color: #30323a;*/
 	}
-	article ul li:last-child { 
+	article ul.article_dev li:last-child { 
 		border-left : 1px solid #1a1b1e; /*배경색*/
 	}
 	#morebtn { 
@@ -349,7 +348,6 @@
 		border-bottom: dotted #ccc 1px;
 		color: #ccc;*/
 	}
-	
 	/*포스트-개발일지 끝*/
 	
 	/*포스트타이틀*/
@@ -359,6 +357,7 @@
 		color: #ddd;
 		text-shadow: 0px -1px 0px  #000;
 		font-weight: normal;
+		margin-bottom:30px;
 	}
 	.dev .title h2{
 		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
@@ -384,7 +383,6 @@
 		margin-left: 0px;
 		margin-right: 0px;
 	}
-
 	/*그래픽 여백및 정렬 예외 처리*/
 	.post .graphic, .post .graphic_noeffect{
 	 	margin-left: 30px; /*자식마진 10px(복수의 이미지간의 간격)을 합해서 40px*/
@@ -397,27 +395,43 @@
 		text-align: left;
 	}
 	/*요소 여백-상하공통*/
-	.graphic, .graphic_noeffect, .graphic_left, .text, .movie {
+	.text, .movie {
 		margin-top:20px;
 		margin-bottom:20px;			
 	}
+	.graphic, .graphic_noeffect, .graphic_left{
+		margin-top:20px;
+		margin-bottom:20px;	
+	}	
 	/*이미지*/
-	/*.post .graphic img, .post .graphic_left img, .post .graphic_noeffect img{*/
-	.graphic img, .graphic_left img, .graphic_noeffect img{
-		margin-left: 10px;
-		margin-right: 10px;
-		margin-bottom: 10px;	
+	.post .graphic_left img, .post .graphic_noeffect img{/*예외케이스*/
 		text-align: center;
-		margin-bottom:15px;			
+	}
+	.post .graphic ul.graphic_ul li{
+		display: inline-block;
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 7px;
+		text-align: center;
+	}
+	.post .graphic ul.graphic_ul li:last_child{
+		display: inline;
+		margin-bottom: 0px; 
+		/*이걸로 이미지와 텍스트가 뜨는것없앰*/
 	}
 	.graphic img, .graphic_left img{
 		border-radius:3px;
-		box-shadow: 0px 0px 4px #161719;		
+		box-shadow: 0px 0px 4px #161719;	
+	}
+	.dev .graphic{
+		margin-top:20px;
+		margin-bottom:20px;	
 	}
 	.dev .graphic img{
 		max-width:500px;
+		margin-right: 10px;	
 	}
-	
+
 	.movie{
 		text-align: center;
 	}

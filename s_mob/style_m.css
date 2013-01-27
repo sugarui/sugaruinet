@@ -225,10 +225,21 @@
 		margin-top: 15px;
 		margin-bottom: 15px;
 	}
+	.postbox .graphic ul.graphic_ul li{
+		margin-bottom: 5px;
+		text-align: center;
+	}
+	.postbox .graphic ul.graphic_ul li:last_child{
+		margin-bottom: 0px; 
+		/*이걸로 이미지와 텍스트가 뜨는것없앰*/
+	}
+	.post .graphic ul.graphic_ul li:last_child{
+		margin-bottom: 0px; 
+		/*이걸로 이미지와 텍스트가 뜨는것없앰*/
+	}
 	.graphic img, .graphic_left img, .graphic_noeffect img{	/*막상 여기에 5px이 먹히지 않아서*/
 		border-radius:4px;
 		max-width: 100%;
-		margin-bottom: 8px;
 	}
 	
 	/*

@@ -34,7 +34,7 @@
 			<div class="nav_1">
 				<header>
 					<h1>
-						<a href=""> <img src="./s_web/image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="http://sugarui.net"> <img src="./s_web/image/logo.png" alt="사탕화면 회사로고"> </a>
 					</h1>
 				</header>
 
@@ -344,8 +344,8 @@
 			<article id="article">
 				
 				<?php
-					if($_GET['devcate'] || $_GET['devtag']){
-						echo '<ul>';
+					if($_GET['devcate'] || $_GET['devtag']){	
+						echo '<ul class="article_dev">';
 						include './s_web/dev_includer.php';
 						echo '</ul>';
 					}else{
