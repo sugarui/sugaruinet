@@ -1,7 +1,6 @@
 <?php
 
-						$image_opener = "<img src=\"http://elecuchi.cafe24.com/s_portfolio/"; //경로
-						$image_closer = "\">";
+						include 'post_image_root.php'; //경로 (웹용 / 모바일저용량용 구분)
 						
 						// movie(널일수있음)
 						if($row['movie']){ // 링크를 걸어야 하니까 스페설챠는 뺄게

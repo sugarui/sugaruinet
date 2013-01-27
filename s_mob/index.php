@@ -33,7 +33,7 @@
 	<body>
 
 		<header>
-			<a href="m.sugarui.net">
+			<a href="http://m.sugarui.net">
 				<img src="http://elecuchi.cafe24.com/s_web/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
 			</a>	
 			<!--<div class="header_space"></div><!--미스터치방지-->
@@ -49,7 +49,7 @@
 		
 		<ul class="menu" id="menu">
 			<div class="menu_padding">	
-			    <li>
+			    <li class="menu_left">
 			    	<?php
 			    		//현메뉴확인
 						if(!$_GET['special'] && !$_GET['devcate']){
@@ -93,20 +93,7 @@
 			           		?>
 			        	</ul>
 			    </li>
-			    <li>
-			    	<?php
-			    		//현메뉴확인
-						if($_GET['special']){
-							echo "<a href=\"?special=about&cate={$_GET['cate']}\" style=\"color:#dc2276;\" >";
-						}else{
- 							echo "<a href=\"?special=about&cate={$_GET['cate']}\">";
-						}
-			    		echo "프로필";
-			    		echo "</a>";
-			    	?>
-			    </li>
-			    
-			    <li>
+			    <li class="menu_right">
 			    	<?php
 			    		//현메뉴확인   //재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
 						if($_GET['devcate']){
@@ -115,6 +102,18 @@
  							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate=menu\">";
 						}
 			    		echo "개발일지";
+			    		echo "</a>";
+			    	?>
+			    </li>
+			    <li class="menu_right">
+			    	<?php
+			    		//현메뉴확인
+						if($_GET['special']){
+							echo "<a href=\"?special=about&cate={$_GET['cate']}\" style=\"color:#dc2276;\" >";
+						}else{
+ 							echo "<a href=\"?special=about&cate={$_GET['cate']}\">";
+						}
+			    		echo "프로필";
 			    		echo "</a>";
 			    	?>
 			    </li>

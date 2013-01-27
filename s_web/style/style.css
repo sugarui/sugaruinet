@@ -402,7 +402,8 @@
 		margin-bottom:20px;			
 	}
 	/*이미지*/
-	.post .graphic img, .post .graphic_left img, .post .graphic_noeffect img{
+	/*.post .graphic img, .post .graphic_left img, .post .graphic_noeffect img{*/
+	.graphic img, .graphic_left img, .graphic_noeffect img{
 		margin-left: 10px;
 		margin-right: 10px;
 		margin-bottom: 10px;	
