@@ -407,18 +407,25 @@
 	.post .graphic_left img, .post .graphic_noeffect img{/*예외케이스*/
 		text-align: center;
 	}
+	/*복수정렬 : 일반이미지(세로정렬)*/
 	.post .graphic ul.graphic_ul li{
-		display: inline-block;
 		margin-left: 5px;
 		margin-right: 5px;
 		margin-bottom: 7px;
 		text-align: center;
 	}
 	.post .graphic ul.graphic_ul li:last_child{
-		display: inline;
-		margin-bottom: 0px; 
-		/*이걸로 이미지와 텍스트가 뜨는것없앰*/
+		margin-bottom: 0px;
 	}
+	/*복수정렬: 인라인방식으로 해야하는 이미지(가로정렬)*/
+	.post .graphic ul.graphic_ul_inline li{
+		display: inline;
+		margin-left: 5px;
+		margin-right: 5px;
+		text-align: center;
+	}
+
+	/*이미지 이펙트*/	
 	.graphic img, .graphic_left img{
 		border-radius:3px;
 		box-shadow: 0px 0px 4px #161719;	

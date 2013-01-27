@@ -11,7 +11,7 @@
 							 "; 
 						} 
 						
-						// grapic (널일수있음)
+						// grapic_일반 세로정렬형 (널일수있음)
 						if($row['image']){
 							if(($_GET['special']) ){
 								echo "<div class=\"graphic_left\">"; //어바웃 용
@@ -32,7 +32,29 @@
 							}
 							echo "</ul>";		
 							echo "</div>";	
-						}		
+						}
+						// grapic_특수 가로정렬형 (널일수있음)
+						if($row['image_inline']){
+							if(($_GET['special']) ){
+								echo "<div class=\"graphic_left\">"; //어바웃 용
+							}else{
+								echo "<div class=\"graphic\">";	
+								echo "<ul class=graphic_ul_inline>";			
+							}
+							 							
+							$images = explode("@",$row['image_inline']); //Array (이미지파일명, 이미지파일명)
+							$i=0;
+							while ($i < count($images)){
+								echo '<li>';	
+								echo $image_opener;
+								echo $images[$i];
+								echo $image_closer;
+								echo '</li>';
+								$i++;
+							}
+							echo "</ul>";		
+							echo "</div>";	
+						}			
 						// grapic_효과 없어야 할 경우 (널일수있음)
 						if($row['image_noeffect']){
 							echo "<div class=\"graphic_noeffect\">";		
@@ -55,7 +77,7 @@
 							 	</div>
 							 "; 
 						} 
-						// grapic_2 (널일수있음) 
+						// grapic_일반세로정렬형_2 (널일수있음) 
 						if($row['image_2']){
 							echo "<div class=\"graphic\">";		
 							echo "<ul class=graphic_ul>";							
@@ -70,6 +92,28 @@
 								$i++;
 							}
 							echo "</ul>";
+							echo "</div>";	
+						}
+						// grapic_특수 가로정렬형_2 (널일수있음)
+						if($row['image_inline_2']){
+							if(($_GET['special']) ){
+								echo "<div class=\"graphic_left\">"; //어바웃 용
+							}else{
+								echo "<div class=\"graphic\">";	
+								echo "<ul class=graphic_ul_inline>";			
+							}
+							 							
+							$images = explode("@",$row['image_inline_2']); //Array (이미지파일명, 이미지파일명)
+							$i=0;
+							while ($i < count($images)){
+								echo '<li>';	
+								echo $image_opener;
+								echo $images[$i];
+								echo $image_closer;
+								echo '</li>';
+								$i++;
+							}
+							echo "</ul>";		
 							echo "</div>";	
 						}		
 						//text_2
