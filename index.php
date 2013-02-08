@@ -344,7 +344,7 @@
 			<article id="article">
 				
 				<?php
-					if($_GET['devcate'] || $_GET['devtag']){	
+					if($_GET['devcate'] || $_GET['devtag'] || $_GET['devid']){	
 						echo '<ul class="article_dev">';
 						include './s_web/dev_includer.php';
 						echo '</ul>';

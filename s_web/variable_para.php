@@ -15,5 +15,8 @@
 		}else if($_GET['id']){
 			$paraname = 'id';  
 			$paravalue = $_GET['id'];
+		}else if($_GET['devid']){
+			$paraname = 'id';  
+			$paravalue = $_GET['devid'];
 		}							
 ?>

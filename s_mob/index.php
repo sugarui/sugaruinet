@@ -128,7 +128,7 @@
 			<?php	 
 				if($_GET['devcate']=='menu'){
 						include 'dev_menu.php'; 			
-				}else if($_GET['devcate']){
+				}else if($_GET['devcate'] || $_GET['devid']){
 						include 'dev_includer_m.php'; 	
 				}else{
 					include 'post_includer_m.php'	;	 			
