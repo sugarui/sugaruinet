@@ -57,7 +57,30 @@
 							echo "</div>"; 	
 						}
 						echo "</div>"; 
-						//테일끝	
+						//테일끝
+						
+						// 댓글버튼, 쉐어버튼 영역
+						if( !($_GET['devid']) && !($_GET['id']) && !($_GET['special']) ){ 
+							echo "<div class=\"tail_each_btn\">";
+							/////댓글.  id없을때만 버튼노출 (id있을땐 단일포스트 모드로써, disqus가 노출됨)  
+							echo "
+								<a href=\"?devid={$row['id']}#disqus_thread\">
+									<span class=\"btn_link\">reply</span>
+								</a>
+							";	
+							/////주소. index.php에 function copy(trb) 있음. 자료참조 http://hosting.websearch.kr/38
+							echo "
+								<a href=\"?devid={$row['id']}\" onclick=\"copy(this.href); return false;\">
+									<span class=\"btn_link\">share</span>
+								</a>
+							";
+						echo "</div>";
+						}
+						
+						//댓글부
+						if (  ($_GET['devid']) || ($_GET['id']) || ($_GET['special']==='guest') ){
+							include './s_web/post_disqus.php';
+						}	
 		
 					echo "</div></li>"; //포스트박스끝	 
 				?>

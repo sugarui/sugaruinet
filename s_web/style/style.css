@@ -465,6 +465,9 @@
 	.border_2{				
 		border-top: 1px dashed #3e404b;	
 	}
+	.border_3{				
+		border-top: 1px solid #404143;	/*디스커스 선색임*/
+	}
 	.post_hyper{
 		color: #eee;
 		border-bottom: dotted #aaa 1px;
@@ -515,6 +518,15 @@
 		padding:1px 4px 1px 4px;
 		letter-spacing: 0px;
 		margin-left: 2px /*기본적으로 간격이 5px정도 생김. 거기다 추가함.*/
+	}
+	.article_dev .btn_link{ /*데브 tail 버튼부 및 버튼 텍스트*/
+		color:#6f6f6f;
+		/*background-color:#1a1b1e; /*배경색*/
+		/*padding:1px 0px 1px 0px;
+		/*devtag포지션이 올라가므로 같이*/
+		background-color:#28292b;
+		position: relative;
+		top: -15px;
 	}
 	/*페이지네이션*/
 	.pagenation{

@@ -99,7 +99,7 @@
 						echo "</div>"; //테일끝	
 						
 						//댓글부
-						if ( ($_GET['id']) || ($_GET['special']==='guest') ){
+						if (  ($_GET['devid']) || ($_GET['id']) || ($_GET['special']==='guest') ){
 							include './s_web/post_disqus.php';
 						}
 					

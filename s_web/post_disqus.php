@@ -1,7 +1,31 @@
-<div class="space_20"></div>
-<div class="border_1"></div>
-<div class="border_2"></div>
-<div class="space_20"></div>
+<?php // 개발일지와 일반포스트 디스커스 링크색 구분
+	if($_GET['devid']){
+		echo"
+		<style type='text/css'>
+			a:link, a:visited, a:active, a:hover { 
+				color: #b36500;
+			}
+		</style>
+		
+		<div class='space_20'></div>
+		<div class='border_3'></div>
+		<div class='space_20'></div>
+		";
+	}else{
+		echo"
+		<style type='text/css'>
+			a:link, a:visited, a:active, a:hover { 
+				color: #dc2276;
+			}
+		</style>
+		
+		<div class='space_20'></div>
+		<div class='border_1'></div>
+		<div class='border_2'></div>
+		<div class='space_20'></div>
+		";	
+	}
+?>
 
 <!---------DISQUS----------->
 <div class= "disqus_custom">
