@@ -212,6 +212,7 @@
 									}
 								?>
 								</ul>
+									<!--
 									<div class="icon_dev">
 										<a href="https://www.facebook.com/sugaruipage" target="_blank">
 											 <img src="./s_web/image/lnb_diary_fb_g.png" alt="facebook">
@@ -222,7 +223,7 @@
 											<img src="./s_web/image/lnb_diary_gh_g.png" alt="github">
 										</a>
 									</div>
-									
+									-->
 								</div>
 							<?php
 							echo "</div>";

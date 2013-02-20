@@ -25,11 +25,19 @@
 		//	$where = " ";
 		//}
 		//데이터 요청및 수신
+		if ($_GET['devid']){
+		$sql =  "
+				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate  
+				WHERE p.id='{$_GET['devid']}' 
+				ORDER BY id_intent DESC, worked ASC, worked_intent DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
+			";
+		}else{ 
 		$sql =  "
 				SELECT p.* FROM su_post_02 AS p LEFT JOIN su_cate_02 AS c ON p.cate = c.cate  
 				WHERE p.cate='{$_SESSION['devcate']}' 
 				ORDER BY id_intent DESC, worked ASC, worked_intent DESC LIMIT {$num_posts_display} OFFSET {$num_posts_offset}
 			";
+		}	
 		$result = mysql_query($sql);
 		
 	//출력 

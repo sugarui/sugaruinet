@@ -188,6 +188,7 @@
 	
 	.morebox .btntext{
 		line-height: 50px;
+		color:#aaa;
 	}
 	.morebox_dev .btntext{
 		color:#b46500;
@@ -199,6 +200,7 @@
 		margin-bottom: 2px;
 		font-size: 1em;
 		font-weight: bold;
+		color:#DC2276;
 	}
 	.worked{
 		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
@@ -299,7 +301,7 @@
 	.dev_menu_y{
 		float: left;
 		width:40px;
-		background-color: #1d1f23; /*배경에묻히게*/
+		/*background-color: #1d1f23; /*배경에묻히게*/
 	}
 	.dev_menu_m{
 		margin-left:65px;
@@ -406,5 +408,15 @@
 		color: #b36500;
 		border-bottom: dotted #b36500 1px;
 	}
-	
+	/*동영상클립*/
+	.movieclip{
+		display: none;
+	}
+	.movieclip_mob{
+		margin-top:30px;
+		text-align: center;
+	}
+	.movieclip_mob video{
+		max-width:280px;
+	}
 	

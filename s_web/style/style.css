@@ -570,6 +570,24 @@
 		width:30px;
 		height:30px;
 	}
+	/*동영상클립*/
+	.movieclip{
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	.movieclip iframe{
+		/*max-width:480px;
+		max-height:174px;	*/
+	}
+	.movieclip_mob{
+		display: none;
+	}	
+	/*@media all and (max-width:980px) {    /* 화면 너비가 980px 이하일 때에만 아래 코드를 실행 */
+	    /*.movieclip{max-width:300px;}
+	    /* .content{ float:none; width:auto }    /* 콘텐츠 플롯을 해제하고 너비를 자동으로 */
+	    /* .nav{ float:none; width:auto }    /* 네비게이션 플롯을 해제하고 너비를 자동으로 */
+	/*}
 
 /***************fontface***************/	
 	@font-face {

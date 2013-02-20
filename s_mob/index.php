@@ -52,7 +52,7 @@
 			    <li class="menu_left">
 			    	<?php
 			    		//현메뉴확인
-						if(!$_GET['special'] && !$_GET['devcate']){
+						if(!$_GET['special'] && !$_GET['devcate'] && !$_GET['devid']){
 							//재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
 							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}\" style=\"color:#dc2276; \">";
 						}else{
@@ -96,7 +96,7 @@
 			    <li class="menu_right">
 			    	<?php
 			    		//현메뉴확인   //재클릭시 링크 유지를 위해서 파라미터를 상세히 적음
-						if($_GET['devcate']){
+						if($_GET['devcate'] || $_GET['devid']){
 							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate=menu\" style=\"color:#b46500;\" >";
 						}else{
  							echo "<a href=\"?cate={$_GET['cate']}&page={$_GET['page']}&id={$_GET['id']}&devcate=menu\">";
