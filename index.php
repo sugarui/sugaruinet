@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php	
-		session_save_path('./session');
+		if($_GET['devtag']){
+			session_save_path('./session/devtag');
+		}else if ($_GET['devcate']){
+			session_save_path('./session/dev');
+		}else{
+			session_save_path('./session');
+		}	
 		session_start();
 		session_destroy();
 		session_start();
-		$_SESSION['pre']='0';
+		$_SESSION ['pre']= '0';
 		$_SESSION ['tag'] = $_GET['tag'];
 		$_SESSION ['cate'] = $_GET['cate'] ; 
 		$_SESSION ['devtag'] = $_GET['devtag'];
-		$_SESSION ['devcate'] = $_GET['devcate'] ; 
+		$_SESSION ['devcate'] = $_GET['devcate'] ;
 	?>
 	<head>
 		<?php
@@ -134,8 +140,8 @@
 						<li> <!--개발일지-->
 							<a href="?devcate=start">
 								<div class="nav_dev">
-									사이트 개발일지:<br>
-									<span class='nor'>단추로 끓인 스프</span>
+									사이트 개발일지<br>
+									<!--<span class='nor'>단추로 끓인 스프</span>-->
 								</div>
 							</a>
 							
@@ -349,6 +355,10 @@
 						echo '<ul class="article_dev">';
 						include './s_web/dev_includer.php';
 						echo '</ul>';
+					/*}else if($_GET['devtag'] || $_GET['devid']){
+						echo '<ul class="article_dev">';
+						include './s_web/dev_includer_unique.php';
+						echo '</ul>';*/
 					}else{
 						include './s_web/select.php';
 						while ($row = mysql_fetch_array($result) ){

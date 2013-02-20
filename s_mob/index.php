@@ -3,7 +3,14 @@
 
 	<head>
 		<?php
-		session_save_path('session');
+		/*session_save_path('session');*/
+		if($_GET['id']){
+			session_save_path('session/postid');
+		}else if($_GET['tag']){
+			session_save_path('session/posttag');	
+		}else{
+			session_save_path('session');
+		}
 		session_start();
 		session_destroy();
 		session_start();
@@ -124,6 +131,7 @@
 		
 		<div class="navshadow" id="navshadow">.</div>
 		
+
 		<article id="article">
 			<?php	 
 				if($_GET['devcate']=='menu'){
@@ -135,6 +143,7 @@
 				}
 			?>	
 		</article>
+	
 	
 		<script type="text/javascript" charset="UTF-8">
 		//메뉴바 고정	

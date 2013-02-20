@@ -1,5 +1,11 @@
 <?php 	// load형식이므로, 자체적으로 컨텐츠가 완성되어서 불러져야 함
-	session_save_path('../session');
+	/*session_save_path('../session/dev');		*/
+	if($_GET['devtag']){
+			session_save_path('../session/devtag');
+	}else{
+		session_save_path('../session/dev');
+	}
+	/*session_save_path('../session');	*/
 	session_start();
 	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
 	//echo "세션값을 변수 넘프리에 대입합니다.<br>";
@@ -8,9 +14,9 @@
 	
 	//DB접속	
 	include '../db.php';
-			
+	 			
 	// 파라미터를 세션에서 받기
-	$_GET['devtag'] = $_SESSION ['devtag'];
+	$_GET['devtag'] = $_SESSION ['devtag'];   
 	$_GET['devcate'] = $_SESSION ['devcate'];	
 		 
 	//파라미터 관련 변수 인클루드
@@ -23,7 +29,7 @@
 		// 쿼리문 웨어부 조건 및 내용 설정
 		if($_GET['devtag']){
 			$where = "WHERE p.{$paraname} like '%{$paravalue}%'";
-		}else if($paravalue){
+		}else if( isset($_SESSION ['devcate']) ){
 			$where = "WHERE p.{$paraname} = '{$paravalue}'";
 		}else{
 			$where = " ";
@@ -62,10 +68,10 @@
 			$num_pages_pre++;
 			include 'dev_more_dev.php';
 			$_SESSION['pre'] = $num_pages_pre; 
-		}else if ($_GET['devcate']){
+		}else{ /*if ($_GET['devcate']){*/
 			$_SESSION['pre'] = 0;
 			$num_pages_pre=$_SESSION ['pre'];
 			include 'dev_more_period.php';
-		}
+		} 
 ?>
 
