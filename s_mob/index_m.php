@@ -5,13 +5,15 @@
 		<?php
 		/*session_save_path('session');*/
 		if($_GET['id']){
-			session_save_path('../s_web/session/postid');
+			session_save_path('../session/postid');
 		}else if($_GET['tag']){
-			session_save_path('../s_web/session/posttag');
+			session_save_path('../session/posttag');
 		}else if($_GET['devid']){
-			session_save_path('../s_web/session/devid');		
+			session_save_path('../session/devid');		
+		}else if($_GET['devtag']){
+			session_save_path('../session/devtag');		
 		}else{
-			session_save_path('../s_web/session');
+			session_save_path('../session');
 		}
 		session_start();
 		session_destroy();

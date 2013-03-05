@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" id="html">
 
-	<head>
-		<?php
-			include_once ('./s_web/head.php')
-		?>
-
 		<?php	
-			if($_GET['devtag']){
-				session_save_path('./session/devtag');
-			}else if ($_GET['devcate']){
-				session_save_path('./session/dev');
+			if($_GET['id']){
+				session_save_path('../session/postid');
+			}else if($_GET['tag']){
+				session_save_path('../session/posttag');
+			}else if($_GET['devid']){
+				session_save_path('../session/devid');		
+			}else if($_GET['devtag']){
+				session_save_path('../session/devtag');		
 			}else{
-				session_save_path('./session');
-			}	
+				session_save_path('../session');
+			}
 			session_start();
 			session_destroy();
 			session_start();
@@ -26,31 +25,23 @@
 
 		<script src='http://code.jquery.com/jquery-latest.js'></script>
 		<script type="text/javascript" charset="UTF-8">
-			//모바일분기
-			if (  
-				( navigator.userAgent.match(/iPhone/i) )||    //아이폰
-	   			( navigator.userAgent.match(/iPod/i) )||          //아이팟
-	  			( navigator.userAgent.match(/android/i) )      //안드로이드 계열
-	   		){ 
-				// window.location.replace('s_mob/index.php')	 // success
-				//document.getElementById('body').load("s_mob/index.php"); // fail
-				$("#html").load("s_mob/index.php");  // success(주소유지)
-			}
-		</script>
 
-		<link rel='stylesheet' type='text/css' href='./s_web/style/style_space.css'  />
-		<link rel='stylesheet' type='text/css' href='./s_web/style/style.css'  />
+	<head>
+		<?php
+			include_once ('head.php')
+		?>	
+
+		<link rel='stylesheet' type='text/css' href='style/style_space.css'  />
+		<link rel='stylesheet' type='text/css' href='style/style.css'  />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<script src='http://elecuchi.cafe24.com/s_web/js/jindo.desktop.min.ns.js'></script>
-
 	</head>
 	
 		<?php
-			include_once ('./db.php');
+			include_once ('../db.php');
 		?>
 		
 	<body id="body">
-
 		<div class="wrap">
 
 			<!--LEFT NAV------------------------------------------------------------->

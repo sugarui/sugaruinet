@@ -1,12 +1,11 @@
 <?php 	// load형식이므로, 자체적으로 컨텐츠가 완성되어서 불러져야 함
-	//echo "------------------------------------------------------------------------------"."<br>";	
 	/*session_save_path('session');*/
 	if($_GET['id']){
-		session_save_path('../s_web/session/postid');
+		session_save_path('../session/postid');
 	}else if($_GET['tag']){
-		session_save_path('../s_web/session/posttag');
+		session_save_path('../session/posttag');
 	}else{
-		session_save_path('session');
+		session_save_path('../session');
 	}
 	session_start();
 	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
