@@ -7,7 +7,9 @@
 		if($_GET['id']){
 			session_save_path('session/postid');
 		}else if($_GET['tag']){
-			session_save_path('session/posttag');	
+			session_save_path('session/posttag');
+		}else if($_GET['devid']){
+			session_save_path('session/devid');		
 		}else{
 			session_save_path('session');
 		}
@@ -32,10 +34,9 @@
 
 	</head>
 	
-	<!--DB접속-->
-		<?php
-		include_once ('../db.php');
-		?>
+	<?php
+	include_once ('../db.php');
+	?>
 			
 	<body>
 

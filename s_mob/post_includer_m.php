@@ -4,7 +4,7 @@
 	if($_GET['id']){
 		session_save_path('session/postid');
 	}else if($_GET['tag']){
-			session_save_path('session/posttag');
+		session_save_path('session/posttag');
 	}else{
 		session_save_path('session');
 	}
@@ -18,7 +18,8 @@
 	include '../db.php';
 			
 	// 파라미터를 세션에서 받기
-	$_GET['cate'] = $_SESSION ['cate'];	
+	$_GET['cate'] = $_SESSION ['cate'];
+	$_GET['tag'] = $_SESSION ['tag'] ;
 		 
 	//파라미터 관련 변수 인클루드
 	include '../s_web/variable_para.php';

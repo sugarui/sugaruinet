@@ -10,7 +10,7 @@
 			$paraname = 'tag';  
 			$paravalue = $_GET['devtag'];	 	 
 		}else if($_GET['tag']){
-				$paraname = 'tag';  
+			$paraname = 'tag';  
 			$paravalue = $_GET['tag'];
 		}else if($_GET['id']){
 			$paraname = 'id';  

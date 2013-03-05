@@ -21,17 +21,18 @@
 		<?php
 			include_once ('./s_web/head.php')
 		?>		
-		<link rel="stylesheet" type="text/css" href="./s_web/style/style_space.css"  />
-		<link rel="stylesheet" type="text/css" href="./s_web/style/style.css"  />
-		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="http://elecuchi.cafe24.com/s_web/js/jindo.desktop.min.ns.js"></script>
+		<?php
+		echo " <link rel='stylesheet' type='text/css' href='./s_web/style/style_space.css'  /> ";
+		echo " <link rel='stylesheet' type='text/css' href='./s_web/style/style.css'  /> ";
+		echo " <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>"; //숫자웹폰트-->
+		echo " <script src='http://code.jquery.com/jquery-latest.js'></script> ";
+		echo " <script src='http://elecuchi.cafe24.com/s_web/js/jindo.desktop.min.ns.js'></script> ";
+		?>	
 	</head>
 	
-	<!--DB접속-->
-		<?php
-		include_once ('./db.php');
-		?>
+	<?php
+	include_once ('./db.php');
+	?>
 			
 	<body id="body">
 		<div class="wrap">
