@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 	<?php	
-		session_save_path('./session');
+		if($_GET['devtag']){
+			session_save_path('./session/devtag');
+		}else if ($_GET['devcate']){
+			session_save_path('./session/dev');
+		}else{
+			session_save_path('./session');
+		}	
 		session_start();
 		session_destroy();
 		session_start();
-		$_SESSION['pre']='0';
+		$_SESSION ['pre']= '0';
 		$_SESSION ['tag'] = $_GET['tag'];
 		$_SESSION ['cate'] = $_GET['cate'] ; 
 		$_SESSION ['devtag'] = $_GET['devtag'];
-		$_SESSION ['devcate'] = $_GET['devcate'] ; 
+		$_SESSION ['devcate'] = $_GET['devcate'] ;
 	?>
 	<head>
 		<?php
 			include_once ('./s_web/head.php')
 		?>		
-		<link rel="stylesheet" type="text/css" href="./s_web/style/style_space.css"  />
-		<link rel="stylesheet" type="text/css" href="./s_web/style/style_test.css"  />
-		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="http://elecuchi.cafe24.com/s_web/js/jindo.desktop.min.ns.js"></script>
+		<?php
+		echo " <link rel='stylesheet' type='text/css' href='./s_web/style/style_space.css'  /> ";
+		echo " <link rel='stylesheet' type='text/css' href='./s_web/style/style.css'  /> ";
+		echo " <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>"; //숫자웹폰트-->
+		echo " <script src='http://code.jquery.com/jquery-latest.js'></script> ";
+		echo " <script src='http://elecuchi.cafe24.com/s_web/js/jindo.desktop.min.ns.js'></script> ";
+		?>	
 	</head>
 	
-	<!--DB접속-->
-		<?php
-		include_once ('./db.php');
-		?>
+	<?php
+	include_once ('./db.php');
+	?>
 			
 	<body id="body">
 		<div class="wrap">
@@ -34,7 +41,7 @@
 			<div class="nav_1">
 				<header>
 					<h1>
-						<a href="http://sugarui.net/index_test.php"> <img src="./s_web/image/logo.png" alt="사탕화면 회사로고"> </a>
+						<a href="http://sugarui.net"> <img src="./s_web/image/logo.png" alt="사탕화면 회사로고"> </a>
 					</h1>
 				</header>
 
@@ -134,8 +141,8 @@
 						<li> <!--개발일지-->
 							<a href="?devcate=start">
 								<div class="nav_dev">
-									사이트 개발일지:<br>
-									<span class='nor'>단추로 끓인 스프</span>
+									사이트 개발일지<br>
+									<!--<span class='nor'>단추로 끓인 스프</span>-->
 								</div>
 							</a>
 							
@@ -212,6 +219,7 @@
 									}
 								?>
 								</ul>
+									<!--
 									<div class="icon_dev">
 										<a href="https://www.facebook.com/sugaruipage" target="_blank">
 											 <img src="./s_web/image/lnb_diary_fb_g.png" alt="facebook">
@@ -222,7 +230,7 @@
 											<img src="./s_web/image/lnb_diary_gh_g.png" alt="github">
 										</a>
 									</div>
-									
+									-->
 								</div>
 							<?php
 							echo "</div>";
@@ -344,12 +352,16 @@
 			<article id="article">
 				
 				<?php
-					if($_GET['devcate'] || $_GET['devtag']){
-						echo '<ul>';
+					if($_GET['devcate'] || $_GET['devtag'] || $_GET['devid']){	
+						echo '<ul class="article_dev">';
 						include './s_web/dev_includer.php';
 						echo '</ul>';
+					/*}else if($_GET['devtag'] || $_GET['devid']){
+						echo '<ul class="article_dev">';
+						include './s_web/dev_includer_unique.php';
+						echo '</ul>';*/
 					}else{
-						include './s_web/select_test.php';
+						include './s_web/select.php';
 						while ($row = mysql_fetch_array($result) ){
 							include './s_web/post.php';
 						}	
