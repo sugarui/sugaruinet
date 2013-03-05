@@ -20,6 +20,7 @@
 		 
 	//파라미터 관련 변수 인클루드
 	include '../s_web/variable_para.php';
+	//include 'http://elecuchi.cafe24.com/s_web/variable_para.php';
 				
 	// DB로부터 컨텐츠 셀렉트. include '../s_web/select.php' 을 변형함
 		$num_posts_display = 3; //디피수
@@ -49,6 +50,7 @@
 	//출력 
 	while ($row = mysql_fetch_array($result) ){
 		include 'post_m.php'; 
+		//include 'http://elecuchi.cafe24.com/s_mob/post_m.php'; 
 		//와꾸는 post_m이지만 그속에 post_core는 웹과같다.
 	}
 	//세션값 보내기:재료 여부에 따라 더보기 여부를 결정
@@ -68,6 +70,7 @@
 	               $divid=$num_pages_pre;
 	               $num_pages_pre++;
 	               include 'post_more_m.php'; 
+	               //include 'http://elecuchi.cafe24.com/s_mob/post_more_m.php'; 
 	               $_SESSION['pre'] = $num_pages_pre; 
 	          }
 		  }

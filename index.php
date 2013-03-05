@@ -19,6 +19,10 @@
 			$_SESSION ['devcate'] = $_GET['devcate'] ;
 		?>
 
+	
+	<head>
+		<?php include_once ('./s_web/head.php') ?>
+
 		<script src='http://code.jquery.com/jquery-latest.js'></script>
 		<script type="text/javascript" charset="UTF-8">
 			//모바일분기
@@ -28,13 +32,10 @@
 	  			( navigator.userAgent.match(/android/i) )      //안드로이드 계열
 	   		){ 		
 				alert ( '모바일 페이지가 현재 잠시 공사 중입니다.' );
-				// window.location.replace('s_mob/index.php')	 // 작동, 허나 url이 바뀜
+				// window.location.replace('s_mob/index.php')	 // 작동, 그렇지만 url이 바뀜
 				$("#html").load("s_mob/index.php");  // 작동, url도 유지
 			}
 		</script>
-	
-	<head>
-		<?php include_once ('./s_web/head.php') ?>		
 
 		<link rel='stylesheet' type='text/css' href='./s_web/style/style_space.css'  />
 		<link rel='stylesheet' type='text/css' href='./s_web/style/style.css'  />
