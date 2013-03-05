@@ -2,9 +2,9 @@
 	//echo "------------------------------------------------------------------------------"."<br>";	
 	/*session_save_path('session');*/
 	if($_GET['id']){
-		session_save_path('session/postid');
+		session_save_path('../s_web/session/postid');
 	}else if($_GET['tag']){
-		session_save_path('session/posttag');
+		session_save_path('../s_web/session/posttag');
 	}else{
 		session_save_path('session');
 	}

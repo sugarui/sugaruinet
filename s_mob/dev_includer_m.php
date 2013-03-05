@@ -1,7 +1,7 @@
 <?php 	// load형식이므로, 자체적으로 컨텐츠가 완성되어서 불러져야 함
 	/*session_save_path('session');*/
 	if($_GET['devid']){
-			session_save_path('session/devid');		
+			session_save_path('../s_web/session/devid');		
 	}else{
 			session_save_path('session');
 	}

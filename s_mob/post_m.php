@@ -19,9 +19,9 @@
 						include '../s_web/post_core.php';
 												
 						//댓글부
-						//if ( $_GET['special'] == 'guest' ){
-						//	include '../s_web/post_disqus.php';
-						//}
+						if ( $_GET['special'] == 'guest' ){
+							include '../s_web/post_disqus.php';
+						}
 					
 					echo "</div>"//"</li>" ;
 					?>
