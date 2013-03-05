@@ -26,19 +26,15 @@
 				( navigator.userAgent.match(/iPhone/i) )||    //아이폰
 	   			( navigator.userAgent.match(/iPod/i) )||          //아이팟
 	  			( navigator.userAgent.match(/android/i) )      //안드로이드 계열
-	   		){ 
-				// window.location.replace('s_mob/index.php')	 // success
-				//document.getElementById('body').load("s_mob/index.php"); // fail
-				$("#html").load("s_mob/index.php");  // success(주소유지)
+	   		){ 		
+				alert ( '모바일 페이지가 현재 잠시 공사 중입니다.' );
+				// window.location.replace('s_mob/index.php')	 // 작동, 허나 url이 바뀜
+				$("#html").load("s_mob/index.php");  // 작동, url도 유지
 			}
 		</script>
 	
 	<head>
-		<?php
-			include_once ('./s_web/head.php')
-		?>
-		
-		
+		<?php include_once ('./s_web/head.php') ?>		
 
 		<link rel='stylesheet' type='text/css' href='./s_web/style/style_space.css'  />
 		<link rel='stylesheet' type='text/css' href='./s_web/style/style.css'  />

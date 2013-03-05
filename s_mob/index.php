@@ -5,13 +5,13 @@
 		<?php
 		/*session_save_path('session');*/
 		if($_GET['id']){
-			session_save_path('../s_web/session/postid');
+			session_save_path('../session/postid');
 		}else if($_GET['tag']){
-			session_save_path('../s_web/session/posttag');
+			session_save_path('../session/posttag');
 		}else if($_GET['devid']){
-			session_save_path('../s_web/session/devid');		
+			session_save_path('../session/devid');		
 		}else{
-			session_save_path('../s_web/session');
+			session_save_path('../session');
 		}
 		session_start();
 		session_destroy();
@@ -23,9 +23,10 @@
 		$_SESSION ['devcate'] = $_GET['devcate'];
 		//echo file_get_contents( './session/sess_'.session_id() );
 
-		include ('../s_web/head.php')
+		//include ('../s_web/head.php')
 		?>	
 		
+		<?php include_once ('./s_web/head.php') ?>	
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_web/style/style_space.css" />	
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_mob/style_m.css" />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
@@ -39,13 +40,9 @@
 	?>
 			
 	<body>
-		
-		<script type="text/javascript">
-			alert ( '모바일: 모바일 페이지가 현재 잠시 공사 중입니다. 댓글 기능을 달고있습니다. 양해 부탁드립니다.' );
-		</script>
 			
 		<header>
-			<a href="http://m.sugarui.net">
+			<a href="http://sugarui.net">
 				<img src="http://elecuchi.cafe24.com/s_web/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
 			</a>	
 			<!--<div class="header_space"></div><!--미스터치방지-->
@@ -54,7 +51,7 @@
 
 		<?php
 		//파라미터 관련 변수 인클루드
-		include './s_web/variable_para.php';
+		include ' ./s_web/variable_para.php';
 		?>
 		
 		<!--<nav id="nav">-->		
