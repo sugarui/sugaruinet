@@ -26,7 +26,7 @@
 		//include ('../s_web/head.php')
 		?>	
 		
-		<?php include_once ('./s_web/head.php') ?>	
+		<?php include_once ('../s_web/head.php') ?>	
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_web/style/style_space.css" />	
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_mob/style_m.css" />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
