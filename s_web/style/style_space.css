@@ -1,0 +1,22 @@
+/****************  REMOVE DEFAULT CSS  ****************/
+
+	li{
+		list-style: none;
+	}
+	/**/	
+	a, html, body, header, h1, ul, li, div, span, img, nav, .header_mov {
+		margin: 0px;
+		padding: 0px;
+		border-width: 0px; 	
+	    border: none;
+   	 	outline: none;
+	}
+	h1,h2,h3{
+		margin: 0px;
+		padding: 0px;
+	}
+	a:link, a:visited, a:active, a:hover { /*기본색 없애려고 한건데 소용이 없다*/	
+		color: #dc2276; /*기본은 핑크*/
+		text-decoration: none;
+	}
+

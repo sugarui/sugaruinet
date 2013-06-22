@@ -1,0 +1,597 @@
+/*********************  LAYOUT  *********************/		
+
+	body{
+		margin: 0px;
+		padding: 0px;
+	} 		
+	.wrap{
+		margin: auto;/*magic for center align*/
+		padding-top: 30px;
+		max-width: 1080px;
+		min-width: 1080px; /*이게맞게하는건가*/
+		height: 100%
+	}			
+	.nav_1, .nav_2{
+		width: 160px;
+		height: 100%
+	}
+	.nav_1{
+		float: left;
+		margin-right:40px;
+		text-align: right;
+		position: fixed;
+	}
+	.nav_2{
+		/*float:right;
+		margin-left:40px;
+		*/
+		float: left;
+		margin-left: 920px; /* 160+40+680+40*/
+		text-align: left;
+		position: fixed;
+	}
+	article{								
+		margin-left:200px; /* 160 + 40 */
+		margin-right:200px;
+		width:680px;
+	}
+	/*에디터*/	
+	.nav_left{
+		float:left;
+		padding-left: 50px;
+	}
+	.nav_right{
+		float:left;
+		padding-left: 100px;
+	}
+
+
+/*********************  COMMON  *********************/
+
+	body{
+		background-color: #1a1b1e;/*#1c1d21;*/
+		font-family: Malgun Gothic, AppleGothic; /*NanumGothic */ 
+		color: #aaa;
+		letter-spacing: -1px;
+	}
+	/*본문 텍스트*/
+	article{
+		/*font-size:0.8em; /*13px;	*/
+		color: #aaa;	
+	}
+	/*본문 일반 텍스트 행간*/
+	.text {
+		line-height: 170%
+	}
+	/*셀렉트*/
+	.sel{				
+		color:#fff;
+	}
+	.pagenation .sel{				
+		color:#fff;
+		font-weight: bold;
+	}
+	.nav_sub_dev .sel{
+		color: #b36500; /*노랑*/
+		font-weight: bold;
+	}
+	
+	/*간격조각*/	
+	.space_10{
+		margin-top: 10px;
+	}
+	.space_20{
+		margin-top: 20px;
+	}
+	.space_30{
+		margin-top: 30px;
+	}
+	.space_80{
+		margin-top: 80px;
+	} 	
+	.down_5{
+		position:relative;
+		top:5px;
+	}
+	.display_none{
+		display: none;
+	}
+	.display_block{
+		display: block;
+	}
+	/*기타*/
+	.font_weight_normal{
+		font-weight: normal;
+	}
+
+/************************  NAV  ************************/
+
+	/* 주메뉴 */
+	.nav_main{
+		margin-top: 25px;
+		margin-bottom: 5px; /*원래 10인데 em 화 한후로 자동여백이 좀 생겨서*/
+		color: #dc2276; /* 디스에이블은 #702245;*/
+		font-size: 0.8em;/*11px;*/
+		text-shadow: 0px 2px 0px #000;
+		letter-spacing: 1px;
+		font-weight: bold;
+	}
+	.nav_main .moveup1{position: relative; top:-5px;}
+	.nav_main .moveup2{position: relative; top:-15px;}
+	
+	.nav_contact{
+		margin-top:25px;
+		margin-bottom:10px;
+		color: #5e6270; 
+		font-size: 0.8em;/*11px;*/
+		font-weight: bold;
+	}
+	.nav_dev{
+		margin-top:10px;/*원래 25인데 어바웃미와게스트가넘올라감*/
+		margin-bottom: 24px;/*10+14*/
+		color: #b36500; /*노랑*/
+		font-size: 0.8em;/*11px;*/
+		text-shadow: 0px 2px 0px #000;
+		font-weight: bold;
+	}
+	.nav_dev .nor{
+		text-shadow: none;
+		font-weight: normal;
+		position:relative;
+		top:3px;
+	}
+	.nav_devtag{
+		margin-top:25px;
+		margin-bottom: 10px;
+		color: #b36500;
+		font-size: 0.8em;/*11px;*/
+		letter-spacing: 1px;
+		font-weight: bold;
+	}
+	/* 세부메뉴*/
+	.nav_sub_cate{				
+		color: #aaa;
+		font-size: 0.87em; /*14px;*/
+		line-height:160%;
+		letter-spacing: 0px;
+	}
+	.nav_sub_dev{				
+		color:#57585a;
+		font-size: 0.87em; /*14px;*/
+		line-height:160%;
+		letter-spacing: 0px;
+	}
+	.nav_sub_cate_add{		
+		font-size: 0.85em; /*12px;*/
+		display: inline;
+		letter-spacing: 0px;
+	}	
+	.nav_sub_tag{
+		color: #696b6d;
+		font-size: 0.8em; /*13px;*/
+		line-height: 220%;
+	}
+	/*개발일지 상세*/
+	.nav_sub_dev_area .year{
+		font-family: 'Merriweather', serif;
+		font-size: 0.75em;
+		color: #47484a; /*몬쓰와같음*/
+		font-weight: bold;
+		position:relative;
+		top: -14px;
+		margin-bottom: 2px; /*.nav_sub_dev_area ul li > ul li의 마진과 비슷하게함*/
+	}
+	.nav_sub_dev_area{
+		margin-top: 30px; 
+	}	
+	.nav_sub_dev_area > ul > li:first-child > .year{
+		display: none;
+	}
+	.nav_sub_dev_area ul li > ul li{ 
+		border-right : 1px solid #48494b;
+		margin-bottom: 3px; /*다음포스트박스와의 여백이 없어야 하지만 마일스톤도 있어서 마진으로씀*/
+		margin-right: 25px; /*달을 둘 정도의 왼쪽 여백*/ 
+		/*background-color: #1c1d20;보일듯말듯이*/
+	}
+	.nav_sub_dev_area ul li > ul li:last-child { 
+		border-right : 1px solid #1a1b1e; /*배경색*/
+	}
+	.nav_sub_dev .milestone{
+		float: right;
+		position:relative;
+		top: -15px;
+		left: 5px;
+	}
+	.nav_sub_dev_text{	
+		font-size: 0.9em;
+		position:relative;
+		top: -14px;
+		left: 28px; /*30짜리 pefiod 가 오른쪽으로 38 오프셋해 갔고 그사이 마일스톤 있는거 고려해서 적절히*/
+		display: inline;
+	}
+	.nav_sub_dev_period{
+		width: 30px;
+		font-size: 0.87em;
+		font-family: 'Merriweather', serif;
+		position:relative;
+		top: -13px;
+		left: 35px; /*.nav_sub_dev_area ul li > ul li 의 왼쪽여백 25 + 마일스톤 반지름 5+ 마일스톤 오프셋 5??? */
+		float: right;
+		display: inline;
+	}
+	/*개발일지 상세 끝*/
+	
+	/* 세부메뉴-sns및작업일지 디테일 */
+	.icon_dev{
+		/*display: inline;*/
+		margin-bottom: 5px;
+		position: relative;
+		top: -10px;
+	}
+	.icon{
+		margin-bottom: 5px;
+	}
+	/* 셀렉트마커 포지션 디테일*/ 
+	nav .sel img{
+		position:relative;
+		top:2px;
+	}
+	.nav img{
+		position:relative;
+		top:2px;
+	}
+
+
+
+/************************  article  ************************/
+
+	/* 그래픽요소*/		
+	.dogear{
+		float: left;	
+	}
+	.post_inner_btn{
+		float: right;	
+	}
+	.url{
+		float: left;
+		padding-top: 10px;
+		color: #666;
+		text-shadow: 0px -1px 0px  #000;
+	}
+	/*외부*/	
+	.postbox{ 
+		margin-bottom:30px; /*다음포스트박스와의 여백*/
+		background-color:#25272c;/*#30323a;*/
+		border-radius:3px;
+		box-shadow: 0px 0px 3px #161719;
+	}
+	/*내부*/
+	.post{ 
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	/*포스트-개발일지*/
+	article ul.article_dev li { 
+		border-left : 1px solid #48494b;
+		margin-top:0; margin-bottom:0; /*다음포스트박스와의 여백은 없어야 함*/
+		margin-left:20px; margin-right:20px;/* 프레임이 따로 없어서 좀 여백 만듬*/
+	}
+	article ul.article_dev li:last-child { 
+		border-left : 1px solid #1a1b1e; /*배경색*/
+	}
+	#morebtn { 
+		border-left : 1px solid #1a1b1e; /*배경색*/
+	}
+	.dev{ 
+		padding-top:0px;
+		padding-bottom:70px; /*다음포스트박스와의 여백역할*/
+	}
+	.milestone{
+		float: left;
+		position:relative;
+		top: -10px;
+		left: -5px;
+		z-index: 20;
+	}	
+	.dev_date{
+		/*position: relative;*/
+		float: left;
+		padding-left: 5px; /*10-보더1-마일스톤4*/
+		width: 70px; 
+		/*background-color: #000;*/
+		font-family: 'Merriweather', italic, serif;
+		font-size: 3em;
+		letter-spacing: -5px;
+		z-index: 10;
+	}
+	.date_m{
+		color: #47484a;
+		float: left;
+		position:relative;
+		top: -15px;
+		z-index: 10;
+	}
+	.date_d{
+		color: #b36500;
+		float: right;
+		position:relative;
+		top: -50px;
+		z-index: 10;
+	}
+	.date_and{
+		color: #47484a;
+		float: left;
+		position:relative;
+		top: -15px;
+		z-index: 10;
+		font-size: 0.7em;
+		letter-spacing: 0px;
+	}
+	.dev_con{
+		padding-top: 40px;
+		margin-left: 100px; /*1+9+70+20*/
+		margin-right: 30px; /*걍 좀 주게*/
+		/*width: 580px; /*580px;*/
+		/*background-color: #1e1f22;보일듯말듯이*/
+	}
+	.morebtn{
+		position: relative;
+		top: -43px; /*40이 맞는데, 국문이 좀 처지더라*/
+		/*letter-spacing: 0px;*/
+		border-bottom: dotted #b36500 1px;
+	}
+	.morebtn_period{
+		position: relative;
+		top: -43px;
+		border-bottom: dotted #b36500 1px;
+		/*letter-spacing: 0px;
+		border-bottom: dotted #ccc 1px;
+		color: #ccc;*/
+	}
+	/*포스트-개발일지 끝*/
+	
+	/*포스트타이틀*/
+	.post .title h2{
+		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
+		/*font-family: Malgun Gothic, NanumGothic;*/
+		color: #ddd;
+		text-shadow: 0px -1px 0px  #000;
+		font-weight: normal;
+		margin-bottom:30px;
+	}
+	.dev .title h2{
+		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
+		color: #b36500;
+		text-shadow: 0px -1px 0px  #000;
+		font-weight: bold;
+	}
+	/*이너포스트타이틀*/
+	.title_inner h3{
+		font-size: 0.9em;/*15px;/*나눔펜일때 22px;*/
+		/*font-family: Malgun Gothic, NanumGothic;*/
+	}
+	/*본문 텍스트크기 강제지정*/
+	.text{
+		font-size:0.8em; /*13px;	*/
+	}
+	/*요소 여백-좌우공통 (전체폭 점선 때문에 마진을 .post에서 한꺼번에 못하므로 여기서 지정)*/
+	.post .title, .post .title_inner, .post .text, /*.graphic*/ .disqus_custom{
+		margin-left: 40px;
+		margin-right: 40px;
+	}
+	.dev .title, .dev .title_inner, .dev .text, /*.graphic*/ .dev .disqus_custom{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	/*그래픽 여백및 정렬 예외 처리*/
+	.post .graphic, .post .graphic_noeffect{
+	 	margin-left: 30px; /*자식마진 10px(복수의 이미지간의 간격)을 합해서 40px*/
+		margin-right: 30px;
+		text-align: center;
+	}
+	.post .graphic_left{ /*프로필 용 예외처리*/
+		margin-left: 40px; 
+		text-align: left;
+	}
+	/*요소 여백-상하공통*/
+	.text, .movie {
+		margin-top:20px;
+		margin-bottom:20px;			
+	}
+	.graphic, .graphic_noeffect, .graphic_left{
+		margin-top:20px;
+		margin-bottom:20px;	
+	}	
+	/*이미지*/
+	.post .graphic_left img, .post .graphic_noeffect img{/*예외케이스*/
+		text-align: center;
+	}
+	/*복수정렬 : 일반이미지(세로정렬)*/
+	.post .graphic ul.graphic_ul li{
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 7px;
+		text-align: center;
+	}
+	.post .graphic ul.graphic_ul li:last_child{
+		margin-bottom: 0px;
+	}
+	/*복수정렬: 인라인방식으로 해야하는 이미지(가로정렬)*/
+	.post .graphic ul.graphic_ul_inline li{
+		display: inline;
+		margin-left: 5px;
+		margin-right: 5px;
+		text-align: center;
+	}
+
+	/*이미지 이펙트*/	
+	.graphic img, .graphic_left img{
+		border-radius:3px;
+		box-shadow: 0px 0px 4px #161719;	
+	}
+	.dev .graphic{
+		margin-top:20px;
+		margin-bottom:20px;	
+	}
+	.dev .graphic img{
+		max-width:500px;
+		margin-right: 10px;	
+	}
+
+	.movie{
+		text-align: center;
+	}
+	iframe{
+		width: 600px;
+		height: 340px;
+	}
+
+	/*이너포스트, 하이퍼포스트*/
+	.post_inner{
+		margin-bottom:30px; /*다음 이너포스트 설명글과의 간격은 넓어야 하므로*/
+	}
+	.post_inner .text{ 
+		margin-bottom:10px; /*이너포스트 설명글과 이너포스트간 간격은 좁아야 하므로*/
+	}
+	.post_inner h3{
+		margin-top: 14px;
+		margin-bottom: 14px;
+		font-size: 0.9em; /*15px;/*나눔펜일때 22px;*/
+		/*font-family: Malgun Gothic, NanumGothic;	*/
+	}
+	.border_1{
+		border-top: 1px solid #1a1b1e;	
+	}
+	.border_2{				
+		border-top: 1px dashed #3e404b;	
+	}
+	.border_3{				
+		border-top: 1px solid #404143;	/*디스커스 선색임*/
+	}
+	.post_hyper{
+		color: #eee;
+		border-bottom: dotted #aaa 1px;
+	}
+	.devintro_hyper, .devintro_hyper:hover{
+		color: #b36500;
+		border-bottom: dotted #b36500 1px;
+	}
+	/*테일*/
+	.tail{ 
+		margin-top: 30px;
+		margin-right: 30px;
+		margin-left: 40px;
+		text-align: right;
+	}
+	.dev .tail{ 
+		margin-top: 0px;
+		margin-right: 0;
+		margin-left: 0;
+		text-align: left;
+	}
+	.tail_each{ /*tail 일반 행간*/
+		margin-top: 0px;/* em 처리후 기본적으로 간격이 5px정도 생김. 거기다 추가함.*/
+	}
+	.tail_each_btn{ /*tail 버튼부 행간*/
+		margin-top: 10px;
+	}
+	.tail_each span{ /*tail 일반 텍스트*/
+		font-size: 0.8em; /*13px;*/
+		color: #6a6a6a;
+	}
+	.tail_each .small{ /*tail 일반 소형 텍스트*/
+		font-size: 0.75em; /*11px;*/
+	}	
+	.dev .tail_each span, .dev .tail_each .small{/*tail  모든 텍스트 - 개발일지버전*/
+		position:relative;
+		top:-10px;
+	}
+	.dev .tail_each .small{ /*tail 일반 소형 텍스트 - 개발일지버전*/
+		color: #444;
+		font-size: 0.75em;	
+	}
+	.btn_link{ /*tail 버튼부 및 버튼 텍스트*/
+		color:#b2b2b2; /*#6a6a6a;*/
+		font-size: 0.75em; /*11px;*/
+		background-color:#474950;/*#3b3d42;*/
+		border-radius:2px;
+		padding:1px 4px 1px 4px;
+		letter-spacing: 0px;
+		margin-left: 2px /*기본적으로 간격이 5px정도 생김. 거기다 추가함.*/
+	}
+	.article_dev .btn_link{ /*데브 tail 버튼부 및 버튼 텍스트*/
+		color:#6f6f6f;
+		/*background-color:#1a1b1e; /*배경색*/
+		/*padding:1px 0px 1px 0px;
+		/*devtag포지션이 올라가므로 같이*/
+		background-color:#28292b;
+		position: relative;
+		top: -15px;
+	}
+	/*페이지네이션*/
+	.pagenation{
+		text-align: center;
+		margin-bottom: 40px;
+	}
+	.pagenation_each{
+		font-size: 1em;
+		color: #aaa;
+		padding-right: 7px;
+		padding-left: 7px;
+	}
+	.pagenation_nav{
+		font-size: 0.9em;
+		color: #555;
+		padding-right: 7px;
+		padding-left: 7px;
+	}
+	/*임시정보출력용*/
+	.tmpinfo{
+		color: #30323a; /*#2a2c33; /*배경에묻히게*/
+		font-size: 0.8em; /*11px;*/
+		margin-bottom: 0px; 
+	}
+	/*어바웃*/
+	/*경력 용 숫자*/
+	.date{ 
+		font-family: 'Merriweather', serif;
+		font-size: 1em; /*15px;*/
+		letter-spacing: 0px;
+	}
+	.snsbox{
+		border:0;
+	}
+	.snsbox td{
+		margin:0;
+		padding:0;
+		padding-right:5px;	
+	}
+	.snsbox img{
+		width:30px;
+		height:30px;
+	}
+	/*동영상클립*/
+	.movieclip{
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	.movieclip iframe{
+		/*max-width:480px;
+		max-height:174px;	*/
+	}
+	.movieclip_mob{
+		display: none;
+	}	
+	/*@media all and (max-width:980px) {    /* 화면 너비가 980px 이하일 때에만 아래 코드를 실행 */
+	    /*.movieclip{max-width:300px;}
+	    /* .content{ float:none; width:auto }    /* 콘텐츠 플롯을 해제하고 너비를 자동으로 */
+	    /* .nav{ float:none; width:auto }    /* 네비게이션 플롯을 해제하고 너비를 자동으로 */
+	/*}
+
+/***************fontface***************/	
+	@font-face {
+		font-family:'NanumGothic'; 
+		src: url('../font/NanumGothic.ttf') format("truetype");
+		/*src: url('../font/NanumGothic.woff') format("woff");*/
+	}
