@@ -252,7 +252,10 @@
 							<?php
 							echo "</div>";
 							?>
-						</li>	
+						</li>
+						
+
+	
 					
 						<!--<li> 
 							<div class="nav_contact">
@@ -358,6 +361,25 @@
 								</ul>
 							</div>
 						</li>
+						
+					
+						<li class="dgb">					
+							<?php
+								if($_GET['devcate'] || $_GET['devtag']){
+									echo "<span class='nav_hidden'>";
+								}else{
+									echo "<span>";
+								}
+							?>	
+								<div class='nav_main'>
+									PROJECT LINK	
+								</div>
+								<a href="http://dong9.org/" target="_blank">
+								<img src="./s_web/image/dgb_bn_125x125.jpg" />
+								</a>					
+							</span>
+						</li>	
+					
 					
 					</ul>
 					</nav>

@@ -583,7 +583,23 @@
 	}
 	.movieclip_mob{
 		display: none;
-	}	
+	}
+	
+	
+	/*동구밭 배너용*/
+	.dgb{
+		margin-top: 30px;
+	}
+	.dgb img{
+		margin-top: 5px;
+	}
+	.dgb .nav_main{
+		color: #5a9f5e; /*#68aa6c;*/
+	}
+	.nav_hidden{
+		display: none;
+	}
+		
 	/*@media all and (max-width:980px) {    /* 화면 너비가 980px 이하일 때에만 아래 코드를 실행 */
 	    /*.movieclip{max-width:300px;}
 	    /* .content{ float:none; width:auto }    /* 콘텐츠 플롯을 해제하고 너비를 자동으로 */
