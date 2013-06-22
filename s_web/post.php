@@ -8,11 +8,15 @@
 					";
 						
 						//title
-							echo " 
+							echo "
 								<div class=\"title\"><h2>
 									{$row['title']}
 								</h2></div>
 							";
+						//h2사이에넣어본테스터
+								//<div class=\"dogear\">
+								//	<img src=\"./s_web/image/bullet_1em.png\">
+								//</div> 
 						
 						//본문부 삽입						
 						include './s_web/post_core.php';
