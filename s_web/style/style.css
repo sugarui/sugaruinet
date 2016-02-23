@@ -3,8 +3,6 @@
 	body{
 		margin: 0px;
 		padding: 0px;
-		font-family: "DroidSansFallback", "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo",sans-serif, "Open Sans";
-		font-size: 14px;
 	} 		
 	.wrap{
 		margin: auto;/*magic for center align*/
@@ -52,9 +50,9 @@
 
 	body{
 		background-color: #1a1b1e;/*#1c1d21;*/
-		font-family: Malgun Gothic, AppleGothic; /*NanumGothic */ 
-		color: #aaa;
-		letter-spacing: -1px;
+		font-family: "DroidSansFallback", "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo",sans-serif, "Open Sans";
+		font-size: 14px;
+		color: #c0c0c0;
 	}
 	/*본문 텍스트*/
 	article{
@@ -113,7 +111,7 @@
 		margin-top: 25px;
 		margin-bottom: 5px; /*원래 10인데 em 화 한후로 자동여백이 좀 생겨서*/
 		color: #dc2276; /* 디스에이블은 #702245;*/
-		font-size: 0.8em;/*11px;*/
+		font-size: 0.9em;
 		text-shadow: 0px 2px 0px #000;
 		letter-spacing: 1px;
 		font-weight: bold;
@@ -132,7 +130,7 @@
 		margin-top:10px;/*원래 25인데 어바웃미와게스트가넘올라감*/
 		margin-bottom: 24px;/*10+14*/
 		color: #b36500; /*노랑*/
-		font-size: 0.8em;/*11px;*/
+		font-size: 0.9em;
 		text-shadow: 0px 2px 0px #000;
 		font-weight: bold;
 	}
@@ -153,7 +151,7 @@
 	/* 세부메뉴*/
 	.nav_sub_cate{				
 		color: #aaa;
-		font-size: 0.87em; /*14px;*/
+		font-size: 1em;
 		line-height:160%;
 		letter-spacing: 0px;
 	}
@@ -170,7 +168,7 @@
 	}	
 	.nav_sub_tag{
 		color: #696b6d;
-		font-size: 0.8em; /*13px;*/
+		font-size: 0.9em; 
 		line-height: 220%;
 	}
 	/*개발일지 상세*/
@@ -247,7 +245,7 @@
 
 /************************  article  ************************/
 
-	/* 그래픽요소*/		
+	/*그래픽요소*/		
 	.dogear{
 		float: left;	
 	}
@@ -272,6 +270,14 @@
 		padding-top:30px;
 		padding-bottom:30px;
 	}
+	/*db내 인라인 날자표기용*/
+	.date_2{ 
+		font-family: 'Merriweather', serif;
+		font-size: 1.2em;
+		letter-spacing: 0px;
+		color: #eee;
+	}
+
 	/*포스트-개발일지*/
 	article ul.article_dev li { 
 		border-left : 1px solid #48494b;
@@ -354,16 +360,16 @@
 	
 	/*포스트타이틀*/
 	.post .title h2{
-		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
-		/*font-family: Malgun Gothic, NanumGothic;*/
-		color: #ddd;
+		font-size: 1.4em;
+		color: #eee;
 		text-shadow: 0px -1px 0px  #000;
-		font-weight: normal;
+		font-weight: bold;
 		margin-bottom:30px;
 		/*line-height: 300%; 테스트*/
 	}
 	.dev .title h2{
-		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
+		font-size: 1.4em;
+		font-weight: bold;
 		color: #b36500;
 		text-shadow: 0px -1px 0px  #000;
 		font-weight: bold;
@@ -468,7 +474,7 @@
 	.border_3{				
 		border-top: 1px solid #404143;	/*디스커스 선색임*/
 	}
-	.post_hyper{
+	a:link.post_hyper, a:visited.post_hyper, a:active.post_hyper, a:hover.post_hyper{
 		color: #eee;
 		border-bottom: dotted #aaa 1px;
 	}
@@ -553,7 +559,7 @@
 	}
 	/*어바웃*/
 	/*경력 용 숫자*/
-	.date{ 
+	.date_1{ 
 		font-family: 'Merriweather', serif;
 		font-size: 1em; /*15px;*/
 		letter-spacing: 0px;
@@ -583,7 +589,12 @@
 	.movieclip_mob{
 		display: none;
 	}
-	
+	/*경력 용 숫자 베리에이션-본문내 날자표기용*/
+	.date{ 
+		font-family: 'Merriweather', serif;
+		font-size: 1em; /*15px;*/
+		letter-spacing: 0px;
+
 	
 	/*동구밭 배너용*/
 	.dgb{
