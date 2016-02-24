@@ -71,7 +71,7 @@
 	    line-height: 50px;
 	    text-decoration: none;
 	    font-weight: bold;
-	    font-size: 0.9em;
+	    font-size: 1em;
 	    color: #f3f3f3;
 	    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
 	}
@@ -81,7 +81,7 @@
 	    line-height: 50px;
 	    text-decoration: none;
 	    font-weight: bold;
-	    font-size: 0.9em;
+	    font-size: 1em;
 	    color: #f3f3f3;
 	    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
 	}
@@ -136,7 +136,7 @@
 		z-index: 99;
 	}
 	.nav_sub_cate_add{		
-		font-size: 0.8em;
+		font-size: 1em;
 		display: inline;
 	}	
 	
@@ -158,11 +158,26 @@
 		padding: 0px 15px 0px 15px; /*그래픽때문에 외부에서한번 적용*/
 		letter-spacing: -1px;
 	}
+
 	/*article ul li{*/
 	.postbox{
 		margin-top: 20px;
-		margin-bottom: 70px;
+		margin-bottom: 90px;
+		padding-top: 20px;
+		border-top: 1px dotted #dc2276;
 	}
+	.postbox:first-child {
+      border-top: none;
+    }
+
+	.postbox.dev{
+		border-top: 1px dotted #47484a;
+	}	
+	.postbox.dev:first-child {
+      border-top: none;
+    }
+
+
 	/*article ul li:last-child{ 
 		margin-top: 20px;
 		margin-bottom: 20px;
@@ -198,20 +213,20 @@
 	.title h2{
 		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
 		margin-bottom: 2px;
-		font-size: 1em;
+		font-size: 1.2em;
 		font-weight: bold;
 		color:#DC2276;
 	}
 	.worked{
 		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
 		margin-bottom: 2px;
-		font-size: 0.7em;
+		font-size: 0.8em;
 		color: #666666;
 		font-family: 'Merriweather', serif;
 	}
 	.text{
 		padding: 0px 5px 0px 5px; /*그래픽때문에 내부에서 각자적용*/
-		font-size: 0.9em;
+		font-size: 1.1em;
 		line-height: 170%;
 		margin-top: 15px;
 		margin-bottom: 15px;
@@ -420,3 +435,17 @@
 		max-width:280px;
 	}
 	
+
+	/*db내 직접작성 용도 스타일 - 날자*/
+	.date_2{ 
+		font-family: 'Merriweather', serif;
+		font-size: 1.2em;
+		letter-spacing: 0px;
+		color: #eee;
+	}
+	/*db내 직접작성 용도 스타일 - 서브텍스트*/
+	.text_2 {
+		font-size: 1em;
+		color: #888;
+		padding-left: 15px;
+	}

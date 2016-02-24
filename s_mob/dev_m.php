@@ -1,5 +1,5 @@
                     <?php
-                         echo "<div class=\"postbox\">"; 
+                         echo "<div class=\"postbox dev\">"; 
     
                               $date_ori = date_create_from_format('Y-m-d', $row['worked']);
                               $date_y =  date_format($date_ori, 'Y');

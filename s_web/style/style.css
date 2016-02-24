@@ -61,14 +61,14 @@
 	}
 	/*본문 일반 텍스트 행간*/
 	.text {
-		line-height: 170%
+		line-height: 170%;
 	}
 	/*셀렉트*/
 	.sel{				
 		color:#fff;
 	}
 	.pagenation .sel{				
-		color:#fff;
+		color:#ddd;
 		font-weight: bold;
 	}
 	.nav_sub_dev .sel{
@@ -150,7 +150,7 @@
 	}
 	/* 세부메뉴*/
 	.nav_sub_cate{				
-		color: #aaa;
+		color: #696b6d;
 		font-size: 1em;
 		line-height:160%;
 		letter-spacing: 0px;
@@ -270,13 +270,6 @@
 		padding-top:30px;
 		padding-bottom:30px;
 	}
-	/*db내 인라인 날자표기용*/
-	.date_2{ 
-		font-family: 'Merriweather', serif;
-		font-size: 1.2em;
-		letter-spacing: 0px;
-		color: #eee;
-	}
 
 	/*포스트-개발일지*/
 	article ul.article_dev li { 
@@ -360,7 +353,7 @@
 	
 	/*포스트타이틀*/
 	.post .title h2{
-		font-size: 1.4em;
+		font-size: 1.6em;
 		color: #eee;
 		text-shadow: 0px -1px 0px  #000;
 		font-weight: bold;
@@ -442,7 +435,7 @@
 	.dev .graphic img{
 		max-width:500px;
 		margin-right: 10px;	
-	}
+	}dgb
 
 	.movie{
 		text-align: center;
@@ -475,7 +468,7 @@
 		border-top: 1px solid #404143;	/*디스커스 선색임*/
 	}
 	a:link.post_hyper, a:visited.post_hyper, a:active.post_hyper, a:hover.post_hyper{
-		color: #eee;
+		color: #c0c0c0;
 		border-bottom: dotted #aaa 1px;
 	}
 	.devintro_hyper, .devintro_hyper:hover{
@@ -594,10 +587,11 @@
 		font-family: 'Merriweather', serif;
 		font-size: 1em; /*15px;*/
 		letter-spacing: 0px;
-
+	}
 	
 	/*동구밭 배너용*/
 	.dgb{
+		display: none;
 		margin-top: 30px;
 	}
 	.dgb img{
@@ -610,6 +604,21 @@
 		display: none;
 	}
 		
+
+	/*db내 직접작성 용도 스타일 - 날자*/
+	.date_2{ 
+		font-family: 'Merriweather', serif;
+		font-size: 1.4em;
+		letter-spacing: 0px;
+		color: #eee;
+	}
+	/*db내 직접작성 용도 스타일 - 서브텍스트*/
+	.text_2 {
+		font-size: 0.9em;
+		color: #888;
+		padding-left: 30px;
+	}
+			
 	/*@media all and (max-width:980px) {    /* 화면 너비가 980px 이하일 때에만 아래 코드를 실행 */
 	    /*.movieclip{max-width:300px;}
 	    /* .content{ float:none; width:auto }    /* 콘텐츠 플롯을 해제하고 너비를 자동으로 */
