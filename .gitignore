@@ -26,4 +26,4 @@ local.properties
 .buildpath
 
 # database access infomation
-dbtester.php
+db.php
