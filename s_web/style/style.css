@@ -301,7 +301,7 @@
 		width: 70px; 
 		/*background-color: #000;*/
 		font-family: 'Merriweather', italic, serif;
-		font-size: 3em;
+		font-size: 2.5em;
 		letter-spacing: -5px;
 		z-index: 10;
 	}
@@ -314,9 +314,7 @@
 	}
 	.date_d{
 		color: #b36500;
-		float: right;
 		position:relative;
-		top: -50px;
 		z-index: 10;
 	}
 	.date_and{
@@ -329,7 +327,7 @@
 		letter-spacing: 0px;
 	}
 	.dev_con{
-		padding-top: 40px;
+		padding-top: 20px;
 		margin-left: 100px; /*1+9+70+20*/
 		margin-right: 30px; /*걍 좀 주게*/
 		/*width: 580px; /*580px;*/
@@ -471,6 +469,13 @@
 		color: #c0c0c0;
 		border-bottom: dotted #aaa 1px;
 	}
+
+	.dev_con .post_hyper{ /*db내 직접작성 클래스가 일반포스트와 개발포스트가 달라서 위와 다름*/
+		color: #c0c0c0;
+		border-bottom: dotted #aaa 1px;
+	}
+
+
 	.devintro_hyper, .devintro_hyper:hover{
 		color: #b36500;
 		border-bottom: dotted #b36500 1px;
