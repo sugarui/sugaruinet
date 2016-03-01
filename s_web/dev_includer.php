@@ -7,17 +7,18 @@
 	}
 	/*session_save_path('../session');	*/
 	session_start();
+	
 	//echo "현재앞선페이지는 세션값인".$_SESSION['pre']."<br>";
 	//echo "세션값을 변수 넘프리에 대입합니다.<br>";
-	$num_pages_pre=$_SESSION ['pre'];
+	$num_pages_pre=$_SESSION['pre'];
 	//echo "대입한 넘프리는".$num_pages_pre."<br>";
 	
 	//DB접속	
 	include '../db.php';
 	 			
 	// 파라미터를 세션에서 받기
-	$_GET['devtag'] = $_SESSION ['devtag'];   
-	$_GET['devcate'] = $_SESSION ['devcate'];	
+	$_GET['devtag'] = $_SESSION['devtag']; 
+	$_GET['devcate'] = $_SESSION['devcate'];
 		 
 	//파라미터 관련 변수 인클루드
 	include 'variable_para.php';
