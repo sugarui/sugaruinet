@@ -12,11 +12,11 @@
 			session_start();
 			session_destroy();
 			session_start();
-			$_SESSION ['pre']= '0';
-			$_SESSION ['tag'] = $_GET['tag'];
-			$_SESSION ['cate'] = $_GET['cate'] ; 
-			$_SESSION ['devtag'] = $_GET['devtag'];
-			$_SESSION ['devcate'] = $_GET['devcate'] ;
+			$_SESSION['pre']= '0';
+			$_SESSION['tag'] = $_GET['tag'];
+			$_SESSION['cate'] = $_GET['cate'] ; 
+			$_SESSION['devtag'] = $_GET['devtag'];
+			$_SESSION['devcate'] = $_GET['devcate'] ;
 		?>
 
 		<script src='http://code.jquery.com/jquery-latest.js'></script>

@@ -23,7 +23,7 @@
 	//include 'http://elecuchi.cafe24.com/s_web/variable_para.php';
 				
 	// DB로부터 컨텐츠 셀렉트. include '../s_web/select.php' 을 변형함
-		$num_posts_display = 3; //디피수
+		$num_posts_display = 10; //디피수
 		$num_posts_offset = $num_posts_display * $num_pages_pre; //오프셋수는 디피수x앞선페이지수
 
 		// 쿼리문 웨어부 조건 및 내용 설정
