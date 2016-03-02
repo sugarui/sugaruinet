@@ -27,3 +27,6 @@ local.properties
 
 # database access infomation
 db.php
+
+# session file
+session/*
