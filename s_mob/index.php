@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-	<head>
-		<?php
-		/*session_save_path('session');*/
-		if($_GET['id']){
-			session_save_path('../session/postid');
-		}else if($_GET['tag']){
-			session_save_path('../session/posttag');
-		}else if($_GET['devid']){
-			session_save_path('../session/devid');		
+	
+	<?php
+		if($_GET['devtag']){
+			session_save_path('../session/devtag');
+		}else if ($_GET['devcate']){
+			session_save_path('../session/dev');
 		}else{
 			session_save_path('../session');
-		}
+		}	
 		session_start();
 		session_destroy();
 		session_start();
-		$_SESSION ['pre']='0';
-		$_SESSION ['devpre']='0';
-		$_SESSION ['tag'] = $_GET['tag'];
-		$_SESSION ['cate'] = $_GET['cate'];
-		$_SESSION ['devcate'] = $_GET['devcate'];
-		//echo file_get_contents( './session/sess_'.session_id() );
+		$_SESSION['pre']= '0';
+		$_SESSION['tag'] = $_GET['tag'];
+		$_SESSION['cate'] = $_GET['cate'] ; 
+		$_SESSION['devtag'] = $_GET['devtag'];
+		$_SESSION['devcate'] = $_GET['devcate'] ;
 
-		//include ('../s_web/head.php')
-		?>	
-		
+	?>
+
+	<head>	
 		<?php include_once ('../s_web/head.php') ?>	
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_web/style/style_space.css" />	
 		<link rel="stylesheet" type="text/css" href="http://elecuchi.cafe24.com/s_mob/style_m.css" />
@@ -45,7 +40,6 @@
 			<a href="http://sugarui.net">
 				<img src="http://elecuchi.cafe24.com/s_web/image/logo_mob.png" alt="사탕화면로고" style="width: 100%" />
 			</a>	
-			<!--<div class="header_space"></div><!--미스터치방지-->
 		</header>
 
 
@@ -137,9 +131,9 @@
 		<article id="article">
 			<?php	 
 				if($_GET['devcate']=='menu'){
-						include 'dev_menu.php'; 			
+					include 'dev_menu.php'; 			
 				}else if($_GET['devcate'] || $_GET['devid']){
-						include 'dev_includer_m.php'; 	
+					include 'dev_includer_m.php'; 	
 				}else{
 					include 'post_includer_m.php'	;	 			
 				}
