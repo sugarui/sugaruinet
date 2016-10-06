@@ -282,9 +282,7 @@
 			
 					</ul>
 				</nav>
-
 			</div>
-			<?php //echo " <div class=\"nav_sub_cate\">$select_open $display $select_close </div><br>"; ?>
 
 			<!--RIGHT NAV -------------------------------------------------------------- -->
 			<div class="nav_2">
@@ -384,7 +382,6 @@
 					</ul>
 					</nav>
 			</div>
-
 			
 			
 			<!-- CENTER -------------------------------------------------------------- -->
@@ -437,7 +434,6 @@
 					?>
 				</div>
 				<!--페이지네이션 end-->
-			
 			</article>
 			<!--CENTER end-->
 		
