@@ -40,7 +40,7 @@
 		<?php include_once ('./s_web/head.php') ?>		
 
 		<link rel='stylesheet' type='text/css' href='./s_web/style/style_space.css'  />
-		<link rel='stylesheet' type='text/css' href='./s_web/style/style.css'  />
+		<link rel='stylesheet' type='text/css' href='./s_web/style/style_test.css'  />
 		<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'> <!--숫자웹폰트-->
 		<script src='http://elecuchi.cafe24.com/s_web/js/jindo.desktop.min.ns.js'></script>
 

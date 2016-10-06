@@ -10,7 +10,14 @@
 		max-width: 1080px;
 		min-width: 1080px; /*이게맞게하는건가*/
 		height: 100%
-	}			
+	}
+
+	article{								
+		margin-left:200px; /* 160 + 40 */
+		margin-right:200px;
+		width:680px;
+	}
+
 	.nav_1, .nav_2{
 		width: 160px;
 		height: 100%
@@ -30,45 +37,30 @@
 		text-align: left;
 		position: fixed;
 	}
-	article{								
-		margin-left:200px; /* 160 + 40 */
-		margin-right:200px;
-		width:680px;
-	}
-	/*에디터*/	
-	.nav_left{
-		float:left;
-		padding-left: 50px;
-	}
-	.nav_right{
-		float:left;
-		padding-left: 100px;
-	}
-
 
 /*********************  COMMON  *********************/
 
 	body{
 		background-color: #1a1b1e;/*#1c1d21;*/
-		font-family: Malgun Gothic, AppleGothic; /*NanumGothic */ 
-		color: #aaa;
-		letter-spacing: -1px;
+		font-family: "DroidSansFallback", "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo",sans-serif, "Open Sans";
+		font-size: 14px;
+		color: #c0c0c0;
 	}
 	/*본문 텍스트*/
 	article{
 		/*font-size:0.8em; /*13px;	*/
-		color: #aaa;	
+		color: #c0c0c0;	
 	}
 	/*본문 일반 텍스트 행간*/
 	.text {
-		line-height: 170%
+		line-height: 170%;
 	}
 	/*셀렉트*/
 	.sel{				
 		color:#fff;
 	}
 	.pagenation .sel{				
-		color:#fff;
+		color:#ddd;
 		font-weight: bold;
 	}
 	.nav_sub_dev .sel{
@@ -111,7 +103,7 @@
 		margin-top: 25px;
 		margin-bottom: 5px; /*원래 10인데 em 화 한후로 자동여백이 좀 생겨서*/
 		color: #dc2276; /* 디스에이블은 #702245;*/
-		font-size: 0.8em;/*11px;*/
+		font-size: 0.9em;
 		text-shadow: 0px 2px 0px #000;
 		letter-spacing: 1px;
 		font-weight: bold;
@@ -130,7 +122,7 @@
 		margin-top:10px;/*원래 25인데 어바웃미와게스트가넘올라감*/
 		margin-bottom: 24px;/*10+14*/
 		color: #b36500; /*노랑*/
-		font-size: 0.8em;/*11px;*/
+		font-size: 0.9em;
 		text-shadow: 0px 2px 0px #000;
 		font-weight: bold;
 	}
@@ -150,8 +142,8 @@
 	}
 	/* 세부메뉴*/
 	.nav_sub_cate{				
-		color: #aaa;
-		font-size: 0.87em; /*14px;*/
+		color: #696b6d;
+		font-size: 1em;
 		line-height:160%;
 		letter-spacing: 0px;
 	}
@@ -168,7 +160,7 @@
 	}	
 	.nav_sub_tag{
 		color: #696b6d;
-		font-size: 0.8em; /*13px;*/
+		font-size: 0.9em; 
 		line-height: 220%;
 	}
 	/*개발일지 상세*/
@@ -245,7 +237,7 @@
 
 /************************  article  ************************/
 
-	/* 그래픽요소*/		
+	/*그래픽요소*/		
 	.dogear{
 		float: left;	
 	}
@@ -270,14 +262,14 @@
 		padding-top:30px;
 		padding-bottom:30px;
 	}
+
 	/*포스트-개발일지*/
-	article ul li { 
+	article ul.article_dev li { 
 		border-left : 1px solid #48494b;
-		/*다음포스트박스와의 여백이 없어야 함*/
+		margin-top:0; margin-bottom:0; /*다음포스트박스와의 여백은 없어야 함*/
 		margin-left:20px; margin-right:20px;/* 프레임이 따로 없어서 좀 여백 만듬*/
-		/*background-color: #30323a;*/
 	}
-	article ul li:last-child { 
+	article ul.article_dev li:last-child { 
 		border-left : 1px solid #1a1b1e; /*배경색*/
 	}
 	#morebtn { 
@@ -301,7 +293,7 @@
 		width: 70px; 
 		/*background-color: #000;*/
 		font-family: 'Merriweather', italic, serif;
-		font-size: 3em;
+		font-size: 2.5em;
 		letter-spacing: -5px;
 		z-index: 10;
 	}
@@ -314,9 +306,7 @@
 	}
 	.date_d{
 		color: #b36500;
-		float: right;
 		position:relative;
-		top: -50px;
 		z-index: 10;
 	}
 	.date_and{
@@ -329,7 +319,7 @@
 		letter-spacing: 0px;
 	}
 	.dev_con{
-		padding-top: 40px;
+		padding-top: 20px;
 		margin-left: 100px; /*1+9+70+20*/
 		margin-right: 30px; /*걍 좀 주게*/
 		/*width: 580px; /*580px;*/
@@ -349,19 +339,20 @@
 		border-bottom: dotted #ccc 1px;
 		color: #ccc;*/
 	}
-	
 	/*포스트-개발일지 끝*/
 	
 	/*포스트타이틀*/
 	.post .title h2{
-		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
-		/*font-family: Malgun Gothic, NanumGothic;*/
-		color: #ddd;
+		font-size: 1.6em;
+		color: #eee;
 		text-shadow: 0px -1px 0px  #000;
-		font-weight: normal;
+		font-weight: bold;
+		margin-bottom:30px;
+		/*line-height: 300%; 테스트*/
 	}
 	.dev .title h2{
-		font-size: 1em; /*16px;/*나눔펜일때 26px;*/
+		font-size: 1.4em;
+		font-weight: bold;
 		color: #b36500;
 		text-shadow: 0px -1px 0px  #000;
 		font-weight: bold;
@@ -371,10 +362,7 @@
 		font-size: 0.9em;/*15px;/*나눔펜일때 22px;*/
 		/*font-family: Malgun Gothic, NanumGothic;*/
 	}
-	/*본문 텍스트크기 강제지정*/
-	.text{
-		font-size:0.8em; /*13px;	*/
-	}
+
 	/*요소 여백-좌우공통 (전체폭 점선 때문에 마진을 .post에서 한꺼번에 못하므로 여기서 지정)*/
 	.post .title, .post .title_inner, .post .text, /*.graphic*/ .disqus_custom{
 		margin-left: 40px;
@@ -384,7 +372,6 @@
 		margin-left: 0px;
 		margin-right: 0px;
 	}
-
 	/*그래픽 여백및 정렬 예외 처리*/
 	.post .graphic, .post .graphic_noeffect{
 	 	margin-left: 30px; /*자식마진 10px(복수의 이미지간의 간격)을 합해서 40px*/
@@ -392,31 +379,54 @@
 		text-align: center;
 	}
 	.post .graphic_left{ /*프로필 용 예외처리*/
-		margin-left: 30px; 
-		margin-right: 30px;
+		margin-left: 40px; 
 		text-align: left;
 	}
 	/*요소 여백-상하공통*/
-	.graphic, .graphic_noeffect, .graphic_left, .text, .movie {
+	.text, .movie {
 		margin-top:20px;
 		margin-bottom:20px;			
 	}
+	.graphic, .graphic_noeffect, .graphic_left{
+		margin-top:20px;
+		margin-bottom:20px;	
+	}	
 	/*이미지*/
-	.post .graphic img, .post .graphic_left img, .post .graphic_noeffect img{
-		margin-left: 10px;
-		margin-right: 10px;
-		margin-bottom: 10px;	
+	.post .graphic_left img, .post .graphic_noeffect img{/*예외케이스*/
 		text-align: center;
-		margin-bottom:15px;			
 	}
+	/*복수정렬 : 일반이미지(세로정렬)*/
+	.post .graphic ul.graphic_ul li{
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 7px;
+		text-align: center;
+	}
+	.post .graphic ul.graphic_ul li:last_child{
+		margin-bottom: 0px;
+	}
+	/*복수정렬: 인라인방식으로 해야하는 이미지(가로정렬)*/
+	.post .graphic ul.graphic_ul_inline li{
+		display: inline;
+		margin-left: 5px;
+		margin-right: 5px;
+		text-align: center;
+	}
+
+	/*이미지 이펙트*/	
 	.graphic img, .graphic_left img{
 		border-radius:3px;
-		box-shadow: 0px 0px 4px #161719;		
+		box-shadow: 0px 0px 4px #161719;	
+	}
+	.dev .graphic{
+		margin-top:20px;
+		margin-bottom:20px;	
 	}
 	.dev .graphic img{
 		max-width:500px;
-	}
-	
+		margin-right: 10px;	
+	}dgb
+
 	.movie{
 		text-align: center;
 	}
@@ -444,10 +454,20 @@
 	.border_2{				
 		border-top: 1px dashed #3e404b;	
 	}
-	.post_hyper{
-		color: #eee;
+	.border_3{				
+		border-top: 1px solid #404143;	/*디스커스 선색임*/
+	}
+	a:link.post_hyper, a:visited.post_hyper, a:active.post_hyper, a:hover.post_hyper{
+		color: #c0c0c0;
 		border-bottom: dotted #aaa 1px;
 	}
+
+	.dev_con .post_hyper{ /*db내 직접작성 클래스가 일반포스트와 개발포스트가 달라서 위와 다름*/
+		color: #c0c0c0;
+		border-bottom: dotted #aaa 1px;
+	}
+
+
 	.devintro_hyper, .devintro_hyper:hover{
 		color: #b36500;
 		border-bottom: dotted #b36500 1px;
@@ -495,6 +515,15 @@
 		letter-spacing: 0px;
 		margin-left: 2px /*기본적으로 간격이 5px정도 생김. 거기다 추가함.*/
 	}
+	.article_dev .btn_link{ /*데브 tail 버튼부 및 버튼 텍스트*/
+		color:#6f6f6f;
+		/*background-color:#1a1b1e; /*배경색*/
+		/*padding:1px 0px 1px 0px;
+		/*devtag포지션이 올라가므로 같이*/
+		background-color:#28292b;
+		position: relative;
+		top: -15px;
+	}
 	/*페이지네이션*/
 	.pagenation{
 		text-align: center;
@@ -520,7 +549,7 @@
 	}
 	/*어바웃*/
 	/*경력 용 숫자*/
-	.date{ 
+	.date_1{ 
 		font-family: 'Merriweather', serif;
 		font-size: 1em; /*15px;*/
 		letter-spacing: 0px;
@@ -537,10 +566,58 @@
 		width:30px;
 		height:30px;
 	}
-
-/***************fontface***************/	
-	@font-face {
-		font-family:'NanumGothic'; 
-		src: url('../font/NanumGothic.ttf') format("truetype");
-		/*src: url('../font/NanumGothic.woff') format("woff");*/
+	/*동영상클립*/
+	.movieclip{
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
 	}
+	.movieclip iframe{
+		/*max-width:480px;
+		max-height:174px;	*/
+	}
+	.movieclip_mob{
+		display: none;
+	}
+	/*경력 용 숫자 베리에이션-본문내 날자표기용*/
+	.date{ 
+		font-family: 'Merriweather', serif;
+		font-size: 1em; /*15px;*/
+		letter-spacing: 0px;
+	}
+	
+	/*동구밭 배너용*/
+	.dgb{
+		display: none;
+		margin-top: 30px;
+	}
+	.dgb img{
+		margin-top: 5px;
+	}
+	.dgb .nav_main{
+		color: #5a9f5e; /*#68aa6c;*/
+	}
+	.nav_hidden{
+		display: none;
+	}
+		
+
+	/*db내 직접작성 용도 스타일 - 날자*/
+	.date_2{ 
+		font-family: 'Merriweather', serif;
+		font-size: 1.4em;
+		letter-spacing: 0px;
+		color: #eee;
+	}
+	/*db내 직접작성 용도 스타일 - 서브텍스트*/
+	.text_2 {
+		font-size: 0.9em;
+		color: #888;
+		padding-left: 30px;
+	}
+			
+	/*@media all and (max-width:980px) {    /* 화면 너비가 980px 이하일 때에만 아래 코드를 실행 */
+	    /*.movieclip{max-width:300px;}
+	    /* .content{ float:none; width:auto }    /* 콘텐츠 플롯을 해제하고 너비를 자동으로 */
+	    /* .nav{ float:none; width:auto }    /* 네비게이션 플롯을 해제하고 너비를 자동으로 */
+	/*}
