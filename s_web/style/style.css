@@ -10,7 +10,14 @@
 		max-width: 1080px;
 		min-width: 1080px; /*이게맞게하는건가*/
 		height: 100%
-	}			
+	}
+
+	article{								
+		margin-left:200px; /* 160 + 40 */
+		margin-right:200px;
+		width:680px;
+	}
+
 	.nav_1, .nav_2{
 		width: 160px;
 		height: 100%
@@ -30,21 +37,6 @@
 		text-align: left;
 		position: fixed;
 	}
-	article{								
-		margin-left:200px; /* 160 + 40 */
-		margin-right:200px;
-		width:680px;
-	}
-	/*에디터*/	
-	.nav_left{
-		float:left;
-		padding-left: 50px;
-	}
-	.nav_right{
-		float:left;
-		padding-left: 100px;
-	}
-
 
 /*********************  COMMON  *********************/
 
