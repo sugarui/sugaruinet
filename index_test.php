@@ -54,6 +54,60 @@
 
 		<div class="wrap">
 
+			<!-- CENTER -------------------------------------------------------------- -->
+			<article id="article" class="item">
+				
+				<?php
+					if($_GET['devcate'] || $_GET['devtag'] || $_GET['devid']){	
+						echo '<ul class="article_dev">';
+						include './s_web/dev_includer.php';
+						echo '</ul>';
+					/*}else if($_GET['devtag'] || $_GET['devid']){
+						echo '<ul class="article_dev">';
+						include './s_web/dev_includer_unique.php';
+						echo '</ul>';*/
+					}else{
+						include './s_web/select.php';
+						while ($row = mysql_fetch_array($result) ){
+							include './s_web/post.php';
+						}	
+					}	
+				?>
+				
+				<script type="text/javascript">//share 스크립트 (http://hosting.websearch.kr/38)
+					function copy(trb) {
+						var IE = (document.all) ? true : false;
+						if (IE) {
+							if (confirm("이 글의 주소를 복사하시겠습니까?"))
+								window.clipboardData.setData("Text", trb);
+						} else {
+							temp = prompt("이 글의 주소입니다. ctrl+c로 복사하세요.", trb);
+						}
+					}
+				</script>		
+				<script>//글접기열기 수제
+					$("#opener").click(function(){
+						$("#opendiv").attr("class","display_block");
+						$("#opener").remove();
+					})		
+				</script>
+				
+							
+				<!---------------- 페이지네이션 ------------------>
+				<div class="pagenation">
+					
+					<?php
+					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
+					if ( ($paraname != 'id') && ($paraname != 'devcate') && (!$_GET['special']) ){ 
+						include './s_web/pagenation.php';	
+					}
+					?>
+				</div>
+				<!--페이지네이션 end-->
+			</article>
+			<!--CENTER end-->
+
+
 			<!-- LEFT NAV -------------------------------------------------------------- -->
 			<div class="nav_1 item">
 				<header>
@@ -285,58 +339,7 @@
 			</div>
 
 
-			<!-- CENTER -------------------------------------------------------------- -->
-			<article id="article" class="item">
-				
-				<?php
-					if($_GET['devcate'] || $_GET['devtag'] || $_GET['devid']){	
-						echo '<ul class="article_dev">';
-						include './s_web/dev_includer.php';
-						echo '</ul>';
-					/*}else if($_GET['devtag'] || $_GET['devid']){
-						echo '<ul class="article_dev">';
-						include './s_web/dev_includer_unique.php';
-						echo '</ul>';*/
-					}else{
-						include './s_web/select.php';
-						while ($row = mysql_fetch_array($result) ){
-							include './s_web/post.php';
-						}	
-					}	
-				?>
-				
-				<script type="text/javascript">//share 스크립트 (http://hosting.websearch.kr/38)
-					function copy(trb) {
-						var IE = (document.all) ? true : false;
-						if (IE) {
-							if (confirm("이 글의 주소를 복사하시겠습니까?"))
-								window.clipboardData.setData("Text", trb);
-						} else {
-							temp = prompt("이 글의 주소입니다. ctrl+c로 복사하세요.", trb);
-						}
-					}
-				</script>		
-				<script>//글접기열기 수제
-					$("#opener").click(function(){
-						$("#opendiv").attr("class","display_block");
-						$("#opener").remove();
-					})		
-				</script>
-				
-							
-				<!---------------- 페이지네이션 ------------------>
-				<div class="pagenation">
-					
-					<?php
-					//스페셜 페이지일때, 혹은 파라미터가 id일때는 1개뿐이므로 페이지네이션이 필요가 없다
-					if ( ($paraname != 'id') && ($paraname != 'devcate') && (!$_GET['special']) ){ 
-						include './s_web/pagenation.php';	
-					}
-					?>
-				</div>
-				<!--페이지네이션 end-->
-			</article>
-			<!--CENTER end-->
+
 
 
 			<!--RIGHT NAV -------------------------------------------------------------- -->

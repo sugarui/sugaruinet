@@ -11,11 +11,12 @@
 		/*min-width: 1080px; */ /*이게맞게하는건가*/
 		height: 100%;
  		display: flex;
- 		justify-content:center;
+ 		justify-content: center;
 	}
 
 	article{
  		flex-basis: 680px;
+ 		order:1;
  	}
 
 	.nav_1, .nav_2{
@@ -25,10 +26,12 @@
 	.nav_1{
 		margin-right:40px;
 		text-align: right;
+		order:0;
 	}
 	.nav_2{
 		margin-left:40px;
 		text-align: left;
+		order:2;
 	}
 
 /*********************  COMMON  *********************/
