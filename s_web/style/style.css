@@ -5,10 +5,7 @@
 		padding: 0px;
 	} 		
 	.wrap{
-		/*margin: auto;/*magic for center align*/
 		padding-top: 30px;
-		/*max-width: 1080px;*/
-		/*min-width: 1080px; */ /*이게맞게하는건가*/
 		height: 100%;
  		display: flex;
  		justify-content: center;
